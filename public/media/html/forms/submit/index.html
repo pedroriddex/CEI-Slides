@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        @keyframes thisIs {
+            0% {
+            }
+            100% {
+                border-color:#FF2D55;
+                background-color: #FF2D55;
+            }
+        }
+
+        @keyframes appear {
+            0% {
+                opacity: 0;
+                left: -2.5em;
+            }
+            100% {
+                opacity: 1;
+                left: -1.5;
+            }
+        }
+
+
+        body {
+            box-sizing: border-box;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            background-color: #E5E5EA;
+            color: #1D1D1F;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1rem;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: 300;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            overflow: hidden;
+            gap: 1em;
+        }
+
+        .thisIs {
+            position: relative;
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+
+        svg {
+            width: 1em;
+            height: 1em;
+            margin-right: .5em;
+            margin-bottom: -0.2em;
+
+            position: absolute;
+            left: -1.5em;
+            opacity: 0;
+
+            animation: appear 0.4s ease-in-out;
+            animation-fill-mode: forwards;
+            animation-delay: 1s;
+        }
+
+        input {
+            border: 1px solid white;
+            outline: none;
+            padding: 1em 2em;
+            min-width: 350px;
+            width: 100%;
+            border-radius: .2em;
+
+            &::placeholder {
+                font-size: 1em;
+            }
+        }
+
+        select {
+            border: 1px solid white;
+            outline: none;
+            padding: 1em 2em;
+            min-width: 350px;
+            width: 100%;
+            border-radius: .2em;
+
+            &::placeholder {
+                font-size: 1em;
+            }
+        }
+
+        textarea {
+            border: 1px solid white;
+            outline: none;
+            padding: 1em 2em;
+            min-width: 350px;
+            width: 100%;
+            border-radius: .2em;
+
+            &::placeholder {
+                font-size: 1em;
+            }
+        }
+
+        input[type="submit"] {
+            border: 1px solid black;
+            background-color: black;
+            color: white;
+            font-size: 1em;
+            font-weight: 300;
+            padding: 1em 2em;
+            border-radius: .2em;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease-in-out;
+
+            animation: thisIs 0.3s ease-in-out;
+            animation-fill-mode: forwards;
+            animation-delay: 1s;
+
+            &:hover {
+                background-color: transparent!important;
+                color: #FF2D55;
+                border-color: #FF2D55;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    
+    <form action="">
+        <label for="name">Nombre:</label>
+        <input type="text" id="name" name="name" placeholder="Escribe tu nombre">
+
+        <label for="theme">Tema:</label>
+        <select id="theme" name="theme" placeholder="Elige un tema">
+            <option value="1">Opción 1</option>
+            <option value="2">Opción 2</option>
+            <option value="3">Opción 3</option>
+        </select>
+
+        <label for="message">Tu mensaje:</label>
+        <textarea rows="5" name="message" id="message" placeholder="Déjanos tu mensaje"></textarea>
+
+        <div class="thisIs">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="rgba(255,45,85,1)"><path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path></svg>
+            <input type="submit" value="Enviar">
+        </div>
+    </form>
+</body>
+
+</html>

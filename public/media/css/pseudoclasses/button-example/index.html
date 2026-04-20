@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        body {width: 100vw; height: 100vh; overflow: hidden; background-color: oklch(54.6% 0.245 262.881); display: flex; justify-content: center; align-items: center;}
+        a {
+            color: oklch(54.6% 0.245 262.881);
+            background-color: white;
+            padding: 1em 2em;
+            border-radius: .2em;
+            transition: all 0.2s;
+            text-decoration: none;
+            font-size: .9rem;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            position: relative;
+
+            & span {
+                transition: all 0.2s;
+                transform: translateX(1em);
+                position: absolute;
+                left: -14px;
+                bottom: -20px;
+                width: 100%;
+                text-align: center;
+                color: white;
+                opacity: 0;
+            }
+        }
+        a:hover {
+            border: 1px solid white;
+            color: white;
+            background-color: transparent;
+
+            & span {
+                bottom: -30px;
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="">Pasa tu ratón por aquí
+        <span>Mola eh...</span>
+    </a>
+</body>
+</html>
