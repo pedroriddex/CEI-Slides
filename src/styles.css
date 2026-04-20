@@ -1,0 +1,26 @@
+@import "remixicon/fonts/remixicon.css";
+@import "highlight.js/styles/github-dark.css";
+@import "tailwindcss";
+@import "@heroui/styles";
+
+@import "./styles/base/reset.css";
+@import "./styles/base/tokens.css";
+@import "./styles/base/motion.css";
+@import "./styles/base/responsive.css";
+
+@import "./styles/blocks/markdown.css";
+@import "./styles/blocks/media-lightbox.css";
+@import "./styles/blocks/motion-auto-size.css";
+@import "./styles/blocks/index-link-row.css";
+@import "./styles/blocks/slide-heading.css";
+@import "./styles/blocks/slide-links.css";
+@import "./styles/blocks/lists.css";
+@import "./styles/blocks/magic-box.css";
+
+@import "./styles/templates/slide-templates.css";
+
+@import "./styles/shells/app-root.css";
+@import "./styles/shells/index-frame.css";
+@import "./styles/shells/slide-frame.css";
+@import "./styles/shells/slide-toolbar.css";
+@import "./styles/shells/slide-drawer.css";

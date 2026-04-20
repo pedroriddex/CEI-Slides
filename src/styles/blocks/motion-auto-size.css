@@ -1,0 +1,13 @@
+motion-auto-size {
+  display: block;
+  width: 100%;
+}
+
+.motion-auto-size {
+  display: block;
+  width: 100%;
+}
+
+.motion-auto-size__inner {
+  width: 100%;
+}

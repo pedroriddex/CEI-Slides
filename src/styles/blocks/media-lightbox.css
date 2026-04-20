@@ -1,0 +1,81 @@
+.media-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-6);
+  background: color-mix(in srgb, var(--app-backdrop) 82%, transparent);
+  backdrop-filter: blur(6px);
+  opacity: 1;
+  transition:
+    opacity var(--transition-base),
+    backdrop-filter var(--transition-base),
+    background-color var(--transition-base);
+}
+
+.media-lightbox__dialog {
+  position: relative;
+  display: flex;
+  width: min(100%, 72rem);
+  max-height: min(100%, calc(100vh - var(--space-12)));
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition:
+    opacity var(--transition-base),
+    transform var(--transition-base);
+}
+
+.media-lightbox__image {
+  max-width: 100%;
+  max-height: min(100%, calc(100vh - var(--space-12)));
+  border-radius: var(--app-radius-xl);
+  object-fit: contain;
+  box-shadow: var(--app-shadow-overlay);
+}
+
+.media-lightbox__close {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid color-mix(in oklab, var(--app-surface) 25%, transparent);
+  border-radius: var(--app-radius-pill);
+  background: color-mix(in oklab, var(--app-foreground) 70%, transparent);
+  color: var(--app-surface);
+  transition: transform var(--transition-fast), background-color var(--transition-fast), opacity var(--transition-fast);
+}
+
+.media-lightbox__close:hover {
+  transform: scale(1.03);
+  background: color-mix(in oklab, var(--app-foreground) 82%, transparent);
+}
+
+.media-lightbox--opening,
+.media-lightbox--closing {
+  opacity: 0;
+  backdrop-filter: blur(0);
+  background: color-mix(in srgb, var(--app-backdrop) 0%, transparent);
+}
+
+.media-lightbox--opening .media-lightbox__dialog,
+.media-lightbox--closing .media-lightbox__dialog {
+  opacity: 0;
+  transform: translateY(var(--space-3)) scale(0.972);
+}
+
+.media-lightbox--open {
+  opacity: 1;
+}
+
+.media-lightbox--open .media-lightbox__dialog {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}

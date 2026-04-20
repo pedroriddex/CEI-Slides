@@ -1,0 +1,71 @@
+.v2-richtext {
+  color: var(--slide-text);
+  font-size: var(--type-body-size);
+  line-height: var(--type-body-line);
+}
+
+.v2-richtext > :first-child {
+  margin-top: 0;
+}
+
+.v2-richtext > :last-child {
+  margin-bottom: 0;
+}
+
+.v2-richtext p,
+.v2-richtext ul,
+.v2-richtext ol,
+.v2-richtext pre,
+.v2-richtext blockquote {
+  margin: 0;
+}
+
+.v2-richtext p + p,
+.v2-richtext p + ul,
+.v2-richtext p + ol,
+.v2-richtext ul + p,
+.v2-richtext ol + p,
+.v2-richtext pre + p,
+.v2-richtext p + pre,
+.v2-richtext ul + ul,
+.v2-richtext ol + ol,
+.v2-richtext ul + ol,
+.v2-richtext ol + ul,
+.v2-richtext blockquote + p,
+.v2-richtext p + blockquote {
+  margin-top: var(--space-3);
+}
+
+.v2-richtext ul,
+.v2-richtext ol {
+  padding-left: 1.25rem;
+}
+
+.v2-richtext li + li {
+  margin-top: var(--space-1);
+}
+
+.v2-richtext a {
+  color: var(--app-link);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in oklab, var(--app-link) 50%, transparent);
+  text-underline-offset: 0.2em;
+}
+
+.v2-richtext strong {
+  color: var(--app-foreground);
+  font-weight: 600;
+}
+
+.v2-richtext code {
+  border-radius: var(--app-radius-sm);
+  background: color-mix(in oklab, var(--app-foreground) 8%, var(--app-surface-secondary));
+  padding: 0.12rem 0.4rem;
+  font-size: var(--inline-code-scale);
+}
+
+.v2-richtext blockquote {
+  border-left: 3px solid var(--app-divider);
+  padding-left: var(--space-4);
+  color: var(--app-muted);
+}

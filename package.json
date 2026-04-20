@@ -1,0 +1,29 @@
+{
+  "name": "diapositivas-clases-v2-lit",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "check": "tsc --noEmit",
+    "check:transitions": "node --experimental-strip-types ./scripts/slide-transition-check.ts",
+    "check:motion": "node --experimental-strip-types ./scripts/motion-regression-check.ts"
+  },
+  "dependencies": {
+    "@heroui/styles": "^3.0.3",
+    "@supabase/supabase-js": "^2.103.3",
+    "highlight.js": "^11.11.1",
+    "lit": "^3.3.2",
+    "marked": "^18.0.1",
+    "remixicon": "^4.9.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.2.2",
+    "playwright": "^1.59.1",
+    "tailwindcss": "^4.2.2",
+    "typescript": "^6.0.3",
+    "vite": "^8.0.8"
+  }
+}

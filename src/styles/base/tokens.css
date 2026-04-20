@@ -1,0 +1,232 @@
+:root {
+  --font-sans:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  --font-mono:
+    "SFMono-Regular",
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    Monaco,
+    Consolas,
+    "Liberation Mono",
+    "Courier New",
+    monospace;
+
+  /* HeroUI semantic bridge */
+  --app-background: var(--background);
+  --app-foreground: var(--foreground);
+  --app-surface: var(--surface);
+  --app-surface-secondary: var(--surface-secondary);
+  --app-surface-tertiary: var(--surface-tertiary);
+  --app-overlay: var(--overlay);
+  --app-overlay-foreground: var(--overlay-foreground);
+  --app-muted: var(--muted);
+  --app-border: var(--border);
+  --app-divider: var(--separator);
+  --app-link: var(--accent);
+  --app-link-foreground: var(--accent-foreground);
+  --app-focus: var(--focus);
+  --app-danger: var(--danger);
+  --app-danger-soft: color-mix(in oklab, var(--danger) 12%, var(--surface));
+  --app-warning: var(--warning);
+  --app-warning-soft: color-mix(in oklab, var(--warning) 14%, var(--surface));
+  --app-backdrop: color-mix(in srgb, var(--foreground) 18%, transparent);
+  --app-shadow-surface: var(--surface-shadow);
+  --app-shadow-overlay: var(--overlay-shadow);
+  --app-background-texture: repeating-linear-gradient(135deg, color-mix(in oklab, var(--app-foreground) 5.2%, transparent) 0 1px, transparent 1px 8px);
+  --app-background-image: var(--app-background-texture);
+
+  /* Radius */
+  --app-radius-sm: calc(var(--radius) * 0.875);
+  --app-radius-md: var(--radius);
+  --app-radius-lg: calc(var(--radius) * 1.5);
+  --app-radius-xl: calc(var(--radius) * 2);
+  --app-radius-pill: 999px;
+
+  /* Spacing */
+  --space-1: calc(var(--spacing) * 1);
+  --space-2: calc(var(--spacing) * 2);
+  --space-3: calc(var(--spacing) * 3);
+  --space-4: calc(var(--spacing) * 4);
+  --space-5: calc(var(--spacing) * 5);
+  --space-6: calc(var(--spacing) * 6);
+  --space-8: calc(var(--spacing) * 8);
+  --space-10: calc(var(--spacing) * 10);
+  --space-12: calc(var(--spacing) * 12);
+  --space-16: calc(var(--spacing) * 16);
+  --space-20: calc(var(--spacing) * 20);
+
+  /* Generic weights and line-heights */
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --line-tight: 1;
+  --line-snug: 1.3;
+  --line-comfy: 1.35;
+  --line-relaxed: 1.65;
+  --inline-code-scale: 0.92em;
+
+  /* Motion */
+  --transition-fast: 160ms ease;
+  --transition-base: 220ms ease;
+  --transition-slow: 360ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  --motion-ease-emphasis: cubic-bezier(0.22, 1, 0.36, 1);
+  --motion-duration-index: 520ms;
+  --motion-duration-slide-exit: 220ms;
+  --motion-duration-slide-layout: 280ms;
+  --motion-duration-slide-enter: 260ms;
+  --motion-duration-slide-shell: var(--motion-duration-slide-layout);
+  --motion-duration-selective-exit-opacity: 70ms;
+  --motion-duration-selective-exit-transform: 90ms;
+  --motion-duration-selective-enter-opacity: 120ms;
+  --motion-duration-selective-enter-transform: 160ms;
+  --motion-distance-index: 20px;
+  --motion-distance-slide: 36px;
+  --motion-scale-enter: 0.985;
+  --motion-scale-exit: 0.992;
+  --motion-blur-enter: 8px;
+  --motion-blur-exit: 6px;
+
+  /* Type scale */
+  --type-display-size: 2.5rem;
+  --type-display-line: 1;
+  --type-display-weight: 700;
+
+  --type-h1-size: 2rem;
+  --type-h1-line: 1.05;
+  --type-h1-weight: 700;
+
+  --type-h2-size: 1.625rem;
+  --type-h2-line: 1.1;
+  --type-h2-weight: 600;
+
+  --type-h3-size: 1.25rem;
+  --type-h3-line: 1.2;
+  --type-h3-weight: 600;
+
+  --type-h4-size: 1rem;
+  --type-h4-line: 1.35;
+  --type-h4-weight: 600;
+
+  --type-body-size: 0.9375rem;
+  --type-body-line: 1.7;
+  --type-body-weight: 400;
+
+  --type-body-sm-size: 0.8125rem;
+  --type-body-sm-line: 1.55;
+  --type-body-sm-weight: 500;
+
+  --type-label-size: 0.6875rem;
+  --type-label-line: 1.2;
+  --type-label-weight: 700;
+  --type-label-tracking: 0.18em;
+
+  --type-caption-size: 0.75rem;
+  --type-caption-line: 1.5;
+  --type-caption-weight: 500;
+
+  /* Icons */
+  --icon-xs: 0.9375rem;
+  --icon-sm: 1rem;
+  --icon-md: 1.25rem;
+  --icon-lg: 1.5rem;
+  --icon-xl: 2.5rem;
+
+  /* Layout tokens */
+  --panel-padding: clamp(2rem, 4.5vw, 5rem);
+  --panel-gap: var(--space-8);
+  --row-min-height: 3rem;
+  --row-min-height-compact: 2.75rem;
+
+  /* Editorial accents mapped into HeroUI semantics */
+  --editor-accent-blue: var(--accent);
+  --editor-accent-blue-foreground: var(--accent-foreground);
+  --editor-accent-blue-soft: color-mix(in oklab, var(--accent) 12%, var(--surface));
+  --editor-accent-blue-border: color-mix(in oklab, var(--accent) 30%, var(--border));
+
+  --editor-accent-red: var(--danger);
+  --editor-accent-red-foreground: var(--danger-foreground);
+  --editor-accent-red-soft: color-mix(in oklab, var(--danger) 12%, var(--surface));
+  --editor-accent-red-border: color-mix(in oklab, var(--danger) 30%, var(--border));
+
+  --editor-accent-yellow: var(--warning);
+  --editor-accent-yellow-foreground: var(--warning-foreground);
+  --editor-accent-yellow-soft: color-mix(in oklab, var(--warning) 16%, var(--surface));
+  --editor-accent-yellow-border: color-mix(in oklab, var(--warning) 34%, var(--border));
+
+  --editor-accent-black: var(--foreground);
+  --editor-accent-black-foreground: var(--surface);
+  --editor-accent-black-soft: color-mix(in oklab, var(--foreground) 10%, var(--surface));
+  --editor-accent-black-border: color-mix(in oklab, var(--foreground) 24%, var(--border));
+
+  /* Runtime aliases kept for compatibility */
+  --slide-accent: var(--editor-accent-black);
+  --slide-canvas: color-mix(in oklab, var(--background) 88%, var(--surface) 12%);
+  --slide-block: color-mix(in oklab, var(--surface-secondary) 60%, var(--surface-tertiary) 40%);
+  --slide-surface: var(--surface);
+  --slide-text: var(--foreground);
+  --slide-muted: var(--muted);
+  --slide-link: var(--accent);
+  --slide-radius: var(--app-radius-md);
+  --slide-shadow: var(--app-shadow-surface);
+  --slide-code-bg: color-mix(in oklab, var(--foreground) 92%, black 8%);
+  --slide-code-fg: var(--snow);
+}
+
+.theme-accent {
+  border-radius: var(--app-radius-sm);
+}
+
+.theme-accent--red {
+  background: var(--editor-accent-red);
+  color: var(--editor-accent-red-foreground);
+}
+
+.theme-accent--blue {
+  background: var(--editor-accent-blue);
+  color: var(--editor-accent-blue-foreground);
+}
+
+.theme-accent--yellow {
+  background: var(--editor-accent-yellow);
+  color: var(--editor-accent-yellow-foreground);
+}
+
+.theme-accent--black {
+  background: var(--editor-accent-black);
+  color: var(--editor-accent-black-foreground);
+}
+
+.theme-accent-border {
+  border: 1px solid var(--app-border);
+  border-radius: var(--app-radius-sm);
+}
+
+.theme-accent-border--red {
+  border-color: var(--editor-accent-red-border);
+  background: var(--editor-accent-red-soft);
+  color: var(--editor-accent-red);
+}
+
+.theme-accent-border--blue {
+  border-color: var(--editor-accent-blue-border);
+  background: var(--editor-accent-blue-soft);
+  color: var(--editor-accent-blue);
+}
+
+.theme-accent-border--yellow {
+  border-color: var(--editor-accent-yellow-border);
+  background: var(--editor-accent-yellow-soft);
+  color: color-mix(in oklab, var(--editor-accent-yellow) 70%, var(--foreground));
+}
+
+.theme-accent-border--black {
+  border-color: var(--editor-accent-black-border);
+  background: var(--editor-accent-black-soft);
+  color: var(--editor-accent-black);
+}
