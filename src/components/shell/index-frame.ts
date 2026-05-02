@@ -33,7 +33,7 @@ export class IndexFrameShell extends LitElement {
                         ${index > 0 ? html`<span class="index-breadcrumbs__separator" aria-hidden="true">/</span>` : nothing}
                         ${item.current
                           ? html`<span class="index-breadcrumbs__item index-breadcrumbs__item--current">${item.label}</span>`
-                          : html`<button class="index-breadcrumbs__item" @click=${() => this.onNavigate(item.path)}>${item.label}</button>`}
+                          : html`<button type="button" class="index-breadcrumbs__item" @click=${() => this.onNavigate(item.path)}>${item.label}</button>`}
                       `)}
                     </nav>
                   `

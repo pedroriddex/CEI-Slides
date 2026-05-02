@@ -3,6 +3,7 @@ import {customElement, property} from 'lit/decorators.js';
 import type {ContentPhase, Direction, SlideDocument, SlideTemplateProps} from '../../lib/types';
 import {hasText, validBulletItems, validLinks, validNumberedItems} from '../../lib/content-helpers';
 import {bulletListItemKey, createPhasedItems, linkItemKey, listItemKey, resolveSelectivePhase} from '../../lib/slide-transition';
+import {strings} from '../../lib/i18n';
 import '../blocks/motion-auto-size';
 import '../blocks/slide-heading';
 import '../blocks/number-list';
@@ -29,7 +30,7 @@ export class SlideTextTemplate extends LitElement implements SlideTemplateProps 
       <div class="slide-links slide-motion-shell slide-motion-shell--${downloadPhase} slide-motion-shell--${this.direction}">
         <a href=${this.slide.downloadLink} download class="slide-links__item">
           <i class="ri-download-line slide-links__icon"></i>
-          Descargar proyecto de ejemplo
+          ${strings.slides.downloadExample}
         </a>
       </div>
     `;

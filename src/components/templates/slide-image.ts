@@ -4,6 +4,7 @@ import type {ContentPhase, Direction, SlideDocument, SlideTemplateProps} from '.
 import {resolveAssetPath, resolveIframePath} from '../../lib/assets';
 import {hasText} from '../../lib/content-helpers';
 import {resolveSelectivePhase} from '../../lib/slide-transition';
+import {strings} from '../../lib/i18n';
 import '../blocks/slide-heading';
 import '../blocks/slide-image-copy-motion';
 import '../blocks/media-lightbox';
@@ -56,7 +57,7 @@ export class SlideImageTemplate extends LitElement implements SlideTemplateProps
                   <div class="slide-image__media-frame">
                     ${imageSrc
                       ? html`
-                          <button class="slide-image__media-trigger slide-motion-shell slide-motion-shell--${mediaPhase} slide-motion-shell--${this.direction}" type="button" @click=${() => (this.isLightboxOpen = true)} aria-label="Ampliar imagen">
+                          <button class="slide-image__media-trigger slide-motion-shell slide-motion-shell--${mediaPhase} slide-motion-shell--${this.direction}" type="button" @click=${() => (this.isLightboxOpen = true)} aria-label=${strings.slides.imageExpand}>
                             <img class="slide-image__media" src=${imageSrc} alt=${slide.title || ''} />
                             <span class="slide-image__media-overlay" aria-hidden="true">
                               <i class="ri-search-eye-line slide-image__media-icon"></i>

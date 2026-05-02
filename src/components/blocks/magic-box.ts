@@ -2,8 +2,8 @@ import {LitElement, html, nothing} from 'lit';
 import {customElement, property} from 'lit/decorators.js';
 import {repeat} from 'lit/directives/repeat.js';
 import type {Direction, ListItem, MagicBoxProps, SlideDocument} from '../../lib/types';
-import {resolveSvgAssetPath} from '../../lib/assets';
-import {hasText, validIcons, validLinks, validNumberedItems} from '../../lib/content-helpers';
+import {normalizeUrl, resolveSvgAssetPath} from '../../lib/assets';
+import {getMagicBox, hasText, validIcons, validLinks, validNumberedItems} from '../../lib/content-helpers';
 import {createPhasedItems, iconItemKey, linkItemKey, listItemKey, resolveSelectivePhase} from '../../lib/slide-transition';
 import {renderMarkdown} from '../../lib/markdown';
 import './motion-auto-size';
@@ -25,12 +25,14 @@ export class MagicBox extends LitElement implements MagicBoxProps {
   }
 
   private renderMagicList(items: ReturnType<typeof createPhasedItems<ListItem>>) {
-    const listType = this.slide.mgListType || 'bullet';
+    const magic = getMagicBox(this.slide);
+    const comparisonMagic = this.comparisonSlide ? getMagicBox(this.comparisonSlide) : null;
+    const listType = magic.listType || 'bullet';
     if (!items.length) return nothing;
 
     return html`
       <motion-auto-size
-        inner-class="magicbox__list slide-motion-shell slide-motion-shell--${resolveSelectivePhase(this.bodyPhase, items.map((entry) => entry.key), (this.comparisonSlide?.mgListItems || []).map((entry) => listItemKey(entry)))} slide-motion-shell--${this.direction}"
+        inner-class="magicbox__list slide-motion-shell slide-motion-shell--${resolveSelectivePhase(this.bodyPhase, items.map((entry) => entry.key), (comparisonMagic?.listItems || []).map((entry) => listItemKey(entry)))} slide-motion-shell--${this.direction}"
         .active=${this.motionActive || items.some((entry) => entry.phase !== 'idle')}
         .content=${html`
           ${repeat(
@@ -56,29 +58,33 @@ export class MagicBox extends LitElement implements MagicBoxProps {
   render() {
     const slide = this.slide;
     const comparison = this.comparisonSlide;
-    const markdown = (slide.mgContent || '').trim();
-    const logoSrc = resolveSvgAssetPath(this.slug, slide.mgLogo);
-    const comparisonLogoSrc = comparison ? resolveSvgAssetPath(this.slug, comparison.mgLogo) : null;
-    const links = createPhasedItems(this.bodyPhase, validLinks(slide.mgLinksList || []), validLinks(comparison?.mgLinksList || []), linkItemKey);
-    const icons = createPhasedItems(this.bodyPhase, validIcons(slide.mgIconList || []), validIcons(comparison?.mgIconList || []), iconItemKey);
-    const listItems = createPhasedItems(this.bodyPhase, validNumberedItems(slide.mgListItems || []), validNumberedItems(comparison?.mgListItems || []), listItemKey);
-    const hasMeta = Boolean(logoSrc || hasText(slide.mgUrlTitle) || hasText(slide.mgUrl));
-    const hasCode = Boolean(hasText(slide.mgCode) && markdown);
-    const hasAnything = Boolean(markdown || hasText(slide.mgTitle) || hasMeta || links.length || icons.length || listItems.length);
+    const magic = getMagicBox(slide);
+    const comparisonMagic = comparison ? getMagicBox(comparison) : null;
+
+    const markdown = (magic.content || '').trim();
+    const logoSrc = resolveSvgAssetPath(this.slug, magic.logo);
+    const comparisonLogoSrc = comparisonMagic ? resolveSvgAssetPath(this.slug, comparisonMagic.logo) : null;
+    const safeUrl = normalizeUrl(magic.url);
+    const links = createPhasedItems(this.bodyPhase, validLinks(magic.linksList || []), validLinks(comparisonMagic?.linksList || []), linkItemKey);
+    const icons = createPhasedItems(this.bodyPhase, validIcons(magic.iconList || []), validIcons(comparisonMagic?.iconList || []), iconItemKey);
+    const listItems = createPhasedItems(this.bodyPhase, validNumberedItems(magic.listItems || []), validNumberedItems(comparisonMagic?.listItems || []), listItemKey);
+    const hasMeta = Boolean(logoSrc || hasText(magic.urlTitle) || safeUrl);
+    const hasCode = Boolean(hasText(magic.code) && markdown);
+    const hasAnything = Boolean(markdown || hasText(magic.title) || hasMeta || links.length || icons.length || listItems.length);
 
     if (!hasAnything) return nothing;
 
     const metaPhase = resolveSelectivePhase(
       this.bodyPhase,
-      {logoSrc, mgUrlTitle: slide.mgUrlTitle || '', mgUrl: slide.mgUrl || ''},
-      {logoSrc: comparisonLogoSrc, mgUrlTitle: comparison?.mgUrlTitle || '', mgUrl: comparison?.mgUrl || ''}
+      {logoSrc, urlTitle: magic.urlTitle || '', url: safeUrl},
+      {logoSrc: comparisonLogoSrc, urlTitle: comparisonMagic?.urlTitle || '', url: normalizeUrl(comparisonMagic?.url)}
     );
-    const titlePhase = resolveSelectivePhase(this.bodyPhase, slide.mgTitle || '', comparison?.mgTitle || '');
-    const plainContentPhase = resolveSelectivePhase(this.bodyPhase, markdown, comparison?.mgContent || '');
+    const titlePhase = resolveSelectivePhase(this.bodyPhase, magic.title || '', comparisonMagic?.title || '');
+    const plainContentPhase = resolveSelectivePhase(this.bodyPhase, markdown, comparisonMagic?.content || '');
     const codeShellPhase = resolveSelectivePhase(
       this.bodyPhase,
-      {mgCode: slide.mgCode || '', mgContent: markdown},
-      {mgCode: comparison?.mgCode || '', mgContent: comparison?.mgContent || ''}
+      {code: magic.code || '', content: markdown},
+      {code: comparisonMagic?.code || '', content: comparisonMagic?.content || ''}
     );
 
     return html`
@@ -90,12 +96,12 @@ export class MagicBox extends LitElement implements MagicBoxProps {
           ${hasMeta
             ? html`
                 <div data-flow-key="meta" class="magicbox__meta slide-motion-shell slide-motion-shell--${metaPhase} slide-motion-shell--${this.direction}">
-                  ${logoSrc ? html`<img class="magicbox__favicon" src=${logoSrc} alt=${slide.mgTitle || slide.mgUrlTitle || 'Logo'} />` : nothing}
-                  ${(slide.mgUrlTitle || slide.mgUrl)
+                  ${logoSrc ? html`<img class="magicbox__favicon" src=${logoSrc} alt=${magic.title || magic.urlTitle || 'Logo'} />` : nothing}
+                  ${(magic.urlTitle || safeUrl)
                     ? html`
                         <div class="magicbox__meta-copy">
-                          ${slide.mgUrlTitle ? html`<span class="magicbox__site">${slide.mgUrlTitle}</span>` : nothing}
-                          ${slide.mgUrl ? html`<a target="_blank" href=${slide.mgUrl} class="magicbox__url" rel="noreferrer">${slide.mgUrl}</a>` : nothing}
+                          ${magic.urlTitle ? html`<span class="magicbox__site">${magic.urlTitle}</span>` : nothing}
+                          ${safeUrl ? html`<a target="_blank" href=${safeUrl} class="magicbox__url" rel="noopener noreferrer">${safeUrl}</a>` : nothing}
                         </div>
                       `
                     : nothing}
@@ -105,10 +111,10 @@ export class MagicBox extends LitElement implements MagicBoxProps {
               `
             : nothing}
 
-          ${slide.mgTitle
+          ${magic.title
             ? html`
                 <div data-flow-key="title">
-                  <h2 class="magicbox__title slide-motion-shell slide-motion-shell--${titlePhase} slide-motion-shell--${this.direction}">${slide.mgTitle}</h2>
+                  <h2 class="magicbox__title slide-motion-shell slide-motion-shell--${titlePhase} slide-motion-shell--${this.direction}">${magic.title}</h2>
                 </div>
               `
             : nothing}
@@ -118,7 +124,7 @@ export class MagicBox extends LitElement implements MagicBoxProps {
               ? html`
                   <div data-flow-key="content">
                     <div class="magicbox__code slide-motion-shell slide-motion-shell--${codeShellPhase} slide-motion-shell--${this.direction}">
-                      <span class="magicbox__badge">${slide.mgCode}</span>
+                      <span class="magicbox__badge">${magic.code}</span>
                       <div class="magicbox__content">${renderMarkdown(markdown)}</div>
                     </div>
                   </div>
@@ -136,8 +142,8 @@ export class MagicBox extends LitElement implements MagicBoxProps {
                 <div data-flow-key="icons">
                   <icon-list-block
                     .items=${icons}
-                    .separator=${Boolean(slide.mgIconListSeparator)}
-                    .spaced=${Boolean(slide.mgIconListSpace)}
+                    .separator=${Boolean(magic.iconListSeparator)}
+                    .spaced=${Boolean(magic.iconListSpace)}
                     .magic=${true}
                     .motionActive=${this.motionActive}
                     .direction=${this.direction}

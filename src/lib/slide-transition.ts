@@ -7,7 +7,8 @@ import type {
   PhasedItem,
   SlideDocument,
   SlideTransitionMode
-} from './types';
+} from './types.ts';
+import {getMagicBox} from './content-helpers.ts';
 
 export interface SlideTransitionDecision {
   mode: SlideTransitionMode;
@@ -65,13 +66,14 @@ function sharedGroup(name: string, left: unknown, right: unknown) {
 }
 
 function magicMetaGroup(slide: SlideDocument | null) {
+  const mb = slide ? getMagicBox(slide) : null;
   return {
-    mgTitle: slide?.mgTitle || '',
-    mgContent: slide?.mgContent || '',
-    mgCode: slide?.mgCode || '',
-    mgLogo: slide?.mgLogo || '',
-    mgUrl: slide?.mgUrl || '',
-    mgUrlTitle: slide?.mgUrlTitle || ''
+    title: mb?.title || '',
+    content: mb?.content || '',
+    code: mb?.code || '',
+    logo: mb?.logo || '',
+    url: mb?.url || '',
+    urlTitle: mb?.urlTitle || ''
   };
 }
 
@@ -84,19 +86,21 @@ function mediaGroup(slide: SlideDocument | null) {
 }
 
 function magicIconsGroup(slide: SlideDocument | null) {
-  const icons = slide?.mgIconList || [];
+  const mb = slide ? getMagicBox(slide) : null;
+  const icons = mb?.iconList || [];
   return {
     icons,
-    spaced: icons.length ? Boolean(slide?.mgIconListSpace) : null,
-    separator: icons.length ? Boolean(slide?.mgIconListSeparator) : null
+    spaced: icons.length ? Boolean(mb?.iconListSpace) : null,
+    separator: icons.length ? Boolean(mb?.iconListSeparator) : null
   };
 }
 
 function magicListGroup(slide: SlideDocument | null) {
-  const items = slide?.mgListItems || [];
+  const mb = slide ? getMagicBox(slide) : null;
+  const items = mb?.listItems || [];
   return {
     items,
-    type: items.length ? slide?.mgListType || 'bullet' : null
+    type: items.length ? mb?.listType || 'bullet' : null
   };
 }
 
@@ -172,6 +176,9 @@ export function hasSameLayout(a: SlideDocument | null, b: SlideDocument | null) 
 export function getSharedSemanticGroups(a: SlideDocument | null, b: SlideDocument | null) {
   if (!a || !b) return [];
 
+  const magicBoxA = getMagicBox(a);
+  const magicBoxB = getMagicBox(b);
+
   return [
     sharedGroup('title', a.title || '', b.title || ''),
     sharedGroup('description', a.description || '', b.description || ''),
@@ -181,7 +188,7 @@ export function getSharedSemanticGroups(a: SlideDocument | null, b: SlideDocumen
     sharedGroup('list', a.list || [], b.list || []),
     sharedGroup('linksList', a.linksList || [], b.linksList || []),
     sharedGroup('magicMeta', magicMetaGroup(a), magicMetaGroup(b)),
-    sharedGroup('magicLinks', a.mgLinksList || [], b.mgLinksList || []),
+    sharedGroup('magicLinks', magicBoxA.linksList || [], magicBoxB.linksList || []),
     sharedGroup('magicIcons', magicIconsGroup(a), magicIconsGroup(b)),
     sharedGroup('magicList', magicListGroup(a), magicListGroup(b))
   ].filter((value): value is string => Boolean(value));

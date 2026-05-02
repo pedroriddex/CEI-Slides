@@ -1,4 +1,42 @@
-import type {IconItem, LinkItem, ListItem, SlideDocument} from './types';
+import type {IconItem, LinkItem, ListItem, MagicBoxData, SlideDocument} from './types';
+
+const EMPTY_MAGIC_BOX: MagicBoxData = Object.freeze({}) as MagicBoxData;
+
+function getLegacyMagicBox(slide: SlideDocument): MagicBoxData | null {
+  const data: MagicBoxData = {
+    title: slide.mgTitle,
+    content: slide.mgContent,
+    code: slide.mgCode,
+    logo: slide.mgLogo,
+    url: slide.mgUrl,
+    urlTitle: slide.mgUrlTitle,
+    linksList: slide.mgLinksList,
+    iconList: slide.mgIconList,
+    listItems: slide.mgListItems,
+    listType: slide.mgListType ?? undefined,
+    iconListSpace: slide.mgIconListSpace ?? undefined,
+    iconListSeparator: slide.mgIconListSeparator ?? undefined
+  };
+
+  const hasContent = Boolean(
+    data.title ||
+      data.content ||
+      data.code ||
+      data.logo ||
+      data.url ||
+      data.urlTitle ||
+      data.linksList?.length ||
+      data.iconList?.length ||
+      data.listItems?.length
+  );
+
+  return hasContent ? data : null;
+}
+
+/** Returns the magicBox subobject, never null — safe to destructure. */
+export function getMagicBox(slide: SlideDocument): MagicBoxData {
+  return slide.magicBox ?? getLegacyMagicBox(slide) ?? EMPTY_MAGIC_BOX;
+}
 
 export function hasText(value: string | null | undefined) {
   return Boolean((value || '').trim());
@@ -21,14 +59,15 @@ export function validBulletItems(items: ListItem[] = []) {
 }
 
 export function hasMagicBoxContent(slide: SlideDocument, logoSrc: string | null = null) {
+  const mb = getMagicBox(slide);
   return Boolean(
-    hasText(slide.mgContent) ||
-    hasText(slide.mgTitle) ||
+    hasText(mb.content) ||
+    hasText(mb.title) ||
     logoSrc ||
-    hasText(slide.mgUrlTitle) ||
-    hasText(slide.mgUrl) ||
-    validLinks(slide.mgLinksList || []).length ||
-    validIcons(slide.mgIconList || []).length ||
-    validNumberedItems(slide.mgListItems || []).length
+    hasText(mb.urlTitle) ||
+    hasText(mb.url) ||
+    validLinks(mb.linksList || []).length ||
+    validIcons(mb.iconList || []).length ||
+    validNumberedItems(mb.listItems || []).length
   );
 }

@@ -112,6 +112,17 @@
   justify-content: center;
 }
 
+.slide-frame__panel-media {
+  background-image: var(--cover-asset, none);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.slide-frame__panel-media[data-empty] {
+  background-image: none;
+}
+
 .slide-frame--phase-idle .slide-frame__panel-content {
   position: relative;
   inset: auto;

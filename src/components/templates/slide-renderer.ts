@@ -1,11 +1,22 @@
-import {LitElement, html} from 'lit';
+import {LitElement} from 'lit';
 import {customElement, property} from 'lit/decorators.js';
-import type {ContentPhase, Direction, SlideDocument, SlideTemplateProps} from '../../lib/types';
+import {html, unsafeStatic} from 'lit/static-html.js';
+import type {ContentPhase, Direction, SlideDocument, SlideTemplate, SlideTemplateProps} from '../../lib/types';
 import './slide-cover';
 import './slide-about';
 import './slide-text';
 import './slide-card';
 import './slide-image';
+
+const TAG_BY_TEMPLATE: Record<SlideTemplate, string> = {
+  cover: 'slide-cover-template',
+  about: 'slide-about-template',
+  image: 'slide-image-template',
+  card: 'slide-card-template',
+  text: 'slide-text-template'
+};
+
+const FALLBACK_TAG = TAG_BY_TEMPLATE.text;
 
 @customElement('slide-renderer')
 export class SlideRenderer extends LitElement implements SlideTemplateProps {
@@ -20,33 +31,19 @@ export class SlideRenderer extends LitElement implements SlideTemplateProps {
     return this;
   }
 
-  private commonProps() {
-    return {
-      slide: this.slide,
-      slug: this.slug,
-      comparisonSlide: this.comparisonSlide,
-      bodyPhase: this.bodyPhase,
-      motionActive: this.motionActive,
-      direction: this.direction
-    };
-  }
-
   render() {
-    const props = this.commonProps();
+    const tag = unsafeStatic(TAG_BY_TEMPLATE[this.slide.template] ?? FALLBACK_TAG);
 
-    switch (this.slide.template) {
-      case 'cover':
-        return html`<slide-cover-template .slide=${props.slide} .slug=${props.slug} .comparisonSlide=${props.comparisonSlide} .bodyPhase=${props.bodyPhase} .motionActive=${props.motionActive} .direction=${props.direction}></slide-cover-template>`;
-      case 'about':
-        return html`<slide-about-template .slide=${props.slide} .slug=${props.slug} .comparisonSlide=${props.comparisonSlide} .bodyPhase=${props.bodyPhase} .motionActive=${props.motionActive} .direction=${props.direction}></slide-about-template>`;
-      case 'image':
-        return html`<slide-image-template .slide=${props.slide} .slug=${props.slug} .comparisonSlide=${props.comparisonSlide} .bodyPhase=${props.bodyPhase} .motionActive=${props.motionActive} .direction=${props.direction}></slide-image-template>`;
-      case 'card':
-        return html`<slide-card-template .slide=${props.slide} .slug=${props.slug} .comparisonSlide=${props.comparisonSlide} .bodyPhase=${props.bodyPhase} .motionActive=${props.motionActive} .direction=${props.direction}></slide-card-template>`;
-      case 'text':
-      default:
-        return html`<slide-text-template .slide=${props.slide} .slug=${props.slug} .comparisonSlide=${props.comparisonSlide} .bodyPhase=${props.bodyPhase} .motionActive=${props.motionActive} .direction=${props.direction}></slide-text-template>`;
-    }
+    return html`
+      <${tag}
+        .slide=${this.slide}
+        .slug=${this.slug}
+        .comparisonSlide=${this.comparisonSlide}
+        .bodyPhase=${this.bodyPhase}
+        .motionActive=${this.motionActive}
+        .direction=${this.direction}
+      ></${tag}>
+    `;
   }
 }
 

@@ -45,12 +45,12 @@ export class IndexLinkRow extends LitElement implements IndexRowProps {
     }
 
     if (this.onActivate) {
-      return html`<button class=${this.rowClassName} style=${this.styleValue} @click=${this.onActivate}>${this.renderInner()}</button>`;
+      return html`<button type="button" class=${this.rowClassName} style=${this.styleValue} @click=${this.onActivate}>${this.renderInner()}</button>`;
     }
 
     if (this.href) {
       return html`
-        <a class=${this.rowClassName} style=${this.styleValue} href=${this.href} target=${this.target || '_self'} rel=${this.target && this.target !== '_self' ? 'noreferrer' : nothing}>
+        <a class=${this.rowClassName} style=${this.styleValue} href=${this.href} target=${this.target || '_self'} rel=${this.target && this.target !== '_self' ? 'noopener noreferrer' : nothing}>
           ${this.renderInner()}
         </a>
       `;

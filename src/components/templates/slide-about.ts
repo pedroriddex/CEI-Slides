@@ -4,6 +4,7 @@ import type {ContentPhase, Direction, SlideDocument, SlideTemplateProps} from '.
 import {resolveAssetPath} from '../../lib/assets';
 import {hasText, validIcons} from '../../lib/content-helpers';
 import {createPhasedItems, iconItemKey, resolveSelectivePhase} from '../../lib/slide-transition';
+import {strings} from '../../lib/i18n';
 import '../blocks/motion-auto-size';
 import '../blocks/icon-list';
 
@@ -59,7 +60,7 @@ export class SlideAboutTemplate extends LitElement implements SlideTemplateProps
                   ${icons.length
                     ? html`
                         <div data-flow-key="icons">
-                          <div class="slide-about__icons" aria-label="Tecnologías">
+                          <div class="slide-about__icons" aria-label=${strings.slides.aboutTechnologies}>
                             <icon-list-block .items=${icons} .motionActive=${this.motionActive} .direction=${this.direction}></icon-list-block>
                           </div>
                         </div>

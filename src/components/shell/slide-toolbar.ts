@@ -1,5 +1,6 @@
 import {LitElement, html, nothing} from 'lit';
 import {customElement, property, state} from 'lit/decorators.js';
+import {strings} from '../../lib/i18n';
 
 @customElement('slide-toolbar-shell')
 export class SlideToolbarShell extends LitElement {
@@ -70,12 +71,14 @@ export class SlideToolbarShell extends LitElement {
   }
 
   render() {
+    const t = strings.toolbar;
+
     return html`
-      <div class="slide-frame__toolbar" aria-label="Slide controls">
+      <div class="slide-frame__toolbar" aria-label=${t.controlsLabel}>
         <div class="slide-frame__nav slide-frame__nav--left">
-          <button class="footer__button ${this.isFullscreen ? 'footer__button--active' : ''}" aria-pressed=${String(this.isFullscreen)} @click=${this.onToggleFullscreen}>
-            <i class=${this.isFullscreen ? 'ri-fullscreen-exit-line' : 'ri-fullscreen-line'} title="Pantalla completa" aria-label="Pantalla completa"></i>
-            <span class="sr-only">Pantalla completa</span>
+          <button type="button" class="footer__button ${this.isFullscreen ? 'footer__button--active' : ''}" aria-pressed=${String(this.isFullscreen)} @click=${this.onToggleFullscreen}>
+            <i class=${this.isFullscreen ? 'ri-fullscreen-exit-line' : 'ri-fullscreen-line'} title=${t.fullscreen} aria-label=${t.fullscreen}></i>
+            <span class="sr-only">${t.fullscreen}</span>
           </button>
         </div>
 
@@ -84,26 +87,34 @@ export class SlideToolbarShell extends LitElement {
           : nothing}
 
         <nav class="slide-frame__nav slide-frame__nav--main" aria-label="Slide navigation">
-          <button class="footer__button" ?disabled=${!this.canGoPrev} @click=${this.onPrev}>
-            <i class="ri-arrow-left-line" title="Anterior" aria-label="Anterior"></i>
-            <span class="sr-only">Anterior</span>
+          <button type="button" class="footer__button" ?disabled=${!this.canGoPrev} @click=${this.onPrev}>
+            <i class="ri-arrow-left-line" title=${t.previous} aria-label=${t.previous}></i>
+            <span class="sr-only">${t.previous}</span>
           </button>
 
-          <button class="footer__button" @click=${this.onNavigateIndex}>
-            <i class="ri-home-5-fill" title="Ir al índice" aria-label="Ir al índice"></i>
-            <span class="sr-only">Índice</span>
+          <button type="button" class="footer__button" @click=${this.onNavigateIndex}>
+            <i class="ri-home-5-fill" title=${t.goToIndex} aria-label=${t.goToIndex}></i>
+            <span class="sr-only">${t.indexShort}</span>
           </button>
 
-          <button class="footer__button" ?disabled=${!this.canGoNext} @click=${this.onNext}>
-            <i class="ri-arrow-right-line" title="Siguiente" aria-label="Siguiente"></i>
-            <span class="sr-only">Siguiente</span>
+          <button type="button" class="footer__button" ?disabled=${!this.canGoNext} @click=${this.onNext}>
+            <i class="ri-arrow-right-line" title=${t.next} aria-label=${t.next}></i>
+            <span class="sr-only">${t.next}</span>
           </button>
         </nav>
 
         <div class="slide-frame__nav slide-frame__nav--right">
-          <button class="footer__button ${this.isSlideMenuOpen ? 'footer__button--active' : ''}" aria-pressed=${String(this.isSlideMenuOpen)} @click=${this.onToggleSlideMenu}>
-            <i class="ri-menu-2-line" title="Abrir listado de slides" aria-label="Abrir listado de slides"></i>
-            <span class="sr-only">Slides</span>
+          <button
+            type="button"
+            class="footer__button ${this.isSlideMenuOpen ? 'footer__button--active' : ''}"
+            aria-pressed=${String(this.isSlideMenuOpen)}
+            aria-expanded=${String(this.isSlideMenuOpen)}
+            aria-haspopup="dialog"
+            aria-controls="slide-drawer-panel"
+            @click=${this.onToggleSlideMenu}
+          >
+            <i class="ri-menu-2-line" title=${t.openSlides} aria-label=${t.openSlides}></i>
+            <span class="sr-only">${t.slidesShort}</span>
           </button>
         </div>
       </div>

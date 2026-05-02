@@ -3,6 +3,8 @@ import {customElement, property} from 'lit/decorators.js';
 import {repeat} from 'lit/directives/repeat.js';
 import type {Direction, LinkItem, PhasedItem} from '../../lib/types';
 import {normalizeUrl} from '../../lib/assets';
+import {isPhasedActive, motionShellClass} from '../../lib/phased-motion';
+import {strings} from '../../lib/i18n';
 import './motion-auto-size';
 
 @customElement('slide-links-block')
@@ -26,16 +28,22 @@ export class SlideLinksBlock extends LitElement {
     return html`
       <motion-auto-size
         inner-class=${containerClass}
-        .active=${this.motionActive || this.links.some((entry) => entry.phase !== 'idle')}
+        .active=${isPhasedActive(this.links, this.motionActive)}
         .content=${html`
           ${repeat(
             this.links,
             (entry) => entry.key,
             (entry) => {
               const href = normalizeUrl(entry.item.link) || '#';
-              const label = entry.item.title || entry.item.link || 'Abrir enlace';
+              const label = entry.item.title || entry.item.link || strings.links.fallbackLabel;
               return html`
-                <a data-flow-key=${entry.key} href=${href} target="_blank" rel="noreferrer" class="${itemClass} slide-motion-shell slide-motion-shell--${entry.phase} slide-motion-shell--${this.direction}">
+                <a
+                  data-flow-key=${entry.key}
+                  href=${href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class=${motionShellClass(entry, this.direction, itemClass)}
+                >
                   <i class=${iconClass}></i>
                   ${label}
                 </a>

@@ -1,4 +1,7 @@
 node_modules/
 dist/
+dist-check/
 .playwright-cli/
 .DS_Store
+.env
+.env.*

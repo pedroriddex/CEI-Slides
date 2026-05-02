@@ -1,9 +1,49 @@
+/**
+ * Minimal query-string router used by `<app-root>`.
+ *
+ * Exposes `readRoute` / `writeRoute` for imperative navigation, and an
+ * `appRouter` EventTarget that emits a `route-change` CustomEvent whenever
+ * either an explicit writeRoute call or a browser `popstate` event changes
+ * the URL. Consumers subscribe to a single, well-known channel instead of
+ * relying on a synthetic `popstate` dispatch on `window`.
+ */
+
 import {normalizePath} from './content-registry';
 
 export interface AppRouteState {
   path: string;
   slide: number;
 }
+
+export const ROUTE_CHANGE_EVENT = 'route-change';
+
+type RouteChangeHandler = (event: CustomEvent<AppRouteState>) => void;
+
+class AppRouter extends EventTarget {
+  private popstateBound = false;
+
+  emit(state: AppRouteState) {
+    this.dispatchEvent(new CustomEvent<AppRouteState>(ROUTE_CHANGE_EVENT, {detail: state}));
+  }
+
+  subscribe(listener: RouteChangeHandler) {
+    this.ensurePopstateBridge();
+    this.addEventListener(ROUTE_CHANGE_EVENT, listener as EventListener);
+    return () => this.unsubscribe(listener);
+  }
+
+  unsubscribe(listener: RouteChangeHandler) {
+    this.removeEventListener(ROUTE_CHANGE_EVENT, listener as EventListener);
+  }
+
+  private ensurePopstateBridge() {
+    if (this.popstateBound || typeof window === 'undefined') return;
+    this.popstateBound = true;
+    window.addEventListener('popstate', () => this.emit(readRoute()));
+  }
+}
+
+export const appRouter = new AppRouter();
 
 export function readRoute(): AppRouteState {
   const url = new URL(window.location.href);
@@ -17,7 +57,7 @@ export function readRoute(): AppRouteState {
 
 export function writeRoute(next: Partial<AppRouteState>, options?: {replace?: boolean}) {
   const current = readRoute();
-  const merged = {
+  const merged: AppRouteState = {
     path: next.path !== undefined ? normalizePath(next.path) : current.path,
     slide: next.slide !== undefined ? Math.max(0, Math.trunc(next.slide)) : current.slide
   };
@@ -31,5 +71,5 @@ export function writeRoute(next: Partial<AppRouteState>, options?: {replace?: bo
 
   const method = options?.replace ? 'replaceState' : 'pushState';
   window.history[method]({}, '', url);
-  window.dispatchEvent(new PopStateEvent('popstate'));
+  appRouter.emit(merged);
 }

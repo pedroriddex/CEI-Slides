@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@heroui/styles": "^3.0.3",
-    "@supabase/supabase-js": "^2.103.3",
+    "dompurify": "^3.4.1",
     "highlight.js": "^11.11.1",
     "lit": "^3.3.2",
     "marked": "^18.0.1",

@@ -1,7 +1,21 @@
-const ACTIVE_TIMEOUT = Symbol('active-timeout');
-const ACTIVE_RESOLVE = Symbol('active-resolve');
+/**
+ * Flow motion helpers.
+ *
+ * Provides FLIP-style snapshot/replay for flow children and a height
+ * animation helper backed by the Web Animations API. The height animation
+ * uses `Animation.finished` so the promise resolves exactly when the
+ * animation ends — no setTimeout drift, no symbols stored on the element.
+ */
+
 export const FLOW_RESIZE_DURATION = 180;
 const FLOW_EASE = 'cubic-bezier(0.2, 0.9, 0.24, 1)';
+
+/**
+ * Upper-bound guard for selective resize sequences, used by downstream
+ * components that need to short-circuit a stuck resize. Calibrated to
+ * cover a short chain of queued resizes with margin.
+ */
+export const FLOW_RESIZE_GUARD_MS = FLOW_RESIZE_DURATION * 4 + 40;
 
 export interface FlowRect {
   top: number;
@@ -14,6 +28,8 @@ export interface FlowSnapshot {
   height: number;
   rects: Map<string, FlowRect>;
 }
+
+const activeHeightAnimations = new WeakMap<HTMLElement, Animation>();
 
 function reducedMotion() {
   return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -54,7 +70,12 @@ export function captureFlowSnapshot(container: HTMLElement | null): FlowSnapshot
   };
 }
 
-export function animateFlowChildren(container: HTMLElement | null, snapshot: FlowSnapshot | null, duration = 360, easing = FLOW_EASE) {
+export function animateFlowChildren(
+  container: HTMLElement | null,
+  snapshot: FlowSnapshot | null,
+  duration = 360,
+  easing = FLOW_EASE
+) {
   if (!container || !snapshot || reducedMotion()) return;
 
   const containerRect = container.getBoundingClientRect();
@@ -85,57 +106,65 @@ export function animateFlowChildren(container: HTMLElement | null, snapshot: Flo
   }
 }
 
+function clearHeightStyles(element: HTMLElement) {
+  element.style.height = '';
+  element.style.overflow = '';
+  element.style.willChange = '';
+}
+
+/**
+ * Animates the height of an element from `from` to `to` using the Web
+ * Animations API. The returned promise resolves `true` when the animation
+ * completes, and `false` if a new animation supersedes this one or if the
+ * delta is too small to animate.
+ */
 export function animateElementHeight(
   element: HTMLElement | null,
   from: number,
   to: number,
   duration = FLOW_RESIZE_DURATION,
   easing = FLOW_EASE
-) {
+): Promise<boolean> {
   if (!element || Math.abs(to - from) < 1) return Promise.resolve(false);
 
-  const existingTimeout = (element as HTMLElement & {[ACTIVE_TIMEOUT]?: number})[ACTIVE_TIMEOUT];
-  if (existingTimeout) {
-    window.clearTimeout(existingTimeout);
-  }
-
-  const existingResolve = (element as HTMLElement & {[ACTIVE_RESOLVE]?: ((changed: boolean) => void) | undefined})[ACTIVE_RESOLVE];
-  if (existingResolve) {
-    existingResolve(false);
+  const previous = activeHeightAnimations.get(element);
+  if (previous) {
+    previous.cancel();
+    activeHeightAnimations.delete(element);
   }
 
   if (reducedMotion()) {
-    element.style.height = '';
-    element.style.overflow = '';
-    element.style.willChange = '';
-    element.style.transition = '';
+    clearHeightStyles(element);
     return Promise.resolve(true);
   }
 
-  return new Promise<boolean>((resolve) => {
-    element.style.overflow = 'hidden';
-    element.style.willChange = 'height';
-    element.style.transition = 'none';
-    element.style.height = `${from}px`;
-    element.getBoundingClientRect();
+  element.style.overflow = 'hidden';
+  element.style.willChange = 'height';
 
-    requestAnimationFrame(() => {
-      element.style.transition = `height ${duration}ms ${easing}`;
-      element.style.height = `${to}px`;
-    });
+  const animation = element.animate(
+    [{height: `${from}px`}, {height: `${to}px`}],
+    {duration, easing, fill: 'both'}
+  );
 
-    const cleanup = (changed: boolean) => {
-      element.style.height = '';
-      element.style.overflow = '';
-      element.style.willChange = '';
-      element.style.transition = '';
-      (element as HTMLElement & {[ACTIVE_TIMEOUT]?: number})[ACTIVE_TIMEOUT] = undefined;
-      (element as HTMLElement & {[ACTIVE_RESOLVE]?: ((changed: boolean) => void) | undefined})[ACTIVE_RESOLVE] = undefined;
-      resolve(changed);
-    };
+  activeHeightAnimations.set(element, animation);
 
-    const timeout = window.setTimeout(() => cleanup(true), duration + 80);
-    (element as HTMLElement & {[ACTIVE_TIMEOUT]?: number})[ACTIVE_TIMEOUT] = timeout;
-    (element as HTMLElement & {[ACTIVE_RESOLVE]?: ((changed: boolean) => void) | undefined})[ACTIVE_RESOLVE] = cleanup;
-  });
+  return animation.finished.then(
+    () => {
+      if (activeHeightAnimations.get(element) !== animation) return false;
+      activeHeightAnimations.delete(element);
+      animation.cancel();
+      clearHeightStyles(element);
+      return true;
+    },
+    () => {
+      // `.cancel()` rejects the finished promise with an AbortError.
+      // That is the expected path when a newer animation supersedes
+      // this one, so we resolve cleanly with `false`.
+      if (activeHeightAnimations.get(element) === animation) {
+        activeHeightAnimations.delete(element);
+        clearHeightStyles(element);
+      }
+      return false;
+    }
+  );
 }

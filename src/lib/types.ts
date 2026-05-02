@@ -49,6 +49,26 @@ export interface ListItem {
   description?: string | null;
 }
 
+/**
+ * Data for the secondary "magic box" panel that some slides render alongside
+ * the main body. All fields are optional — an empty object just means the
+ * slide has no magic box.
+ */
+export interface MagicBoxData {
+  title?: string | null;
+  content?: string | null;
+  code?: string | null;
+  logo?: string | null;
+  url?: string | null;
+  urlTitle?: string | null;
+  linksList?: LinkItem[];
+  iconList?: IconItem[];
+  listItems?: ListItem[];
+  listType?: 'bullet' | 'numbered';
+  iconListSpace?: boolean;
+  iconListSeparator?: boolean;
+}
+
 export interface SlideDocument {
   theme?: string | number | null;
   slug?: string | null;
@@ -70,18 +90,30 @@ export interface SlideDocument {
   coverImg?: string | null;
   download?: boolean;
   downloadLink?: string | null;
+  /**
+   * Data rendered in the secondary "magic box" panel. Callers should read it
+   * via `getMagicBox(slide)` to get a non-null view with sensible defaults.
+   * Legacy RPC payloads that ship `mgTitle`, `mgContent`, etc. at the top
+   * level are converted into this subobject by `content-registry`.
+   */
+  magicBox?: MagicBoxData;
+  /**
+   * Legacy Studio/YAML magic-box fields. The runtime parser normalizes these
+   * into `magicBox`, but keeping them typed lets Studio drafts and generated
+   * static bundles preserve the editorial contract during the migration.
+   */
+  mgTitle?: string | null;
   mgContent?: string | null;
   mgCode?: string | null;
   mgLogo?: string | null;
-  mgTitle?: string | null;
   mgUrl?: string | null;
   mgUrlTitle?: string | null;
   mgLinksList?: LinkItem[];
   mgIconList?: IconItem[];
   mgListItems?: ListItem[];
-  mgListType?: 'bullet' | 'numbered';
-  mgIconListSpace?: boolean;
-  mgIconListSeparator?: boolean;
+  mgListType?: 'bullet' | 'numbered' | null;
+  mgIconListSpace?: boolean | null;
+  mgIconListSeparator?: boolean | null;
 }
 
 export interface DeckDocument {
@@ -95,6 +127,11 @@ export type AppDocument = IndexDocument | DeckDocument;
 export interface RuntimeResponse {
   versionId: string;
   documentsByPath: Record<string, AppDocument>;
+}
+
+export interface RuntimeBundle {
+  versionId: string;
+  documents: Record<string, AppDocument>;
 }
 
 export interface PhasedItem<T> {

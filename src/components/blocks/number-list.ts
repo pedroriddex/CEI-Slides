@@ -2,6 +2,7 @@ import {LitElement, html, nothing} from 'lit';
 import {customElement, property} from 'lit/decorators.js';
 import {repeat} from 'lit/directives/repeat.js';
 import type {Direction, ListItem, PhasedItem} from '../../lib/types';
+import {isPhasedActive, motionShellClass} from '../../lib/phased-motion';
 import './motion-auto-size';
 
 @customElement('number-list-block')
@@ -20,13 +21,13 @@ export class NumberListBlock extends LitElement {
     return html`
       <motion-auto-size
         inner-class="slide-number-list"
-        .active=${this.motionActive || this.items.some((entry) => entry.phase !== 'idle')}
+        .active=${isPhasedActive(this.items, this.motionActive)}
         .content=${html`
           ${repeat(
             this.items,
             (entry) => entry.key,
             (entry, index) => html`
-              <div data-flow-key=${entry.key} class="slide-number-list__item slide-motion-shell slide-motion-shell--${entry.phase} slide-motion-shell--${this.direction}">
+              <div data-flow-key=${entry.key} class=${motionShellClass(entry, this.direction, 'slide-number-list__item')}>
                 <span class="slide-number-list__number">${entry.item.num || index + 1}</span>
                 <div class="slide-number-list__body">
                   ${entry.item.title ? html`<span class="slide-number-list__title">${entry.item.title}</span>` : nothing}

@@ -2,11 +2,12 @@ import {LitElement, html, nothing} from 'lit';
 import {customElement, state} from 'lit/decorators.js';
 import './components/content-index';
 import './components/deck-viewer';
-import {loadContent} from './lib/content-source';
+import {loadContent, LoadContentError} from './lib/content-source';
 import {getDeckDocument, getDocument, getIndexDocument, normalizePath, resolveParentPath, type DocumentMap} from './lib/content-registry';
-import {readRoute, writeRoute} from './lib/router';
+import {appRouter, readRoute, writeRoute, type AppRouteState} from './lib/router';
 import type {BreadcrumbItem} from './lib/types';
 import {applyStudioPreviewPayload, type StudioPreviewLivePayload} from './lib/studio-preview';
+import {strings} from './lib/i18n';
 
 @customElement('app-root')
 export class AppRoot extends LitElement {
@@ -24,24 +25,26 @@ export class AppRoot extends LitElement {
     return this;
   }
 
+  private unsubscribeRoute: (() => void) | null = null;
+
   connectedCallback(): void {
     super.connectedCallback();
-    this.syncFromLocation();
+    this.syncFromLocation(readRoute());
     this.syncStudioConfig();
     void this.bootstrap();
-    window.addEventListener('popstate', this.syncFromLocation);
+    this.unsubscribeRoute = appRouter.subscribe((event) => this.syncFromLocation(event.detail));
     window.addEventListener('message', this.handleStudioMessage);
     this.notifyStudioReady();
   }
 
   disconnectedCallback(): void {
-    window.removeEventListener('popstate', this.syncFromLocation);
+    this.unsubscribeRoute?.();
+    this.unsubscribeRoute = null;
     window.removeEventListener('message', this.handleStudioMessage);
     super.disconnectedCallback();
   }
 
-  private readonly syncFromLocation = () => {
-    const route = readRoute();
+  private readonly syncFromLocation = (route: AppRouteState) => {
     this.path = route.path;
     this.slide = route.slide;
   };
@@ -94,7 +97,13 @@ export class AppRoot extends LitElement {
     } catch (error) {
       this.documents = null;
       this.versionId = '';
-      this.errorMessage = error instanceof Error ? error.message : 'No se pudo cargar el runtime público.';
+      if (error instanceof LoadContentError) {
+        this.errorMessage = error.message;
+      } else if (error instanceof Error) {
+        this.errorMessage = error.message;
+      } else {
+        this.errorMessage = strings.app.loadErrorFallback;
+      }
     } finally {
       this.isLoading = false;
     }
@@ -142,8 +151,8 @@ export class AppRoot extends LitElement {
         <section class="app-state__card" aria-busy="true">
           <div class="app-state__spinner"></div>
           <div class="app-state__copy">
-            <h1 class="app-state__title">Cargando contenido</h1>
-            <p class="app-state__description">Consultando el runtime público de Supabase.</p>
+            <h1 class="app-state__title">${strings.app.loadingTitle}</h1>
+            <p class="app-state__description">${strings.app.loadingDescription}</p>
           </div>
         </section>
       </main>
@@ -154,15 +163,15 @@ export class AppRoot extends LitElement {
     return html`
       <main class="app-state app-state--center">
         <section class="app-state__card app-state__card--danger">
-          <p class="app-state__eyebrow app-state__eyebrow--danger">Error remoto</p>
+          <p class="app-state__eyebrow app-state__eyebrow--danger">${strings.app.loadErrorEyebrow}</p>
           <div class="app-state__copy">
-            <h1 class="app-state__title">No se pudo cargar el contenido</h1>
-            <p class="app-state__description">La app v2 depende completamente de Supabase y no tiene fallback local.</p>
+            <h1 class="app-state__title">${strings.app.loadErrorTitle}</h1>
+            <p class="app-state__description">${strings.app.loadErrorDescription}</p>
           </div>
           <pre class="app-state__pre">${this.errorMessage}</pre>
           <div class="app-state__actions">
-            <button class="app-button app-button--accent" @click=${() => void this.bootstrap()}>Reintentar</button>
-            <button class="app-button app-button--secondary" @click=${() => this.navigate('')}>Ir al índice raíz</button>
+            <button type="button" class="app-button app-button--accent" @click=${() => void this.bootstrap()}>${strings.app.actionRetry}</button>
+            <button type="button" class="app-button app-button--secondary" @click=${() => this.navigate('')}>${strings.app.actionGoToRootIndex}</button>
           </div>
         </section>
       </main>
@@ -175,10 +184,10 @@ export class AppRoot extends LitElement {
         <section class="app-state__card app-state__card--centered">
           <p class="app-state__eyebrow">404</p>
           <div class="app-state__copy">
-            <h1 class="app-state__title">Contenido no encontrado</h1>
-            <p class="app-state__description">La ruta solicitada no existe dentro del runtime publicado en Supabase.</p>
+            <h1 class="app-state__title">${strings.app.notFoundTitle}</h1>
+            <p class="app-state__description">${strings.app.notFoundDescription}</p>
           </div>
-          <button class="app-button app-button--accent" @click=${() => this.navigate('')}>Volver al inicio</button>
+          <button type="button" class="app-button app-button--accent" @click=${() => this.navigate('')}>${strings.app.actionBackToStart}</button>
         </section>
       </main>
     `;
@@ -200,7 +209,7 @@ export class AppRoot extends LitElement {
           .breadcrumbs=${this.buildBreadcrumbs(activeDocuments, document.path)}
           .onNavigate=${(path: string) => this.navigate(path)}
           .backPath=${resolveParentPath(document.path)}
-          .eyebrow=${document.path ? 'Índice de contenido' : 'App v2'}
+          .eyebrow=${document.path ? strings.app.indexEyebrow : strings.app.rootEyebrow}
           .versionId=${this.versionId}
         ></content-index>
       `;

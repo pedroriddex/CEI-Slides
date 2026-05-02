@@ -2,6 +2,7 @@ import {LitElement, html, nothing} from 'lit';
 import {customElement, property, state} from 'lit/decorators.js';
 import type {BreadcrumbItem, IndexDocument, IndexItem} from '../lib/types';
 import {colorValue} from '../lib/theme';
+import {strings} from '../lib/i18n';
 import './shell/index-frame';
 import './blocks/index-link-row';
 
@@ -11,7 +12,7 @@ export class ContentIndex extends LitElement {
   @property({attribute: false}) onNavigate: (path: string) => void = () => undefined;
   @property({attribute: false}) breadcrumbs: BreadcrumbItem[] = [];
   @property({type: String}) backPath = '';
-  @property({type: String}) eyebrow = 'Índice';
+  @property({type: String}) eyebrow = strings.contentIndex.defaultEyebrow;
   @property({type: String}) versionId = '';
   @state() private motionState: 'idle' | 'enter' = 'enter';
   private motionTimeout: number | null = null;
@@ -90,9 +91,9 @@ export class ContentIndex extends LitElement {
 
           ${this.backPath
             ? html`
-                <button class="index-back" @click=${() => this.onNavigate(this.backPath)}>
+                <button type="button" class="index-back" @click=${() => this.onNavigate(this.backPath)}>
                   <i class="ri-arrow-left-line"></i>
-                  Volver atrás
+                  ${strings.contentIndex.backLong}
                 </button>
               `
             : nothing}
@@ -100,14 +101,14 @@ export class ContentIndex extends LitElement {
       : html`
           <div class="index-empty">
             <i class="ri-emotion-sad-line"></i>
-            Aquí no hay nada, de momento.
+            ${strings.contentIndex.empty}
           </div>
 
           ${this.backPath
             ? html`
-                <button class="index-back" @click=${() => this.onNavigate(this.backPath)}>
+                <button type="button" class="index-back" @click=${() => this.onNavigate(this.backPath)}>
                   <i class="ri-arrow-left-line"></i>
-                  Atrás
+                  ${strings.contentIndex.backShort}
                 </button>
               `
             : nothing}

@@ -24,9 +24,11 @@ assertMode(
     ...baseCard,
     title: 'B',
     description: 'Dos',
-    mgListType: 'bullet',
-    mgIconListSpace: false,
-    mgIconListSeparator: false
+    magicBox: {
+      listType: 'bullet',
+      iconListSpace: false,
+      iconListSeparator: false
+    }
   },
   'whole-same-layout'
 );

@@ -2,7 +2,7 @@ import {LitElement, html, nothing} from 'lit';
 import type {TemplateResult} from 'lit';
 import {customElement, property} from 'lit/decorators.js';
 import type {ContentPhase, Direction, SlideDocument, SlideFrameProps} from '../../lib/types';
-import {resolveAssetPath} from '../../lib/assets';
+import {cssUrlValue, resolveAssetPath} from '../../lib/assets';
 import '../templates/slide-renderer';
 
 @customElement('slide-frame-shell')
@@ -68,6 +68,7 @@ export class SlideFrameShell extends LitElement implements SlideFrameProps {
 
   private renderCoverMedia(slide: SlideDocument, phase: 'enter' | 'exit' | 'idle') {
     const coverAsset = slide.coverImg ? resolveAssetPath(this.slug, slide.coverImg) : '';
+    const backgroundImage = cssUrlValue(coverAsset);
     const className = [
       'slide-frame__panel-content',
       'slide-frame__panel-content--media',
@@ -78,11 +79,17 @@ export class SlideFrameShell extends LitElement implements SlideFrameProps {
           : 'slide-frame__panel-content--idle'
     ].join(' ');
 
+    // The background image is routed through a CSS custom property so the
+    // value (already sanitised by cssUrlValue) cannot break out of the
+    // declaration and inject further CSS properties.
+    const mediaStyle = backgroundImage ? `--cover-asset: ${backgroundImage};` : '';
+
     return html`
       <div class=${className}>
         <div
           class="slide-frame__panel-media"
-          style=${`background-image: url('${coverAsset}'); background-size: cover; background-position: center; background-repeat: no-repeat;`}
+          style=${mediaStyle}
+          ?data-empty=${!backgroundImage}
         ></div>
       </div>
     `;

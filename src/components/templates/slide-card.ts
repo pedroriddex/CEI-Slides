@@ -1,8 +1,8 @@
 import {LitElement, html, nothing} from 'lit';
 import {customElement, property} from 'lit/decorators.js';
 import type {ContentPhase, Direction, SlideDocument, SlideTemplateProps} from '../../lib/types';
-import {hasMagicBoxContent, hasText, validBulletItems, validIcons, validNumberedItems} from '../../lib/content-helpers';
-import {resolveSvgAssetPath} from '../../lib/assets';
+import {getMagicBox, hasMagicBoxContent, hasText, validBulletItems, validIcons, validNumberedItems} from '../../lib/content-helpers';
+import {resolveAssetPath, resolveSvgAssetPath} from '../../lib/assets';
 import {bulletListItemKey, createPhasedItems, iconItemKey, listItemKey, resolveSelectivePhase} from '../../lib/slide-transition';
 import '../blocks/motion-auto-size';
 import '../blocks/slide-heading';
@@ -28,10 +28,12 @@ export class SlideCardTemplate extends LitElement implements SlideTemplateProps 
     const slide = this.slide;
     const comparison = this.comparisonSlide;
     const isPresentation = slide.subtemplate === 'presentation';
+    const avatarSrc = isPresentation ? resolveAssetPath(this.slug, slide.coverImg) : '';
     const numberItems = createPhasedItems(this.bodyPhase, validNumberedItems(slide.listItems || []), validNumberedItems(comparison?.listItems || []), listItemKey);
     const bulletItems = createPhasedItems(this.bodyPhase, validBulletItems(slide.list || []), validBulletItems(comparison?.list || []), bulletListItemKey);
     const icons = createPhasedItems(this.bodyPhase, validIcons(slide.iconList || []), validIcons(comparison?.iconList || []), iconItemKey);
-    const logoSrc = resolveSvgAssetPath(this.slug, slide.mgLogo);
+    const magic = getMagicBox(slide);
+    const logoSrc = resolveSvgAssetPath(this.slug, magic.logo);
     const hasMagic = hasMagicBoxContent(slide, logoSrc);
     const hasBody = hasText(slide.description) || hasText(slide.postDescription) || numberItems.length || bulletItems.length || icons.length || hasMagic;
     const titlePhase = resolveSelectivePhase(this.bodyPhase, slide.title || '', comparison?.title || '');
@@ -41,7 +43,7 @@ export class SlideCardTemplate extends LitElement implements SlideTemplateProps 
 
     return html`
       <div class="slide-card ${isPresentation ? 'slide-card--presentation' : ''}">
-        ${isPresentation ? html`<img class="slide-card__avatar" src="/media/intro/pedro.webp" alt="">` : nothing}
+        ${isPresentation && avatarSrc ? html`<img class="slide-card__avatar" src=${avatarSrc} alt="">` : nothing}
         <div class="slide-card__content">
           ${hasText(slide.title) || hasText(slide.icon)
             ? html`<slide-heading-block .headingTitle=${slide.title || ''} .icon=${slide.icon || null} kind="panel" .titlePhase=${titlePhase} .iconPhase=${iconPhase} .direction=${this.direction}></slide-heading-block>`
