@@ -8,10 +8,10 @@
  * touching the domain code.
  */
 
-import type {IconItem, LinkItem, ListItem, MagicBoxData, SlideDocument, SlideTemplate, ThemeColor} from '../types';
+import type {IconItem, LinkItem, ListItem, MagicBoxData, SlideDocument, SlideTemplate, ThemeColor, TimelineSegment} from '../types';
 
 export const THEME_COLORS = new Set<ThemeColor>(['red', 'blue', 'yellow', 'black']);
-export const SLIDE_TEMPLATES = new Set<SlideTemplate>(['cover', 'about', 'card', 'image', 'text']);
+export const SLIDE_TEMPLATES = new Set<SlideTemplate>(['cover', 'about', 'card', 'image', 'text', 'timeline']);
 export const MAGIC_LIST_TYPES = new Set<'bullet' | 'numbered'>(['bullet', 'numbered']);
 
 export function isRecord(value: unknown): value is Record<string, unknown> {
@@ -95,6 +95,27 @@ export function parseListItem(value: unknown, field: string): ListItem {
     num: asOptionalString(value.num, `${field}.num`),
     title: asOptionalString(value.title, `${field}.title`),
     description: asOptionalString(value.description, `${field}.description`)
+  };
+}
+
+export function asOptionalNumber(value: unknown, field: string): number | null {
+  if (value === undefined || value === null || value === '') return null;
+  const num = typeof value === 'number' ? value : Number(value);
+  if (!Number.isFinite(num)) {
+    throw new Error(`El campo ${field} debe ser un número.`);
+  }
+  return num;
+}
+
+export function parseTimelineSegment(value: unknown, field: string): TimelineSegment {
+  if (!isRecord(value)) throw new Error(`El elemento ${field} debe ser un objeto.`);
+  return {
+    label: asOptionalString(value.label, `${field}.label`),
+    caption: asOptionalString(value.caption, `${field}.caption`),
+    meta: asOptionalString(value.meta, `${field}.meta`),
+    icon: asOptionalString(value.icon, `${field}.icon`),
+    color: asOptionalThemeColor(value.color, `${field}.color`),
+    span: asOptionalNumber(value.span, `${field}.span`)
   };
 }
 
@@ -210,6 +231,7 @@ export function parseSlideDocument(value: unknown, field: string): SlideDocument
     list: parseArray(value.list, `${field}.list`, parseListItem),
     iconList: parseArray(value.iconList, `${field}.iconList`, parseIconItem),
     linksList: parseArray(value.linksList, `${field}.linksList`, parseLinkItem),
+    timeline: parseArray(value.timeline, `${field}.timeline`, parseTimelineSegment),
     image: asOptionalString(value.image, `${field}.image`),
     iframe: asOptionalString(value.iframe, `${field}.iframe`),
     coverImg: asOptionalString(value.coverImg, `${field}.coverImg`),

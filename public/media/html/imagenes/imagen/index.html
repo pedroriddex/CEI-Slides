@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>demo</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%}
+body{overflow:hidden;background:#E5E5EA;color:#1D1D1F;display:flex;align-items:center;justify-content:center;padding:clamp(14px,4vw,40px);font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;font-weight:300}
+.demo{display:flex;flex-direction:column;align-items:center;gap:clamp(12px,2.6vh,22px);width:100%;max-width:560px;opacity:0;transform:translateY(10px);animation:fadeIn .55s ease-out .15s forwards}
+@keyframes fadeIn{to{opacity:1;transform:none}}
+.cap{font-size:.85rem;color:#1D1D1F;text-align:center;line-height:1.45}
+.cap b{color:#FF2D55;font-weight:600}
+.mono{font-family:'SFMono-Regular',ui-monospace,Menlo,Consolas,monospace}
+.frame{background:#fff;padding:10px;border-radius:.5em;box-shadow:0 10px 40px rgba(0,0,0,.08);line-height:0}
+.frame svg{display:block;width:clamp(220px,42vw,270px);height:auto;border-radius:.3em}
+.alt{background:#fff;border:1px solid #FF2D55;border-radius:.45em;padding:.5em .85em;font-size:.85rem;max-width:360px;text-align:center}
+.alt b{color:#FF2D55;font-weight:600}
+</style></head>
+<body>
+<div class="demo">
+<div class="frame"><svg viewBox="0 0 300 190" width="270" height="171" xmlns="http://www.w3.org/2000/svg"><rect width="300" height="190" fill="#bfe3f5"/><circle cx="236" cy="48" r="25" fill="#f6c945"/><polygon points="0,190 92,82 168,190" fill="#6cb86c"/><polygon points="112,190 202,96 300,190" fill="#4f9e57"/><rect y="172" width="300" height="18" fill="#3d7d45"/></svg></div>
+<div class="alt"><b>alt</b> = "Paisaje verde con colinas y un sol amarillo"</div>
+<p class="cap">El <b>alt</b> describe la imagen si no puede verse</p>
+</div>
+</body></html>

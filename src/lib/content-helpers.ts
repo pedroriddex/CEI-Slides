@@ -1,4 +1,4 @@
-import type {IconItem, LinkItem, ListItem, MagicBoxData, SlideDocument} from './types';
+import type {IconItem, LinkItem, ListItem, MagicBoxData, SlideDocument, TimelineSegment} from './types';
 
 const EMPTY_MAGIC_BOX: MagicBoxData = Object.freeze({}) as MagicBoxData;
 
@@ -56,6 +56,10 @@ export function validNumberedItems(items: ListItem[] = []) {
 
 export function validBulletItems(items: ListItem[] = []) {
   return items.filter((item) => hasText(item.title) || hasText(item.description));
+}
+
+export function validTimelineSegments(items: TimelineSegment[] = []) {
+  return items.filter((item) => hasText(item.label) || hasText(item.caption) || hasText(item.meta) || hasText(item.icon));
 }
 
 export function hasMagicBoxContent(slide: SlideDocument, logoSrc: string | null = null) {

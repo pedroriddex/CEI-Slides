@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>demo</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%}
+body{overflow:hidden;background:#E5E5EA;color:#1D1D1F;display:flex;align-items:center;justify-content:center;padding:clamp(14px,4vw,40px);font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;font-weight:300}
+.demo{display:flex;flex-direction:column;align-items:center;gap:clamp(12px,2.6vh,22px);width:100%;max-width:560px;opacity:0;transform:translateY(10px);animation:fadeIn .55s ease-out .15s forwards}
+@keyframes fadeIn{to{opacity:1;transform:none}}
+.cap{font-size:.85rem;color:#1D1D1F;text-align:center;line-height:1.45}
+.cap b{color:#FF2D55;font-weight:600}
+.mono{font-family:'SFMono-Regular',ui-monospace,Menlo,Consolas,monospace}
+.stars{display:flex;align-items:center;gap:clamp(14px,4vw,32px)}
+.usecode{background:#fff;border:1px solid #FF2D55;border-radius:.4em;padding:.45em .85em;font-size:.85rem}
+</style></head>
+<body>
+<div class="demo">
+<svg style="position:absolute;width:0;height:0" aria-hidden="true"><symbol id="estrella" viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.6 1.4 6.8L12 17.8 5.9 20.4l1.4-6.8L2.2 9l6.9-.7z"/></symbol></svg>
+<div class="stars">
+<svg width="40" height="40"><use href="#estrella" fill="#1D1D1F"/></svg>
+<svg width="66" height="66"><use href="#estrella" fill="#FF2D55"/></svg>
+<svg width="92" height="92"><use href="#estrella" fill="#1D1D1F"/></svg>
+</div>
+<p class="usecode mono">&lt;use href="#estrella" /&gt;</p>
+<p class="cap">Un <b>símbolo</b>, varios usos</p>
+</div>
+</body></html>

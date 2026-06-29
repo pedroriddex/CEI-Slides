@@ -1,0 +1,156 @@
+/* `timeline` template + block.
+ * `.slide-timeline*` is the template container (wider column than the cards);
+ * `.timeline*` is the reusable track rendered by `timeline-block`: a thin
+ * connecting rail with colored proportional segment bars + node dots and
+ * plain text beneath each step — no card chrome.
+ * Segment accent + width come in as the `--timeline-accent` / `--timeline-span`
+ * custom properties set inline by the block. */
+
+slide-timeline-template {
+  display: block;
+  width: min(100%, 52rem);
+  flex: 0 0 min(100%, 52rem);
+}
+
+.slide-timeline {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: var(--panel-gap);
+}
+
+.slide-timeline__content {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: var(--panel-gap);
+}
+
+.slide-timeline__body {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 0;
+}
+
+.slide-timeline__body-inner {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: var(--panel-gap);
+}
+
+.timeline {
+  position: relative;
+  display: flex;
+  width: 100%;
+  align-items: flex-start;
+  gap: 0;
+}
+
+/* The connecting rail runs full width behind the colored segment bars; the
+ * gaps between bars reveal it so the steps read as one continuous timeline. */
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 3px;
+  height: 2px;
+  background: var(--app-divider);
+  z-index: 0;
+}
+
+.timeline__segment {
+  position: relative;
+  z-index: 1;
+  flex-grow: var(--timeline-span, 1);
+  flex-shrink: 1;
+  flex-basis: 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.timeline__track {
+  position: relative;
+  display: block;
+  height: 6px;
+  border-radius: var(--app-radius-pill);
+  background: var(--timeline-accent, var(--app-foreground));
+}
+
+.timeline__node {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--timeline-accent, var(--app-foreground));
+  transform: translateY(-50%);
+  box-shadow: 0 0 0 4px var(--app-background);
+}
+
+.timeline__text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  min-width: 0;
+  /* Gutter so labels of adjacent (narrow) slots never touch while the bars
+   * above stay edge-to-edge / continuous. */
+  padding-right: var(--space-4);
+}
+
+.timeline__meta {
+  font-size: 0.625rem;
+  font-weight: var(--type-label-weight);
+  line-height: var(--type-label-line);
+  letter-spacing: var(--type-label-tracking);
+  text-transform: uppercase;
+  color: var(--app-muted);
+}
+
+.timeline__label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--type-h4-size);
+  font-weight: var(--weight-semibold);
+  line-height: var(--line-snug);
+  color: var(--app-foreground);
+  min-width: 0;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+.timeline__icon {
+  font-size: var(--icon-md);
+  line-height: var(--line-tight);
+  color: var(--timeline-accent, var(--app-foreground));
+}
+
+.timeline__caption {
+  font-size: var(--type-body-sm-size);
+  line-height: var(--type-body-sm-line);
+  color: var(--app-muted);
+  min-width: 0;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+@media (max-width: 1024px) {
+  .timeline {
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+
+  .timeline::before {
+    display: none;
+  }
+
+  .timeline__segment {
+    flex-basis: auto;
+  }
+}

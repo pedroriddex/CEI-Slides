@@ -9,7 +9,8 @@ const TEMPLATE_ICONS: Record<SlideTemplate, string> = {
   about: 'ri-user-smile-line',
   card: 'ri-layout-grid-line',
   image: 'ri-image-line',
-  text: 'ri-text'
+  text: 'ri-text',
+  timeline: 'ri-route-line'
 };
 
 @customElement('slide-drawer-shell')

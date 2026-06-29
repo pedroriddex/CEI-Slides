@@ -1,5 +1,5 @@
 {
-  "versionId": "static-2026-05-02T14:15:32.949Z-08f2bfce24a6",
+  "versionId": "static-2026-06-23-wp-modulo-v2",
   "documents": {
     "": {
       "kind": "index",
@@ -197,7 +197,7 @@
           "template": "cover",
           "subtemplate": "simple",
           "sideblockopen": false,
-          "icon": null,
+          "icon": "ri-code-s-slash-line",
           "title": "Diseño web",
           "description": "Con HTML, CSS y JavaScript.",
           "coverImg": "cover"
@@ -206,7 +206,7 @@
           "template": "about",
           "subtemplate": null,
           "sideblockopen": false,
-          "image": "pedro",
+          "image": "pedroreyes",
           "title": "Pedro José Reyes Rodríguez",
           "description": "Las herramientas que utilizo.",
           "iconList": [
@@ -240,7 +240,7 @@
           "template": "about",
           "subtemplate": null,
           "sideblockopen": false,
-          "image": "pedro",
+          "image": "pedroreyes",
           "title": "Pedro José Reyes Rodríguez",
           "description": "Lo que me gusta hacer.",
           "iconList": [
@@ -251,7 +251,7 @@
               "icon": "ri-gamepad-fill"
             },
             {
-              "icon": "ri-smartphone-fill"
+              "icon": "ri-folder-music-fill"
             },
             {
               "icon": "ri-book-shelf-fill"
@@ -259,8 +259,8 @@
           ]
         },
         {
-          "template": "card",
-          "subtemplate": "list",
+          "template": "text",
+          "subtemplate": "simple",
           "sideblockopen": false,
           "title": "¿Qué vamos a ver?",
           "description": "¿Sobre que hablaremos hoy? Muchas cosas, pero vamos a desglosarlas para entendernos mejor.",
@@ -311,7 +311,7 @@
           "image": "classroom2"
         },
         {
-          "template": "card",
+          "template": "text",
           "subtemplate": "simple",
           "sideblockopen": true,
           "icon": "ri-google-fill",
@@ -338,28 +338,32 @@
           "subtemplate": "simple",
           "sideblockopen": true,
           "title": "Guia del alumn@",
-          "description": "Es uno de los documentos más importantes para los estudiantes de la escuela, contiene toda la información necesaria para que comprendas cómo funciona la escuela y las normas. Es vital que lo leas y comprendas."
+          "description": "Es uno de los documentos más importantes para los estudiantes de la escuela, contiene toda la información necesaria para que comprendas cómo funciona la escuela y las normas. Es vital que lo leas y comprendas.",
+          "icon": "ri-book-2-fill"
         },
         {
           "template": "card",
           "subtemplate": "simple",
           "sideblockopen": true,
           "title": "Manual de la asignatura",
-          "description": "Es el documento que que contiene todo el material de la asignatura, el que deberás estudiar para comprender el tema, aunque todo se dará en clase es otra forma de tener el contenido."
+          "description": "Es el documento que que contiene todo el material de la asignatura, el que deberás estudiar para comprender el tema, aunque todo se dará en clase es otra forma de tener el contenido.",
+          "icon": "ri-book-2-fill"
         },
         {
           "template": "card",
           "subtemplate": "simple",
           "sideblockopen": true,
           "title": "Programa académico",
-          "description": "Si tienes dudas sobre lo que se verá en el módulo en ambitos generales, puedes consultar el programa académico para ver un índice general de lo que vas a estudiar."
+          "description": "Si tienes dudas sobre lo que se verá en el módulo en ambitos generales, puedes consultar el programa académico para ver un índice general de lo que vas a estudiar.",
+          "icon": "ri-book-2-fill"
         },
         {
           "template": "card",
           "subtemplate": "simple",
           "sideblockopen": true,
           "title": "Sistema de evaluación",
-          "description": "Toda la información sobre cómo funciona el sistema de evaluación de la escuela se encuentra en este módulo. Si es la primera vez que estudias en CEI es recomendable que lo leas."
+          "description": "Toda la información sobre cómo funciona el sistema de evaluación de la escuela se encuentra en este módulo. Si es la primera vez que estudias en CEI es recomendable que lo leas.",
+          "icon": "ri-book-2-fill"
         },
         {
           "template": "image",
@@ -371,7 +375,7 @@
           "image": "classroom3"
         },
         {
-          "template": "card",
+          "template": "text",
           "subtemplate": "simple",
           "sideblockopen": false,
           "icon": "ri-bookmark-fill",
@@ -383,7 +387,7 @@
           "subtemplate": "simple",
           "sideblockopen": true,
           "icon": "ri-bookmark-fill",
-          "title": "Clases - En el aula",
+          "title": "En el aula",
           "description": "",
           "list": [
             {
@@ -402,8 +406,8 @@
           "subtemplate": "simple",
           "sideblockopen": true,
           "icon": "ri-bookmark-fill",
-          "title": "Clases - Durante las clases",
-          "description": "",
+          "title": "Durante las clases",
+          "description": "Si tienes tiempo libre, te recomiendo practicar los ejercicios en casa o terminarlos si nos quedamos a medias.",
           "list": [
             {
               "title": "Normalmente será teórica + práctica de la teoría (katas)"
@@ -418,18 +422,24 @@
           "postDescription": "Si tenéis libre os recomendaría en casa practicar los ejercicios o terminarlos si nos quedamos a medias."
         },
         {
-          "template": "card",
+          "template": "text",
           "subtemplate": "simple",
           "sideblockopen": true,
           "icon": "ri-bookmark-fill",
-          "title": "Clases - Ejercicios",
-          "description": "En las clases trabajaremos varias topologías de ejercicios:",
+          "title": "Ejercicios",
+          "description": "En clase trabajaremos varios tipos de ejercicios:",
           "list": [
             {
-              "title": "Katas"
+              "title": "Katas",
+              "description": "Ejercicios cortos para practicar la sintaxis."
             },
             {
-              "title": "Proyectos"
+              "title": "Proyectos",
+              "description": "Webs o aplicaciones completas que construimos poco a poco."
+            },
+            {
+              "title": "Asíncronos",
+              "description": "Ejercicios para hacer en casa con lo aprendido en clase."
             }
           ]
         },
@@ -438,17 +448,20 @@
           "subtemplate": "simple",
           "sideblockopen": true,
           "icon": "ri-bookmark-fill",
-          "title": "Clases - Katas",
-          "description": "",
+          "title": "Ejercicios - Katas",
+          "description": "Pequeños retos para coger soltura con la sintaxis.",
           "list": [
             {
-              "title": "Ejercicios cortos para practicar la sintaxis"
+              "title": "Cortos",
+              "description": "Son ejercicios breves para practicar la sintaxis."
             },
             {
-              "title": "No es importante acabar rápido sino escribir bien"
+              "title": "Bien escrito, no rápido",
+              "description": "No importa acabar deprisa, sino escribir bien."
             },
             {
-              "title": "Si nos equivocamos, borramos esa línea y comenzamos de nuevo"
+              "title": "Borra y repite",
+              "description": "Si te equivocas, borra esa línea y empieza de nuevo."
             }
           ]
         },
@@ -457,14 +470,16 @@
           "subtemplate": "simple",
           "sideblockopen": true,
           "icon": "ri-bookmark-fill",
-          "title": "Clases - Proyectos",
-          "description": "",
+          "title": "Ejercicios - Proyectos",
+          "description": "Trabajos más grandes que evolucionan durante el curso.",
           "list": [
             {
-              "title": "Son webs / aplicaciones completas que trabajamos poco a poco"
+              "title": "Completos",
+              "description": "Son webs o aplicaciones completas que trabajamos poco a poco."
             },
             {
-              "title": "Se irán completando a lo largo de la asignatura"
+              "title": "A lo largo del curso",
+              "description": "Se van completando durante toda la asignatura."
             }
           ]
         },
@@ -473,20 +488,24 @@
           "subtemplate": "simple",
           "sideblockopen": true,
           "icon": "ri-bookmark-fill",
-          "title": "Clases - Ejercicios",
-          "description": "Cuando hagas una práctica te recomiendo que:",
+          "title": "Ejercicios - Asíncronos",
+          "description": "Ejercicios que intentas resolver «sin ayuda», con lo aprendido en clase. Las dudas se preguntan en clase.",
           "list": [
             {
-              "title": "Como normal general no copies línea a línea desde una captura de pantalla o desde otro ejercicio"
+              "title": "Teoría en clase",
+              "description": "La teoría se aprende en clase; los vídeos son un refuerzo."
             },
             {
-              "title": "La primera vez puedes ver y mirar código de una captura u otro ejericicio"
+              "title": "Práctica guiada al inicio",
+              "description": "La parte práctica se empieza en clase."
             },
             {
-              "title": "Repite el ejercicio hasta que puedas hacerlo prácticamente sin mirar"
+              "title": "Revisión durante el curso",
+              "description": "Se revisan durante la asignatura, no al final."
             },
             {
-              "title": "Apúntate dónde fallas porque los fallos se repiten"
+              "title": "Entrega a tiempo",
+              "description": "Se entregan antes de que acabe el módulo."
             }
           ]
         },
@@ -495,46 +514,79 @@
           "subtemplate": "simple",
           "sideblockopen": true,
           "icon": "ri-bookmark-fill",
-          "title": "Clases - Asistencia y horario",
+          "title": "Ejercicios - Recomendaciones",
+          "description": "Cuando hagas una práctica, te recomiendo lo siguiente:",
           "list": [
             {
-              "title": "Si por algún motivo tenéis que faltar a clase escribir directamente a coordinacion@cei.es"
+              "title": "No copies a ciegas",
+              "description": "Como norma, no copies línea a línea desde una captura o de otro ejercicio."
             },
             {
-              "title": "La cámara es obligatoria siempre cuando estamos online, si por algún casual no podéis conectarla escribir directamente a coordinacion@cei.es"
+              "title": "Mirar solo la primera vez",
+              "description": "La primera vez puedes guiarte mirando código de una captura u otro ejercicio."
             },
             {
-              "title": "Los días festivos de clase son los días del calendario donde se imparta presencialmente la clase, ejemplo. Si la clase se imparte en Valencia, el calendario de festivos es el de Valencia."
+              "title": "Repite hasta dominarlo",
+              "description": "Repite el ejercicio hasta poder hacerlo casi sin mirar."
+            },
+            {
+              "title": "Apunta tus fallos",
+              "description": "Anota dónde fallas: los errores se repiten."
             }
           ]
         },
         {
-          "template": "card",
+          "template": "text",
           "subtemplate": "simple",
           "sideblockopen": true,
           "icon": "ri-bookmark-fill",
-          "title": "Clases - Contenido asíncrono",
-          "description": "Son ejercicios que debéis de intentar resolver “sin ayuda”, es decir con lo aprendido en clase pero se pueden preguntar dudas del contenido asíncrono en clase.",
+          "title": "Asistencia y horario",
           "list": [
             {
-              "title": "El contenido teórico se aprenderá en clase"
+              "title": "Faltas",
+              "description": "Si tienes que faltar a clase, avisa escribiendo directamente a coordinacion@cei.es."
             },
             {
-              "title": "El contenido práctico se comenzará a trabajar en clase"
+              "title": "Cámara",
+              "description": "Si te conectas online, la cámara es obligatoria. Si no puedes encenderla, escribe a coordinacion@cei.es."
             },
             {
-              "title": "La revisión de éstos se realizará sólo durante la asignatura, no al acabar"
-            },
-            {
-              "title": "Se entregan antes del final de Asignatura"
+              "title": "Festivos",
+              "description": "Los días festivos son los del calendario de la ciudad donde se imparte la clase. Por ejemplo, si es en Valencia, rige el calendario de Valencia."
             }
-          ]
+          ],
+          "description": "Lo esencial sobre asistencia y horarios."
         },
         {
-          "template": "card",
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Normas de la clase",
+          "list": [
+            {
+              "title": "Pregunta al profesor",
+              "description": "Si tienes una duda, pregúntasela al profesor. No a un compañero ni a ChatGPT."
+            },
+            {
+              "title": "Móvil guardado",
+              "description": "No uses el móvil en clase salvo que se indique. Si lo usas mientras se explica, esa duda no se resolverá."
+            },
+            {
+              "title": "Silencio al explicar",
+              "description": "No hables mientras se está explicando. Aprovecha el descanso para charlar."
+            },
+            {
+              "title": "Confirma que lo entiendes",
+              "description": "Pedro pregunta a menudo si se ha entendido todo; respóndele. Si estás online, pulgar arriba o abajo."
+            }
+          ],
+          "icon": "ri-bookmark-fill"
+        },
+        {
+          "template": "text",
           "subtemplate": "simple",
           "sideblockopen": false,
-          "icon": "ri-pencil-ruler-fill",
+          "icon": "ri-apps-ai-fill",
           "title": "Herramientas",
           "description": "Hablemos sobre las herramientas que usaremos en la asignatura."
         },
@@ -542,7 +594,7 @@
           "template": "card",
           "subtemplate": "simple",
           "sideblockopen": true,
-          "icon": "ri-pencil-ruler-fill",
+          "icon": "ri-apps-ai-fill",
           "title": "Visual Studio Code",
           "description": "El editor de código que usaremos en la asignatura.",
           "mgLogo": "vscode",
@@ -555,7 +607,7 @@
           "template": "card",
           "subtemplate": "simple",
           "sideblockopen": true,
-          "icon": "ri-pencil-ruler-fill",
+          "icon": "ri-apps-ai-fill",
           "title": "GitHub",
           "description": "El repositorio remoto que nos ayudará a gestionar nuestros proyectos.",
           "mgLogo": "github",
@@ -568,7 +620,7 @@
           "template": "card",
           "subtemplate": "simple",
           "sideblockopen": true,
-          "icon": "ri-pencil-ruler-fill",
+          "icon": "ri-apps-ai-fill",
           "title": "Google Chrome",
           "description": "El navegador por excelencia para los desarrollos web.",
           "mgLogo": "chrome",
@@ -925,6 +977,477 @@
           "icon": null,
           "title": "AI First & Frontend AI",
           "description": "No es solo un stack nuevo, es un cambio de mentalidad en el que el desarrollo se centra en el usuario y su experiencia a través de la inteligencia artificial, integrándola en la aplicación y conociendo en profundidad el funcionamiento de la IA."
+        },
+        {
+          "template": "card",
+          "subtemplate": "list",
+          "sideblockopen": false,
+          "title": "Objetivos del módulo",
+          "description": "Antes de empezar, veamos a dónde queremos llegar. Al terminar el módulo serás capaz de construir y publicar tus propias páginas web.",
+          "listItems": [
+            {
+              "num": "1",
+              "title": "Estructurar el contenido con HTML"
+            },
+            {
+              "num": "2",
+              "title": "Dar estilo y diseño responsive con CSS"
+            },
+            {
+              "num": "3",
+              "title": "Añadir interacción con JavaScript"
+            },
+            {
+              "num": "4",
+              "title": "Publicar tu proyecto con GitHub"
+            }
+          ]
+        },
+        {
+          "template": "timeline",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "Tiempos de la asignatura",
+          "description": "De forma orientativa, el módulo se reparte en estas dos grandes etapas. Los tiempos pueden variar según el ritmo de la clase.",
+          "timeline": [
+            {
+              "label": "HTML y CSS",
+              "caption": "Estructura, maquetación y estilos",
+              "meta": "Semanas 1–5",
+              "color": "blue",
+              "span": 5
+            },
+            {
+              "label": "JavaScript",
+              "caption": "Interacción y lógica de la web",
+              "meta": "Semanas 6–10",
+              "color": "yellow",
+              "span": 5
+            }
+          ]
+        },
+        {
+          "template": "card",
+          "subtemplate": "list",
+          "sideblockopen": false,
+          "title": "La nota del módulo",
+          "description": "Tu nota no depende de un único examen. La iremos construyendo a lo largo del curso aplicando en cada entrega lo que vemos en clase.",
+          "listItems": [
+            {
+              "num": "1",
+              "title": "Proyecto final"
+            },
+            {
+              "num": "2",
+              "title": "Evaluación continua (PEC)"
+            }
+          ]
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Proyecto final",
+          "description": "Iremos construyendo tu web poco a poco durante todo el curso. El proyecto final reúne todo lo aprendido en una página completa.",
+          "list": [
+            {
+              "title": "Se entrega el último día de clase"
+            },
+            {
+              "title": "La semana siguiente se corrige y se sube la nota"
+            },
+            {
+              "title": "Primera entrega: el proyecto completo"
+            },
+            {
+              "title": "Segunda entrega: subir nota o recuperar"
+            }
+          ],
+          "mgTitle": "60%",
+          "mgContent": "Es el peso del proyecto final en la nota del módulo."
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Evaluación continua",
+          "description": "Las PEC son entregas prácticas con las que vas construyendo el proyecto paso a paso. En cada una recibes feedback para mejorar.",
+          "list": [
+            {
+              "title": "Se trabajan durante la semana o el fin de semana"
+            },
+            {
+              "title": "Recibirás feedback de cada entrega"
+            },
+            {
+              "title": "Se entregan en la fecha prevista"
+            }
+          ],
+          "mgTitle": "40%",
+          "mgContent": "Es el peso de la evaluación continua en la nota del módulo."
+        },
+        {
+          "template": "timeline",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "Las PEC del módulo",
+          "description": "Entregarás seis PEC a lo largo del módulo. Cada una añade una capa a tu proyecto, desde la idea inicial hasta la entrega final.",
+          "timeline": [
+            {
+              "meta": "1",
+              "label": "PEC 1",
+              "span": 1,
+              "color": "black"
+            },
+            {
+              "meta": "2",
+              "label": "PEC 2",
+              "span": 1,
+              "color": "black"
+            },
+            {
+              "meta": "3",
+              "label": "PEC 3",
+              "span": 1,
+              "color": "black"
+            },
+            {
+              "meta": "4 - 5",
+              "label": "PEC 4",
+              "span": 2,
+              "color": "black"
+            },
+            {
+              "meta": "6 - 8",
+              "label": "PEC 5",
+              "span": 3,
+              "color": "black"
+            },
+            {
+              "meta": "9 - 10",
+              "label": "PEC 6",
+              "span": 2,
+              "color": "black"
+            }
+          ]
+        },
+        {
+          "template": "timeline",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "Las PEC del módulo",
+          "description": "Entregarás seis PEC a lo largo del módulo. Cada una añade una capa a tu proyecto, desde la idea inicial hasta la entrega final.",
+          "timeline": [
+            {
+              "meta": "1",
+              "label": "PEC 1",
+              "span": 1,
+              "color": "blue"
+            },
+            {
+              "meta": "2",
+              "label": "PEC 2",
+              "span": 1,
+              "color": "black"
+            },
+            {
+              "meta": "3",
+              "label": "PEC 3",
+              "span": 1,
+              "color": "black"
+            },
+            {
+              "meta": "4 - 5",
+              "label": "PEC 4",
+              "span": 2,
+              "color": "black"
+            },
+            {
+              "meta": "6 - 8",
+              "label": "PEC 5",
+              "span": 3,
+              "color": "black"
+            },
+            {
+              "meta": "9 - 10",
+              "label": "PEC 6",
+              "span": 2,
+              "color": "black"
+            }
+          ],
+          "postDescription": "Investigación"
+        },
+        {
+          "template": "timeline",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "Las PEC del módulo",
+          "description": "Entregarás seis PEC a lo largo del módulo. Cada una añade una capa a tu proyecto, desde la idea inicial hasta la entrega final.",
+          "timeline": [
+            {
+              "meta": "1",
+              "label": "PEC 1",
+              "span": 1,
+              "color": "blue"
+            },
+            {
+              "meta": "2",
+              "label": "PEC 2",
+              "span": 1,
+              "color": "blue"
+            },
+            {
+              "meta": "3",
+              "label": "PEC 3",
+              "span": 1,
+              "color": "black"
+            },
+            {
+              "meta": "4 - 5",
+              "label": "PEC 4",
+              "span": 2,
+              "color": "black"
+            },
+            {
+              "meta": "6 - 8",
+              "label": "PEC 5",
+              "span": 3,
+              "color": "black"
+            },
+            {
+              "meta": "9 - 10",
+              "label": "PEC 6",
+              "span": 2,
+              "color": "black"
+            }
+          ],
+          "postDescription": "Wireframes"
+        },
+        {
+          "template": "timeline",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "Las PEC del módulo",
+          "description": "Entregarás seis PEC a lo largo del módulo. Cada una añade una capa a tu proyecto, desde la idea inicial hasta la entrega final.",
+          "timeline": [
+            {
+              "meta": "1",
+              "label": "PEC 1",
+              "span": 1,
+              "color": "blue"
+            },
+            {
+              "meta": "2",
+              "label": "PEC 2",
+              "span": 1,
+              "color": "blue"
+            },
+            {
+              "meta": "3",
+              "label": "PEC 3",
+              "span": 1,
+              "color": "blue"
+            },
+            {
+              "meta": "4 - 5",
+              "label": "PEC 4",
+              "span": 2,
+              "color": "black"
+            },
+            {
+              "meta": "6 - 8",
+              "label": "PEC 5",
+              "span": 3,
+              "color": "black"
+            },
+            {
+              "meta": "9 - 10",
+              "label": "PEC 6",
+              "span": 2,
+              "color": "black"
+            }
+          ],
+          "postDescription": "Diseño"
+        },
+        {
+          "template": "timeline",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "Las PEC del módulo",
+          "description": "Entregarás seis PEC a lo largo del módulo. Cada una añade una capa a tu proyecto, desde la idea inicial hasta la entrega final.",
+          "timeline": [
+            {
+              "meta": "1",
+              "label": "PEC 1",
+              "span": 1,
+              "color": "blue"
+            },
+            {
+              "meta": "2",
+              "label": "PEC 2",
+              "span": 1,
+              "color": "blue"
+            },
+            {
+              "meta": "3",
+              "label": "PEC 3",
+              "span": 1,
+              "color": "blue"
+            },
+            {
+              "meta": "4 - 5",
+              "label": "PEC 4",
+              "span": 2,
+              "color": "blue"
+            },
+            {
+              "meta": "6 - 8",
+              "label": "PEC 5",
+              "span": 3,
+              "color": "black"
+            },
+            {
+              "meta": "9 - 10",
+              "label": "PEC 6",
+              "span": 2,
+              "color": "black"
+            }
+          ],
+          "postDescription": "Maquetación"
+        },
+        {
+          "template": "timeline",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "Las PEC del módulo",
+          "description": "Entregarás seis PEC a lo largo del módulo. Cada una añade una capa a tu proyecto, desde la idea inicial hasta la entrega final.",
+          "timeline": [
+            {
+              "meta": "1",
+              "label": "PEC 1",
+              "span": 1,
+              "color": "blue"
+            },
+            {
+              "meta": "2",
+              "label": "PEC 2",
+              "span": 1,
+              "color": "blue"
+            },
+            {
+              "meta": "3",
+              "label": "PEC 3",
+              "span": 1,
+              "color": "blue"
+            },
+            {
+              "meta": "4 - 5",
+              "label": "PEC 4",
+              "span": 2,
+              "color": "blue"
+            },
+            {
+              "meta": "6 - 8",
+              "label": "PEC 5",
+              "span": 3,
+              "color": "blue"
+            },
+            {
+              "meta": "9 - 10",
+              "label": "PEC 6",
+              "span": 2,
+              "color": "black"
+            }
+          ],
+          "postDescription": "Interacción y JS"
+        },
+        {
+          "template": "timeline",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "Las PEC del módulo",
+          "description": "Entregarás seis PEC a lo largo del módulo. Cada una añade una capa a tu proyecto, desde la idea inicial hasta la entrega final.",
+          "timeline": [
+            {
+              "meta": "1",
+              "label": "PEC 1",
+              "span": 1,
+              "color": "blue"
+            },
+            {
+              "meta": "2",
+              "label": "PEC 2",
+              "span": 1,
+              "color": "blue"
+            },
+            {
+              "meta": "3",
+              "label": "PEC 3",
+              "span": 1,
+              "color": "blue"
+            },
+            {
+              "meta": "4 - 5",
+              "label": "PEC 4",
+              "span": 2,
+              "color": "blue"
+            },
+            {
+              "meta": "6 - 8",
+              "label": "PEC 5",
+              "span": 3,
+              "color": "blue"
+            },
+            {
+              "meta": "9 - 10",
+              "label": "PEC 6",
+              "span": 2,
+              "color": "blue"
+            }
+          ],
+          "postDescription": "Proyecto"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Cómo entregar",
+          "description": "Las entregas se suben a Google Classroom. Sigue siempre estos pasos para que cuenten correctamente.",
+          "list": [
+            {
+              "title": "Comprime la carpeta del ejercicio en un ZIP"
+            },
+            {
+              "title": "Súbelo en la barra lateral de la tarea"
+            },
+            {
+              "title": "Pulsa «Marcar como completado»"
+            },
+            {
+              "title": "Respeta la fecha de cada entrega"
+            }
+          ]
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Contenido asíncrono",
+          "description": "Son ejercicios que intentarás resolver «sin ayuda», con lo que hemos visto en clase. Si tienes dudas, las resolvemos en clase.",
+          "list": [
+            {
+              "title": "La teoría se ve en clase; los vídeos son de refuerzo"
+            },
+            {
+              "title": "La parte práctica se empieza en clase"
+            },
+            {
+              "title": "Se revisan durante el módulo, no al final"
+            },
+            {
+              "title": "Se entregan antes de terminar el módulo"
+            }
+          ]
         }
       ]
     },
@@ -2083,57 +2606,66 @@
           "description": null
         },
         {
-          "title": "Class e ID",
+          "title": "Encabezados",
           "color": "red",
-          "icon": "ri-hashtag",
-          "href": "web/theme/html/__disabled__/class-e-id",
+          "icon": "ri-heading",
+          "href": "web/theme/html/encabezados",
           "target": null,
-          "disabled": true,
+          "disabled": null,
           "description": null
         },
         {
-          "title": "Etiquetas semánticas",
+          "title": "Párrafos",
           "color": "red",
-          "icon": "ri-page-separator",
-          "href": "web/theme/html/__disabled__/etiquetas-semanticas",
+          "icon": "ri-paragraph",
+          "href": "web/theme/html/parrafos",
           "target": null,
-          "disabled": true,
+          "disabled": null,
           "description": null
         },
         {
-          "title": "Listas",
+          "title": "Hipervínculos",
           "color": "red",
-          "icon": "ri-list-check",
-          "href": "web/theme/html/__disabled__/listas",
+          "icon": "ri-links-line",
+          "href": "web/theme/html/hipervinculos",
           "target": null,
-          "disabled": true,
+          "disabled": null,
+          "description": null
+        },
+        {
+          "title": "Imágenes",
+          "color": "red",
+          "icon": "ri-image-2-fill",
+          "href": "web/theme/html/imagenes",
+          "target": null,
+          "disabled": null,
           "description": null
         },
         {
           "title": "Tablas",
           "color": "red",
           "icon": "ri-table-view",
-          "href": "web/theme/html/__disabled__/tablas",
+          "href": "web/theme/html/tablas",
           "target": null,
-          "disabled": true,
+          "disabled": null,
           "description": null
         },
         {
-          "title": "Picture, imágenes y videos",
+          "title": "Etiquetas semánticas",
           "color": "red",
-          "icon": "ri-image-2-fill",
-          "href": "web/theme/html/__disabled__/picture-imagenes-y-videos",
+          "icon": "ri-page-separator",
+          "href": "web/theme/html/etiquetas-semanticas",
           "target": null,
-          "disabled": true,
+          "disabled": null,
           "description": null
         },
         {
-          "title": "Symbol",
+          "title": "Listas",
           "color": "red",
-          "icon": "ri-emoji-sticker-fill",
-          "href": "web/theme/html/__disabled__/symbol",
+          "icon": "ri-list-check",
+          "href": "web/theme/html/listas",
           "target": null,
-          "disabled": true,
+          "disabled": null,
           "description": null
         },
         {
@@ -2153,6 +2685,15 @@
           "target": null,
           "disabled": null,
           "description": null
+        },
+        {
+          "title": "Symbol",
+          "color": "red",
+          "icon": "ri-shapes-line",
+          "href": "web/theme/html/symbol",
+          "target": null,
+          "disabled": null,
+          "description": null
         }
       ]
     },
@@ -2161,7 +2702,7 @@
       "path": "web/theme/html/forms",
       "slides": [
         {
-          "theme": 8,
+          "theme": 9,
           "slug": "html/forms",
           "color": "red",
           "template": "cover",
@@ -2169,7 +2710,7 @@
           "sideblockopen": false,
           "icon": "ri-survey-line",
           "title": "Formularios",
-          "description": "Formularios HTML, básicos, pero necesarios para capturar información de los usuarios.",
+          "description": "Un formulario es como una hoja con casillas que el usuario rellena. Sirve para que la web te pida y recoja información.",
           "coverImg": "cover"
         },
         {
@@ -2178,7 +2719,7 @@
           "sideblockopen": null,
           "icon": null,
           "title": "Los formularios HTML",
-          "description": "Los formularios son una parte fundamental de cualquier página web. Necesarios para recopilar información y permitir a los usuarios conectar con el cliente."
+          "description": "Piensa en cuando te das de alta en algo y rellenas tu nombre y tu correo. Eso es un formulario: la forma en que la web habla contigo y recoge tus datos."
         },
         {
           "template": "card",
@@ -2186,14 +2727,14 @@
           "sideblockopen": true,
           "icon": null,
           "title": "¿Cómo funcionan?",
-          "description": "De la misma forma que elementos como listas o tablas requieren de un contenedor para funcionar, los formularios necesitan de un contenedor para agrupar los elementos de entrada."
+          "description": "Imagina una carpeta que guarda dentro todas las hojas a rellenar. El formulario es esa carpeta: un contenedor que agrupa todas las casillas."
         },
         {
           "template": "card",
           "subtemplate": "list",
           "sideblockopen": true,
           "title": "¿Cómo funcionan?",
-          "description": "Pero antes de meternos en faena, entendamos algunos conceptos de los formularios.",
+          "description": "Antes de empezar, vamos a conocer las piezas básicas de un formulario, una por una.",
           "listItems": [
             {
               "num": "1",
@@ -2223,7 +2764,7 @@
           "sideblockopen": null,
           "icon": null,
           "title": "Label",
-          "description": "El elemento label se utiliza para asignar un texto descriptivo a otro elemento de formulario, como un campo de entrada. Esto mejora la accesibilidad y la usabilidad del formulario, permitiendo a los usuarios entender el propósito de cada campo.",
+          "description": "El label es la etiqueta que dice qué hay que escribir en cada casilla, como el cartelito \"Nombre:\" al lado de un hueco. Así el usuario sabe qué le estás pidiendo.",
           "iframe": "label"
         },
         {
@@ -2232,7 +2773,7 @@
           "sideblockopen": null,
           "icon": null,
           "title": "Input",
-          "description": "El input es el elemento más básico de un formulario. Se utiliza para recopilar información del usuario, como texto, números, contraseñas, etc. Es un elemento muy versátil que puede ser utilizado para una amplia variedad de propósitos.",
+          "description": "El input es la casilla en blanco donde el usuario escribe. Es la pieza más usada: vale para un nombre, un número, una contraseña y mucho más.",
           "iframe": "input"
         },
         {
@@ -2241,7 +2782,7 @@
           "sideblockopen": null,
           "icon": null,
           "title": "Select",
-          "description": "Select es un elemento de formulario que permite a los usuarios seleccionar una opción de una lista predefinida. Es similar a un menú desplegable y es muy útil para recopilar información sobre preferencias, categorías o cualquier otra información que requiera una selección única.",
+          "description": "El select es una lista que se despliega para elegir una opción, como el menú de un restaurante. El usuario solo elige, no escribe.",
           "iframe": "select"
         },
         {
@@ -2250,7 +2791,7 @@
           "sideblockopen": null,
           "icon": null,
           "title": "Textarea",
-          "description": "Textarea es un elemento de formulario que permite a los usuarios ingresar texto de varias líneas. Es útil para recopilar comentarios, mensajes largos o cualquier otro tipo de entrada que requiera más espacio.",
+          "description": "El textarea es una casilla grande para escribir varias líneas, como el espacio de \"Cuéntanos tu mensaje\". Perfecto para textos largos.",
           "iframe": "textarea"
         },
         {
@@ -2259,7 +2800,7 @@
           "sideblockopen": null,
           "icon": null,
           "title": "Submit",
-          "description": "Submit es un botón de formulario que se utiliza para enviar los datos del formulario al servidor. Es esencial para que los usuarios puedan interactuar con los formularios y enviar la información necesaria. Aunque, que no os engañe, no es simplemente un botón, sino un input de tipo submit.",
+          "description": "El submit es el botón de \"Enviar\" que manda todo lo que has rellenado. Ojo: por dentro no es un botón cualquiera, es un input de tipo submit.",
           "iframe": "submit"
         },
         {
@@ -2268,7 +2809,7 @@
           "sideblockopen": true,
           "icon": null,
           "title": "Traducción a HTML",
-          "description": "Ahora que entendemos los conceptos básicos de los formularios, veamos cómo traducirlos a HTML."
+          "description": "Ya conocemos las piezas. Ahora vamos a escribirlas en HTML, que es el idioma con el que se construyen las páginas web."
         },
         {
           "template": "card",
@@ -2276,7 +2817,7 @@
           "sideblockopen": true,
           "icon": null,
           "title": "Contenedor de formulario",
-          "description": "Todo el formulario se envuelve en una etiqueta `<form>`.",
+          "description": "Todo el formulario se mete dentro de la etiqueta `<form>`. Es la caja que envuelve y guarda todas las casillas.",
           "mgCode": "html",
           "mgContent": "```html\n<form>\n    <!-- Aquí va el contenido del formulario -->\n</form>"
         },
@@ -2286,7 +2827,7 @@
           "sideblockopen": true,
           "icon": null,
           "title": "Contenedor de formulario",
-          "description": "Pero este contenedor no solo sirve para agrupar los elementos de entrada. También se utiliza para especificar la acción que se debe realizar cuando se envía el formulario y cómo debe hacerlo.",
+          "description": "Esa caja `<form>` también guarda dos instrucciones: a dónde se envían los datos y de qué forma se mandan.",
           "mgCode": "html",
           "mgContent": "```html\n<form action=\"\" method=\"\">\n    <!-- Aquí va el contenido del formulario -->\n</form>"
         },
@@ -2296,7 +2837,7 @@
           "sideblockopen": true,
           "icon": null,
           "title": "Contenedor de formulario - Action",
-          "description": "Por un lado tenemos el atributo `action`, que especifica la URL a la que se enviarán los datos del formulario cuando se presione el botón de envío. Es como el la dirección postal donde envias un paquete, en este caso lo que envias son los datos que estén rellenos en el formulario.",
+          "description": "El atributo `action` dice a dónde van los datos al pulsar enviar. Es como la dirección postal de un paquete: el paquete son los datos que el usuario ha rellenado.",
           "mgCode": "html",
           "mgContent": "```html\n<form action=\"/url_de_destino\" method=\"\">\n    <!-- Aquí va el contenido del formulario -->\n</form>"
         },
@@ -2306,7 +2847,7 @@
           "sideblockopen": true,
           "icon": null,
           "title": "Contenedor de formulario - Method",
-          "description": "Después tenemos el método `method`, que especifica cómo se enviarán los datos del formulario. Puede ser `GET` o `POST`. Con el primero de estos la información se mandará en la URL, visible para todos. En cambio con la segunda opción, la información se enviará en el cuerpo de la solicitud, más seguro para información sensible, como contraseñas.",
+          "description": "El atributo `method` dice cómo se envían los datos. Con `GET` viajan a la vista, dentro de la dirección de la web. Con `POST` viajan escondidos, mejor para datos delicados como una contraseña.",
           "mgCode": "html",
           "mgContent": "```html\n<form action=\"/url_de_destino\" method=\"POST\">\n    <!-- Aquí va el contenido del formulario -->\n</form>"
         },
@@ -2316,7 +2857,7 @@
           "sideblockopen": true,
           "icon": null,
           "title": "El label",
-          "description": "Siempre que tengamos un input, debemos asociarlo con un label. Esto se logra mediante el atributo `for` en el label y el atributo `id` en el input, donde el valor de `for` debe coincidir con el valor de `id`.",
+          "description": "Cada casilla necesita su etiqueta que la explica. Las emparejamos poniendo el mismo nombre en el `for` del label y en el `id` del input, como dos calcetines del mismo par.",
           "mgCode": "html",
           "mgContent": "```html\n<form action=\"/url_de_destino\" method=\"POST\">\n    <label for=\"nombre\">Nombre:</label>\n    <input id=\"nombre\">\n</form>"
         },
@@ -2326,7 +2867,7 @@
           "sideblockopen": true,
           "icon": null,
           "title": "El input",
-          "description": "Cuando hablamos del input podemos estar hablando de cualquier tipo de campo, excepturando áreas de texto y selectores. Entonces ¿Cómo definimos qué tipo de input que queremos usar? Ahí entra en juego el atributo `type`.",
+          "description": "Una misma casilla puede pedir cosas muy distintas: texto, un número, una fecha... Para decir qué tipo queremos usamos el atributo `type`.",
           "mgCode": "html",
           "mgContent": "```html\n<form action=\"/url_de_destino\" method=\"POST\">\n    <label for=\"nombre\">Nombre:</label>\n    <input id=\"nombre\" type=\"text\"> <!-- En este caso es un campo de texto simple -->\n</form>"
         },
@@ -2336,7 +2877,7 @@
           "sideblockopen": true,
           "icon": null,
           "title": "El input",
-          "description": "Existen un montón de tipos de input, cada uno con sus utilidades.",
+          "description": "Hay muchos tipos de input, y cada uno está pensado para una cosa distinta. Aquí tienes algunos de los más usados.",
           "list": [
             {
               "title": "text"
@@ -2389,7 +2930,7 @@
           "sideblockopen": true,
           "icon": null,
           "title": "El input",
-          "description": "Vale, con esto no basta. En un campo de formulario suele existir un texto que indica cómo deberia verse el contenido a rellenar. Este texto se denomina como placeholder.",
+          "description": "El placeholder es ese texto gris de ejemplo que aparece dentro de la casilla vacía y desaparece al escribir. Le da una pista al usuario de qué poner.",
           "mgCode": "html",
           "mgContent": "```html\n<form action=\"/url_de_destino\" method=\"POST\">\n    <label for=\"nombre\">Nombre:</label>\n    <input id=\"nombre\" type=\"text\" placeholder=\"Ingresa tu nombre\">\n</form>"
         },
@@ -2399,7 +2940,7 @@
           "sideblockopen": true,
           "icon": null,
           "title": "El input",
-          "description": "Por otro lado, debemos indicar el nombre del input, mediante el atributo `name`, para cuando hagamos el envío del formulario sepa qué información está enviando. Este dato lo recibirá el servidor en el cuerpo de la solicitud.",
+          "description": "El atributo `name` es como la pegatina con el nombre de cada casilla. Así, al enviar el formulario, quien recibe los datos sabe qué dato es cada uno.",
           "mgCode": "html",
           "mgContent": "```html\n<form action=\"/url_de_destino\" method=\"POST\">\n    <label for=\"nombre\">Nombre:</label>\n    <input id=\"nombre\" type=\"text\" placeholder=\"Ingresa tu nombre\" name=\"nombre\">\n</form>"
         },
@@ -2409,7 +2950,7 @@
           "sideblockopen": true,
           "icon": null,
           "title": "El input",
-          "description": "Existen muchas otras opciones relacionadas con los inputs, las iremos viendo poco a poco y comprendiendo el uso que tienen.",
+          "description": "Una casilla admite más ajustes: dejarla con un valor ya puesto, bloquearla para que no se edite o pedir que sea obligatoria. Los iremos viendo poco a poco.",
           "mgCode": "html",
           "mgContent": "```html\n<form action=\"/url_de_destino\" method=\"POST\">\n    <label for=\"nombre\">Nombre:</label>\n    <input id=\"nombre\" type=\"text\" placeholder=\"Ingresa tu nombre\" name=\"nombre\" value=\"Pedro\" readonly required>\n</form>"
         },
@@ -2419,7 +2960,7 @@
           "sideblockopen": true,
           "icon": null,
           "title": "El select",
-          "description": "Con select podemos crear un menú desplegable con múltiples opciones. Utilizando la etiqueta select y la etiqueta option.",
+          "description": "El select crea una lista desplegable para elegir una opción. Usamos la etiqueta `select` para la lista y una etiqueta `option` por cada opción.",
           "mgCode": "html",
           "mgContent": "```html\n<form action=\"/url_de_destino\" method=\"POST\">\n    <label for=\"theme\">Listado:</label>\n    <select id=\"theme\" name=\"theme\">\n        <option>Opción 1</option>\n        <option>Opción 2</option>\n        <option>Opción 3</option>\n    </select>\n</form>"
         },
@@ -2429,7 +2970,7 @@
           "sideblockopen": true,
           "icon": null,
           "title": "El select",
-          "description": "Las opciones del select se definen mediante la etiqueta option. Cada opción debe tener un valor único, que se enviará al servidor cuando se seleccione. Este valor se puede acceder mediante el atributo `value` de la etiqueta option.",
+          "description": "El usuario ve el texto de cada opción, pero a quien recibe los datos le llega su `value`, una especie de código interno. Es como un menú: tú dices \"el plato 2\" y en cocina saben cuál es.",
           "mgCode": "html",
           "mgContent": "```html\n<form action=\"/url_de_destino\" method=\"POST\">\n    <label for=\"theme\">Listado:</label>\n    <select id=\"theme\" name=\"theme\">\n        <option value=\"1\">Opción 1</option>\n        <option value=\"2\">Opción 2</option>\n        <option value=\"3\">Opción 3</option>\n    </select>\n</form>"
         },
@@ -2439,7 +2980,7 @@
           "sideblockopen": true,
           "icon": null,
           "title": "El select",
-          "description": "También es posible agregar un atributo `selected` a una opción para que se muestre como seleccionada por defecto.",
+          "description": "Con el atributo `selected` marcamos una opción para que ya aparezca elegida desde el principio, sin que el usuario tenga que tocarla.",
           "mgCode": "html",
           "mgContent": "```html\n<form action=\"/url_de_destino\" method=\"POST\">\n    <label for=\"theme\">Listado:</label>\n    <select id=\"theme\" name=\"theme\">\n        <option value=\"1\">Opción 1</option>\n        <option value=\"2\" selected>Opción 2</option> \n        <option value=\"3\">Opción 3</option>\n    </select>\n</form>"
         }
@@ -2454,9 +2995,9 @@
           "subtemplate": "simple",
           "sideblockopen": false,
           "title": "Iframes",
-          "description": "Agregar elementos externos a una página web, como videos, mapas o contenido de otro sitio.",
+          "description": "Una forma de meter cosas de otra web dentro de la tuya: un vídeo, un mapa, una página entera.",
           "icon": "ri-pin-distance-fill",
-          "theme": 9,
+          "theme": 10,
           "slug": "html/iframes",
           "color": "red",
           "coverImg": "cover"
@@ -2483,8 +3024,8 @@
           "template": "image",
           "subtemplate": "simple",
           "sideblockopen": null,
-          "title": "¿Añadir elementos externos?",
-          "description": "Un iframe es un elemento que nos permite abrir una \"ventana\" hacia otro sitio web. Permitiéndonos ver contenido de otro sitio dentro del nuestro propio. Un ejemplo de esto sería un mapa de Google Maps.",
+          "title": "¿Meter cosas de otras webs?",
+          "description": "Imagina una ventana en la pared de tu casa: por ella ves lo que pasa fuera. Un iframe es eso, una ventana dentro de tu web que enseña otra página. Por ejemplo, un mapa de Google Maps.",
           "icon": null,
           "image": null,
           "iframe": "map"
@@ -2493,8 +3034,8 @@
           "template": "card",
           "subtemplate": "simple",
           "sideblockopen": true,
-          "title": "Mucho más de lo que parece",
-          "description": "Un iframe puede hacer más de lo que parece. Podemos incrustar otra web completa en esa ventana y darle el tamaño que queramos. Tenemos el control total de la ventana que generamos, pero ojo: no podemos acceder a sus elementos ni modificar sus estilos.",
+          "title": "Da más juego de lo que parece",
+          "description": "Por esa ventana puedes mostrar una web entera y darle el tamaño que quieras. Eso sí: solo la enseñas, no puedes tocar nada de dentro ni cambiar cómo se ve.",
           "icon": null,
           "postDescription": null,
           "mgContent": null,
@@ -2511,8 +3052,8 @@
           "template": "card",
           "subtemplate": "simple",
           "sideblockopen": true,
-          "title": "¿Cómo funciona?",
-          "description": "Aunque es cierto que habitualmente copiaremos y pegaremos el código de iframe en nuestra web, es importante entender cómo se construye.",
+          "title": "¿Cómo se escribe?",
+          "description": "Casi siempre copiarás y pegarás este código, pero conviene reconocerlo. Esta es la etiqueta del iframe: el marco de la ventana, todavía vacío.",
           "icon": null,
           "postDescription": null,
           "mgContent": "```html\n<iframe></iframe>\n```",
@@ -2529,8 +3070,8 @@
           "template": "card",
           "subtemplate": "simple",
           "sideblockopen": true,
-          "title": "¿Cómo funciona?",
-          "description": "En este caso este iframe no está mostrando nada, pero podemos agregar el atributo 'src' para indicar la web que queremos añadir.",
+          "title": "¿Cómo se escribe?",
+          "description": "La ventana sigue vacía hasta que le dices qué enseñar. Con 'src' le indicas la dirección de la web que quieres ver dentro, igual que escribir una dirección para llegar a un sitio.",
           "icon": null,
           "postDescription": null,
           "mgContent": "```html\n<iframe src=\"url_que_queremos_añadir\"></iframe>\n```",
@@ -2547,8 +3088,8 @@
           "template": "card",
           "subtemplate": "simple",
           "sideblockopen": true,
-          "title": "¿Cómo funciona?",
-          "description": "En este caso este iframe no está mostrando nada, pero podemos agregar el atributo 'src' para indicar la web que queremos añadir.",
+          "title": "¿Cómo se escribe?",
+          "description": "Donde pone 'url_que_queremos_añadir' va la dirección real de la página, y al instante esa web aparecerá dentro de tu ventana.",
           "icon": null,
           "postDescription": null,
           "mgContent": "```html\n<iframe src=\"url_que_queremos_añadir\"></iframe>\n```",
@@ -2572,7 +3113,7 @@
           "subtemplate": "simple",
           "sideblockopen": false,
           "title": "Introducción a HTML",
-          "description": "Entendamos qué es HTML, cómo se estructura y cuáles son sus etiquetas más comunes.",
+          "description": "HTML es el idioma con el que se construyen las páginas web. Vamos a ver, paso a paso, qué es y cómo se escribe.",
           "icon": "ri-html5-fill",
           "theme": 1,
           "slug": "html/introduccion",
@@ -2584,7 +3125,7 @@
           "subtemplate": "simple",
           "sideblockopen": true,
           "title": "Etiquetas HTML",
-          "description": "Lo primero que debemos entender es que HTML se compone de etiquetas, y cada etiqueta tiene una función diferente. Estas etiquetas se escriben siempre entre los símbolos “menor que” y “mayor que”, y a partir de esta apertura se agregaría lo que se denomina como el contenido de la etiqueta. Por ejemplo, en el caso de un título el contenido sería el texto que contiene dicho título. Una vez terminamos de agregar el contenido es necesario agregar el “cierre” de la etiqueta para poder dar lugar a la creación de próximas etiquetas de otro tipo. Se escribe la misma etiqueta pero esta vez agregando un “slash” justo antes del nombre.",
+          "description": "Una página web se construye con \"etiquetas\". Piensa en ellas como cajas con un nombre: cada caja guarda algo distinto (un título, un texto, una imagen).",
           "icon": null,
           "postDescription": null,
           "mgContent": "```html\n\n```",
@@ -2602,7 +3143,7 @@
           "subtemplate": "simple",
           "sideblockopen": true,
           "title": "Apertura de etiqueta",
-          "description": "Estás etiquetas se escriben siempre entre los símbolos “menor que” y “mayor que”",
+          "description": "Toda etiqueta empieza abriéndose. Para ello usamos el símbolo \"menor que\". Es como abrir la tapa de la caja para empezar a llenarla.",
           "icon": null,
           "postDescription": null,
           "mgContent": "```html\n<\n```",
@@ -2620,7 +3161,7 @@
           "subtemplate": "simple",
           "sideblockopen": true,
           "title": "Apertura de etiqueta",
-          "description": "Luego añadimos el nombre de la etiqueta, que es lo que define el tipo de elemento que se va a crear, por ejemplo un título, un párrafo, una imagen...",
+          "description": "Después escribimos el nombre y cerramos con \"mayor que\". El nombre dice qué es esa caja: un título, un párrafo, una imagen...",
           "icon": null,
           "postDescription": null,
           "mgContent": "```html\n<etiqueta>\n```",
@@ -2638,7 +3179,7 @@
           "subtemplate": "simple",
           "sideblockopen": true,
           "title": "Contenido de la etiqueta",
-          "description": "A esto se le denomina apertura de etiqueta, y a partir de esta apertura se agregaría lo que se denomina como el contenido de la etiqueta. Por ejemplo, en el caso de un título el contenido sería el texto que contiene dicho título.",
+          "description": "Con la etiqueta ya abierta, escribimos dentro su contenido. Es lo que verá la persona: por ejemplo, el texto de un título.",
           "icon": null,
           "postDescription": null,
           "mgContent": "```html\n<etiqueta> Contenido de mi etiqueta\n```",
@@ -2656,7 +3197,7 @@
           "subtemplate": "simple",
           "sideblockopen": true,
           "title": "Cierre de etiqueta",
-          "description": "Una vez terminamos de agregar el contenido es necesario agregar el “cierre” de la etiqueta para poder dar lugar a la creación de próximas etiquetas de otro tipo. Se escribe la misma etiqueta pero esta vez agregando un “slash” justo antes del nombre.",
+          "description": "Al terminar, cerramos la etiqueta para decir \"aquí acaba\". Es la misma etiqueta, pero con una barra (/) delante del nombre. Como cerrar la tapa de la caja.",
           "icon": null,
           "postDescription": null,
           "mgContent": "```html\n<etiqueta> Contenido de mi etiqueta </etiqueta>\n```",
@@ -2674,7 +3215,7 @@
           "subtemplate": "simple",
           "sideblockopen": true,
           "title": "Atributos",
-          "description": "Las etiquetas en muchas ocaciones pueden tener atributos extras que nos e pueden agregar desde el contenido, sino que debemos agregarlos dentro de la apertura como un atributo con un valor designado.",
+          "description": "A veces una etiqueta necesita datos extra. Esos datos, llamados atributos, son como una pegatina en la caja con instrucciones. Se escriben dentro de la apertura, con un nombre y su valor.",
           "icon": null,
           "postDescription": null,
           "mgContent": "```html\n<etiqueta atributo=\"valor\"> Contenido de mi etiqueta </etiqueta>\n```",
@@ -2692,7 +3233,7 @@
           "subtemplate": "simple",
           "sideblockopen": true,
           "title": "Etiquetas sin cierre",
-          "description": "Hay otros casos en los que la etiqueta en cuestión no tiene un contenido escrito como tal, como puede ser el caso de una imagen. En estos casos no es requerido un cierre de la etiqueta ya que todos los valores irán dados desde los atributos.",
+          "description": "Algunas etiquetas no llevan contenido dentro, como una imagen. No hace falta cerrarlas: toda su información va en los atributos. Aquí, src dice dónde está la imagen.",
           "icon": null,
           "postDescription": null,
           "mgContent": "```html\n<img src=\"mi_imagen.png\">\n```",
@@ -2710,7 +3251,7 @@
           "subtemplate": "simple",
           "sideblockopen": true,
           "title": "Etiquetas iniciales",
-          "description": "Aquí una lista de etiquetas iniciales.",
+          "description": "Estas son las etiquetas que usaremos para empezar: títulos (de h1, el más grande, a h6, el más pequeño, como en un libro), párrafos de texto, enlaces e imágenes.",
           "icon": null,
           "postDescription": null,
           "mgContent": "```html\n<h1> Primer título</h1>\n<h2> Segundo título </h2>\n<h3> Tercer título </h3>\n<h4> Cuarto título </h4>\n<h5> Quinto título </h5>\n<h6> Sexto título </h6>\n\n<p> Párrafos y textos largos. </p>\n<a> Enlaces </a>\n<img>\n```",
@@ -5990,6 +6531,15 @@
           "target": null,
           "disabled": null,
           "description": null
+        },
+        {
+          "title": "Módulo",
+          "color": "black",
+          "icon": "ri-bookmark-fill",
+          "href": "wordpress/intro/modulo",
+          "target": null,
+          "disabled": null,
+          "description": null
         }
       ]
     },
@@ -8301,6 +8851,1220 @@
           ],
           "download": false,
           "downloadLink": null
+        }
+      ]
+    },
+    "web/theme/html/listas": {
+      "kind": "deck",
+      "path": "web/theme/html/listas",
+      "slides": [
+        {
+          "theme": 8,
+          "slug": "html/listas",
+          "color": "red",
+          "template": "cover",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "icon": "ri-list-check",
+          "title": "Listas",
+          "description": "Aprende a agrupar y ordenar información en tu página, igual que cuando escribes una lista de la compra.",
+          "coverImg": "cover"
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "Las listas",
+          "description": "Una lista sirve para agrupar varias cosas que van juntas, una debajo de otra. Piensa en tu lista de la compra: ordenada y fácil de leer de un vistazo."
+        },
+        {
+          "template": "card",
+          "subtemplate": "list",
+          "sideblockopen": false,
+          "title": "Tipos de lista",
+          "description": "Hay tres listas que vas a usar casi siempre. Cada una sirve para un caso distinto.",
+          "listItems": [
+            {
+              "num": "1",
+              "title": "No ordenadas"
+            },
+            {
+              "num": "2",
+              "title": "Ordenadas"
+            },
+            {
+              "num": "3",
+              "title": "De definiciones"
+            }
+          ]
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Listas no ordenadas",
+          "description": "Para cosas en las que el orden da igual, como la lista de la compra. Cada cosa va en su línea y aparece con un puntito (una viñeta) delante.",
+          "mgCode": "html",
+          "mgContent": "```html\n<ul>\n  <li>Manzana</li>\n  <li>Pera</li>\n  <li>Plátano</li>\n</ul>\n```"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Listas ordenadas",
+          "description": "Para cuando el orden importa, como los pasos de una receta. Aquí cada cosa aparece numerada: 1, 2, 3…",
+          "mgCode": "html",
+          "mgContent": "```html\n<ol>\n  <li>Encender el ordenador</li>\n  <li>Abrir el editor</li>\n  <li>Escribir código</li>\n</ol>\n```"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Listas de definiciones",
+          "description": "Como las palabras de un diccionario: a un lado la palabra y al lado su significado. Una pareja de término y explicación.",
+          "mgCode": "html",
+          "mgContent": "```html\n<dl>\n  <dt>HTML</dt>\n  <dd>Estructura el contenido de la web.</dd>\n  <dt>CSS</dt>\n  <dd>Da estilo y diseño a la web.</dd>\n</dl>\n```"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Listas anidadas",
+          "description": "Es una lista dentro de otra lista, como las carpetas dentro de carpetas. Sirve para mostrar un grupo y sus partes.",
+          "mgCode": "html",
+          "mgContent": "```html\n<ul>\n  <li>Frontend\n    <ul>\n      <li>HTML</li>\n      <li>CSS</li>\n    </ul>\n  </li>\n  <li>Backend</li>\n</ul>\n```"
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "Los tres tipos de lista",
+          "description": "Mira cómo se ve cada una: una con puntitos, otra con números y la última con palabra y su significado al lado.",
+          "iframe": "tipos-de-lista"
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": "ri-book-read-line",
+          "title": "Documentación oficial",
+          "description": "Si quieres profundizar, aquí tienes la página oficial donde se explica todo con más detalle.",
+          "linksList": [
+            {
+              "title": "ul",
+              "link": "https://developer.mozilla.org/es/docs/Web/HTML/Element/ul"
+            },
+            {
+              "title": "ol",
+              "link": "https://developer.mozilla.org/es/docs/Web/HTML/Element/ol"
+            },
+            {
+              "title": "dl",
+              "link": "https://developer.mozilla.org/es/docs/Web/HTML/Element/dl"
+            }
+          ]
+        }
+      ]
+    },
+    "web/theme/html/etiquetas-semanticas": {
+      "kind": "deck",
+      "path": "web/theme/html/etiquetas-semanticas",
+      "slides": [
+        {
+          "theme": 7,
+          "slug": "html/etiquetas-semanticas",
+          "color": "red",
+          "template": "cover",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "icon": "ri-page-separator",
+          "title": "Etiquetas semánticas",
+          "description": "Aprende a ordenar tu página por zonas con nombre, igual que las habitaciones de una casa. Así todos entienden para qué sirve cada parte.",
+          "coverImg": "cover"
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "Las etiquetas semánticas",
+          "description": "Una etiqueta semántica es una caja con una etiqueta pegada que dice qué hay dentro. No solo agrupa el contenido: también le pone nombre para que todos sepan qué es."
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "¿Por qué importan?",
+          "description": "Piensa en una caja sin etiqueta: nadie sabe qué hay dentro. Poner nombre a cada zona ayuda a las personas ciegas, a Google a encontrarte y a ti a no perderte en tu propio trabajo."
+        },
+        {
+          "template": "card",
+          "subtemplate": "list",
+          "sideblockopen": false,
+          "title": "Etiquetas principales",
+          "description": "Estas son las zonas que más vas a usar para montar una página. Las vemos una a una.",
+          "listItems": [
+            {
+              "num": "1",
+              "title": "div y span"
+            },
+            {
+              "num": "2",
+              "title": "header, nav y footer"
+            },
+            {
+              "num": "3",
+              "title": "main, section y article"
+            },
+            {
+              "num": "4",
+              "title": "aside, figure y figcaption"
+            }
+          ]
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "div y span",
+          "description": "Son cajas sin nombre, solo para agrupar. `<div>` es una caja grande que ocupa toda la fila; `<span>` es pequeña y rodea solo una palabra dentro de un texto.",
+          "mgCode": "html",
+          "mgContent": "```html\n<div>\n  <p>Hola <span>mundo</span></p>\n</div>\n```"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "header, nav y footer",
+          "description": "Las tres zonas de toda página: `<header>` es la parte de arriba, `<nav>` es el menú con los enlaces y `<footer>` es la parte de abajo, como la firma de una carta.",
+          "mgCode": "html",
+          "mgContent": "```html\n<header>\n  <h1>Mi web</h1>\n  <nav>\n    <a href=\"#\">Inicio</a>\n    <a href=\"#\">Contacto</a>\n  </nav>\n</header>\n<footer>\n  <p>© 2026 Mi web</p>\n</footer>\n```"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "main, section y article",
+          "description": "`<main>` es el contenido importante de la página. Dentro, `<section>` es un apartado (como un capítulo) y `<article>` es una pieza con sentido propio, como una sola noticia.",
+          "mgCode": "html",
+          "mgContent": "```html\n<main>\n  <section>\n    <h2>Noticias</h2>\n    <article>\n      <h3>Primera noticia</h3>\n      <p>Contenido de la noticia.</p>\n    </article>\n  </section>\n</main>\n```"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "aside, figure y figcaption",
+          "description": "`<aside>` es un recuadro al lado con info extra, como una nota al margen. `<figure>` envuelve una imagen y `<figcaption>` es el pie que la explica.",
+          "mgCode": "html",
+          "mgContent": "```html\n<aside>\n  <p>Contenido relacionado.</p>\n</aside>\n<figure>\n  <img src=\"gato.jpg\" alt=\"Un gato\">\n  <figcaption>Un gato durmiendo.</figcaption>\n</figure>\n```"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Maquetación semántica",
+          "description": "Ahora juntamos todas las zonas y queda una página entera ordenada: arriba, menú, contenido, recuadro lateral y abajo. Cada parte en su sitio.",
+          "mgCode": "html",
+          "mgContent": "```html\n<body>\n  <header>\n    <nav>...</nav>\n  </header>\n  <main>\n    <section>\n      <article>...</article>\n    </section>\n    <aside>...</aside>\n  </main>\n  <footer>...</footer>\n</body>\n```"
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "Etiquetas semánticas",
+          "description": "Mira el dibujo: cada zona de la página lleva su propio nombre. Arriba el header con el menú, en medio el contenido y el lateral, y abajo el pie.",
+          "iframe": "estructura"
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": "ri-book-read-line",
+          "title": "Documentación oficial",
+          "description": "Si quieres mirar más por tu cuenta, aquí tienes la guía oficial de MDN, una web de consulta donde está explicado todo con detalle.",
+          "linksList": [
+            {
+              "title": "Elementos HTML",
+              "link": "https://developer.mozilla.org/es/docs/Web/HTML/Element"
+            },
+            {
+              "title": "section",
+              "link": "https://developer.mozilla.org/es/docs/Web/HTML/Element/section"
+            },
+            {
+              "title": "article",
+              "link": "https://developer.mozilla.org/es/docs/Web/HTML/Element/article"
+            }
+          ]
+        }
+      ]
+    },
+    "web/theme/html/tablas": {
+      "kind": "deck",
+      "path": "web/theme/html/tablas",
+      "slides": [
+        {
+          "theme": 6,
+          "slug": "html/tablas",
+          "color": "red",
+          "template": "cover",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "icon": "ri-table-view",
+          "title": "Tablas",
+          "description": "Una forma de mostrar datos ordenados en filas y columnas, como una hoja de cálculo de Excel.",
+          "coverImg": "cover"
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "Las tablas",
+          "description": "Imagina una cuadrícula como la de Excel. Una tabla se organiza en filas (de izquierda a derecha) y en cada fila hay celdas, que son los cuadritos donde escribes los datos."
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "Solo para datos",
+          "description": "Usa las tablas únicamente para mostrar datos ordenados, como una lista de precios o un horario. Nunca las uses para colocar y ordenar el diseño de la página."
+        },
+        {
+          "template": "card",
+          "subtemplate": "list",
+          "sideblockopen": false,
+          "title": "Estructura de una tabla",
+          "description": "Estas son las cuatro piezas con las que armamos cualquier tabla.",
+          "listItems": [
+            {
+              "num": "1",
+              "title": "La tabla entera"
+            },
+            {
+              "num": "2",
+              "title": "Cada fila"
+            },
+            {
+              "num": "3",
+              "title": "Cada celda (los cuadritos)"
+            },
+            {
+              "num": "4",
+              "title": "Los títulos de la tabla"
+            }
+          ]
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Estructura básica",
+          "description": "Piensa en cada fila como un renglón. Dentro de cada fila van las celdas, los cuadritos donde escribes cada dato. Aquí hay dos personas con su nombre y su edad.",
+          "mgCode": "html",
+          "mgContent": "```html\n<table>\n  <tr>\n    <td>Ana</td>\n    <td>28</td>\n  </tr>\n  <tr>\n    <td>Luis</td>\n    <td>34</td>\n  </tr>\n</table>\n```"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Celdas de encabezado",
+          "description": "Los encabezados son los títulos de cada columna, como \"Nombre\" o \"Edad\". Van en negrita para que se note que mandan sobre el resto de la columna.",
+          "mgCode": "html",
+          "mgContent": "```html\n<table>\n  <tr>\n    <th scope=\"col\">Nombre</th>\n    <th scope=\"col\">Edad</th>\n  </tr>\n  <tr>\n    <td>Ana</td>\n    <td>28</td>\n  </tr>\n</table>\n```"
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "Tablas",
+          "description": "Así se ve una tabla terminada: arriba los títulos de cada columna y, debajo, las filas con los datos.",
+          "iframe": "tabla"
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": "ri-book-read-line",
+          "title": "Documentación oficial",
+          "description": "Si quieres profundizar, aquí tienes las páginas oficiales de MDN, la referencia donde se explica todo con detalle.",
+          "linksList": [
+            {
+              "title": "table",
+              "link": "https://developer.mozilla.org/es/docs/Web/HTML/Element/table"
+            },
+            {
+              "title": "tr",
+              "link": "https://developer.mozilla.org/es/docs/Web/HTML/Element/tr"
+            },
+            {
+              "title": "td",
+              "link": "https://developer.mozilla.org/es/docs/Web/HTML/Element/td"
+            }
+          ]
+        }
+      ]
+    },
+    "web/theme/html/symbol": {
+      "kind": "deck",
+      "path": "web/theme/html/symbol",
+      "slides": [
+        {
+          "theme": 11,
+          "slug": "html/symbol",
+          "color": "red",
+          "template": "cover",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "icon": "ri-shapes-line",
+          "title": "Symbol",
+          "description": "Dibuja un icono una sola vez y úsalo muchas veces. Como un sello de goma que estampas donde quieras.",
+          "coverImg": "cover"
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "SVG",
+          "description": "El SVG es una forma de dibujar en la web. Lo bueno: puedes agrandarlo todo lo que quieras y nunca se ve borroso ni pixelado."
+        },
+        {
+          "template": "card",
+          "subtemplate": "list",
+          "sideblockopen": false,
+          "title": "Reutilizar gráficos",
+          "description": "Imagina que necesitas el mismo icono en diez sitios. Con estas dos piezas lo dibujas una vez y lo repites sin copiar y pegar.",
+          "listItems": [
+            {
+              "num": "1",
+              "title": "symbol"
+            },
+            {
+              "num": "2",
+              "title": "use"
+            }
+          ]
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "La etiqueta symbol",
+          "description": "Es el molde del dibujo. Lo guardas con un nombre, pero todavía no se ve nada en pantalla: es solo la plantilla.",
+          "mgCode": "html",
+          "mgContent": "```html\n<svg>\n  <defs>\n    <symbol id=\"corazon\" viewBox=\"0 0 24 24\">\n      <path d=\"M12 21 4 13a5 5 0 0 1 8-6 5 5 0 0 1 8 6z\" />\n    </symbol>\n  </defs>\n</svg>\n```"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "La etiqueta use",
+          "description": "Aquí sí aparece el dibujo. Llamas al molde por su nombre y se estampa el icono, sin tener que volver a dibujarlo.",
+          "mgCode": "html",
+          "mgContent": "```html\n<svg width=\"24\" height=\"24\">\n  <use href=\"#corazon\" />\n</svg>\n```"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Sprites SVG",
+          "description": "Es como tener una caja con todos tus sellos guardados juntos. Defines varios iconos una vez y luego los estampas por toda la página.",
+          "mgCode": "html",
+          "mgContent": "```html\n<svg style=\"display: none\">\n  <symbol id=\"casa\" viewBox=\"0 0 24 24\">\n    <path d=\"M3 11 12 3l9 8v9H3z\" />\n  </symbol>\n  <symbol id=\"estrella\" viewBox=\"0 0 24 24\">\n    <path d=\"m12 2 3 7 7 .5-5 5 1.5 7-6.5-4-6.5 4 1.5-7-5-5 7-.5z\" />\n  </symbol>\n</svg>\n\n<svg width=\"24\" height=\"24\"><use href=\"#casa\" /></svg>\n<svg width=\"24\" height=\"24\"><use href=\"#estrella\" /></svg>\n```",
+          "postDescription": "Escribes mucho menos y, además, puedes cambiarles el color a todos los iconos cuando quieras."
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "El elemento symbol",
+          "description": "Aquí lo ves en acción: el mismo dibujo repetido varias veces, cada copia con su tamaño y su color, sin volver a dibujarlo.",
+          "iframe": "sprite"
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": "ri-book-read-line",
+          "title": "Documentación oficial",
+          "description": "Si quieres profundizar, aquí tienes las páginas oficiales de MDN. Son la guía de referencia de toda la web.",
+          "linksList": [
+            {
+              "title": "symbol",
+              "link": "https://developer.mozilla.org/es/docs/Web/SVG/Element/symbol"
+            },
+            {
+              "title": "use",
+              "link": "https://developer.mozilla.org/es/docs/Web/SVG/Element/use"
+            }
+          ]
+        }
+      ]
+    },
+    "web/theme/html/imagenes": {
+      "kind": "deck",
+      "path": "web/theme/html/imagenes",
+      "slides": [
+        {
+          "theme": 5,
+          "slug": "html/imagenes",
+          "color": "red",
+          "template": "cover",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "icon": "ri-image-2-fill",
+          "title": "Imágenes",
+          "description": "Vamos a poner fotos en una página web y a hacerlo bien: que se vean en cualquier pantalla y que todo el mundo las entienda.",
+          "coverImg": "cover"
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "Las imágenes",
+          "description": "Una página solo con texto cansa. Las imágenes la hacen más viva y fácil de seguir. Vamos a ver cómo añadirlas paso a paso."
+        },
+        {
+          "template": "card",
+          "subtemplate": "list",
+          "sideblockopen": false,
+          "title": "Qué veremos",
+          "description": "Estas son las tres cosas que aprenderás hoy para trabajar con imágenes.",
+          "listItems": [
+            {
+              "num": "1",
+              "title": "Cómo añadir una imagen"
+            },
+            {
+              "num": "2",
+              "title": "Cómo describir lo que se ve en ella"
+            },
+            {
+              "num": "3",
+              "title": "Cómo decirle dónde está la foto"
+            }
+          ]
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Cómo añadir una imagen",
+          "description": "Para poner una foto usamos `src`, que es como la dirección donde vive la imagen. Con `width` y `height` decimos cómo de grande queremos verla.",
+          "mgCode": "html",
+          "mgContent": "```html\n<img src=\"logo.png\" alt=\"Logo de la empresa\" width=\"200\" height=\"100\">\n```"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Describe lo que se ve",
+          "description": "En `alt` escribimos qué muestra la foto, como si se la describieras a alguien por teléfono. Sirve si la imagen no carga y para quien no puede verla.",
+          "mgCode": "html",
+          "mgContent": "```html\n<img src=\"gato.jpg\" alt=\"Un gato naranja durmiendo en un sofá\">\n```"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Dónde está la foto",
+          "description": "Una ruta relativa es una foto que tienes guardada en tu propio proyecto. Una absoluta es una foto que está en otra web, con su dirección completa.",
+          "mgCode": "html",
+          "mgContent": "```html\n<img src=\"img/foto.jpg\" alt=\"Ruta relativa\">\n<img src=\"https://ejemplo.com/foto.jpg\" alt=\"Ruta absoluta\">\n```"
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "Cómo añadir una imagen",
+          "description": "Recuerda: toda imagen necesita su `src` (dónde está la foto) y su `alt` (qué se ve en ella).",
+          "iframe": "imagen"
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": "ri-book-read-line",
+          "title": "Documentación oficial",
+          "description": "Si quieres profundizar, aquí tienes la página oficial de MDN, una especie de enciclopedia sobre webs.",
+          "linksList": [
+            {
+              "title": "img",
+              "link": "https://developer.mozilla.org/es/docs/Web/HTML/Element/img"
+            }
+          ]
+        }
+      ]
+    },
+    "web/theme/html/encabezados": {
+      "kind": "deck",
+      "path": "web/theme/html/encabezados",
+      "slides": [
+        {
+          "theme": 2,
+          "slug": "html/encabezados",
+          "color": "red",
+          "template": "cover",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "icon": "ri-heading",
+          "title": "Encabezados",
+          "description": "Los títulos de una página web. Como en un libro: hay un título grande y, debajo, títulos de capítulos más pequeños.",
+          "coverImg": "cover"
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "Los encabezados",
+          "description": "Son los títulos de tu página. Existen seis tamaños, del más importante al menos importante, para ordenar la información como en el índice de un libro."
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "El título principal",
+          "description": "Imagina la portada de un libro: ahí va el título grande. En la web ese título principal es `<h1>`, y solo hay uno por página.",
+          "mgCode": "html",
+          "mgContent": "```html\n<h1>Recetas de cocina</h1>\n```"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Subtítulos y secciones",
+          "description": "Debajo del título principal vienen los títulos de capítulos y apartados. Van de `<h2>` a `<h6>`, cada vez menos importantes.",
+          "mgCode": "html",
+          "mgContent": "```html\n<h1>Recetas de cocina</h1>\n<h2>Postres</h2>\n<h3>Tartas</h3>\n```"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Jerarquía, no tamaño",
+          "description": "El número no indica lo grande que se ve el texto, sino su importancia. Es la confusión más típica al empezar.",
+          "mgCode": "html",
+          "mgContent": "```html\n<h2>Postres</h2>\n<h3>Tartas</h3>\n<h3>Galletas</h3>\n```",
+          "postDescription": "Piensa en un índice: un `<h3>` es un apartado que va dentro de un capítulo `<h2>`."
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "Jerarquía de encabezados",
+          "description": "Fíjate cómo de h1 a h6 el texto se hace más pequeño: estás ordenando tu contenido de lo más importante a lo menos.",
+          "iframe": "jerarquia"
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": "ri-book-read-line",
+          "title": "Documentación oficial",
+          "description": "Si quieres ampliar, aquí tienes la página oficial de MDN, una especie de gran manual de consulta para la web.",
+          "linksList": [
+            {
+              "title": "Heading Elements",
+              "link": "https://developer.mozilla.org/es/docs/Web/HTML/Element/Heading_Elements"
+            }
+          ]
+        }
+      ]
+    },
+    "web/theme/html/parrafos": {
+      "kind": "deck",
+      "path": "web/theme/html/parrafos",
+      "slides": [
+        {
+          "theme": 3,
+          "slug": "html/parrafos",
+          "color": "red",
+          "template": "cover",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "icon": "ri-paragraph",
+          "title": "Párrafos",
+          "description": "Aprende a separar el texto en bloques, como cuando dejas un espacio entre una idea y otra para que todo se lea mejor.",
+          "coverImg": "cover"
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "Los párrafos",
+          "description": "Un párrafo es un bloque de texto con una idea. Piensa en una carta: cada vez que cambias de tema, empiezas un párrafo nuevo."
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "La etiqueta <p>",
+          "description": "Para crear un párrafo, envuelves tu texto entre `<p>` y `</p>`. Es como meter ese trozo de texto en una caja con la etiqueta \"párrafo\".",
+          "mgCode": "html",
+          "mgContent": "```html\n<p>Este es un párrafo de texto que el navegador muestra como un bloque independiente.</p>\n```"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Una estructura lógica",
+          "description": "Cada idea, en su propio párrafo. Así el texto respira y se lee con calma, como los puntos y aparte de un libro.",
+          "mgCode": "html",
+          "mgContent": "```html\n<p>El primer párrafo presenta una idea concreta.</p>\n<p>El segundo párrafo desarrolla otra idea distinta.</p>\n```"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Un error habitual",
+          "description": "El párrafo es para frases con sentido, no para una palabra suelta. Sería como dedicar un párrafo entero a la palabra \"Hola\".",
+          "mgCode": "html",
+          "mgContent": "```html\n<p>Hola</p>\n<p>Bienvenido aquí</p>\n```",
+          "postDescription": "Guarda los párrafos para textos de verdad, no para palabras sueltas."
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "Párrafos",
+          "description": "Mira el resultado: cada párrafo va por separado y el navegador deja solo un huequito entre uno y otro.",
+          "iframe": "parrafos"
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": "ri-book-read-line",
+          "title": "Documentación oficial",
+          "description": "Si quieres profundizar, aquí tienes la guía oficial de MDN. Es como el manual de instrucciones de esta etiqueta.",
+          "linksList": [
+            {
+              "title": "p",
+              "link": "https://developer.mozilla.org/es/docs/Web/HTML/Element/p"
+            }
+          ]
+        }
+      ]
+    },
+    "web/theme/html/hipervinculos": {
+      "kind": "deck",
+      "path": "web/theme/html/hipervinculos",
+      "slides": [
+        {
+          "theme": 4,
+          "slug": "html/hipervinculos",
+          "color": "red",
+          "template": "cover",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "icon": "ri-links-line",
+          "title": "Hipervínculos",
+          "description": "Los enlaces que conectan unas páginas con otras. Piensa en ellos como puertas: pulsas y pasas a otro sitio.",
+          "coverImg": "cover"
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "¿Qué es un hipervínculo?",
+          "description": "Es un texto en el que pulsas y te lleva a otra página. Como una puerta que conecta una habitación con otra dentro de internet."
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "La etiqueta <a>",
+          "description": "Para crear un enlace usamos la etiqueta `<a>`. Es la pieza que convierte un texto normal en algo en lo que se puede pulsar.",
+          "mgCode": "html",
+          "mgContent": "```html\n<a>Texto del enlace</a>\n```"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "El atributo href",
+          "description": "Con `href` le decimos a la puerta a dónde lleva. Aquí escribes la dirección de la página de destino.",
+          "mgCode": "html",
+          "mgContent": "```html\n<a href=\"https://www.mozilla.org\">Visita Mozilla</a>\n```"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "El atributo title",
+          "description": "Con `title` añades una pista. Es ese textito que aparece cuando dejas el ratón quieto encima del enlace.",
+          "mgCode": "html",
+          "mgContent": "```html\n<a href=\"https://www.mozilla.org\" title=\"Página oficial de Mozilla\">Visita Mozilla</a>\n```"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Enlaces externos",
+          "description": "Llevan a una web de fuera, de otra persona. Por eso escribes la dirección completa, igual que un domicilio entero con calle y ciudad.",
+          "mgCode": "html",
+          "mgContent": "```html\n<a href=\"https://developer.mozilla.org\">Ir a MDN</a>\n```"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Enlaces internos",
+          "description": "Llevan a otra página de tu propio sitio. Como no sales de casa, basta con el nombre del archivo, sin la dirección completa.",
+          "mgCode": "html",
+          "mgContent": "```html\n<a href=\"contacto.html\">Ir a contacto</a>\n```"
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "Así se ve un enlace",
+          "description": "Con `<a>` y `href` cualquier texto se convierte en una puerta. Pasa el ratón por encima y abajo verás a dónde te lleva.",
+          "iframe": "enlace"
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": "ri-book-read-line",
+          "title": "Para saber más",
+          "description": "Si quieres profundizar, esta es la página oficial donde se explica todo sobre los enlaces.",
+          "linksList": [
+            {
+              "title": "a",
+              "link": "https://developer.mozilla.org/es/docs/Web/HTML/Element/a"
+            }
+          ]
+        }
+      ]
+    },
+    "wordpress/intro/modulo": {
+      "kind": "deck",
+      "path": "wordpress/intro/modulo",
+      "slides": [
+        {
+          "theme": 0,
+          "slug": "intro",
+          "color": "black",
+          "template": "cover",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "icon": null,
+          "title": "Sobre el módulo",
+          "description": "Hablemos del módulo de WordPress: el proyecto, las PEC y cómo te evaluamos.",
+          "coverImg": "cover"
+        },
+        {
+          "template": "card",
+          "subtemplate": "list",
+          "sideblockopen": false,
+          "title": "Objetivos del módulo",
+          "description": "Antes de empezar, veamos a dónde queremos llegar. Al terminar el módulo serás capaz de diseñar y publicar webs completas con WordPress.",
+          "listItems": [
+            {
+              "num": "1",
+              "title": "Investigar y definir un proyecto web"
+            },
+            {
+              "num": "2",
+              "title": "Maquetar páginas con Elementor"
+            },
+            {
+              "num": "3",
+              "title": "Crear contenido a medida (CPT y campos personalizados)"
+            },
+            {
+              "num": "4",
+              "title": "Publicar una web completa con tienda"
+            }
+          ]
+        },
+        {
+          "template": "card",
+          "subtemplate": "list",
+          "sideblockopen": false,
+          "title": "La nota del módulo",
+          "description": "Tu nota no depende de un único examen. La iremos construyendo a lo largo del curso aplicando en cada entrega lo que vemos en clase.",
+          "listItems": [
+            {
+              "num": "1",
+              "title": "Proyecto final"
+            },
+            {
+              "num": "2",
+              "title": "Evaluación continua (PEC)"
+            }
+          ]
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Proyecto final",
+          "description": "Irás construyendo tu web de WordPress poco a poco durante todo el curso. El proyecto final lo reúne todo en una página completa.",
+          "list": [
+            {
+              "title": "Se entrega el último día de clase"
+            },
+            {
+              "title": "La semana siguiente se corrige y se sube la nota"
+            },
+            {
+              "title": "Primera entrega: el proyecto completo"
+            },
+            {
+              "title": "Segunda entrega: subir nota o recuperar"
+            }
+          ],
+          "mgTitle": "60%",
+          "mgContent": "Es el peso del proyecto final en la nota del módulo."
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Evaluación continua",
+          "description": "Las PEC son entregas prácticas con las que vas construyendo tu web paso a paso. En cada una recibes feedback para mejorar.",
+          "list": [
+            {
+              "title": "Se trabajan durante la semana o el fin de semana"
+            },
+            {
+              "title": "Recibirás feedback de cada entrega"
+            },
+            {
+              "title": "Se entregan en la fecha prevista"
+            }
+          ],
+          "mgTitle": "40%",
+          "mgContent": "Es el peso de la evaluación continua en la nota del módulo."
+        },
+        {
+          "template": "timeline",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "Las PEC del módulo",
+          "description": "Entregarás seis PEC a lo largo del módulo. Cada una añade una capa a tu web, desde la idea inicial hasta la entrega final.",
+          "timeline": [
+            {
+              "meta": "1",
+              "label": "PEC 1",
+              "span": 1,
+              "color": "black"
+            },
+            {
+              "meta": "2",
+              "label": "PEC 2",
+              "span": 1,
+              "color": "black"
+            },
+            {
+              "meta": "2 - 4",
+              "label": "PEC 3",
+              "span": 2,
+              "color": "black"
+            },
+            {
+              "meta": "4 - 6",
+              "label": "PEC 4",
+              "span": 2,
+              "color": "black"
+            },
+            {
+              "meta": "6 - 8",
+              "label": "PEC 5",
+              "span": 2,
+              "color": "black"
+            },
+            {
+              "meta": "8 - 10",
+              "label": "PEC 6",
+              "span": 2,
+              "color": "black"
+            }
+          ]
+        },
+        {
+          "template": "timeline",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "Las PEC del módulo",
+          "description": "Entregarás seis PEC a lo largo del módulo. Cada una añade una capa a tu web, desde la idea inicial hasta la entrega final.",
+          "timeline": [
+            {
+              "meta": "1",
+              "label": "PEC 1",
+              "span": 1,
+              "color": "blue"
+            },
+            {
+              "meta": "2",
+              "label": "PEC 2",
+              "span": 1,
+              "color": "black"
+            },
+            {
+              "meta": "2 - 4",
+              "label": "PEC 3",
+              "span": 2,
+              "color": "black"
+            },
+            {
+              "meta": "4 - 6",
+              "label": "PEC 4",
+              "span": 2,
+              "color": "black"
+            },
+            {
+              "meta": "6 - 8",
+              "label": "PEC 5",
+              "span": 2,
+              "color": "black"
+            },
+            {
+              "meta": "8 - 10",
+              "label": "PEC 6",
+              "span": 2,
+              "color": "black"
+            }
+          ],
+          "postDescription": "Investigación e inspiración. Buscas referentes y recopilas ideas para definir tu proyecto."
+        },
+        {
+          "template": "timeline",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "Las PEC del módulo",
+          "description": "Entregarás seis PEC a lo largo del módulo. Cada una añade una capa a tu web, desde la idea inicial hasta la entrega final.",
+          "timeline": [
+            {
+              "meta": "1",
+              "label": "PEC 1",
+              "span": 1,
+              "color": "blue"
+            },
+            {
+              "meta": "2",
+              "label": "PEC 2",
+              "span": 1,
+              "color": "blue"
+            },
+            {
+              "meta": "2 - 4",
+              "label": "PEC 3",
+              "span": 2,
+              "color": "black"
+            },
+            {
+              "meta": "4 - 6",
+              "label": "PEC 4",
+              "span": 2,
+              "color": "black"
+            },
+            {
+              "meta": "6 - 8",
+              "label": "PEC 5",
+              "span": 2,
+              "color": "black"
+            },
+            {
+              "meta": "8 - 10",
+              "label": "PEC 6",
+              "span": 2,
+              "color": "black"
+            }
+          ],
+          "postDescription": "Briefing y bocetos. Defines el encargo y dibujas las primeras ideas de la web."
+        },
+        {
+          "template": "timeline",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "Las PEC del módulo",
+          "description": "Entregarás seis PEC a lo largo del módulo. Cada una añade una capa a tu web, desde la idea inicial hasta la entrega final.",
+          "timeline": [
+            {
+              "meta": "1",
+              "label": "PEC 1",
+              "span": 1,
+              "color": "blue"
+            },
+            {
+              "meta": "2",
+              "label": "PEC 2",
+              "span": 1,
+              "color": "blue"
+            },
+            {
+              "meta": "2 - 4",
+              "label": "PEC 3",
+              "span": 2,
+              "color": "blue"
+            },
+            {
+              "meta": "4 - 6",
+              "label": "PEC 4",
+              "span": 2,
+              "color": "black"
+            },
+            {
+              "meta": "6 - 8",
+              "label": "PEC 5",
+              "span": 2,
+              "color": "black"
+            },
+            {
+              "meta": "8 - 10",
+              "label": "PEC 6",
+              "span": 2,
+              "color": "black"
+            }
+          ],
+          "postDescription": "Trabajo grupal con Elementor. En equipo montáis una web con Elementor, el editor visual de WordPress."
+        },
+        {
+          "template": "timeline",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "Las PEC del módulo",
+          "description": "Entregarás seis PEC a lo largo del módulo. Cada una añade una capa a tu web, desde la idea inicial hasta la entrega final.",
+          "timeline": [
+            {
+              "meta": "1",
+              "label": "PEC 1",
+              "span": 1,
+              "color": "blue"
+            },
+            {
+              "meta": "2",
+              "label": "PEC 2",
+              "span": 1,
+              "color": "blue"
+            },
+            {
+              "meta": "2 - 4",
+              "label": "PEC 3",
+              "span": 2,
+              "color": "blue"
+            },
+            {
+              "meta": "4 - 6",
+              "label": "PEC 4",
+              "span": 2,
+              "color": "blue"
+            },
+            {
+              "meta": "6 - 8",
+              "label": "PEC 5",
+              "span": 2,
+              "color": "black"
+            },
+            {
+              "meta": "8 - 10",
+              "label": "PEC 6",
+              "span": 2,
+              "color": "black"
+            }
+          ],
+          "postDescription": "Inicio y servicios. Creas la página de inicio y la de servicios o «sobre nosotros» de tu proyecto personal."
+        },
+        {
+          "template": "timeline",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "Las PEC del módulo",
+          "description": "Entregarás seis PEC a lo largo del módulo. Cada una añade una capa a tu web, desde la idea inicial hasta la entrega final.",
+          "timeline": [
+            {
+              "meta": "1",
+              "label": "PEC 1",
+              "span": 1,
+              "color": "blue"
+            },
+            {
+              "meta": "2",
+              "label": "PEC 2",
+              "span": 1,
+              "color": "blue"
+            },
+            {
+              "meta": "2 - 4",
+              "label": "PEC 3",
+              "span": 2,
+              "color": "blue"
+            },
+            {
+              "meta": "4 - 6",
+              "label": "PEC 4",
+              "span": 2,
+              "color": "blue"
+            },
+            {
+              "meta": "6 - 8",
+              "label": "PEC 5",
+              "span": 2,
+              "color": "blue"
+            },
+            {
+              "meta": "8 - 10",
+              "label": "PEC 6",
+              "span": 2,
+              "color": "black"
+            }
+          ],
+          "postDescription": "CPT, campos y tienda. Añades tipos de contenido a medida, campos personalizados y una tienda online."
+        },
+        {
+          "template": "timeline",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "Las PEC del módulo",
+          "description": "Entregarás seis PEC a lo largo del módulo. Cada una añade una capa a tu web, desde la idea inicial hasta la entrega final.",
+          "timeline": [
+            {
+              "meta": "1",
+              "label": "PEC 1",
+              "span": 1,
+              "color": "blue"
+            },
+            {
+              "meta": "2",
+              "label": "PEC 2",
+              "span": 1,
+              "color": "blue"
+            },
+            {
+              "meta": "2 - 4",
+              "label": "PEC 3",
+              "span": 2,
+              "color": "blue"
+            },
+            {
+              "meta": "4 - 6",
+              "label": "PEC 4",
+              "span": 2,
+              "color": "blue"
+            },
+            {
+              "meta": "6 - 8",
+              "label": "PEC 5",
+              "span": 2,
+              "color": "blue"
+            },
+            {
+              "meta": "8 - 10",
+              "label": "PEC 6",
+              "span": 2,
+              "color": "blue"
+            }
+          ],
+          "postDescription": "Proyecto final. Reúnes todo en tu web completa para la entrega final."
         }
       ]
     }

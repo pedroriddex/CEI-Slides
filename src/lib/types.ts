@@ -1,5 +1,5 @@
 export type ThemeColor = 'red' | 'blue' | 'yellow' | 'black';
-export type SlideTemplate = 'cover' | 'about' | 'card' | 'image' | 'text';
+export type SlideTemplate = 'cover' | 'about' | 'card' | 'image' | 'text' | 'timeline';
 export type NavRowVariant = 'primary' | 'primary-grid' | 'secondary';
 export type MagicBoxTone = 'surface' | 'block';
 export type Direction = 'forward' | 'backward';
@@ -50,6 +50,25 @@ export interface ListItem {
 }
 
 /**
+ * One block of the `timeline` template. Segments lay out left-to-right (or
+ * top-to-bottom on narrow screens). `span` is a relative width weight so a
+ * phase that lasts longer renders wider (e.g. HTML/CSS `span: 5` next to
+ * JavaScript `span: 5` splits the track in half). All fields are optional so
+ * a segment can be just an icon, just a label, or a full phase card.
+ */
+export interface TimelineSegment {
+  label?: string | null;
+  caption?: string | null;
+  /** Short badge such as "Sem. 1–5", "60%" or "PEC 1". */
+  meta?: string | null;
+  /** Any icon class (`ri-*` or `devicon-*`). */
+  icon?: string | null;
+  color?: ThemeColor | null;
+  /** Relative width weight. Defaults to 1 when missing or <= 0. */
+  span?: number | null;
+}
+
+/**
  * Data for the secondary "magic box" panel that some slides render alongside
  * the main body. All fields are optional — an empty object just means the
  * slide has no magic box.
@@ -85,6 +104,8 @@ export interface SlideDocument {
   list?: ListItem[];
   iconList?: IconItem[];
   linksList?: LinkItem[];
+  /** Segments rendered by the `timeline` template. */
+  timeline?: TimelineSegment[];
   image?: string | null;
   iframe?: string | null;
   coverImg?: string | null;

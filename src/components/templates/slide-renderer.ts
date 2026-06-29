@@ -7,13 +7,15 @@ import './slide-about';
 import './slide-text';
 import './slide-card';
 import './slide-image';
+import './slide-timeline';
 
 const TAG_BY_TEMPLATE: Record<SlideTemplate, string> = {
   cover: 'slide-cover-template',
   about: 'slide-about-template',
   image: 'slide-image-template',
   card: 'slide-card-template',
-  text: 'slide-text-template'
+  text: 'slide-text-template',
+  timeline: 'slide-timeline-template'
 };
 
 const FALLBACK_TAG = TAG_BY_TEMPLATE.text;

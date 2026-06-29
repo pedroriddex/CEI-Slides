@@ -6,7 +6,8 @@ import type {
   ListItem,
   PhasedItem,
   SlideDocument,
-  SlideTransitionMode
+  SlideTransitionMode,
+  TimelineSegment
 } from './types.ts';
 import {getMagicBox} from './content-helpers.ts';
 
@@ -168,6 +169,17 @@ export function iconItemKey(item: IconItem) {
   return serializeValue({icon: item.icon || null});
 }
 
+export function timelineSegmentKey(item: TimelineSegment) {
+  return serializeValue({
+    label: item.label || null,
+    caption: item.caption || null,
+    meta: item.meta || null,
+    icon: item.icon || null,
+    color: item.color || null,
+    span: item.span ?? null
+  });
+}
+
 export function hasSameLayout(a: SlideDocument | null, b: SlideDocument | null) {
   if (!a || !b) return false;
   return a.template === b.template && Boolean(a.sideblockopen) === Boolean(b.sideblockopen);
@@ -187,6 +199,7 @@ export function getSharedSemanticGroups(a: SlideDocument | null, b: SlideDocumen
     sharedGroup('listItems', a.listItems || [], b.listItems || []),
     sharedGroup('list', a.list || [], b.list || []),
     sharedGroup('linksList', a.linksList || [], b.linksList || []),
+    sharedGroup('timeline', a.timeline || [], b.timeline || []),
     sharedGroup('magicMeta', magicMetaGroup(a), magicMetaGroup(b)),
     sharedGroup('magicLinks', magicBoxA.linksList || [], magicBoxB.linksList || []),
     sharedGroup('magicIcons', magicIconsGroup(a), magicIconsGroup(b)),
