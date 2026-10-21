@@ -1,5 +1,5 @@
 {
-  "versionId": "static-2026-06-23-wp-modulo-v2",
+  "versionId": "static-2026-10-20-css-grid-v1",
   "documents": {
     "": {
       "kind": "index",
@@ -1509,6 +1509,42 @@
         "color": "blue"
       },
       "items": [
+        {
+          "title": "Introducción",
+          "color": "blue",
+          "icon": "ri-css3-fill",
+          "href": "web/theme/css/introduccion",
+          "target": null,
+          "disabled": null,
+          "description": null
+        },
+        {
+          "title": "Box model",
+          "color": "blue",
+          "icon": "ri-aspect-ratio-line",
+          "href": "web/theme/css/box-model",
+          "target": null,
+          "disabled": null,
+          "description": null
+        },
+        {
+          "title": "Flex",
+          "color": "blue",
+          "icon": "ri-layout-column-line",
+          "href": "web/theme/css/flex",
+          "target": null,
+          "disabled": null,
+          "description": null
+        },
+        {
+          "title": "Grid",
+          "color": "blue",
+          "icon": "ri-layout-grid-line",
+          "href": "web/theme/css/grid",
+          "target": null,
+          "disabled": null,
+          "description": null
+        },
         {
           "title": "Position",
           "color": "blue",
@@ -10065,6 +10101,1252 @@
             }
           ],
           "postDescription": "Proyecto final. Reúnes todo en tu web completa para la entrega final."
+        }
+      ]
+    },
+    "web/theme/css/introduccion": {
+      "kind": "deck",
+      "path": "web/theme/css/introduccion",
+      "slides": [
+        {
+          "theme": 1,
+          "slug": "css/introduccion",
+          "color": "blue",
+          "template": "cover",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "icon": "ri-css3-fill",
+          "title": "Introducción a CSS",
+          "description": "Cómo se escribe CSS y sus propiedades básicas.",
+          "coverImg": "cover"
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "¿Qué es CSS?",
+          "description": "El lenguaje que da estilo a la web: colores, tipografías, tamaños… HTML es el esqueleto; CSS, la ropa."
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "HTML vs. HTML + CSS",
+          "iframe": "sin-y-con-css"
+        },
+        {
+          "template": "card",
+          "subtemplate": "list",
+          "sideblockopen": false,
+          "title": "Cómo usar CSS",
+          "description": "Tres formas de añadir CSS a una página.",
+          "listItems": [
+            {
+              "num": "1",
+              "title": "En un archivo aparte"
+            },
+            {
+              "num": "2",
+              "title": "En la etiqueta style"
+            },
+            {
+              "num": "3",
+              "title": "En el atributo style"
+            }
+          ]
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Un archivo aparte",
+          "description": "Un archivo .css enlazado desde el `<head>` con `<link>`. Es la forma recomendada.",
+          "mgCode": "html",
+          "mgContent": "```html\n<head>\n  <link rel=\"stylesheet\" href=\"estilos.css\">\n</head>\n```"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "La etiqueta style",
+          "description": "El CSS dentro de la propia página, en el `<head>`.",
+          "mgCode": "html",
+          "mgContent": "```html\n<head>\n  <style>\n    p { color: blue; }\n  </style>\n</head>\n```"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "El atributo style",
+          "description": "El estilo directamente en una etiqueta. Solo afecta a ese elemento.",
+          "mgCode": "html",
+          "mgContent": "```html\n<p style=\"color: blue;\">Texto azul</p>\n```"
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "Estructura CSS",
+          "description": "CSS tiene su propia forma de escribirse para que el navegador lo entienda."
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "El selector",
+          "description": "Elige a qué elementos damos estilo.",
+          "mgCode": "css",
+          "mgContent": "```css\np { }\n```"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Clases e IDs",
+          "description": "Un punto para las clases y una almohadilla para los id.",
+          "mgCode": "css",
+          "mgContent": "```css\n.destacado { }\n#cabecera { }\n```"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Elementos dentro de otros",
+          "description": "Un espacio entre cada nivel, como una dirección.",
+          "mgCode": "css",
+          "mgContent": "```css\nheader nav a { }\n```"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Varios selectores a la vez",
+          "description": "Separados por comas, comparten los mismos estilos.",
+          "mgCode": "css",
+          "mgContent": "```css\nh1, h2, h3 { }\n```"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Propiedad y valor",
+          "description": "Qué cambiamos y cómo, separados por dos puntos.",
+          "mgCode": "css",
+          "mgContent": "```css\np {\n  color: blue;\n}\n```"
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "Partes de una regla",
+          "iframe": "regla"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "El punto y coma",
+          "description": "Cierra cada declaración. Si falta, falla lo que viene detrás.",
+          "mgCode": "css",
+          "mgContent": "```css\np {\n  color: blue;\n  font-size: 18px;\n}\n```"
+        },
+        {
+          "template": "card",
+          "subtemplate": "list",
+          "sideblockopen": false,
+          "title": "Propiedades básicas",
+          "description": "Las que usarás en todas tus webs.",
+          "listItems": [
+            {
+              "num": "1",
+              "title": "color"
+            },
+            {
+              "num": "2",
+              "title": "background-color"
+            },
+            {
+              "num": "3",
+              "title": "font-family"
+            },
+            {
+              "num": "4",
+              "title": "font-size"
+            },
+            {
+              "num": "5",
+              "title": "font-weight"
+            }
+          ]
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Color",
+          "description": "Cambia el color del texto.",
+          "mgCode": "css",
+          "mgContent": "```css\nh1 {\n  color: black;\n}\n```"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Formas de escribir un color",
+          "description": "Cuatro formas de escribir un color. La última añade transparencia.",
+          "mgCode": "css",
+          "mgContent": "```css\np {\n  color: black;\n  color: #000000;\n  color: rgb(0, 0, 0);\n  color: rgba(0, 0, 0, 0.5);\n}\n```"
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "Colores",
+          "iframe": "colores"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Background color",
+          "description": "Pinta el fondo de un elemento. Admite los mismos valores que color.",
+          "mgCode": "css",
+          "mgContent": "```css\ndiv {\n  background-color: lightblue;\n}\n```"
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "Fondos",
+          "iframe": "fondos"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Font family",
+          "description": "La tipografía. Se ponen varias separadas por comas, por si falta la primera.",
+          "mgCode": "css",
+          "mgContent": "```css\nbody {\n  font-family: Arial, sans-serif;\n}\n```"
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "Tipografías",
+          "iframe": "fuentes"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Font size",
+          "description": "El tamaño del texto. Una unidad habitual es el px.",
+          "mgCode": "css",
+          "mgContent": "```css\np {\n  font-size: 16px;\n}\n```"
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "Tamaños",
+          "iframe": "tamanos"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Font weight",
+          "description": "El grosor de la letra: de 100 a 900, o palabras como normal o bold.",
+          "mgCode": "css",
+          "mgContent": "```css\np {\n  font-weight: 700;\n}\n```"
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "Grosores",
+          "iframe": "grosores"
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "Y mucho más",
+          "description": "Iremos descubriendo muchas más a lo largo del módulo."
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": "ri-book-read-line",
+          "title": "Documentación oficial",
+          "description": "Como siempre, puedes revisar la documentación oficial de MDN Web Docs para más información.",
+          "linksList": [
+            {
+              "title": "CSS",
+              "link": "https://developer.mozilla.org/es/docs/Web/CSS"
+            },
+            {
+              "title": "Selectores CSS",
+              "link": "https://developer.mozilla.org/es/docs/Web/CSS/CSS_selectors"
+            },
+            {
+              "title": "color",
+              "link": "https://developer.mozilla.org/es/docs/Web/CSS/color"
+            }
+          ]
+        }
+      ]
+    },
+    "web/theme/css/box-model": {
+      "kind": "deck",
+      "path": "web/theme/css/box-model",
+      "slides": [
+        {
+          "theme": 2,
+          "slug": "css/box-model",
+          "color": "blue",
+          "template": "cover",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "icon": "ri-aspect-ratio-line",
+          "title": "Box model",
+          "description": "Las cajas que envuelven cada elemento de HTML y cómo modificarlas.",
+          "coverImg": "cover"
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "Comprendiendo las cajas",
+          "description": "Todo elemento de HTML vive dentro de una caja invisible que decide cuánto espacio ocupa. Y no, no hablamos del div."
+        },
+        {
+          "template": "card",
+          "subtemplate": "list",
+          "sideblockopen": false,
+          "title": "Las partes de la caja",
+          "description": "Cuatro capas, de dentro hacia fuera.",
+          "listItems": [
+            {
+              "num": "1",
+              "title": "Content"
+            },
+            {
+              "num": "2",
+              "title": "Padding"
+            },
+            {
+              "num": "3",
+              "title": "Border"
+            },
+            {
+              "num": "4",
+              "title": "Margin"
+            }
+          ]
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "Así se ve una caja",
+          "iframe": "caja"
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "Modificando las propiedades",
+          "description": "Cada capa se puede modificar con CSS para controlar el espacio y cómo se relacionan los elementos."
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Padding",
+          "description": "Se puede dar a cada lado por separado.",
+          "mgCode": "css",
+          "mgContent": "```css\npadding-top: 16px;\npadding-right: 16px;\npadding-bottom: 16px;\npadding-left: 16px;\n```"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Padding en una línea",
+          "description": "Todos los lados se pueden escribir en una sola propiedad.",
+          "mgCode": "css",
+          "mgContent": "```css\n/* Los cuatro lados */\npadding: 16px;\n```"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Padding en una línea",
+          "description": "Todos los lados se pueden escribir en una sola propiedad.",
+          "mgCode": "css",
+          "mgContent": "```css\n/* Arriba y abajo | Izquierda y derecha */\npadding: 16px 32px;\n```"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Padding en una línea",
+          "description": "Todos los lados se pueden escribir en una sola propiedad.",
+          "mgCode": "css",
+          "mgContent": "```css\n/* Arriba | Izquierda y derecha | Abajo */\npadding: 16px 32px 8px;\n```"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Padding en una línea",
+          "description": "Todos los lados se pueden escribir en una sola propiedad.",
+          "mgCode": "css",
+          "mgContent": "```css\n/* Arriba | Derecha | Abajo | Izquierda */\npadding: 16px 32px 8px 4px;\n```"
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "Padding en acción",
+          "iframe": "padding-valores"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Border",
+          "description": "Tiene tres partes: grosor, estilo y color.",
+          "mgCode": "css",
+          "mgContent": "```css\nborder-width: 1px;\nborder-style: solid;\nborder-color: black;\n```"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Border en un lado",
+          "description": "Se puede aplicar a un solo lado, aunque no es habitual.",
+          "mgCode": "css",
+          "mgContent": "```css\nborder-top-width: 1px;\nborder-top-style: solid;\nborder-top-color: black;\n```"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Border en una línea",
+          "description": "Lo habitual: grosor, estilo y color en una sola propiedad.",
+          "mgCode": "css",
+          "mgContent": "```css\nborder: 1px solid black;\n```"
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "Border en acción",
+          "iframe": "border-valores"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Margin",
+          "description": "Se puede dar a cada lado por separado.",
+          "mgCode": "css",
+          "mgContent": "```css\nmargin-top: 16px;\nmargin-right: 16px;\nmargin-bottom: 16px;\nmargin-left: 16px;\n```"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Margin en una línea",
+          "description": "Todos los lados se pueden escribir en una sola propiedad.",
+          "mgCode": "css",
+          "mgContent": "```css\n/* Los cuatro lados */\nmargin: 16px;\n```"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Margin en una línea",
+          "description": "Todos los lados se pueden escribir en una sola propiedad.",
+          "mgCode": "css",
+          "mgContent": "```css\n/* Arriba y abajo | Izquierda y derecha */\nmargin: 16px 32px;\n```"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Margin en una línea",
+          "description": "Todos los lados se pueden escribir en una sola propiedad.",
+          "mgCode": "css",
+          "mgContent": "```css\n/* Arriba | Izquierda y derecha | Abajo */\nmargin: 16px 32px 8px;\n```"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Margin en una línea",
+          "description": "Todos los lados se pueden escribir en una sola propiedad.",
+          "mgCode": "css",
+          "mgContent": "```css\n/* Arriba | Derecha | Abajo | Izquierda */\nmargin: 16px 32px 8px 4px;\n```"
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "Margin en acción",
+          "iframe": "margin-valores"
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "Ancho y alto",
+          "description": "Podemos decidir cuánto ocupa una caja. Eso sí, depende del tipo de caja que sea."
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Width y height",
+          "description": "El ancho y el alto, en px, % y otras unidades que iremos viendo.",
+          "mgCode": "css",
+          "mgContent": "```css\nwidth: 100%;\nheight: 150px;\n```"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Mínimos y máximos",
+          "description": "Limitan cuánto puede crecer o encogerse la caja.",
+          "mgCode": "css",
+          "mgContent": "```css\nmax-width: 100%;\nmin-width: 500px;\nmax-height: 150px;\nmin-height: 50px;\n```"
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "Width en acción",
+          "iframe": "width-valores"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "¿Cuánto mide esta caja?",
+          "description": "Mide 248px: el padding y el border se suman al width.",
+          "mgCode": "css",
+          "mgContent": "```css\nwidth: 200px;\npadding: 20px;\nborder: 4px solid;\n```"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Box sizing",
+          "description": "Decide si el padding y el border se suman al width o van por dentro.",
+          "mgCode": "css",
+          "mgContent": "```css\n/* Por defecto: se suman (248px) */\nbox-sizing: content-box;\n\n/* Van por dentro (200px) */\nbox-sizing: border-box;\n```"
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "Box sizing en acción",
+          "iframe": "box-sizing"
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "Display",
+          "description": "Una caja puede ser de bloque o en línea, y eso cambia cómo se coloca respecto a las demás."
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Block",
+          "description": "Ocupa todo el ancho y se coloca debajo de la anterior. Así son los títulos, los párrafos o los div.",
+          "mgCode": "css",
+          "mgContent": "```css\ndisplay: block;\n```"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Inline",
+          "description": "Ocupa solo lo que su contenido y se coloca al lado. Ignora width y height.",
+          "mgCode": "css",
+          "mgContent": "```css\ndisplay: inline;\n```"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Inline-block",
+          "description": "Se coloca en línea, pero sí respeta width y height.",
+          "mgCode": "css",
+          "mgContent": "```css\ndisplay: inline-block;\n```"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "None",
+          "description": "El elemento desaparece: ni se ve ni ocupa espacio.",
+          "mgCode": "css",
+          "mgContent": "```css\ndisplay: none;\n```"
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "Display en acción",
+          "iframe": "display-valores"
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": "ri-book-read-line",
+          "title": "Documentación oficial",
+          "description": "Como siempre, puedes revisar la documentación oficial de MDN Web Docs para más información.",
+          "linksList": [
+            {
+              "title": "Modelo de caja",
+              "link": "https://developer.mozilla.org/es/docs/Learn/CSS/Building_blocks/The_box_model"
+            },
+            {
+              "title": "border",
+              "link": "https://developer.mozilla.org/es/docs/Web/CSS/border"
+            },
+            {
+              "title": "box-sizing",
+              "link": "https://developer.mozilla.org/es/docs/Web/CSS/box-sizing"
+            },
+            {
+              "title": "display",
+              "link": "https://developer.mozilla.org/es/docs/Web/CSS/display"
+            }
+          ]
+        }
+      ]
+    },
+    "web/theme/css/flex": {
+      "kind": "deck",
+      "path": "web/theme/css/flex",
+      "slides": [
+        {
+          "theme": 3,
+          "slug": "css/flex",
+          "color": "blue",
+          "template": "cover",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "icon": "ri-layout-column-line",
+          "title": "Flex",
+          "description": "Contenedores flexibles para colocar los elementos a nuestro antojo.",
+          "coverImg": "cover"
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "Contenedores flexibles",
+          "description": "Flex es un tipo de display. Convierte una caja en un contenedor que coloca a sus hijos como queramos."
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "Block vs. flex",
+          "iframe": "display"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Display flex",
+          "description": "Se escribe en el contenedor, no en los elementos.",
+          "mgCode": "css",
+          "mgContent": "```css\n.contenedor {\n  display: flex;\n}\n\n/* Contenedor flex que se comporta como inline */\ndisplay: inline-flex;\n```"
+        },
+        {
+          "template": "card",
+          "subtemplate": "list",
+          "sideblockopen": false,
+          "title": "Contenedor y elementos",
+          "description": "Flex tiene propiedades para el padre y para los hijos.",
+          "listItems": [
+            {
+              "num": "1",
+              "title": "Contenedor",
+              "description": "El padre: decide cómo se colocan todos sus hijos."
+            },
+            {
+              "num": "2",
+              "title": "Elementos",
+              "description": "Los hijos: pueden cambiar su orden, su tamaño o su alineación."
+            }
+          ]
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "Propiedades del contenedor",
+          "description": "Se escriben en el padre y afectan a todos sus hijos."
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Dirección",
+          "description": "Coloca los elementos en fila (row) o en columna (column).",
+          "mgCode": "css",
+          "mgContent": "```css\nflex-direction: row;\nflex-direction: row-reverse;\nflex-direction: column;\nflex-direction: column-reverse;\n```"
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "Dirección en acción",
+          "iframe": "direccion"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Envoltura",
+          "description": "Si los elementos no caben, pueden saltar a otra línea.",
+          "mgCode": "css",
+          "mgContent": "```css\nflex-wrap: nowrap; /* Por defecto */\nflex-wrap: wrap;\nflex-wrap: wrap-reverse;\n```"
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "Wrap en acción",
+          "iframe": "wrap"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Dirección y envoltura",
+          "description": "Una sola propiedad para las dos anteriores.",
+          "mgCode": "css",
+          "mgContent": "```css\nflex-flow: row wrap;\n```"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Distancia",
+          "description": "Un espacio igual entre todos los elementos.",
+          "mgCode": "css",
+          "mgContent": "```css\nrow-gap: 16px;\ncolumn-gap: 16px;\ngap: 16px; /* Los dos a la vez */\n```"
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "Gap en acción",
+          "iframe": "gap"
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "Los dos ejes",
+          "description": "Antes de alinear: el eje principal sigue la dirección y el secundario la cruza."
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "Los ejes",
+          "iframe": "ejes"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Eje principal",
+          "description": "Coloca los elementos a lo largo del eje principal.",
+          "mgCode": "css",
+          "mgContent": "```css\njustify-content: start;\njustify-content: center;\njustify-content: end;\njustify-content: space-between;\njustify-content: space-around;\njustify-content: space-evenly;\n```"
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "Justify content en acción",
+          "iframe": "justify-content"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Eje secundario",
+          "description": "Coloca los elementos a lo largo del eje secundario.",
+          "mgCode": "css",
+          "mgContent": "```css\nalign-items: stretch; /* Por defecto */\nalign-items: start;\nalign-items: center;\nalign-items: end;\nalign-items: baseline;\n```"
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "Align items en acción",
+          "iframe": "align-items"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Varias líneas",
+          "description": "Como align-items, pero para las líneas que crea el wrap.",
+          "mgCode": "css",
+          "mgContent": "```css\nalign-content: stretch;\nalign-content: start;\nalign-content: center;\nalign-content: end;\nalign-content: space-between;\nalign-content: space-around;\nalign-content: space-evenly;\n```"
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "Align content en acción",
+          "iframe": "align-content"
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "Propiedades de los elementos",
+          "description": "Se escriben en un hijo concreto y solo le afectan a él."
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Orden",
+          "description": "Cambia el orden sin tocar el HTML. Por defecto todos valen 0.",
+          "mgCode": "css",
+          "mgContent": "```css\n.destacado {\n  order: -1;\n}\n```"
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "Order en acción",
+          "iframe": "orden"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Crecimiento",
+          "description": "Cuánto espacio libre se queda el elemento.",
+          "mgCode": "css",
+          "mgContent": "```css\nflex-grow: 1;\n```"
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "Flex grow en acción",
+          "iframe": "grow"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Decrecimiento",
+          "description": "Cuánto se encoge cuando no hay sitio. Con 0 no se encoge.",
+          "mgCode": "css",
+          "mgContent": "```css\nflex-shrink: 1;\n```"
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "Flex shrink en acción",
+          "iframe": "shrink"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Tamaño base",
+          "description": "El tamaño del elemento en el eje principal.",
+          "mgCode": "css",
+          "mgContent": "```css\nflex-basis: 100px;\n```"
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "Flex basis en acción",
+          "iframe": "basis"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Todo en una línea",
+          "description": "Crecimiento, decrecimiento y tamaño base juntos.",
+          "mgCode": "css",
+          "mgContent": "```css\n/* grow | shrink | basis */\nflex: 1 1 100px;\n```"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Alinear un solo elemento",
+          "description": "Como align-items, pero solo para este elemento.",
+          "mgCode": "css",
+          "mgContent": "```css\nalign-self: center;\n```"
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "Align self en acción",
+          "iframe": "align-self"
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": "ri-book-read-line",
+          "title": "Documentación oficial",
+          "description": "Como siempre, puedes revisar la documentación oficial de MDN Web Docs para más información.",
+          "linksList": [
+            {
+              "title": "Flexbox",
+              "link": "https://developer.mozilla.org/es/docs/Learn/CSS/CSS_layout/Flexbox"
+            },
+            {
+              "title": "justify-content",
+              "link": "https://developer.mozilla.org/es/docs/Web/CSS/justify-content"
+            },
+            {
+              "title": "align-items",
+              "link": "https://developer.mozilla.org/es/docs/Web/CSS/align-items"
+            },
+            {
+              "title": "flex",
+              "link": "https://developer.mozilla.org/es/docs/Web/CSS/flex"
+            }
+          ]
+        }
+      ]
+    },
+    "web/theme/css/grid": {
+      "kind": "deck",
+      "path": "web/theme/css/grid",
+      "slides": [
+        {
+          "theme": 4,
+          "slug": "css/grid",
+          "color": "blue",
+          "template": "cover",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "icon": "ri-layout-grid-line",
+          "title": "Grid",
+          "description": "Cuadrículas adaptativas: filas y columnas a la vez.",
+          "coverImg": "cover"
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "CSS Grid Layout",
+          "description": "Organiza los elementos en filas y columnas a la vez. Flex trabaja en una dimensión; grid, en dos."
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "Así es un contenedor grid",
+          "iframe": "cuadricula"
+        },
+        {
+          "template": "card",
+          "subtemplate": "list",
+          "sideblockopen": false,
+          "title": "Contenedor y elementos",
+          "description": "Igual que en flex, hay propiedades para el padre y para los hijos.",
+          "listItems": [
+            {
+              "num": "1",
+              "title": "Contenedor",
+              "description": "El padre: crea las filas y las columnas."
+            },
+            {
+              "num": "2",
+              "title": "Elementos",
+              "description": "Los hijos: eligen en qué celdas se colocan y cuántas ocupan."
+            }
+          ]
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Display grid",
+          "description": "Se escribe en el contenedor, no en los elementos.",
+          "mgCode": "css",
+          "mgContent": "```css\n.contenedor {\n  display: grid;\n}\n\n/* Cuadrícula que se comporta como inline */\ndisplay: inline-grid;\n```"
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "Propiedades del contenedor",
+          "description": "Se escriben en el padre: crean la cuadrícula y colocan a los hijos."
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Filas y columnas fijas",
+          "description": "Un valor por cada columna o fila. Aquí: 3 columnas y 1 fila.",
+          "mgCode": "css",
+          "mgContent": "```css\ngrid-template-columns: 100px 100px auto;\ngrid-template-rows: 100px;\n```"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "La unidad fr",
+          "description": "Una fracción del espacio libre. Con repeat() no repetimos valores.",
+          "mgCode": "css",
+          "mgContent": "```css\ngrid-template-columns: 1fr 2fr 1fr;\n\n/* 3 columnas iguales */\ngrid-template-columns: repeat(3, 1fr);\n```"
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "Columnas en acción",
+          "iframe": "columnas"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Filas y columnas automáticas",
+          "description": "Solo damos el tamaño: se crean tantas como hagan falta.",
+          "mgCode": "css",
+          "mgContent": "```css\ngrid-auto-rows: 100px;\ngrid-auto-columns: 100px; /* Menos habitual */\n```"
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "Filas automáticas en acción",
+          "iframe": "auto-filas"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Áreas con nombre",
+          "description": "Dibujamos la estructura con nombres y colocamos cada elemento en su área.",
+          "mgCode": "css",
+          "mgContent": "```css\n.contenedor {\n  grid-template-areas:\n    \"header header\"\n    \"aside  main\"\n    \"footer footer\";\n}\n\nheader { grid-area: header; }\n```"
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "Áreas en acción",
+          "iframe": "areas"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Distancia",
+          "description": "Funciona igual que en flex.",
+          "mgCode": "css",
+          "mgContent": "```css\nrow-gap: 16px;\ncolumn-gap: 16px;\ngap: 16px; /* Los dos a la vez */\n```"
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "Compartido con flex",
+          "description": "Las alineaciones se parecen a las de flex, pero en grid hay dos niveles: la cuadrícula entera y cada elemento dentro de su celda."
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Justify content",
+          "description": "Mueve la cuadrícula entera en horizontal dentro del contenedor.",
+          "mgCode": "css",
+          "mgContent": "```css\njustify-content: start;\njustify-content: center;\njustify-content: end;\njustify-content: space-between;\njustify-content: space-around;\njustify-content: space-evenly;\n```"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Align content",
+          "description": "Lo mismo, pero en vertical.",
+          "mgCode": "css",
+          "mgContent": "```css\nalign-content: start;\nalign-content: center;\nalign-content: end;\nalign-content: space-between;\nalign-content: space-around;\nalign-content: space-evenly;\nalign-content: stretch;\n```"
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "La cuadrícula en acción",
+          "iframe": "content"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Justify items",
+          "description": "Mueve cada elemento dentro de su celda, en horizontal.",
+          "mgCode": "css",
+          "mgContent": "```css\njustify-items: stretch; /* Por defecto */\njustify-items: start;\njustify-items: center;\njustify-items: end;\n```"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Align items",
+          "description": "Lo mismo, pero en vertical.",
+          "mgCode": "css",
+          "mgContent": "```css\nalign-items: stretch; /* Por defecto */\nalign-items: start;\nalign-items: center;\nalign-items: end;\n```"
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "Los elementos en acción",
+          "iframe": "items"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "En una línea",
+          "description": "Juntan align y justify: primero align, después justify.",
+          "mgCode": "css",
+          "mgContent": "```css\nplace-content: center;\nplace-items: center start;\n```"
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "Propiedades de los elementos",
+          "description": "Se escriben en un hijo: deciden en qué celda empieza, dónde acaba y cuántas ocupa."
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Posición y ocupación",
+          "description": "Dónde empieza y dónde acaba, o cuántas celdas ocupa con span.",
+          "mgCode": "css",
+          "mgContent": "```css\ngrid-column: 1 / 3;\ngrid-column: span 2; /* Lo mismo */\n\ngrid-row: 1 / 4;\ngrid-row: span 3;\n```"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Todo en una línea",
+          "description": "grid-area une filas y columnas en este orden.",
+          "mgCode": "css",
+          "mgContent": "```css\n/* fila / columna / fila fin / columna fin */\ngrid-area: 1 / 1 / 3 / 4;\n```"
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "Ocupación en acción",
+          "iframe": "ocupacion"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Alinear un solo elemento",
+          "description": "Como justify-items y align-items, pero solo para este elemento.",
+          "mgCode": "css",
+          "mgContent": "```css\njustify-self: center;\nalign-self: end;\nplace-self: end center; /* Los dos */\n```"
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "Self en acción",
+          "iframe": "self"
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": "ri-book-read-line",
+          "title": "Documentación oficial",
+          "description": "Como siempre, puedes revisar la documentación oficial de MDN Web Docs para más información.",
+          "linksList": [
+            {
+              "title": "Grid",
+              "link": "https://developer.mozilla.org/es/docs/Learn/CSS/CSS_layout/Grids"
+            },
+            {
+              "title": "grid-template-columns",
+              "link": "https://developer.mozilla.org/es/docs/Web/CSS/grid-template-columns"
+            },
+            {
+              "title": "grid-template-areas",
+              "link": "https://developer.mozilla.org/es/docs/Web/CSS/grid-template-areas"
+            },
+            {
+              "title": "grid-area",
+              "link": "https://developer.mozilla.org/es/docs/Web/CSS/grid-area"
+            }
+          ]
         }
       ]
     }

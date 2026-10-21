@@ -1,9 +1,18 @@
 import {LitElement, html, nothing} from 'lit';
 import type {TemplateResult} from 'lit';
 import {customElement, property} from 'lit/decorators.js';
+import {repeat} from 'lit/directives/repeat.js';
 import type {ContentPhase, Direction, SlideDocument, SlideFrameProps} from '../../lib/types';
 import {cssUrlValue, resolveAssetPath} from '../../lib/assets';
 import '../templates/slide-renderer';
+
+interface PanelEntry {
+  slide: SlideDocument;
+  phase: 'enter' | 'exit' | 'idle';
+  media: boolean;
+  comparisonSlide: SlideDocument | null;
+  bodyPhase: ContentPhase;
+}
 
 @customElement('slide-frame-shell')
 export class SlideFrameShell extends LitElement implements SlideFrameProps {
@@ -114,44 +123,46 @@ export class SlideFrameShell extends LitElement implements SlideFrameProps {
       `slide-frame--dir-${this.direction}`
     ].join(' ');
 
+    // Each panel renders its slides through `repeat`, keyed by the slide
+    // object. That way the incoming slide keeps the same DOM node when the
+    // transition goes from 'enter' to 'idle' instead of being torn down and
+    // rebuilt (which made iframes reload and flicker).
+    const canvasEntries: PanelEntry[] = [];
+    const blockEntries: PanelEntry[] = [];
+    const addEntries = (
+      slide: SlideDocument,
+      phase: PanelEntry['phase'],
+      comparisonSlide: SlideDocument | null = null,
+      bodyPhase: ContentPhase = 'idle'
+    ) => {
+      const slideLayout = this.layoutFor(slide);
+      if (slideLayout.leftHasContent) canvasEntries.push({slide, phase, media: false, comparisonSlide, bodyPhase});
+      if (slideLayout.isCover) blockEntries.push({slide, phase, media: true, comparisonSlide, bodyPhase});
+      else if (slideLayout.rightHasContent) blockEntries.push({slide, phase, media: false, comparisonSlide, bodyPhase});
+    };
+
+    if (isWholeFrameTransition) {
+      if (outgoingSlide) addEntries(outgoingSlide, 'exit');
+      if (incomingSlide) addEntries(incomingSlide, this.transitionPhase === 'enter' ? 'enter' : 'idle');
+    } else {
+      addEntries(this.slide, 'idle', this.comparisonSlide, this.bodyPhase);
+    }
+
+    const renderEntry = (entry: PanelEntry) =>
+      entry.media
+        ? this.renderCoverMedia(entry.slide, entry.phase)
+        : this.renderSlideContent(entry.slide, entry.phase, entry.comparisonSlide, entry.bodyPhase);
+
     return html`
       <div class="wrap--containter">
         <article class=${rootClass} style=${`--slide-accent: ${this.accentColor};`}>
           <div class=${slideShellClass}>
             <div class="slide-frame__panel slide-frame__panel--canvas ${layout.leftHasContent ? 'slide-frame__panel--content' : 'slide-frame__panel--empty'}">
-              ${isWholeFrameTransition
-                ? html`
-                    ${outgoingSlide && this.layoutFor(outgoingSlide).leftHasContent
-                      ? this.renderSlideContent(outgoingSlide, 'exit')
-                      : nothing}
-                    ${incomingSlide && this.layoutFor(incomingSlide).leftHasContent
-                      ? this.renderSlideContent(incomingSlide, this.transitionPhase === 'enter' ? 'enter' : 'idle')
-                      : nothing}
-                  `
-                : this.layoutFor(this.slide).leftHasContent
-                  ? this.renderSlideContent(this.slide, 'idle', this.comparisonSlide, this.bodyPhase)
-                  : nothing}
+              ${repeat(canvasEntries, (entry) => entry.slide, renderEntry)}
             </div>
 
             <div class="slide-frame__panel slide-frame__panel--block ${layout.isCover ? 'slide-frame__panel--media' : layout.rightHasContent ? 'slide-frame__panel--content' : 'slide-frame__panel--empty'}">
-              ${isWholeFrameTransition
-                ? html`
-                    ${outgoingSlide && this.layoutFor(outgoingSlide).isCover
-                      ? this.renderCoverMedia(outgoingSlide, 'exit')
-                      : outgoingSlide && this.layoutFor(outgoingSlide).rightHasContent
-                        ? this.renderSlideContent(outgoingSlide, 'exit')
-                        : nothing}
-                    ${incomingSlide && this.layoutFor(incomingSlide).isCover
-                      ? this.renderCoverMedia(incomingSlide, this.transitionPhase === 'enter' ? 'enter' : 'idle')
-                      : incomingSlide && this.layoutFor(incomingSlide).rightHasContent
-                        ? this.renderSlideContent(incomingSlide, this.transitionPhase === 'enter' ? 'enter' : 'idle')
-                        : nothing}
-                  `
-                : this.layoutFor(this.slide).isCover
-                  ? this.renderCoverMedia(this.slide, 'idle')
-                  : this.layoutFor(this.slide).rightHasContent
-                    ? this.renderSlideContent(this.slide, 'idle', this.comparisonSlide, this.bodyPhase)
-                    : nothing}
+              ${repeat(blockEntries, (entry) => entry.slide, renderEntry)}
             </div>
           </div>
 

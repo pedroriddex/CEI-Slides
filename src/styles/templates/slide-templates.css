@@ -4,7 +4,8 @@ slide-renderer {
   justify-content: center;
 }
 
-slide-card-template {
+slide-card-template,
+slide-image-template {
   display: block;
   width: min(100%, 37.5rem);
   flex: 0 0 min(100%, 37.5rem);

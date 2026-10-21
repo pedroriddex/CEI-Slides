@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>demo</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%}
+body{overflow:hidden;background:oklch(0.9524 0.0013 286.37);color:oklch(0.2103 0.0059 285.89);display:flex;align-items:center;justify-content:center;padding:clamp(16px,5vw,44px);font-family:Inter,ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;-webkit-font-smoothing:antialiased}
+:root{--acc:oklch(0.6204 0.195 253.83);--muted:oklch(0.5517 0.0138 285.94)}
+.wrap{width:100%;max-width:520px;display:flex;justify-content:center}
+.card{background:#fff;border:1px solid oklch(90% 0.004 286.32);border-radius:16px;box-shadow:0 2px 4px 0 rgba(0,0,0,.04), 0 1px 2px 0 rgba(0,0,0,.06), 0 0 1px 0 rgba(0,0,0,.06)}
+.val{font-family:'SFMono-Regular',ui-monospace,Menlo,Consolas,monospace;font-size:11px;color:var(--muted);letter-spacing:.01em;white-space:nowrap}
+.val b{font-weight:600;color:oklch(0.2103 0.0059 285.89)}
+.in{opacity:0;transform:translateY(6px);animation:in .45s cubic-bezier(.22,1,.36,1) forwards}
+.in:nth-child(2){animation-delay:.12s}
+@keyframes in{to{opacity:1;transform:none}}
+
+.rows{position:relative;display:flex;flex-direction:column;gap:26px;padding:28px 32px 26px}
+/* dashed guide marking width: 200px, shared by both rows */
+.guide{position:absolute;top:16px;bottom:16px;left:calc(32px + 200px);border-left:1px dashed color-mix(in oklab,var(--acc) 60%,white)}
+.guide .val{position:absolute;top:-2px;left:6px;color:var(--acc)}
+.row{display:flex;flex-direction:column;gap:8px}
+.box{width:200px;padding:20px;border:4px solid var(--acc);border-radius:10px;background:color-mix(in oklab,var(--acc) 14%,white)}
+.box .content{height:22px;border-radius:5px;background:#fff}
+.row.cb .box{box-sizing:content-box}
+.row.bb .box{box-sizing:border-box}
+.ruler{position:relative;height:9px;border:1px solid oklch(80% 0.006 286);border-top:0}
+.meta{display:flex;justify-content:space-between}
+</style></head>
+<body>
+<div class="wrap">
+<div class="card rows">
+  <div class="guide"><span class="val">width: 200px</span></div>
+  <div class="row cb in">
+    <div class="box"><div class="content"></div></div>
+    <div class="ruler" data-for="cb"></div>
+    <div class="meta"><span class="val">content-box</span><span class="val"><b data-w="cb"></b></span></div>
+  </div>
+  <div class="row bb in">
+    <div class="box"><div class="content"></div></div>
+    <div class="ruler" data-for="bb"></div>
+    <div class="meta"><span class="val">border-box</span><span class="val"><b data-w="bb"></b></span></div>
+  </div>
+</div>
+</div>
+<script>
+  for (const k of ['cb','bb']) {
+    const box = document.querySelector('.row.' + k + ' .box');
+    const w = Math.round(box.getBoundingClientRect().width);
+    document.querySelector('[data-for=' + k + ']').style.width = w + 'px';
+    for (const el of document.querySelectorAll('.row.' + k + ' .meta')) el.style.width = w + 'px';
+    document.querySelector('[data-w=' + k + ']').textContent = w + 'px';
+  }
+  document.querySelector('.rows').style.width = (32 * 2 + 248 + 40) + 'px';
+</script>
+</body></html>

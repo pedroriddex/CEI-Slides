@@ -59,6 +59,26 @@
       "alt": "a close up of a large red object",
       "by": "Stas Muravev",
       "link": "https://unsplash.com/photos/a-close-up-of-a-large-red-object-lCvShATc-x0"
+    },
+    "prMn9KINLtI": {
+      "color": "blue",
+      "alt": "Pintura abstracta azul y negra",
+      "link": "https://unsplash.com/es/fotos/pintura-abstracta-azul-y-negra-prMn9KINLtI"
+    },
+    "8PDsqcDIU": {
+      "color": "blue",
+      "alt": "Ondas azules abstractas",
+      "link": "https://unsplash.com/es/fotos/ondas-azules-abstractas-con-una-parte-superior-blanca---8PDsqcDIU"
+    },
+    "_E6sXQHsgQc": {
+      "color": "blue",
+      "alt": "Líneas onduladas azules y blancas",
+      "link": "https://unsplash.com/es/fotos/fondo-abstracto-de-lineas-onduladas-azules-y-blancas-_E6sXQHsgQc"
+    },
+    "tnkb5EcWN9I": {
+      "color": "blue",
+      "alt": "Fondo azul con luz",
+      "link": "https://unsplash.com/es/fotos/fondo-azul-abstracto-con-luz-tnkb5EcWN9I"
     }
   },
   "bySlug": {
@@ -71,6 +91,10 @@
     "html/etiquetas-y-atributos": "9pFK1FR_5KQ",
     "html/encabezados": "MgG-w0Dg_Ek",
     "html/parrafos": "EtMQsqtfBCo",
-    "html/hipervinculos": "lCvShATc-x0"
+    "html/hipervinculos": "lCvShATc-x0",
+    "css/introduccion": "prMn9KINLtI",
+    "css/box-model": "8PDsqcDIU",
+    "css/flex": "_E6sXQHsgQc",
+    "css/grid": "tnkb5EcWN9I"
   }
 }

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Box model</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 100%; height: 100%; }
+  body {
+    overflow: hidden;
+    background: oklch(0.9524 0.0013 286.37);
+    color: oklch(0.2103 0.0059 285.89);
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    display: flex; align-items: center; justify-content: center;
+    padding: clamp(12px, 4vw, 32px);
+  }
+  :root {
+    --muted: oklch(0.5517 0.0138 285.94);
+    --line: oklch(90% 0.004 286.32);
+    --accent: oklch(0.6204 0.195 253.83);
+    /* Same colours Chrome DevTools uses for the box model */
+    --c-content: rgba(111, 168, 220, .62);
+    --c-padding: rgba(147, 196, 125, .62);
+    --c-border:  rgba(255, 210, 120, .78);
+    --c-margin:  rgba(246, 178, 107, .55);
+  }
+  .stage { display: flex; align-items: center; justify-content: center; gap: clamp(16px, 4vw, 32px); flex-wrap: wrap; width: 100%; }
+
+  /* ---------- the real card ---------- */
+  .area { position: relative; display: inline-block; }
+  .ccard {
+    width: 180px;              /* content width */
+    margin: 28px;
+    padding: 20px;
+    border: 8px solid oklch(0.94 0.003 286);
+    border-radius: 18px;
+    background: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,.04), 0 1px 2px rgba(0,0,0,.06), 0 0 1px rgba(0,0,0,.06);
+  }
+  .ccard .img { height: 78px; border-radius: 10px; background: linear-gradient(135deg, oklch(0.62 0.195 254), oklch(0.45 0.16 270)); }
+  .ccard .tag { display: inline-block; margin-top: 12px; font-size: 10px; font-weight: 600; letter-spacing: .04em; color: var(--accent); background: color-mix(in oklab, var(--accent) 12%, white); padding: 3px 8px; border-radius: 999px; }
+  .ccard h3 { margin-top: 8px; font-size: 15px; font-weight: 600; letter-spacing: -.01em; }
+  .ccard p { margin-top: 4px; font-size: 12px; line-height: 1.45; color: var(--muted); }
+  .ccard .btn { display: inline-block; margin-top: 12px; font-size: 11px; font-weight: 500; color: #fff; background: var(--accent); padding: 6px 12px; border-radius: 999px; text-decoration: none; }
+
+  /* ---------- overlays (drawn from the card's real geometry) ---------- */
+  .ov { position: absolute; inset: 0; pointer-events: none; }
+  .layer { position: absolute; opacity: 0; transition: opacity .25s ease; }
+  .layer.on { opacity: 1; }
+  /* each layer is a ring drawn with a thick border, so it follows the card's rounded corners */
+  .layer { border-style: solid; }
+  .layer[data-k=content] { background: var(--c-content); border-width: 0; }
+  .layer[data-k=padding] { border-color: var(--c-padding); }
+  .layer[data-k=border]  { border-color: var(--c-border); }
+  .layer[data-k=margin]  { border-color: var(--c-margin); }
+
+  /* ---------- legend ---------- */
+  .legend { list-style: none; display: flex; flex-direction: column; gap: 6px; width: 190px; }
+  .legend li {
+    display: grid; grid-template-columns: 12px 1fr auto; align-items: center; column-gap: 10px;
+    padding: 9px 12px; border-radius: 12px; border: 1px solid transparent; cursor: default;
+    transition: background .2s, border-color .2s;
+  }
+  .legend li.on { background: #fff; border-color: var(--line); box-shadow: 0 1px 2px rgba(0,0,0,.05); }
+  .dot { width: 12px; height: 12px; border-radius: 4px; }
+  .name { font-size: 13px; font-weight: 600; }
+  .val { font-family: 'SFMono-Regular', ui-monospace, Menlo, Consolas, monospace; font-size: 11px; color: var(--muted); }
+  .hint { grid-column: 2 / 4; font-size: 11.5px; line-height: 1.35; color: var(--muted); max-height: 0; overflow: hidden; transition: max-height .25s ease, margin .25s ease; }
+  .legend li.on .hint { max-height: 40px; margin-top: 3px; }
+</style>
+</head>
+<body>
+<div class="stage">
+  <div class="area" id="area">
+    <article class="ccard" id="card">
+      <div class="img"></div>
+      <span class="tag">CSS</span>
+      <h3>Diseño web</h3>
+      <p>Aprende a maquetar webs desde cero.</p>
+      <a class="btn" href="#" onclick="return false">Ver curso</a>
+    </article>
+    <div class="ov" id="ov">
+      <div class="layer" data-k="margin"></div>
+      <div class="layer" data-k="border"></div>
+      <div class="layer" data-k="padding"></div>
+      <div class="layer" data-k="content"></div>
+    </div>
+  </div>
+
+  <ul class="legend" id="legend">
+    <li data-k="content"><span class="dot" style="background:var(--c-content)"></span><span class="name">content</span><span class="val" data-v="content"></span><span class="hint">El contenido: texto, imágenes…</span></li>
+    <li data-k="padding"><span class="dot" style="background:var(--c-padding)"></span><span class="name">padding</span><span class="val" data-v="padding"></span><span class="hint">Espacio entre el contenido y el borde</span></li>
+    <li data-k="border"><span class="dot" style="background:var(--c-border)"></span><span class="name">border</span><span class="val" data-v="border"></span><span class="hint">El borde que rodea la caja</span></li>
+    <li data-k="margin"><span class="dot" style="background:var(--c-margin)"></span><span class="name">margin</span><span class="val" data-v="margin"></span><span class="hint">Espacio con los elementos de alrededor</span></li>
+  </ul>
+</div>
+
+<script>
+  const area = document.getElementById('area');
+  const card = document.getElementById('card');
+  const legend = document.getElementById('legend');
+  const layers = {};
+  document.querySelectorAll('.layer').forEach(l => (layers[l.dataset.k] = l));
+  const ORDER = ['content', 'padding', 'border', 'margin'];
+  let boxes = null;
+
+  const px = v => parseFloat(v) || 0;
+
+  function measure() {
+    const a = area.getBoundingClientRect();
+    const r = card.getBoundingClientRect();
+    const cs = getComputedStyle(card);
+    const m = ['Top','Right','Bottom','Left'].map(s => px(cs['margin' + s]));
+    const b = ['Top','Right','Bottom','Left'].map(s => px(cs['border' + s + 'Width']));
+    const p = ['Top','Right','Bottom','Left'].map(s => px(cs['padding' + s]));
+    const border = { x: r.left - a.left, y: r.top - a.top, w: r.width, h: r.height };
+    const margin = { x: border.x - m[3], y: border.y - m[0], w: border.w + m[1] + m[3], h: border.h + m[0] + m[2] };
+    const padding = { x: border.x + b[3], y: border.y + b[0], w: border.w - b[1] - b[3], h: border.h - b[0] - b[2] };
+    const content = { x: padding.x + p[3], y: padding.y + p[0], w: padding.w - p[1] - p[3], h: padding.h - p[0] - p[2] };
+    boxes = { margin, border, padding, content };
+
+    // values shown in the legend
+    const set = (k, t) => (legend.querySelector('[data-v=' + k + ']').textContent = t);
+    set('content', Math.round(content.w) + ' × ' + Math.round(content.h));
+    set('padding', p[0] + 'px');
+    set('border', b[0] + 'px');
+    set('margin', m[0] + 'px');
+
+    // place each layer at its box; its border width is the size of that ring
+    const rad = px(cs.borderTopLeftRadius);
+    const ring = { margin: m, border: b, padding: p, content: [0, 0, 0, 0] };
+    const radius = { margin: rad + m[0], border: rad, padding: Math.max(0, rad - b[0]), content: 0 };
+    for (const k of ORDER) {
+      const o = boxes[k], el = layers[k];
+      el.style.left = o.x + 'px'; el.style.top = o.y + 'px';
+      el.style.width = o.w + 'px'; el.style.height = o.h + 'px';
+      el.style.borderWidth = ring[k].map(v => v + 'px').join(' ');
+      el.style.borderRadius = radius[k] + 'px';
+    }
+  }
+
+  function show(k) {
+    ORDER.forEach(n => layers[n].classList.toggle('on', n === k));
+    legend.querySelectorAll('li').forEach(li => li.classList.toggle('on', li.dataset.k === k));
+  }
+
+  // Autoplay through the layers until someone hovers
+  let i = 0, timer = null;
+  const tick = () => { show(ORDER[i]); i = (i + 1) % ORDER.length; };
+  const play = () => { if (!timer) { tick(); timer = setInterval(tick, 2200); } };
+  const pause = () => { clearInterval(timer); timer = null; };
+
+  const inBox = (x, y, r) => x >= r.x && x <= r.x + r.w && y >= r.y && y <= r.y + r.h;
+  area.addEventListener('mousemove', e => {
+    if (!boxes) return;
+    const a = area.getBoundingClientRect();
+    const x = e.clientX - a.left, y = e.clientY - a.top;
+    const k = ['content', 'padding', 'border', 'margin'].find(n => inBox(x, y, boxes[n]));
+    pause();
+    if (k) show(k);
+  });
+  area.addEventListener('mouseleave', play);
+  legend.querySelectorAll('li').forEach(li => {
+    li.addEventListener('mouseenter', () => { pause(); show(li.dataset.k); });
+  });
+  legend.addEventListener('mouseleave', play);
+
+  const ready = () => { measure(); setTimeout(play, 500); };
+  window.addEventListener('resize', measure);
+  (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(ready);
+</script>
+</body>
+</html>
