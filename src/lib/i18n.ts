@@ -55,11 +55,13 @@ export const strings = Object.freeze({
   slides: Object.freeze({
     aboutTechnologies: 'Tecnologías',
     imageExpand: 'Ampliar imagen',
+    iframeExpand: 'Ver en grande',
     downloadExample: 'Descargar proyecto de ejemplo',
     deckFallbackTitle: 'Deck'
   }),
   lightbox: Object.freeze({
-    close: 'Cerrar imagen ampliada'
+    close: 'Cerrar imagen ampliada',
+    closeFrame: 'Cerrar vista ampliada'
   }),
   links: Object.freeze({
     fallbackLabel: 'Abrir enlace'

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Archivos de WordPress</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%}
+body{overflow:hidden;background:oklch(0.9524 0.0013 286.37);color:oklch(0.2103 0.0059 285.89);display:flex;align-items:center;justify-content:center;padding:10px clamp(12px,4vw,32px);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;-webkit-font-smoothing:antialiased}
+:root{--acc:oklch(0.7819 0.1585 72.33);--fg:oklch(0.2103 0.0059 285.89);--muted:oklch(0.5517 0.0138 285.94);--line:oklch(90% 0.004 286.32);--soft:oklch(0.97 0.0015 286);--mono:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;--code:'SFMono-Regular',ui-monospace,Menlo,Consolas,monospace}
+.card{width:100%;max-width:560px;max-height:100%;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 2px 4px 0 rgba(0,0,0,.04),0 1px 2px 0 rgba(0,0,0,.06),0 0 1px 0 rgba(0,0,0,.06);display:grid;grid-template-columns:1fr 200px;overflow:hidden;opacity:0;transform:translateY(6px);animation:in .45s cubic-bezier(.22,1,.36,1) .05s forwards}
+@keyframes in{to{opacity:1;transform:none}}
+
+/* file tree */
+.tree{list-style:none;padding:12px 8px;border-right:1px solid var(--line);overflow:hidden}
+.row{display:flex;align-items:center;gap:7px;height:26px;padding:0 8px;padding-left:calc(8px + var(--d,0) * 16px);border-radius:7px;font-family:var(--mono);font-size:12px;cursor:default;transition:background .2s,color .2s}
+.row svg{width:15px;height:15px;flex:none}
+.row .ic-folder{color:oklch(0.72 0.03 286)}
+.row .ic-file{color:oklch(0.78 0.01 286)}
+.row.root{font-weight:600}
+.row.dim{color:oklch(0.7 0.01 286)}
+.row[data-k]:hover,.row.on{background:var(--soft)}
+.row.on,.row.on:hover{background:color-mix(in oklab,var(--acc) 18%,white)}
+.row.on .ic-folder,.row.on .ic-file{color:oklch(0.62 0.15 65)}
+
+/* detail panel */
+.info{padding:18px 16px;display:flex;flex-direction:column;gap:10px;background:var(--soft)}
+.name{font-family:var(--mono);font-size:14px;font-weight:600;word-break:break-all}
+.tag{align-self:flex-start;font-family:var(--mono);font-size:10px;font-weight:600;padding:4px 8px;border-radius:999px}
+.tag.core{background:oklch(0.92 0.004 286);color:var(--muted)}
+.tag.own{background:var(--acc);color:#fff}
+.tag.conf{background:var(--fg);color:#fff}
+.tag.srv{background:#fff;color:var(--fg);border:1px solid var(--line)}
+.desc{font-size:13px;line-height:1.45;color:var(--fg)}
+.info>*{transition:opacity .2s}
+.info.swap>*{opacity:0}
+</style></head>
+<body>
+<div class="card">
+  <ul class="tree" id="tree"></ul>
+  <div class="info" id="info"><span class="name" id="name"></span><span class="tag" id="tag"></span><span class="desc" id="desc"></span></div>
+</div>
+<script>
+  const FOLDER = '<svg class="ic-folder" viewBox="0 0 16 16" fill="currentColor"><path d="M1.5 3.5A1.5 1.5 0 0 1 3 2h3.2l1.6 1.6H13a1.5 1.5 0 0 1 1.5 1.5v6.4A1.5 1.5 0 0 1 13 13H3a1.5 1.5 0 0 1-1.5-1.5z"/></svg>';
+  const FILE = '<svg class="ic-file" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M4 1.8h5.2L12.5 5v9.2H4z"/><path d="M9 1.8V5h3.5"/></svg>';
+  const TAGS = { core: 'núcleo · no se toca', own: 'tu contenido', conf: 'configuración', srv: 'servidor' };
+  // [name, depth, folder?, tag, description]
+  const ITEMS = [
+    ['mi-web', 0, true, null, null],
+    ['wp-admin', 1, true, 'core', 'El panel de administración desde el que gestionamos la web.'],
+    ['wp-content', 1, true, 'own', 'Todo lo que hace única a tu web: temas, plugins y archivos subidos.'],
+    ['themes', 2, true, 'own', 'Los temas instalados. Deciden el aspecto de la web.'],
+    ['plugins', 2, true, 'own', 'Los plugins instalados. Cada uno añade una función.'],
+    ['uploads', 2, true, 'own', 'Las imágenes y archivos de la biblioteca de medios.'],
+    ['wp-includes', 1, true, 'core', 'El motor de WordPress: las funciones que lo hacen funcionar.'],
+    ['.htaccess', 1, false, 'srv', 'Configuración del servidor. Hace posibles las URL amigables.'],
+    ['index.php', 1, false, 'core', 'La puerta de entrada: cada visita empieza aquí.'],
+    ['wp-config.php', 1, false, 'conf', 'Conecta WordPress con la base de datos y guarda sus ajustes.'],
+    ['wp-login.php', 1, false, 'core', 'La pantalla para iniciar sesión en el panel.'],
+    ['…', 1, false, null, null],
+  ];
+  const tree = document.getElementById('tree');
+  const info = document.getElementById('info');
+  const rows = ITEMS.map(([name, d, folder, tag, desc]) => {
+    const li = document.createElement('li');
+    li.className = 'row' + (d === 0 ? ' root' : '') + (!tag && d > 0 ? ' dim' : '');
+    li.style.setProperty('--d', d);
+    li.innerHTML = (name === '…' ? '' : folder ? FOLDER : FILE) + '<span>' + name + '</span>';
+    if (tag) { li.dataset.k = name; li._data = { name, tag, desc }; }
+    tree.appendChild(li);
+    return li;
+  });
+  const selectable = rows.filter(r => r._data);
+
+  function select(row) {
+    if (row.classList.contains('on')) return;
+    rows.forEach(r => r.classList.toggle('on', r === row));
+    info.classList.add('swap');
+    setTimeout(() => {
+      const { name, tag, desc } = row._data;
+      document.getElementById('name').textContent = name;
+      const t = document.getElementById('tag'); t.className = 'tag ' + tag; t.textContent = TAGS[tag];
+      document.getElementById('desc').textContent = desc;
+      info.classList.remove('swap');
+    }, 150);
+  }
+
+  // Autoplay through the items until someone hovers the tree
+  let i = 0, timer = null;
+  const tick = () => { select(selectable[i]); i = (i + 1) % selectable.length; };
+  const play = () => { if (!timer) { timer = setInterval(tick, 2400); } };
+  const pause = () => { clearInterval(timer); timer = null; };
+  selectable.forEach((r, k) => r.addEventListener('mouseenter', () => { pause(); i = (k + 1) % selectable.length; select(r); }));
+  tree.addEventListener('mouseleave', play);
+  tick(); play();
+</script>
+</body></html>

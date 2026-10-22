@@ -203,6 +203,36 @@ slide-image-copy-motion,
   box-shadow: none;
 }
 
+.slide-image__expand {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  padding: 0;
+  border: 1px solid var(--app-border);
+  border-radius: var(--app-radius-pill);
+  background: color-mix(in oklab, var(--app-surface) 88%, transparent);
+  color: var(--app-foreground);
+  font-size: 1.05rem;
+  box-shadow: var(--app-shadow-surface);
+  backdrop-filter: blur(6px);
+  cursor: zoom-in;
+  opacity: 0.75;
+  transition: opacity var(--transition-fast), transform var(--transition-fast), background-color var(--transition-fast);
+}
+
+.slide-image__expand:hover,
+.slide-image__expand:focus-visible {
+  opacity: 1;
+  transform: scale(1.06);
+  background: var(--app-surface);
+}
+
 .slide-image__media-trigger {
   position: relative;
   display: block;

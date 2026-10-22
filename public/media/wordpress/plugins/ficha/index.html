@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Ficha de un plugin</title>
+<link rel="stylesheet" href="../dashicons.min.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%}
+body{overflow:hidden;background:oklch(0.9524 0.0013 286.37);color:oklch(0.2103 0.0059 285.89);display:flex;align-items:center;justify-content:center;padding:6px;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;-webkit-font-smoothing:antialiased}
+:root{--acc:oklch(0.7819 0.1585 72.33);--fg:oklch(0.2103 0.0059 285.89);--muted:oklch(0.5517 0.0138 285.94);--line:oklch(90% 0.004 286.32);--mono:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;--code:'SFMono-Regular',ui-monospace,Menlo,Consolas,monospace}
+.card{width:100%;height:100%;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 2px 4px 0 rgba(0,0,0,.04),0 1px 2px 0 rgba(0,0,0,.06),0 0 1px 0 rgba(0,0,0,.06);padding:16px;display:flex;flex-direction:column;gap:14px;opacity:0;transform:translateY(6px);animation:in .45s cubic-bezier(.22,1,.36,1) .05s forwards}
+@keyframes in{to{opacity:1;transform:none}}
+.vp{position:relative;flex:1;min-height:0;border-radius:10px;overflow:hidden;background:#f0f0f1;outline:1px solid var(--line)}
+.stage{position:absolute;left:0;top:0;transform-origin:0 0;transition:transform .8s cubic-bezier(.65,0,.35,1)}
+.stage.instant{transition:none}
+.cap{flex:none;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;min-height:20px;padding:0 4px 2px;transition:opacity .2s}
+.cap.swap{opacity:0}
+.cap .n{font-size:14px;font-weight:600;letter-spacing:-.005em}
+.cap .t{font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--acc)}
+.cap .d{font-size:13px;font-weight:500;color:var(--muted)}
+/* highlight */
+.hl{position:absolute;pointer-events:none;border:3px solid var(--acc);border-radius:6px;background:color-mix(in oklab,var(--acc) 18%,transparent);box-shadow:0 0 0 9999px rgba(0,0,0,.28);transition:left .35s cubic-bezier(.22,1,.36,1),top .35s cubic-bezier(.22,1,.36,1),width .35s cubic-bezier(.22,1,.36,1),height .35s cubic-bezier(.22,1,.36,1),opacity .2s;opacity:0;z-index:20}
+.hl.on{opacity:1}
+
+/* ---- WordPress 7.1 admin chrome ---- */
+.wp{position:relative;width:1100px;height:640px;background:#f0f0f1;font-family:-apple-system,system-ui,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;font-size:13px;color:#1e1e1e;overflow:hidden}
+.wp a{color:#3858e9;text-decoration:underline}
+.bar{position:absolute;left:0;top:0;right:0;height:32px;background:#1e1e1e;color:#fff;display:flex;justify-content:space-between;align-items:center;z-index:3}
+.bl,.br{display:flex;height:100%}
+.bi{display:flex;align-items:center;gap:5px;padding:0 9px;height:100%;font-size:13px;white-space:nowrap}
+.bi .dashicons{font-size:20px;width:20px;height:20px;color:#a7aaad}
+.kbd{font-size:11px;padding:2px 6px;border:1px solid #50575e;border-radius:4px;color:#c3c4c7}
+.avatar{width:18px;height:18px;border-radius:50%;background:#c3c4c7;display:inline-block}
+.side{position:absolute;left:0;top:32px;bottom:0;width:160px;background:#1e1e1e;z-index:2}
+.menu{list-style:none;padding-top:10px}
+.mi{position:relative}
+.mi>a{display:flex;align-items:center;gap:8px;height:34px;padding:0 10px;color:#fff;font-size:14px;text-decoration:none}
+.mi>a .dashicons{font-size:20px;width:20px;height:20px;color:#a7aaad}
+.mi.current>a{background:#3858e9}
+.mi.current>a .dashicons{color:#fff}
+.sep{height:9px}
+.count{display:inline-block;margin-left:4px;min-width:18px;height:18px;padding:0 5px;border-radius:9px;background:#3c434a;color:#fff;font-size:9px;line-height:18px;text-align:center;font-weight:600}
+.sub{list-style:none;background:#0c0c0c;padding:6px 0}
+.sub li{padding:5px 12px 5px 38px;color:rgba(240,246,252,.7);font-size:13px}
+.sub li.cur{color:#fff;font-weight:600}
+.mi:not(.current) .sub{display:none;position:absolute;left:160px;top:0;width:180px;padding:6px 0;box-shadow:0 3px 5px rgba(0,0,0,.2)}
+.mi:not(.current) .sub li{padding-left:14px}
+.mi.fly .sub{display:block}
+.mi.fly>a{background:#0c0c0c;color:#72aee6}
+.collapse>a{color:#a7aaad;font-size:13px}
+.main{position:absolute;left:160px;top:32px;right:0;bottom:0;padding:0 20px}
+.wp.no-menu .side{display:none}
+.wp.no-menu .main{left:0}
+.tabs{display:flex;justify-content:flex-end;gap:6px}
+.tab{background:#fff;border:1px solid #c3c4c7;border-top:0;border-radius:0 0 4px 4px;padding:5px 12px;color:#50575e;font-size:13px}
+h1{font-size:23px;font-weight:400;margin:6px 0 14px}
+.muted{color:#646970}
+.btn{align-self:flex-start;background:#3858e9;color:#fff;border-radius:2px;padding:6px 12px;font-size:13px}
+.btn2{display:inline-block;border:1px solid #3858e9;color:#3858e9;background:#fff;border-radius:3px;padding:4px 10px;font-size:13px}
+
+.head{display:flex;align-items:center;gap:10px;margin:6px 0 14px}
+.head h1{margin:0}
+.filter{display:flex;align-items:center;justify-content:space-between;background:#fff;border:1px solid #dcdcde;padding:0 12px;height:48px;margin-bottom:10px}
+.flinks{list-style:none;display:flex;gap:18px;height:100%}
+.flinks li{display:flex;align-items:center;font-size:13px;color:#50575e}
+.flinks li.cur{color:#1e1e1e;box-shadow:inset 0 -4px #3858e9;font-weight:500}
+.srch{display:flex;gap:6px}
+.sel{display:inline-flex;align-items:center;height:30px;padding:0 22px 0 8px;border:1px solid #8c8f94;border-radius:3px;background:#fff}
+.field{display:inline-flex;align-items:center;width:200px;height:30px;padding:0 8px;border:1px solid #8c8f94;border-radius:3px;background:#fff;color:#8c8f94}
+.intro{margin-bottom:12px;font-size:13px}
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.pc{background:#fff;border:1px solid #dcdcde;display:flex;flex-direction:column}
+.pt{position:relative;display:grid;grid-template-columns:96px 1fr;gap:14px;padding:16px 16px 12px;min-height:150px}
+.ic{width:96px;height:96px;border-radius:2px;object-fit:contain}
+.pm{padding-right:120px}
+.pm h3{font-size:15px;font-weight:600;line-height:1.3;color:#3858e9;margin-bottom:8px}
+.pd{font-size:12.5px;line-height:1.5;color:#3c434a;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.by{margin-top:6px;font-size:12.5px;color:#646970}
+.by em{font-style:italic}
+.by a{text-decoration:none}
+.pa{position:absolute;right:16px;top:16px;list-style:none;display:flex;flex-direction:column;align-items:flex-end;gap:8px;font-size:12.5px}
+.pa a{text-decoration:none}
+.b2{display:inline-block;border:1px solid #3858e9;color:#3858e9;background:#f6f7f7;border-radius:3px;padding:4px 10px;font-size:12.5px}
+.pb{display:flex;justify-content:space-between;gap:10px;padding:12px 16px;background:#f6f7f7;border-top:1px solid #dcdcde;font-size:12px;color:#3c434a}
+.pb .l,.pb .r{display:flex;flex-direction:column;gap:6px}
+.pb .r{text-align:right;align-items:flex-end}
+.st{font-style:normal;color:#dcdcde;font-size:14px;letter-spacing:-1px}
+.st.f{color:#dba617}
+.st.h{background:linear-gradient(90deg,#dba617 50%,#dcdcde 50%);-webkit-background-clip:text;color:transparent}
+.nr{color:#646970}
+.cp b{color:#008a20}
+.cp.no b{color:#1e1e1e}
+</style></head>
+<body>
+<div class="card">
+  <div class="vp" id="vp"><div class="stage" id="stage">
+<div class="wp " id="wp" style="width:1100px;height:640px">
+  
+  <div class="bar" data-z="z-bar">
+    <div class="bl">
+      <span class="bi" data-z="b-logo"><span class="dashicons dashicons-wordpress"></span></span>
+      <span class="bi" data-z="b-site"><span class="dashicons dashicons-admin-home"></span>Pruebas</span>
+      <span class="bi" data-z="b-cmd"><span class="kbd">⌘K</span></span>
+      <span class="bi" data-z="b-comments"><span class="dashicons dashicons-admin-comments"></span>0</span>
+      <span class="bi" data-z="b-new"><span class="dashicons dashicons-plus"></span>New</span>
+      
+    </div>
+    <div class="br"><span class="bi" data-z="b-account">Howdy, root <span class="avatar"></span></span></div>
+  </div>
+  <div class="side" data-z="z-menu"><ul class="menu"><li class="mi" data-z="m-dashboard"><a><span class="dashicons dashicons-dashboard"></span><span class="mn">Dashboard</span></a><ul class="sub"><li class="">Home</li><li class="">Updates <b class="count">0</b></li></ul></li><li class="sep"></li><li class="mi" data-z="m-posts"><a><span class="dashicons dashicons-admin-post"></span><span class="mn">Posts</span></a><ul class="sub"><li class="">All Posts</li><li class="">Add Post</li><li class="">Categories</li><li class="">Tags</li></ul></li><li class="mi" data-z="m-media"><a><span class="dashicons dashicons-admin-media"></span><span class="mn">Media</span></a><ul class="sub"><li class="">Library</li><li class="">Add Media File</li></ul></li><li class="mi" data-z="m-pages"><a><span class="dashicons dashicons-admin-page"></span><span class="mn">Pages</span></a><ul class="sub"><li class="">All Pages</li><li class="">Add Page</li></ul></li><li class="mi" data-z="m-comments"><a><span class="dashicons dashicons-admin-comments"></span><span class="mn">Comments</span><b class="count">0</b></a></li><li class="sep"></li><li class="mi" data-z="m-appearance"><a><span class="dashicons dashicons-admin-appearance"></span><span class="mn">Appearance</span></a><ul class="sub"><li class="">Themes</li><li class="">Editor</li><li class="">Fonts</li></ul></li><li class="mi current" data-z="m-plugins"><a><span class="dashicons dashicons-admin-plugins"></span><span class="mn">Plugins</span></a><ul class="sub"><li class="">Installed Plugins</li><li class="cur">Add Plugin</li></ul></li><li class="mi" data-z="m-users"><a><span class="dashicons dashicons-admin-users"></span><span class="mn">Users</span></a><ul class="sub"><li class="">All Users</li><li class="">Add User</li><li class="">Profile</li></ul></li><li class="mi" data-z="m-tools"><a><span class="dashicons dashicons-admin-tools"></span><span class="mn">Tools</span></a><ul class="sub"><li class="">Available Tools</li><li class="">Import</li><li class="">Export</li><li class="">Site Health</li><li class="">Export Personal Data</li><li class="">Erase Personal Data</li><li class="">Theme File Editor</li><li class="">Plugin File Editor</li></ul></li><li class="mi" data-z="m-settings"><a><span class="dashicons dashicons-admin-settings"></span><span class="mn">Settings</span></a><ul class="sub"><li class="">General</li><li class="">Connectors</li><li class="">Writing</li><li class="">Reading</li><li class="">Discussion</li><li class="">Media</li><li class="">Permalinks</li><li class="">Privacy</li></ul></li><li class="mi collapse" data-z="m-collapse"><a><span class="dashicons dashicons-admin-collapse"></span><span class="mn">Collapse Menu</span></a></li></ul></div>
+  <div class="main" data-z="z-main">
+  <div class="tabs"><span class="tab">Help ▾</span></div>
+  <div class="head"><h1>Add Plugins</h1><span class="btn2" data-z="d-upload">Upload Plugin</span></div>
+  <div class="filter">
+    <ul class="flinks" data-z="d-tabs"><li>Featured</li><li class="cur">Popular</li><li>Recommended</li><li>Favorites</li></ul>
+    <span class="srch" data-z="d-search"><span class="sel">Keyword ▾</span><span class="field">Search Plugins…</span></span>
+  </div>
+  <p class="intro muted">Plugins extend and expand the functionality of WordPress. You may install plugins in the WordPress Plugin Directory right from here.</p>
+  <div class="cards">
+    <div class="pc">
+      <div class="pt">
+        <img class="ic" src="../assets/icons/elementor.gif" alt="">
+        <div class="pm"><h3>Elementor Website Builder – more than just a page builder</h3><p class="pd">The Elementor Website Builder has it all: drag and drop page builder, Atomic Editor, pixel perfect design, global and reusable style systems…</p><p class="by"><em>By</em> <a>Elementor</a></p></div>
+        <ul class="pa"><li><span class="b2">Install Now</span></li><li><a>More Details</a></li></ul>
+      </div>
+      <div class="pb">
+        <div class="l"><span class="rt"><i class="st f">★</i><i class="st f">★</i><i class="st f">★</i><i class="st f">★</i><i class="st h">★</i> <span class="nr">(7,319)</span></span><span class="ai">10+ Million Active Installations</span></div>
+        <div class="r"><span><b>Last Updated:</b> 1 week ago</span><span class="cp"><b>Compatible</b> with your version of WordPress</span></div>
+      </div>
+    </div>
+    <div class="pc">
+      <div class="pt">
+        <img class="ic" src="../assets/icons/wordpress-seo.gif" alt="">
+        <div class="pm"><h3>Yoast SEO – Advanced SEO with real-time guidance and built-in AI</h3><p class="pd">Real-time SEO guidance, schema, and AI built in. Help search engines and AI systems understand your content.</p><p class="by"><em>By</em> <a>Yoast</a></p></div>
+        <ul class="pa"><li><span class="b2">Install Now</span></li><li><a>More Details</a></li></ul>
+      </div>
+      <div class="pb">
+        <div class="l"><span class="rt"><i class="st f">★</i><i class="st f">★</i><i class="st f">★</i><i class="st f">★</i><i class="st f">★</i> <span class="nr">(27,820)</span></span><span class="ai">10+ Million Active Installations</span></div>
+        <div class="r"><span><b>Last Updated:</b> 1 week ago</span><span class="cp"><b>Compatible</b> with your version of WordPress</span></div>
+      </div>
+    </div>
+    <div class="pc" data-z="f-card">
+      <div class="pt">
+        <img class="ic" src="../assets/icons/contact-form-7.svg" alt="">
+        <div class="pm"><h3 data-z="f-name">Contact Form 7</h3><p class="pd" data-z="f-desc">Just another contact form plugin. Simple but flexible.</p><p class="by" data-z="f-author"><em>By</em> <a>Rock Lobster Inc.</a></p></div>
+        <ul class="pa"><li><span class="b2" data-z="f-install">Install Now</span></li><li><a data-z="f-more">More Details</a></li></ul>
+      </div>
+      <div class="pb">
+        <div class="l"><span class="rt" data-z="f-rating"><i class="st f">★</i><i class="st f">★</i><i class="st f">★</i><i class="st f">★</i><i class="st ">★</i> <span class="nr">(2,184)</span></span><span class="ai" data-z="f-installs">10+ Million Active Installations</span></div>
+        <div class="r"><span data-z="f-updated"><b>Last Updated:</b> 23 hours ago</span><span class="cp" data-z="f-compat"><b>Compatible</b> with your version of WordPress</span></div>
+      </div>
+    </div>
+    <div class="pc" data-z="d-untested-card">
+      <div class="pt">
+        <img class="ic" src="../assets/icons/classic-editor.png" alt="">
+        <div class="pm"><h3>Classic Editor</h3><p class="pd">Enables the previous "classic" editor and the old-style Edit Post screen with TinyMCE, Meta Boxes, etc.</p><p class="by"><em>By</em> <a>WordPress.org</a></p></div>
+        <ul class="pa"><li><span class="b2">Install Now</span></li><li><a>More Details</a></li></ul>
+      </div>
+      <div class="pb">
+        <div class="l"><span class="rt"><i class="st f">★</i><i class="st f">★</i><i class="st f">★</i><i class="st f">★</i><i class="st f">★</i> <span class="nr">(1,249)</span></span><span class="ai">8+ Million Active Installations</span></div>
+        <div class="r"><span><b>Last Updated:</b> 5 months ago</span><span class="cp no" data-z="d-untested"><b>Untested</b> with your version of WordPress</span></div>
+      </div>
+    </div>
+    <div class="pc">
+      <div class="pt">
+        <img class="ic" src="../assets/icons/litespeed-cache.png" alt="">
+        <div class="pm"><h3>LiteSpeed Cache</h3><p class="pd">All-in-one unbeatable acceleration & PageSpeed improvement: caching, image/CSS/JS optimization…</p><p class="by"><em>By</em> <a>LiteSpeed Technologies</a></p></div>
+        <ul class="pa"><li><span class="b2">Install Now</span></li><li><a>More Details</a></li></ul>
+      </div>
+      <div class="pb">
+        <div class="l"><span class="rt"><i class="st f">★</i><i class="st f">★</i><i class="st f">★</i><i class="st f">★</i><i class="st f">★</i> <span class="nr">(2,777)</span></span><span class="ai">7+ Million Active Installations</span></div>
+        <div class="r"><span><b>Last Updated:</b> 2 days ago</span><span class="cp"><b>Compatible</b> with your version of WordPress</span></div>
+      </div>
+    </div>
+    <div class="pc">
+      <div class="pt">
+        <img class="ic" src="../assets/icons/woocommerce.svg" alt="">
+        <div class="pm"><h3>WooCommerce</h3><p class="pd">Everything you need to launch an online store in days and keep it growing for years.</p><p class="by"><em>By</em> <a>Automattic</a></p></div>
+        <ul class="pa"><li><span class="b2">Install Now</span></li><li><a>More Details</a></li></ul>
+      </div>
+      <div class="pb">
+        <div class="l"><span class="rt"><i class="st f">★</i><i class="st f">★</i><i class="st f">★</i><i class="st f">★</i><i class="st h">★</i> <span class="nr">(4,826)</span></span><span class="ai">7+ Million Active Installations</span></div>
+        <div class="r"><span><b>Last Updated:</b> 2 weeks ago</span><span class="cp"><b>Compatible</b> with your version of WordPress</span></div>
+      </div>
+    </div></div></div>
+</div><div class="hl" id="hl"></div></div></div>
+  <div class="cap" id="cap"><span class="n" id="cn"></span><span class="t" id="ct"></span><span class="d" id="cd"></span></div>
+</div>
+<script>
+  const ZONES = [["f-card","Contact Form 7","La ficha","Todo lo que necesitamos para decidir está aquí."],["f-name","Contact Form 7","Nombre","Y su icono, para reconocerlo."],["f-desc","Description","Descripción","Qué hace, en una frase."],["f-author","By Rock Lobster Inc.","Autor","Quién lo desarrolla y lo mantiene."],["f-rating","★★★★ (2,184)","Valoración","La nota y cuántas personas la han puntuado."],["f-installs","10+ Million","Instalaciones activas","Cuántas webs lo usan ahora mismo."],["f-updated","Last Updated","Última actualización","Si se actualiza a menudo, está mantenido."],["f-compat","Compatible","Compatibilidad","Probado con tu versión de WordPress."],["f-more","More Details","Más detalles","Ficha completa: reseñas, cambios, requisitos…"],["f-install","Install Now","Instalar","Lo descarga; después hay que activarlo."]];
+  const VIEW = [160,32,940,608];
+  const MENU_MODE = false;
+  const ZOOM = true;
+  const vp = document.getElementById('vp'), stage = document.getElementById('stage'), wp = document.getElementById('wp');
+  const hl = document.getElementById('hl'), cap = document.getElementById('cap');
+  let scale = 1, current = null, zoomed = false;
+
+  // camera: frames the whole VIEW, or zooms towards the selected zone while autoplaying
+  function frame(box, instant) {
+    const W = vp.clientWidth, H = vp.clientHeight;
+    let [x, y, w, h] = box;
+    const ar = W / H;
+    if (w / h < ar) { const nw = h * ar; x -= (nw - w) / 2; w = nw; } else { const nh = w / ar; y -= (nh - h) / 2; h = nh; }
+    const [vx, vy, vw, vh] = VIEW;
+    const s = Math.min(W / w, H / h);
+    if (w <= vw) x = Math.max(vx, Math.min(x, vx + vw - w)); else x = vx - (w - vw) / 2;
+    if (h <= vh) y = Math.max(vy, Math.min(y, vy + vh - h)); else y = vy - (h - vh) / 2;
+    // never frame empty space outside the mock when it can be avoided
+    const mw = wp.offsetWidth, mh = wp.offsetHeight;
+    if (w <= mw) x = Math.max(0, Math.min(x, mw - w)); else x = (mw - w) / 2;
+    if (h <= mh) y = Math.max(0, Math.min(y, mh - h)); else y = 0;
+    scale = s;
+    stage.classList.toggle('instant', !!instant);
+    stage.style.transform = 'translate(' + (-x * s) + 'px,' + (-y * s) + 'px) scale(' + s + ')';
+    hl.style.borderWidth = (3 / s) + 'px'; hl.style.borderRadius = (6 / s) + 'px';
+  }
+  function target(z) {
+    const el = wp.querySelector('[data-z="' + z[0] + '"]');
+    return MENU_MODE ? el.querySelector('a') : el;
+  }
+  function unscaledRect(el) {
+    // offset of el inside the mock, independent of the current transform
+    let x = 0, y = 0, n = el;
+    while (n && n !== wp) { x += n.offsetLeft; y += n.offsetTop; n = n.offsetParent; }
+    return { x, y, w: el.offsetWidth, h: el.offsetHeight };
+  }
+  function zoomBox(z) {
+    const r = unscaledRect(target(z));
+    const [, , vw, vh] = VIEW;
+    // zoom in, but never further out than the whole view
+    const w = Math.min(Math.max(r.w * 1.6, vw * 0.55), vw), h = Math.min(Math.max(r.h * 1.6, vh * 0.55), vh);
+    return [r.x + r.w / 2 - w / 2, r.y + r.h / 2 - h / 2, w, h];
+  }
+  function fit(instant) { frame(zoomed && current ? zoomBox(current) : VIEW, instant); }
+  function place(z) {
+    const r = unscaledRect(target(z)), pad = 3;
+    Object.assign(hl.style, { left: r.x - pad + 'px', top: r.y - pad + 'px', width: r.w + pad * 2 + 'px', height: r.h + pad * 2 + 'px' });
+  }
+  function select(z) {
+    if (current === z) return;
+    current = z;
+    if (MENU_MODE) wp.querySelectorAll('.mi').forEach(li => li.classList.toggle('fly', li.dataset.z === z[0]));
+    place(z); hl.classList.add('on');
+    if (zoomed) frame(zoomBox(z));
+    cap.classList.add('swap');
+    setTimeout(() => {
+      document.getElementById('cn').textContent = z[1];
+      document.getElementById('ct').textContent = z[2];
+      document.getElementById('cd').textContent = z[3];
+      cap.classList.remove('swap');
+    }, 150);
+  }
+
+  // hover picks the zone under the pointer; autoplay (with zoom) when idle
+  const byId = Object.fromEntries(ZONES.map(z => [z[0], z]));
+  let i = 0, timer = null;
+  const tick = () => { select(ZONES[i]); i = (i + 1) % ZONES.length; };
+  const play = () => { if (!timer) { zoomed = ZOOM; if (current) frame(zoomed ? zoomBox(current) : VIEW); timer = setInterval(tick, 3200); } };
+  const pause = () => { clearInterval(timer); timer = null; if (zoomed) { zoomed = false; frame(VIEW); } };
+  vp.addEventListener('mousemove', e => {
+    let el = document.elementFromPoint(e.clientX, e.clientY);
+    while (el && el !== wp) { if (el.dataset && byId[el.dataset.z]) break; el = el.parentElement; }
+    if (el && el !== wp) { pause(); i = (ZONES.indexOf(byId[el.dataset.z]) + 1) % ZONES.length; select(byId[el.dataset.z]); }
+  });
+  vp.addEventListener('mouseenter', pause);
+  vp.addEventListener('mouseleave', play);
+  window.addEventListener('resize', () => fit(true));
+  (document.fonts ? document.fonts.ready : Promise.resolve()).then(() => { frame(VIEW, true); tick(); play(); });
+</script>
+</body></html>

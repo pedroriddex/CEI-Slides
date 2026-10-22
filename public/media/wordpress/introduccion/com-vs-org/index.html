@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>WordPress.com vs WordPress.org</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%}
+body{overflow:hidden;background:oklch(0.9524 0.0013 286.37);color:oklch(0.2103 0.0059 285.89);display:flex;align-items:center;justify-content:center;padding:10px clamp(12px,4vw,32px);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;-webkit-font-smoothing:antialiased}
+:root{--acc:oklch(0.7819 0.1585 72.33);--muted:oklch(0.5517 0.0138 285.94);--line:oklch(90% 0.004 286.32);--mono:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;--code:'SFMono-Regular',ui-monospace,Menlo,Consolas,monospace}
+.card{width:100%;max-width:540px;max-height:100%;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 2px 4px 0 rgba(0,0,0,.04),0 1px 2px 0 rgba(0,0,0,.06),0 0 1px 0 rgba(0,0,0,.06);padding:10px;display:grid;grid-template-columns:auto 1fr 1fr;position:relative}
+.o{background:color-mix(in oklab,var(--acc) 14%,white);border-top-color:color-mix(in oklab,var(--acc) 28%,white)}
+.o.head{border-radius:12px 12px 0 0}
+.o.last{border-radius:0 0 12px 12px}
+.cell{padding:11px 12px;font-size:13px;display:flex;align-items:center;border-top:1px solid var(--line);position:relative;opacity:0;transform:translateY(4px);animation:in .45s cubic-bezier(.22,1,.36,1) forwards}
+.head{border-top:0;font-weight:600;font-size:14px;gap:8px}
+.head img{width:18px;height:18px;object-fit:contain}
+.key{font-family:var(--mono);font-size:11px;color:var(--muted);padding-right:18px}
+.r1{animation-delay:.05s}.r2{animation-delay:.15s}.r3{animation-delay:.25s}.r4{animation-delay:.35s}.r5{animation-delay:.45s}.r6{animation-delay:.55s}
+@keyframes in{to{opacity:1;transform:none}}
+</style></head>
+<body>
+<div class="card">
+  <div class="cell head r1"></div>
+  <div class="cell head r1"><img src="../wordpresscom.png" alt="">WordPress.com</div>
+  <div class="cell head r1 o"><img src="../wordpressorg.png" alt="">WordPress.org</div>
+
+  <div class="cell key r2">instalación</div><div class="cell r2">Ya instalado</div><div class="cell r2 o">La instalas tú</div>
+  <div class="cell key r3">hosting</div><div class="cell r3">Incluido</div><div class="cell r3 o">Lo eliges tú</div>
+  <div class="cell key r4">temas y plugins</div><div class="cell r4">Según el plan</div><div class="cell r4 o">Todos</div>
+  <div class="cell key r5">control</div><div class="cell r5">Limitado</div><div class="cell r5 o">Total</div>
+  <div class="cell key r6">precio</div><div class="cell r6">Planes de pago</div><div class="cell r6 o last">Gratis + hosting</div>
+</div>
+</body></html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>El editor de Elementor</title>
+<link rel="stylesheet" href="data:text/css,">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%}
+body{overflow:hidden;background:oklch(0.9524 0.0013 286.37);color:oklch(0.2103 0.0059 285.89);display:flex;align-items:center;justify-content:center;padding:6px;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;-webkit-font-smoothing:antialiased}
+:root{--acc:oklch(0.7819 0.1585 72.33);--fg:oklch(0.2103 0.0059 285.89);--muted:oklch(0.5517 0.0138 285.94);--line:oklch(90% 0.004 286.32);--mono:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;--code:'SFMono-Regular',ui-monospace,Menlo,Consolas,monospace}
+.card{width:100%;height:100%;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 2px 4px 0 rgba(0,0,0,.04),0 1px 2px 0 rgba(0,0,0,.06),0 0 1px 0 rgba(0,0,0,.06);padding:16px;display:flex;flex-direction:column;gap:14px;opacity:0;transform:translateY(6px);animation:in .45s cubic-bezier(.22,1,.36,1) .05s forwards}
+@keyframes in{to{opacity:1;transform:none}}
+.vp{position:relative;flex:1;min-height:0;border-radius:10px;overflow:hidden;background:#f0f0f1;outline:1px solid var(--line)}
+.stage{position:absolute;left:0;top:0;transform-origin:0 0;transition:transform .8s cubic-bezier(.65,0,.35,1)}
+.stage.instant{transition:none}
+.cap{flex:none;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;min-height:20px;padding:0 4px 2px;transition:opacity .2s}
+.cap.swap{opacity:0}
+.cap .n{font-size:14px;font-weight:600;letter-spacing:-.005em}
+.cap .t{font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--acc)}
+.cap .d{font-size:13px;font-weight:500;color:var(--muted)}
+/* highlight */
+.hl{position:absolute;pointer-events:none;border:3px solid var(--acc);border-radius:6px;background:color-mix(in oklab,var(--acc) 18%,transparent);box-shadow:0 0 0 9999px rgba(0,0,0,.28);transition:left .35s cubic-bezier(.22,1,.36,1),top .35s cubic-bezier(.22,1,.36,1),width .35s cubic-bezier(.22,1,.36,1),height .35s cubic-bezier(.22,1,.36,1),opacity .2s;opacity:0;z-index:20}
+.hl.on{opacity:1}
+
+/* ---- WordPress 7.1 admin chrome ---- */
+.wp{position:relative;width:1100px;height:640px;background:#f0f0f1;font-family:-apple-system,system-ui,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;font-size:13px;color:#1e1e1e;overflow:hidden}
+.wp a{color:#3858e9;text-decoration:underline}
+.bar{position:absolute;left:0;top:0;right:0;height:32px;background:#1e1e1e;color:#fff;display:flex;justify-content:space-between;align-items:center;z-index:3}
+.bl,.br{display:flex;height:100%}
+.bi{display:flex;align-items:center;gap:5px;padding:0 9px;height:100%;font-size:13px;white-space:nowrap}
+.bi .dashicons{font-size:20px;width:20px;height:20px;color:#a7aaad}
+.kbd{font-size:11px;padding:2px 6px;border:1px solid #50575e;border-radius:4px;color:#c3c4c7}
+.avatar{width:18px;height:18px;border-radius:50%;background:#c3c4c7;display:inline-block}
+.side{position:absolute;left:0;top:32px;bottom:0;width:160px;background:#1e1e1e;z-index:2}
+.menu{list-style:none;padding-top:10px}
+.mi{position:relative}
+.mi>a{display:flex;align-items:center;gap:8px;height:34px;padding:0 10px;color:#fff;font-size:14px;text-decoration:none}
+.mi>a .dashicons{font-size:20px;width:20px;height:20px;color:#a7aaad}
+.mi.current>a{background:#3858e9}
+.mi.current>a .dashicons{color:#fff}
+.sep{height:9px}
+.count{display:inline-block;margin-left:4px;min-width:18px;height:18px;padding:0 5px;border-radius:9px;background:#3c434a;color:#fff;font-size:9px;line-height:18px;text-align:center;font-weight:600}
+.sub{list-style:none;background:#0c0c0c;padding:6px 0}
+.sub li{padding:5px 12px 5px 38px;color:rgba(240,246,252,.7);font-size:13px}
+.sub li.cur{color:#fff;font-weight:600}
+.mi:not(.current) .sub{display:none;position:absolute;left:160px;top:0;width:180px;padding:6px 0;box-shadow:0 3px 5px rgba(0,0,0,.2)}
+.mi:not(.current) .sub li{padding-left:14px}
+.mi.fly .sub{display:block}
+.mi.fly>a{background:#0c0c0c;color:#72aee6}
+.collapse>a{color:#a7aaad;font-size:13px}
+.main{position:absolute;left:160px;top:32px;right:0;bottom:0;padding:0 20px}
+.wp.no-menu .side{display:none}
+.wp.no-menu .main{left:0}
+.tabs{display:flex;justify-content:flex-end;gap:6px}
+.tab{background:#fff;border:1px solid #c3c4c7;border-top:0;border-radius:0 0 4px 4px;padding:5px 12px;color:#50575e;font-size:13px}
+h1{font-size:23px;font-weight:400;margin:6px 0 14px}
+.muted{color:#646970}
+.btn{align-self:flex-start;background:#3858e9;color:#fff;border-radius:2px;padding:6px 12px;font-size:13px}
+.btn2{display:inline-block;border:1px solid #3858e9;color:#3858e9;background:#fff;border-radius:3px;padding:4px 10px;font-size:13px}
+
+:root{--acc:oklch(0.6204 0.195 253.83)}
+.wp{background:#fff}
+.wp img.shot{position:absolute;left:0;top:0;display:block}
+.wp .z{position:absolute;z-index:1}
+</style></head>
+<body>
+<div class="card">
+  <div class="vp" id="vp"><div class="stage" id="stage"><div class="wp " id="wp" style="width:800px;height:1076px"><img class="shot" src="../shots/historial.jpg" width="800" height="1076" alt=""><div class="z" data-z="h-list" style="left:23px;top:241px;width:276px;height:153px"></div><div class="z" data-z="h-current" style="left:23px;top:187px;width:276px;height:43px"></div><div class="z" data-z="h-start" style="left:23px;top:405px;width:276px;height:43px"></div><div class="z" data-z="h-revisions" style="left:156px;top:111px;width:167px;height:40px"></div><div class="z" data-z="h-actions" style="left:0px;top:111px;width:156px;height:40px"></div></div><div class="hl" id="hl"></div></div></div>
+  <div class="cap" id="cap"><span class="n" id="cn"></span><span class="t" id="ct"></span><span class="d" id="cd"></span></div>
+</div>
+<script>
+  const ZONES = [["h-actions","Actions","Acciones","Todo lo que hemos hecho en esta sesión."],["h-revisions","Revisions","Revisiones","Versiones guardadas anteriormente."],["h-current","Button Added","Estado actual","Haz clic en una acción anterior para volver a ella."],["h-list","Added","Acciones anteriores","De la más reciente a la más antigua."],["h-start","Editing Started","Inicio","Cómo estaba la página al abrir el editor."]];
+  const VIEW = [0,0,800,1076];
+  const MENU_MODE = false;
+  const ZOOM = true;
+  const vp = document.getElementById('vp'), stage = document.getElementById('stage'), wp = document.getElementById('wp');
+  const hl = document.getElementById('hl'), cap = document.getElementById('cap');
+  let scale = 1, current = null, zoomed = false;
+
+  // camera: frames the whole VIEW, or zooms towards the selected zone while autoplaying
+  function frame(box, instant) {
+    const W = vp.clientWidth, H = vp.clientHeight;
+    let [x, y, w, h] = box;
+    const ar = W / H;
+    if (w / h < ar) { const nw = h * ar; x -= (nw - w) / 2; w = nw; } else { const nh = w / ar; y -= (nh - h) / 2; h = nh; }
+    const [vx, vy, vw, vh] = VIEW;
+    const s = Math.min(W / w, H / h);
+    if (w <= vw) x = Math.max(vx, Math.min(x, vx + vw - w)); else x = vx - (w - vw) / 2;
+    if (h <= vh) y = Math.max(vy, Math.min(y, vy + vh - h)); else y = vy - (h - vh) / 2;
+    // never frame empty space outside the mock when it can be avoided
+    const mw = wp.offsetWidth, mh = wp.offsetHeight;
+    if (w <= mw) x = Math.max(0, Math.min(x, mw - w)); else x = (mw - w) / 2;
+    if (h <= mh) y = Math.max(0, Math.min(y, mh - h)); else y = 0;
+    scale = s;
+    stage.classList.toggle('instant', !!instant);
+    stage.style.transform = 'translate(' + (-x * s) + 'px,' + (-y * s) + 'px) scale(' + s + ')';
+    hl.style.borderWidth = (3 / s) + 'px'; hl.style.borderRadius = (6 / s) + 'px';
+  }
+  function target(z) {
+    const el = wp.querySelector('[data-z="' + z[0] + '"]');
+    return MENU_MODE ? el.querySelector('a') : el;
+  }
+  function unscaledRect(el) {
+    // offset of el inside the mock, independent of the current transform
+    let x = 0, y = 0, n = el;
+    while (n && n !== wp) { x += n.offsetLeft; y += n.offsetTop; n = n.offsetParent; }
+    return { x, y, w: el.offsetWidth, h: el.offsetHeight };
+  }
+  function zoomBox(z) {
+    const r = unscaledRect(target(z));
+    const [, , vw, vh] = VIEW;
+    // zoom in, but never further out than the whole view
+    const w = Math.min(Math.max(r.w * 1.6, vw * 0.55), vw), h = Math.min(Math.max(r.h * 1.6, vh * 0.55), vh);
+    return [r.x + r.w / 2 - w / 2, r.y + r.h / 2 - h / 2, w, h];
+  }
+  function fit(instant) { frame(zoomed && current ? zoomBox(current) : VIEW, instant); }
+  function place(z) {
+    const r = unscaledRect(target(z)), pad = 3;
+    Object.assign(hl.style, { left: r.x - pad + 'px', top: r.y - pad + 'px', width: r.w + pad * 2 + 'px', height: r.h + pad * 2 + 'px' });
+  }
+  function select(z) {
+    if (current === z) return;
+    current = z;
+    if (MENU_MODE) wp.querySelectorAll('.mi').forEach(li => li.classList.toggle('fly', li.dataset.z === z[0]));
+    place(z); hl.classList.add('on');
+    if (zoomed) frame(zoomBox(z));
+    cap.classList.add('swap');
+    setTimeout(() => {
+      document.getElementById('cn').textContent = z[1];
+      document.getElementById('ct').textContent = z[2];
+      document.getElementById('cd').textContent = z[3];
+      cap.classList.remove('swap');
+    }, 150);
+  }
+
+  // hover picks the zone under the pointer; autoplay (with zoom) when idle
+  const byId = Object.fromEntries(ZONES.map(z => [z[0], z]));
+  let i = 0, timer = null;
+  const tick = () => { select(ZONES[i]); i = (i + 1) % ZONES.length; };
+  const play = () => { if (!timer) { zoomed = ZOOM; if (current) frame(zoomed ? zoomBox(current) : VIEW); timer = setInterval(tick, 3200); } };
+  const pause = () => { clearInterval(timer); timer = null; if (zoomed) { zoomed = false; frame(VIEW); } };
+  vp.addEventListener('mousemove', e => {
+    let el = document.elementFromPoint(e.clientX, e.clientY);
+    while (el && el !== wp) { if (el.dataset && byId[el.dataset.z]) break; el = el.parentElement; }
+    if (el && el !== wp) { pause(); i = (ZONES.indexOf(byId[el.dataset.z]) + 1) % ZONES.length; select(byId[el.dataset.z]); }
+  });
+  vp.addEventListener('mouseenter', pause);
+  vp.addEventListener('mouseleave', play);
+  window.addEventListener('resize', () => fit(true));
+  (document.fonts ? document.fonts.ready : Promise.resolve()).then(() => { frame(VIEW, true); tick(); play(); });
+</script>
+</body></html>

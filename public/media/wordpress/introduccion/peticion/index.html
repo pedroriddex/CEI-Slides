@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Cliente y servidor</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%}
+body{overflow:hidden;background:oklch(0.9524 0.0013 286.37);color:oklch(0.2103 0.0059 285.89);display:flex;align-items:center;justify-content:center;padding:10px clamp(12px,4vw,32px);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;-webkit-font-smoothing:antialiased}
+:root{--acc:oklch(0.7819 0.1585 72.33);--fg:oklch(0.2103 0.0059 285.89);--muted:oklch(0.5517 0.0138 285.94);--line:oklch(90% 0.004 286.32);--soft:oklch(0.97 0.0015 286);--mono:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;--code:'SFMono-Regular',ui-monospace,Menlo,Consolas,monospace}
+.card{width:100%;max-width:540px;max-height:100%;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 2px 4px 0 rgba(0,0,0,.04),0 1px 2px 0 rgba(0,0,0,.06),0 0 1px 0 rgba(0,0,0,.06);padding:20px;display:flex;flex-direction:column;gap:16px;opacity:0;transform:translateY(6px);animation:in .45s cubic-bezier(.22,1,.36,1) .05s forwards}
+@keyframes in{to{opacity:1;transform:none}}
+.ctl{display:flex;gap:6px}
+.chip{font-family:var(--mono);font-size:12.5px;font-weight:500;line-height:1;padding:7px 12px;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--fg);cursor:pointer}
+.chip.on{background:var(--fg);border-color:var(--fg);color:#fff}
+
+/* the scene: browser · wire · server. In local mode both live inside "tu ordenador" */
+.scene{position:relative;display:grid;grid-template-columns:1fr 120px 1fr;align-items:center;padding:28px 14px 14px;border-radius:14px;outline:1px dashed transparent;outline-offset:-1px;transition:outline-color .4s,background .4s}
+.machine{position:absolute;top:8px;left:14px;font-family:var(--mono);font-size:11px;color:var(--muted);opacity:0;transition:opacity .4s}
+body[data-mode=local] .scene{outline-color:oklch(78% 0.01 286);background:var(--soft)}
+body[data-mode=local] .machine{opacity:1}
+
+.box{background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 1px 2px rgba(0,0,0,.05);min-height:132px;display:flex;flex-direction:column;overflow:hidden}
+.bar{display:flex;align-items:center;gap:4px;padding:7px 8px;border-bottom:1px solid var(--line)}
+.bar i{width:6px;height:6px;border-radius:50%;background:oklch(85% 0.006 286)}
+.url{margin-left:6px;flex:1;font-family:var(--mono);font-size:10px;color:var(--muted);background:var(--soft);border-radius:6px;padding:3px 6px;white-space:nowrap;overflow:hidden}
+.page{flex:1;padding:10px;display:flex;flex-direction:column;gap:6px}
+.page b{display:block;height:8px;border-radius:4px;background:oklch(92% 0.004 286);transform-origin:left;transform:scaleX(0);transition:transform .45s cubic-bezier(.22,1,.36,1)}
+.page b:nth-child(1){width:60%;height:12px;background:color-mix(in oklab,var(--acc) 55%,white)}
+.page b:nth-child(2){width:90%;transition-delay:.06s}
+.page b:nth-child(3){width:75%;transition-delay:.12s}
+.page b:nth-child(4){width:40%;height:16px;border-radius:999px;background:var(--acc);transition-delay:.18s}
+body[data-step="5"] .page b{transform:scaleX(1)}
+
+.server{align-items:center;justify-content:center;gap:9px;padding:12px}
+.rack{display:flex;flex-direction:column;gap:4px;width:56px}
+.rack span{height:12px;border-radius:4px;background:oklch(92% 0.004 286);position:relative}
+.rack span::after{content:'';position:absolute;right:6px;top:4px;width:4px;height:4px;border-radius:50%;background:oklch(80% 0.01 286);transition:background .2s}
+body[data-step="2"] .rack span::after,body[data-step="3"] .rack span::after{background:oklch(0.72 0.17 145)}
+.tech{display:flex;gap:6px}
+.tag{font-family:var(--mono);font-size:10px;font-weight:600;padding:4px 7px;border-radius:999px;background:var(--soft);color:var(--muted);transition:background .25s,color .25s}
+body[data-step="2"] .php,body[data-step="3"] .db{background:var(--acc);color:#fff}
+.label{font-family:var(--mono);font-size:10px;color:var(--muted)}
+
+.wire{position:relative;height:60px}
+.wire::before{content:'';position:absolute;left:6px;right:6px;top:50%;border-top:1px dashed oklch(78% 0.01 286)}
+.net{position:absolute;left:0;right:0;top:2px;text-align:center;font-family:var(--mono);font-size:10px;color:var(--muted)}
+.net .l{display:none}
+body[data-mode=local] .net .i{display:none}
+body[data-mode=local] .net .l{display:inline}
+.pkt{position:absolute;top:50%;transform:translateY(-50%);font-family:var(--code);font-size:10px;font-weight:600;padding:4px 7px;border-radius:999px;white-space:nowrap;opacity:0;transition:left .9s cubic-bezier(.65,0,.35,1),opacity .2s}
+.req{background:var(--fg);color:#fff;left:4px}
+.res{background:var(--acc);color:#fff;left:calc(100% - 46px)}
+body[data-step="1"] .req{opacity:1;left:calc(100% - 46px)}
+body[data-step="4"] .res{opacity:1;left:4px}
+.dir{position:absolute;left:0;right:0;bottom:0;text-align:center;font-family:var(--mono);font-size:10px;color:var(--muted);opacity:0;transition:opacity .2s}
+body[data-step="1"] .d1,body[data-step="4"] .d4{opacity:1}
+</style></head>
+<body data-mode="internet" data-step="0">
+<div class="card">
+  <div class="ctl"><button class="chip" data-mode="internet">en internet</button><button class="chip" data-mode="local">en local</button></div>
+  <div class="scene">
+    <span class="machine">tu ordenador</span>
+    <div class="box">
+      <div class="bar"><i></i><i></i><i></i><span class="url" id="url">mi-web.com</span></div>
+      <div class="page"><b></b><b></b><b></b><b></b></div>
+    </div>
+    <div class="wire">
+      <div class="net"><span class="i">internet</span><span class="l">localhost</span></div>
+      <span class="pkt req">GET /</span>
+      <span class="pkt res">HTML</span>
+      <span class="dir d1">petición →</span>
+      <span class="dir d4">← respuesta</span>
+    </div>
+    <div class="box server">
+      <div class="rack"><span></span><span></span><span></span></div>
+      <div class="tech"><span class="tag php">PHP</span><span class="tag db">MySQL</span></div>
+      <span class="label">servidor</span>
+    </div>
+  </div>
+</div>
+<script>
+  const body = document.body;
+  const url = document.getElementById('url');
+  const chips = [...document.querySelectorAll('.chip')];
+  function setMode(m) {
+    body.dataset.mode = m;
+    url.textContent = m === 'local' ? 'localhost/mi-web' : 'mi-web.com';
+    chips.forEach(c => c.classList.toggle('on', c.dataset.mode === m));
+  }
+  chips.forEach(c => c.addEventListener('click', () => setMode(c.dataset.mode)));
+  setMode(document.documentElement.dataset.mode || 'internet');
+  // 0 idle · 1 request · 2 PHP · 3 database · 4 response · 5 page painted
+  const STEPS = [[0, 700], [1, 1100], [2, 800], [3, 800], [4, 1100], [5, 2200]];
+  let i = 0;
+  (function loop() { const [s, t] = STEPS[i]; body.dataset.step = s; i = (i + 1) % STEPS.length; setTimeout(loop, t); })();
+</script>
+</body></html>

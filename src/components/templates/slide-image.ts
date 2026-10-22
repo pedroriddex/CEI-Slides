@@ -18,6 +18,15 @@ export class SlideImageTemplate extends LitElement implements SlideTemplateProps
   @property({type: Boolean}) motionActive = false;
   @property({type: String}) direction: Direction = 'forward';
   @state() private isLightboxOpen = false;
+  @state() private frameSize = {width: 0, height: 0};
+
+  /** Opens the iframe in the lightbox at the size it has on the slide, so it scales up unchanged. */
+  private openFrame(event: Event) {
+    const frame = (event.currentTarget as HTMLElement).parentElement?.querySelector('iframe');
+    const rect = frame?.getBoundingClientRect();
+    this.frameSize = {width: Math.round(rect?.width || 600), height: Math.round(rect?.height || 400)};
+    this.isLightboxOpen = true;
+  }
 
   protected createRenderRoot() {
     return this;
@@ -68,6 +77,9 @@ export class SlideImageTemplate extends LitElement implements SlideTemplateProps
                     ${iframeSrc
                       ? html`
                           <iframe title=${slide.title || 'iframe'} class="slide-image__media slide-motion-shell slide-motion-shell--${mediaPhase} slide-motion-shell--${this.direction}" src=${iframeSrc}></iframe>
+                          <button class="slide-image__expand" type="button" @click=${this.openFrame} aria-label=${strings.slides.iframeExpand} title=${strings.slides.iframeExpand}>
+                            <i class="ri-fullscreen-line"></i>
+                          </button>
                         `
                       : nothing}
                   </div>
@@ -75,7 +87,15 @@ export class SlideImageTemplate extends LitElement implements SlideTemplateProps
               `
             : nothing}
         </div>
-        <media-lightbox .open=${this.isLightboxOpen} .src=${imageSrc} .alt=${slide.title || ''} .onClose=${() => (this.isLightboxOpen = false)}></media-lightbox>
+        <media-lightbox
+          .open=${this.isLightboxOpen}
+          .src=${imageSrc}
+          .frameSrc=${imageSrc ? '' : iframeSrc}
+          .frameWidth=${this.frameSize.width}
+          .frameHeight=${this.frameSize.height}
+          .alt=${slide.title || ''}
+          .onClose=${() => (this.isLightboxOpen = false)}
+        ></media-lightbox>
       </div>
     `;
   }

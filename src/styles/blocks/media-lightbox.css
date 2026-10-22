@@ -37,8 +37,32 @@
   box-shadow: var(--app-shadow-overlay);
 }
 
+.media-lightbox__frame-box {
+  position: relative;
+  flex: none;
+  overflow: hidden;
+  border-radius: var(--app-radius-xl);
+  background: oklch(0.9524 0.0013 286.37); /* same as the demos page background */
+  box-shadow: var(--app-shadow-overlay);
+}
+
+.media-lightbox__frame {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 0;
+  transform-origin: 0 0;
+}
+
+/* the dialog is sized by the frame itself, not capped at the image width */
+.media-lightbox__dialog:has(.media-lightbox__frame-box) {
+  width: auto;
+  max-height: none;
+}
+
 .media-lightbox__close {
   position: absolute;
+  z-index: 2;
   top: var(--space-4);
   right: var(--space-4);
   display: inline-flex;

@@ -79,6 +79,46 @@
       "color": "blue",
       "alt": "Fondo azul con luz",
       "link": "https://unsplash.com/es/fotos/fondo-azul-abstracto-con-luz-tnkb5EcWN9I"
+    },
+    "OEO9939ZgK0": {
+      "color": "yellow",
+      "alt": "Material ondulado amarillo y blanco",
+      "link": "https://unsplash.com/es/fotos/un-primer-plano-de-un-material-ondulado-amarillo-y-blanco-OEO9939ZgK0"
+    },
+    "FECg9rW3PxA": {
+      "color": "yellow",
+      "alt": "Rayas amarillas y blancas",
+      "link": "https://unsplash.com/es/fotos/las-rayas-amarillas-y-blancas-abstractas-crean-un-fondo-brillante-FECg9rW3PxA"
+    },
+    "rFCE3SFmem0": {
+      "color": "yellow",
+      "alt": "Pintura abstracta amarilla y blanca",
+      "link": "https://unsplash.com/es/fotos/pintura-abstracta-amarilla-y-blanca-rFCE3SFmem0"
+    },
+    "BHeQQmZM8jE": {
+      "color": "yellow",
+      "alt": "Degradado amarillo y naranja",
+      "link": "https://unsplash.com/es/fotos/degradado-amarillo-y-naranja-BHeQQmZM8jE"
+    },
+    "K9fyxOqUnB4": {
+      "color": "yellow",
+      "alt": "Rayas de luz naranja y amarilla",
+      "link": "https://unsplash.com/es/fotos/rayas-abstractas-de-luz-naranja-y-amarilla-K9fyxOqUnB4"
+    },
+    "9f5Vyxf13Dk": {
+      "color": "yellow",
+      "alt": "Remolinos naranja y amarillo",
+      "link": "https://unsplash.com/es/fotos/remolinos-abstractos-de-colores-naranja-y-amarillo-9f5Vyxf13Dk"
+    },
+    "_nWaeTF6qo0": {
+      "color": "blue",
+      "alt": "Formas fluidas azul y púrpura",
+      "link": "https://unsplash.com/es/fotos/_nWaeTF6qo0"
+    },
+    "OyYuvj4Dbek": {
+      "color": "blue",
+      "alt": "Ondas azules sobre fondo oscuro",
+      "link": "https://unsplash.com/es/fotos/OyYuvj4Dbek"
     }
   },
   "bySlug": {
@@ -95,6 +135,14 @@
     "css/introduccion": "prMn9KINLtI",
     "css/box-model": "8PDsqcDIU",
     "css/flex": "_E6sXQHsgQc",
-    "css/grid": "tnkb5EcWN9I"
+    "css/grid": "tnkb5EcWN9I",
+    "wordpress/introduccion": "OEO9939ZgK0",
+    "wordpress/estructura": "FECg9rW3PxA",
+    "wordpress/panel": "rFCE3SFmem0",
+    "wordpress/posts-pages": "BHeQQmZM8jE",
+    "wordpress/themes": "K9fyxOqUnB4",
+    "wordpress/plugins": "9f5Vyxf13Dk",
+    "elementor/page-builders": "_nWaeTF6qo0",
+    "elementor/editor": "OyYuvj4Dbek"
   }
 }

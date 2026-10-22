@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Plantillas</title>
+<style>
+@font-face{font-family:'Manrope';src:url(../assets/fonts/Manrope-VariableFont_wght.woff2) format('woff2');font-weight:200 800}
+@font-face{font-family:'Roboto Slab';src:url(../assets/fonts/RobotoSlab-VariableFont_wght.woff2) format('woff2');font-weight:100 900}
+@font-face{font-family:'Beiruti';src:url(../assets/fonts/Beiruti-VariableFont_wght.woff2) format('woff2');font-weight:200 900}
+@font-face{font-family:'Literata';src:url(../assets/fonts/Literata72pt-Regular.woff2) format('woff2')}
+@font-face{font-family:'Fira Sans';src:url(../assets/fonts/FiraSans-Regular.woff2) format('woff2')}
+@font-face{font-family:'Cardo';src:url(../assets/fonts/cardo_normal_400.woff2) format('woff2')}
+@font-face{font-family:'Inter TT4';src:url(../assets/fonts/Inter-Variable.woff2) format('woff2');font-weight:100 900}
+@font-face{font-family:'DM Sans';src:url(../assets/fonts/DMSans-Regular.woff2) format('woff2')}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%}
+body{overflow:hidden;background:oklch(0.9524 0.0013 286.37);color:oklch(0.2103 0.0059 285.89);display:flex;align-items:center;justify-content:center;padding:6px;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;-webkit-font-smoothing:antialiased}
+:root{--acc:oklch(0.7819 0.1585 72.33);--fg:oklch(0.2103 0.0059 285.89);--muted:oklch(0.5517 0.0138 285.94);--line:oklch(90% 0.004 286.32);--mono:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;--code:'SFMono-Regular',ui-monospace,Menlo,Consolas,monospace}
+.card{width:100%;height:100%;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 2px 4px 0 rgba(0,0,0,.04),0 1px 2px 0 rgba(0,0,0,.06),0 0 1px 0 rgba(0,0,0,.06);padding:16px;display:flex;flex-direction:column;gap:14px;opacity:0;transform:translateY(6px);animation:in .45s cubic-bezier(.22,1,.36,1) .05s forwards}
+@keyframes in{to{opacity:1;transform:none}}
+.ctl{display:flex;flex-wrap:wrap;gap:6px;flex:none}
+.chip{font-family:var(--mono);font-size:12.5px;font-weight:500;line-height:1;padding:7px 12px;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--fg);cursor:pointer;transition:background .2s,color .2s}
+.chip.on{background:var(--fg);border-color:var(--fg);color:#fff}
+.browser{position:relative;flex:1;min-height:0;border-radius:10px;overflow:hidden;outline:1px solid var(--line);display:flex;flex-direction:column}
+.bbar{flex:none;display:flex;align-items:center;gap:5px;height:26px;padding:0 10px;background:#f3f3f4;border-bottom:1px solid var(--line)}
+.bbar i{width:7px;height:7px;border-radius:50%;background:#d4d4d8}
+.bbar .u{margin-left:8px;flex:1;max-width:240px;height:16px;border-radius:5px;background:#fff;font-family:var(--mono);font-size:9px;color:var(--muted);display:flex;align-items:center;padding:0 6px}
+.cap{flex:none;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;padding:0 4px 2px;min-height:18px;transition:opacity .2s}
+.cap.swap{opacity:0}
+.cap .n{font-size:14px;font-weight:600;letter-spacing:-.005em}
+.cap .t{font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--acc)}
+.cap .d{font-size:13px;font-weight:500;color:var(--muted)}
+.cap .t{width:auto;min-height:0}
+
+.tpl{flex:1;min-height:0;overflow:hidden;background:#fff;padding:10px 14px;display:flex;flex-direction:column;gap:7px}
+.w{display:flex;align-items:center;justify-content:center;border-radius:5px;background:#f1f1f3;border:1px dashed #d4d4d8;min-height:22px;flex:none}
+.w span{font-family:var(--mono);font-size:9px;color:var(--muted)}
+.part{background:color-mix(in oklab,var(--acc) 22%,white);border:1px solid color-mix(in oklab,var(--acc) 55%,white);min-height:26px}
+.part span{color:oklch(0.45 0.1 70);font-weight:600}
+.body{flex:1;min-height:0;display:flex;flex-direction:column;gap:7px;overflow:hidden;animation:fade .45s ease}
+@keyframes fade{from{opacity:0;transform:translateY(4px)}}
+.t{min-height:26px;width:60%}
+.t.big{min-height:34px;width:70%}
+.h2{min-height:28px;width:40%}
+.img.wide{min-height:44px}
+.c{flex:1 1 60px;min-height:16px}
+.c.tall{flex-basis:110px}
+.c.sm{flex:1 1 34px}
+.s{min-height:18px;width:45%}
+.l{min-height:18px;width:80%}
+.pg{width:35%;align-self:center}
+.srch{width:55%;min-height:26px}
+.loop{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.it{display:flex;flex-direction:column;gap:5px}
+.it .img{min-height:44px}
+.it .tx{display:flex;flex-direction:column;gap:4px}
+.it .t,.it .l,.it .s{width:auto;min-height:16px}
+.nf{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px}
+.nf .t,.nf .l{width:60%}
+</style></head>
+<body>
+<div class="card">
+  <div class="ctl"><button class="chip" data-v="index">index.html</button><button class="chip" data-v="home">home.html</button><button class="chip" data-v="single">single.html</button><button class="chip" data-v="page">page.html</button><button class="chip" data-v="archive">archive.html</button><button class="chip" data-v="search">search.html</button><button class="chip" data-v="404">404.html</button></div>
+  <div class="browser"><div class="bbar"><i></i><i></i><i></i><span class="u" id="url">pruebas.local/</span></div>
+    <div class="tpl"><div class="w part"><span>Header · template part</span></div><div class="body" id="body"></div><div class="w part"><span>Footer · template part</span></div></div>
+  </div>
+  <div class="cap" id="cap"><span class="n" id="cn"></span><span class="t" id="ct"></span><span class="d" id="cd"></span></div>
+</div><script>
+const T=[["index","index.html","Index","La plantilla de reserva: se usa si no hay otra más concreta.","<div class=\"w h2\"><span>Blog Heading</span></div><div class=\"loop\"><div class=\"it\"><div class=\"w img\"><span>Featured Image</span></div><div class=\"tx\"><div class=\"w t\"><span>Post Title</span></div><div class=\"w l\"><span>Excerpt</span></div><div class=\"w s\"><span>Date</span></div></div></div><div class=\"it\"><div class=\"w img\"><span>Featured Image</span></div><div class=\"tx\"><div class=\"w t\"><span>Post Title</span></div><div class=\"w l\"><span>Excerpt</span></div><div class=\"w s\"><span>Date</span></div></div></div><div class=\"it\"><div class=\"w img\"><span>Featured Image</span></div><div class=\"tx\"><div class=\"w t\"><span>Post Title</span></div><div class=\"w l\"><span>Excerpt</span></div><div class=\"w s\"><span>Date</span></div></div></div></div><div class=\"w pg\"><span>Pagination</span></div>"],["home","home.html","Blog Home","La página del blog con las últimas entradas.","<div class=\"w h2\"><span>Blog Heading</span></div><div class=\"loop\"><div class=\"it\"><div class=\"w img\"><span>Featured Image</span></div><div class=\"tx\"><div class=\"w t\"><span>Post Title</span></div><div class=\"w l\"><span>Excerpt</span></div><div class=\"w s\"><span>Date</span></div></div></div><div class=\"it\"><div class=\"w img\"><span>Featured Image</span></div><div class=\"tx\"><div class=\"w t\"><span>Post Title</span></div><div class=\"w l\"><span>Excerpt</span></div><div class=\"w s\"><span>Date</span></div></div></div><div class=\"it\"><div class=\"w img\"><span>Featured Image</span></div><div class=\"tx\"><div class=\"w t\"><span>Post Title</span></div><div class=\"w l\"><span>Excerpt</span></div><div class=\"w s\"><span>Date</span></div></div></div></div><div class=\"w pg\"><span>Pagination</span></div>"],["single","single.html","Single Posts","Cada entrada individual.","<div class=\"w t big\"><span>Post Title</span></div><div class=\"w img wide\"><span>Featured Image</span></div><div class=\"w s\"><span>Written by · Categories</span></div><div class=\"w c\"><span>Post Content</span></div><div class=\"w s\"><span>Tags · Post Navigation</span></div><div class=\"w c sm\"><span>Comments</span></div>"],["page","page.html","Pages","Cada página.","<div class=\"w img wide\"><span>Featured Image</span></div><div class=\"w t big\"><span>Post Title</span></div><div class=\"w c tall\"><span>Post Content</span></div>"],["archive","archive.html","All Archives","Categorías, etiquetas, autores y fechas.","<div class=\"w t\"><span>Archive Title</span></div><div class=\"w s\"><span>Term Description</span></div><div class=\"loop\"><div class=\"it\"><div class=\"w img\"><span>Featured Image</span></div><div class=\"tx\"><div class=\"w t\"><span>Post Title</span></div><div class=\"w l\"><span>Excerpt</span></div><div class=\"w s\"><span>Date</span></div></div></div><div class=\"it\"><div class=\"w img\"><span>Featured Image</span></div><div class=\"tx\"><div class=\"w t\"><span>Post Title</span></div><div class=\"w l\"><span>Excerpt</span></div><div class=\"w s\"><span>Date</span></div></div></div><div class=\"it\"><div class=\"w img\"><span>Featured Image</span></div><div class=\"tx\"><div class=\"w t\"><span>Post Title</span></div><div class=\"w l\"><span>Excerpt</span></div><div class=\"w s\"><span>Date</span></div></div></div></div>"],["search","search.html","Search Results","Los resultados de una búsqueda.","<div class=\"w t\"><span>Search Results for…</span></div><div class=\"w srch\"><span>Search</span></div><div class=\"loop\"><div class=\"it\"><div class=\"w img\"><span>Featured Image</span></div><div class=\"tx\"><div class=\"w t\"><span>Post Title</span></div><div class=\"w l\"><span>Excerpt</span></div><div class=\"w s\"><span>Date</span></div></div></div><div class=\"it\"><div class=\"w img\"><span>Featured Image</span></div><div class=\"tx\"><div class=\"w t\"><span>Post Title</span></div><div class=\"w l\"><span>Excerpt</span></div><div class=\"w s\"><span>Date</span></div></div></div><div class=\"it\"><div class=\"w img\"><span>Featured Image</span></div><div class=\"tx\"><div class=\"w t\"><span>Post Title</span></div><div class=\"w l\"><span>Excerpt</span></div><div class=\"w s\"><span>Date</span></div></div></div></div>"],["404","404.html","Page: 404","Cuando la dirección no existe.","<div class=\"nf\"><div class=\"w t big\"><span>Page not found</span></div><div class=\"w l\"><span>Paragraph</span></div><div class=\"w srch\"><span>Search</span></div></div>"]];
+const URLS={index:'pruebas.local/',home:'pruebas.local/',single:'pruebas.local/hello-world/',page:'pruebas.local/sample-page/',archive:'pruebas.local/category/uncategorized/',search:'pruebas.local/?s=hola',404:'pruebas.local/no-existe/'};
+function onSelect(v){
+  const t=T.find(x=>x[0]===v), b=document.getElementById('body'), cap=document.getElementById('cap');
+  b.style.animation='none'; b.offsetHeight; b.style.animation='';
+  b.innerHTML=t[4];
+  document.getElementById('url').textContent=URLS[v];
+  cap.classList.add('swap');
+  setTimeout(()=>{document.getElementById('cn').textContent=t[1];document.getElementById('ct').textContent=t[2];document.getElementById('cd').textContent=t[3];cap.classList.remove('swap');},150);
+}
+const chips=[...document.querySelectorAll('.chip')];
+let timer=null;
+function pick(c){chips.forEach(x=>x.classList.toggle('on',x===c));onSelect(c.dataset.v);}
+chips.forEach(c=>c.addEventListener('click',()=>{clearInterval(timer);pick(c);}));
+pick(chips[0]);
+timer=setInterval(()=>{const i=chips.findIndex(c=>c.classList.contains('on'));pick(chips[(i+1)%chips.length]);},3200);
+</script></body></html>

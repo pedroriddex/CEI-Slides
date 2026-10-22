@@ -1,5 +1,5 @@
 {
-  "versionId": "static-2026-10-20-css-grid-v1",
+  "versionId": "static-2026-10-22-elementor-editor-v1",
   "documents": {
     "": {
       "kind": "index",
@@ -7210,6 +7210,24 @@
           "target": null,
           "disabled": null,
           "description": null
+        },
+        {
+          "title": "WordPress",
+          "color": "yellow",
+          "icon": "ri-wordpress-line",
+          "href": "wordpress/theme/wordpress",
+          "target": null,
+          "disabled": null,
+          "description": null
+        },
+        {
+          "title": "Elementor",
+          "color": "blue",
+          "icon": "ri-drag-drop-line",
+          "href": "wordpress/theme/elementor",
+          "target": null,
+          "disabled": null,
+          "description": null
         }
       ]
     },
@@ -11345,6 +11363,3613 @@
             {
               "title": "grid-area",
               "link": "https://developer.mozilla.org/es/docs/Web/CSS/grid-area"
+            }
+          ]
+        }
+      ]
+    },
+    "wordpress/theme/wordpress": {
+      "kind": "index",
+      "path": "wordpress/theme/wordpress",
+      "meta": {
+        "title": "WordPress",
+        "subtitle": null,
+        "icon": "ri-wordpress-line",
+        "color": null
+      },
+      "items": [
+        {
+          "title": "Introducción",
+          "color": "yellow",
+          "icon": "ri-wordpress-line",
+          "href": "wordpress/theme/wordpress/introduccion",
+          "target": null,
+          "disabled": null,
+          "description": null
+        },
+        {
+          "title": "Archivos y carpetas",
+          "color": "yellow",
+          "icon": "ri-folder-open-line",
+          "href": "wordpress/theme/wordpress/estructura",
+          "target": null,
+          "disabled": null,
+          "description": null
+        },
+        {
+          "title": "El panel",
+          "color": "yellow",
+          "icon": "ri-dashboard-3-line",
+          "href": "wordpress/theme/wordpress/panel",
+          "target": null,
+          "disabled": null,
+          "description": null
+        },
+        {
+          "title": "Posts y Pages",
+          "color": "yellow",
+          "icon": "ri-file-list-3-line",
+          "href": "wordpress/theme/wordpress/posts-pages",
+          "target": null,
+          "disabled": null,
+          "description": null
+        },
+        {
+          "title": "Themes",
+          "color": "yellow",
+          "icon": "ri-palette-line",
+          "href": "wordpress/theme/wordpress/themes",
+          "target": null,
+          "disabled": null,
+          "description": null
+        },
+        {
+          "title": "Plugins",
+          "color": "yellow",
+          "icon": "ri-plug-line",
+          "href": "wordpress/theme/wordpress/plugins",
+          "target": null,
+          "disabled": null,
+          "description": null
+        }
+      ]
+    },
+    "wordpress/theme/elementor": {
+      "kind": "index",
+      "path": "wordpress/theme/elementor",
+      "meta": {
+        "title": "Elementor",
+        "subtitle": null,
+        "icon": "ri-drag-drop-line",
+        "color": null
+      },
+      "items": [
+        {
+          "title": "Page builders",
+          "color": "blue",
+          "icon": "ri-drag-drop-line",
+          "href": "wordpress/theme/elementor/page-builders",
+          "target": null,
+          "disabled": null,
+          "description": null
+        },
+        {
+          "title": "El editor",
+          "color": "blue",
+          "icon": "ri-layout-4-line",
+          "href": "wordpress/theme/elementor/editor",
+          "target": null,
+          "disabled": null,
+          "description": null
+        }
+      ]
+    },
+    "wordpress/theme/wordpress/introduccion": {
+      "kind": "deck",
+      "path": "wordpress/theme/wordpress/introduccion",
+      "slides": [
+        {
+          "theme": "9",
+          "slug": "wordpress/introduccion",
+          "color": "yellow",
+          "template": "cover",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "icon": "ri-wordpress-line",
+          "title": "Introducción a WordPress",
+          "description": "Qué es WordPress, de dónde viene y qué necesita para funcionar.",
+          "coverImg": "cover"
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "¿Qué es WordPress?",
+          "description": "WordPress es un gestor de contenidos (CMS): una herramienta para crear y administrar una web sin tener que programarla desde cero.",
+          "icon": "ri-wordpress-line"
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "Más del 40 % de la web",
+          "description": "Casi la mitad de las webs de internet funcionan con WordPress. Blogs, tiendas, webs de empresa, medios de comunicación… Seguro que has visitado muchas sin saberlo."
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "Software libre",
+          "description": "WordPress es open source: su código es público y cualquiera puede usarlo, estudiarlo, modificarlo y compartirlo. Gratis y para siempre."
+        },
+        {
+          "template": "card",
+          "subtemplate": "list",
+          "sideblockopen": false,
+          "title": "Las cuatro libertades",
+          "description": "Su licencia (GPL) garantiza cuatro libertades a cualquier persona.",
+          "listItems": [
+            {
+              "num": "1",
+              "title": "Usarlo",
+              "description": "Para lo que quieras, sin pedir permiso."
+            },
+            {
+              "num": "2",
+              "title": "Estudiarlo",
+              "description": "Su código está a la vista de todos."
+            },
+            {
+              "num": "3",
+              "title": "Modificarlo",
+              "description": "Puedes adaptarlo a tus necesidades."
+            },
+            {
+              "num": "4",
+              "title": "Compartirlo",
+              "description": "Tanto el original como tus cambios."
+            }
+          ]
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Una comunidad enorme",
+          "description": "Miles de personas de todo el mundo mejoran WordPress y crean temas y plugins. Por eso hay una solución para casi cualquier web que imagines.",
+          "mgLogo": "wordpressorg.png",
+          "mgUrl": "https://wordpress.org/about/",
+          "mgUrlTitle": "WordPress.org",
+          "mgTitle": "Nadie es su dueño",
+          "mgContent": "WordPress no pertenece a ninguna empresa: lo mantiene una comunidad de voluntarios, desarrolladores y empresas que colaboran en él."
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "WordPress.com vs. WordPress.org",
+          "description": "Comparten nombre y logo, pero no son lo mismo. Es la confusión más habitual cuando empezamos con WordPress."
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "WordPress.com",
+          "description": "Un servicio de la empresa Automattic: te dan la web ya instalada y alojada. Muy cómodo, pero con límites según el plan que pagues.",
+          "mgLogo": "wordpresscom.png",
+          "mgUrl": "https://wordpress.com/",
+          "mgUrlTitle": "WordPress.com",
+          "mgTitle": "Un servicio",
+          "mgContent": "Como alquilar un piso amueblado: entras a vivir enseguida, pero no puedes tirar paredes."
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "WordPress.org",
+          "description": "El software libre en sí. Lo descargamos gratis y lo instalamos donde queramos, con control total sobre la web.",
+          "mgLogo": "wordpressorg.png",
+          "mgUrl": "https://wordpress.org/",
+          "mgUrlTitle": "WordPress.org",
+          "mgTitle": "Un software",
+          "mgContent": "Como comprar un terreno y construir tu casa: más trabajo al principio, pero haces lo que quieras."
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "Cara a cara",
+          "iframe": "com-vs-org"
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "¿Cuál vamos a usar?",
+          "description": "En el módulo trabajaremos con WordPress.org. Es el que se usa profesionalmente para crear webs a clientes, porque no tiene límites."
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "Nació para hacer blogs",
+          "description": "WordPress nació en 2003 como una herramienta para publicar blogs. Con los años creció hasta permitir cualquier tipo de web."
+        },
+        {
+          "template": "card",
+          "subtemplate": "list",
+          "sideblockopen": false,
+          "title": "De blog a todo tipo de webs",
+          "description": "Algunos momentos clave de su historia.",
+          "listItems": [
+            {
+              "num": "2003",
+              "title": "Nace como herramienta de blogs"
+            },
+            {
+              "num": "2005",
+              "title": "Llegan las páginas y los temas"
+            },
+            {
+              "num": "2010",
+              "title": "Contenido a medida: más allá del blog"
+            },
+            {
+              "num": "2018",
+              "title": "El editor de bloques"
+            }
+          ]
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Su herencia de blog",
+          "description": "Todavía se nota de dónde viene: muchas de sus herramientas están pensadas para publicar artículos.",
+          "postDescription": "De serie trae:",
+          "list": [
+            {
+              "title": "Entradas",
+              "description": null
+            },
+            {
+              "title": "Categorías y etiquetas",
+              "description": null
+            },
+            {
+              "title": "Comentarios",
+              "description": null
+            },
+            {
+              "title": "Páginas",
+              "description": null
+            }
+          ]
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Entradas y páginas",
+          "description": "Las entradas son los artículos del blog, ordenados por fecha. Las páginas son contenido fijo, como \"Inicio\", \"Sobre nosotros\" o \"Contacto\".",
+          "mgTitle": "Entrada o página",
+          "mgContent": "Si tiene fecha y forma parte de una serie, es una entrada. Si es contenido que no caduca, es una página."
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "¿Qué necesita WordPress.org?",
+          "description": "WordPress no se abre con doble clic como un documento: necesita un servidor que lo ejecute."
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Los requisitos",
+          "description": "Para funcionar, WordPress necesita tres piezas trabajando juntas.",
+          "postDescription": "Necesita:",
+          "list": [
+            {
+              "title": "Un servidor web",
+              "description": null
+            },
+            {
+              "title": "PHP",
+              "description": null
+            },
+            {
+              "title": "Una base de datos",
+              "description": null
+            }
+          ],
+          "mgLogo": "wordpressorg.png",
+          "mgUrl": "https://wordpress.org/about/requirements/",
+          "mgUrlTitle": "Requisitos",
+          "mgTitle": "Requisitos oficiales",
+          "mgContent": "WordPress publica las versiones mínimas recomendadas de PHP y de la base de datos."
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "PHP",
+          "description": "El lenguaje de programación en el que está escrito WordPress. El servidor lo ejecuta y genera el HTML que ve el visitante.",
+          "mgTitle": "¿Por qué PHP?",
+          "mgContent": "El navegador solo entiende HTML, CSS y JavaScript. PHP se ejecuta antes, en el servidor, y \"fabrica\" ese HTML."
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Base de datos",
+          "description": "Donde WordPress guarda todo el contenido: entradas, páginas, usuarios, ajustes… Normalmente es MySQL o MariaDB.",
+          "mgTitle": "Como un Excel gigante",
+          "mgContent": "Una base de datos guarda la información en tablas ordenadas, para encontrarla y cambiarla muy rápido."
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "¿Qué es un servidor?",
+          "description": "Un ordenador que está siempre encendido y conectado a internet, esperando peticiones para entregar páginas web.",
+          "icon": "ri-server-line"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Cliente y servidor",
+          "description": "Tu navegador (el cliente) pide una página. El servidor la prepara y se la devuelve. Es una conversación de pregunta y respuesta.",
+          "mgTitle": "Como en un restaurante",
+          "mgContent": "Tú pides un plato (la petición), la cocina lo prepara (el servidor) y el camarero te lo trae (la respuesta)."
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "Así funciona",
+          "iframe": "peticion"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Estático o dinámico",
+          "description": "Un servidor puede entregar los archivos tal cual, o generarlos en el momento con PHP y la base de datos. WordPress funciona de la segunda forma.",
+          "postDescription": "Dos tipos de web:",
+          "list": [
+            {
+              "title": "Estática: HTML tal cual",
+              "description": null
+            },
+            {
+              "title": "Dinámica: se genera al pedirla",
+              "description": null
+            }
+          ]
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "¿Qué es un hosting?",
+          "description": "Un servicio que nos alquila espacio en un servidor para alojar nuestra web. Así no necesitamos tener un servidor propio encendido en casa.",
+          "icon": "ri-cloud-line"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Hosting y dominio",
+          "description": "Son dos cosas distintas y se contratan por separado, aunque muchas empresas ofrecen las dos.",
+          "mgTitle": "Terreno y dirección",
+          "mgContent": "El hosting es el terreno donde está construida tu casa (la web). El dominio es su dirección, para que la gente pueda encontrarla."
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Qué incluye un hosting",
+          "description": "Además del espacio, un buen hosting nos da todo lo que WordPress necesita.",
+          "postDescription": "Normalmente incluye:",
+          "list": [
+            {
+              "title": "Espacio en disco",
+              "description": null
+            },
+            {
+              "title": "PHP y bases de datos",
+              "description": null
+            },
+            {
+              "title": "Certificado SSL (HTTPS)",
+              "description": null
+            },
+            {
+              "title": "Copias de seguridad",
+              "description": null
+            },
+            {
+              "title": "Correo electrónico",
+              "description": null
+            }
+          ]
+        },
+        {
+          "template": "card",
+          "subtemplate": "list",
+          "sideblockopen": false,
+          "title": "Tipos de hosting",
+          "description": "De más barato y compartido a más potente y exclusivo.",
+          "listItems": [
+            {
+              "num": "1",
+              "title": "Compartido",
+              "description": "Muchas webs en el mismo servidor. Barato y suficiente para empezar."
+            },
+            {
+              "num": "2",
+              "title": "VPS",
+              "description": "Una parte del servidor reservada solo para ti."
+            },
+            {
+              "num": "3",
+              "title": "Dedicado",
+              "description": "Un servidor entero para tu web."
+            },
+            {
+              "num": "4",
+              "title": "WordPress gestionado",
+              "description": "Optimizado para WordPress, con mantenimiento incluido."
+            }
+          ]
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "Servidor local",
+          "description": "Antes de publicar, trabajamos en nuestro propio ordenador: lo convertimos en un servidor para crear y probar la web sin pagar un hosting.",
+          "icon": "ri-macbook-line"
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "En internet y en local",
+          "iframe": "local"
+        },
+        {
+          "template": "card",
+          "subtemplate": "list",
+          "sideblockopen": false,
+          "title": "Herramientas para trabajar en local",
+          "description": "Instalan en nuestro ordenador todo lo que WordPress necesita.",
+          "listItems": [
+            {
+              "num": "1",
+              "title": "XAMPP"
+            },
+            {
+              "num": "2",
+              "title": "MAMP"
+            },
+            {
+              "num": "3",
+              "title": "LAMP"
+            },
+            {
+              "num": "4",
+              "title": "Local WP"
+            }
+          ]
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "XAMPP",
+          "description": "Gratuito y disponible para Windows, macOS y Linux. Instala de una vez Apache, MySQL (MariaDB), PHP y Perl.",
+          "mgLogo": "xampp.svg",
+          "mgUrl": "https://www.apachefriends.org/es/",
+          "mgUrlTitle": "XAMPP",
+          "mgTitle": "¿Por qué ese nombre?",
+          "mgContent": "X (cualquier sistema), Apache, MariaDB/MySQL, PHP y Perl."
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "MAMP",
+          "description": "Muy sencillo de usar, pensado sobre todo para macOS, aunque también existe para Windows.",
+          "mgLogo": "mamp.png",
+          "mgUrl": "https://www.mamp.info/",
+          "mgUrlTitle": "MAMP",
+          "mgTitle": "¿Por qué ese nombre?",
+          "mgContent": "Mac, Apache, MySQL y PHP."
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "LAMP",
+          "description": "No es un programa, sino la combinación clásica con la que funcionan muchos servidores reales: Linux, Apache, MySQL y PHP.",
+          "mgTitle": "Lo que hay detrás",
+          "mgContent": "Muchos hostings usan esta combinación. Montarla en local exige instalar cada pieza a mano, así que es más técnico."
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Local WP",
+          "description": "Creado específicamente para WordPress: con un par de clics tenemos una web lista para trabajar. Es el que usaremos en clase.",
+          "mgLogo": "localwp.webp",
+          "mgUrl": "https://localwp.com/",
+          "mgUrlTitle": "Local WP",
+          "mgTitle": "Nuestra herramienta",
+          "mgContent": "Gratis, para Windows, macOS y Linux. Crea, arranca y para webs de WordPress sin tocar ninguna configuración."
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "title": "Documentación oficial",
+          "description": "Como siempre, puedes revisar la documentación oficial de WordPress para más información.",
+          "icon": "ri-book-read-line",
+          "linksList": [
+            {
+              "title": "Sobre WordPress",
+              "link": "https://wordpress.org/about/"
+            },
+            {
+              "title": "Requisitos de WordPress",
+              "link": "https://wordpress.org/about/requirements/"
+            },
+            {
+              "title": "Learn WordPress",
+              "link": "https://learn.wordpress.org/"
+            },
+            {
+              "title": "Local WP",
+              "link": "https://localwp.com/"
+            }
+          ]
+        }
+      ]
+    },
+    "wordpress/theme/wordpress/estructura": {
+      "kind": "deck",
+      "path": "wordpress/theme/wordpress/estructura",
+      "slides": [
+        {
+          "theme": "10",
+          "slug": "wordpress/estructura",
+          "color": "yellow",
+          "template": "cover",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "icon": "ri-folder-open-line",
+          "title": "Archivos y carpetas",
+          "description": "Qué hay dentro de WordPress y para qué sirve cada parte.",
+          "coverImg": "cover"
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "Por dentro de WordPress",
+          "description": "Al instalar WordPress aparece una carpeta llena de archivos. No hace falta conocerlos todos, pero sí saber dónde está cada cosa.",
+          "icon": "ri-folder-open-line"
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "Así es por dentro",
+          "iframe": "explorador"
+        },
+        {
+          "template": "card",
+          "subtemplate": "list",
+          "sideblockopen": false,
+          "title": "Lo más importante",
+          "description": "Estas son las piezas que vamos a conocer.",
+          "listItems": [
+            {
+              "num": "1",
+              "title": "wp-admin"
+            },
+            {
+              "num": "2",
+              "title": "wp-includes"
+            },
+            {
+              "num": "3",
+              "title": "wp-content"
+            },
+            {
+              "num": "4",
+              "title": "wp-config.php"
+            },
+            {
+              "num": "5",
+              "title": "Los archivos de la raíz"
+            }
+          ]
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "El núcleo",
+          "description": "wp-admin, wp-includes y casi todos los archivos de la raíz forman el núcleo (core) de WordPress: el programa en sí."
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "wp-admin",
+          "description": "El panel de administración: desde aquí creamos páginas, instalamos plugins o cambiamos ajustes. Se entra añadiendo /wp-admin a la dirección.",
+          "mgContent": "```plaintext\nmi-web.com/wp-admin\n```",
+          "mgCode": "url"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "wp-includes",
+          "description": "El motor de WordPress: miles de archivos con las funciones que hacen que todo funcione por debajo.",
+          "mgTitle": "Como el motor de un coche",
+          "mgContent": "Lo usamos constantemente, pero no hace falta abrirlo para conducir."
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "La regla de oro",
+          "description": "Nunca modifiques el núcleo. Cada actualización de WordPress lo sustituye entero y perderías tus cambios. Lo nuestro va siempre en wp-content.",
+          "icon": "ri-error-warning-line"
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "wp-content",
+          "description": "Nuestra carpeta: aquí vive todo lo que hace única a nuestra web. Las actualizaciones de WordPress no la tocan."
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Dentro de wp-content",
+          "description": "Tres carpetas que usaremos constantemente.",
+          "mgCode": "carpeta",
+          "mgContent": "```plaintext\nwp-content/\n├── themes/\n├── plugins/\n└── uploads/\n```"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "themes",
+          "description": "Los temas instalados, cada uno en su propia carpeta. El tema decide el aspecto de la web.",
+          "mgCode": "carpeta",
+          "mgContent": "```plaintext\nthemes/\n├── twentytwentyfive/\n└── hello-elementor/\n```"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "plugins",
+          "description": "Los plugins instalados. Cada plugin añade una función: formularios, SEO, una tienda online…",
+          "mgCode": "carpeta",
+          "mgContent": "```plaintext\nplugins/\n├── elementor/\n├── contact-form-7/\n└── wordpress-seo/\n```"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "uploads",
+          "description": "Todo lo que subimos a la biblioteca de medios, ordenado por año y mes. De cada imagen, WordPress crea además copias en varios tamaños.",
+          "mgCode": "carpeta",
+          "mgContent": "```plaintext\nuploads/\n└── 2026/\n    └── 10/\n        ├── portada.jpg\n        ├── portada-300x200.jpg\n        └── portada-1024x683.jpg\n```"
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "Copias de seguridad",
+          "description": "Para tener una copia completa de la web necesitamos dos cosas: la carpeta wp-content y la base de datos. El resto se puede volver a descargar.",
+          "icon": "ri-save-3-line"
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "wp-config.php",
+          "description": "El archivo de configuración: conecta WordPress con su base de datos y guarda algunos ajustes muy importantes.",
+          "icon": "ri-settings-3-line"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Conexión con la base de datos",
+          "description": "El nombre de la base de datos, el usuario, la contraseña y el servidor donde está.",
+          "mgCode": "php",
+          "mgContent": "```php\ndefine( 'DB_NAME', 'local' );\ndefine( 'DB_USER', 'root' );\ndefine( 'DB_PASSWORD', 'root' );\ndefine( 'DB_HOST', 'localhost' );\n```"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Prefijo de las tablas",
+          "description": "Todas las tablas de la base de datos empiezan por este prefijo. Cambiarlo al instalar dificulta algunos ataques.",
+          "mgCode": "php",
+          "mgContent": "```php\n$table_prefix = 'wp_';\n```"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Claves de seguridad",
+          "description": "Frases aleatorias que protegen las sesiones de los usuarios. WordPress las genera solo al instalarse.",
+          "mgCode": "php",
+          "mgContent": "```php\ndefine( 'AUTH_KEY', 'p9#Zk!vQ…' );\ndefine( 'SECURE_AUTH_KEY', 'L2@xr7…' );\n/* … */\n```"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Modo depuración",
+          "description": "Muestra los errores de PHP en pantalla. Muy útil mientras desarrollamos, pero siempre desactivado en una web publicada.",
+          "mgCode": "php",
+          "mgContent": "```php\ndefine( 'WP_DEBUG', true );\n```"
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "Un archivo delicado",
+          "description": "wp-config.php guarda contraseñas: nunca lo compartas. Y un error al editarlo puede dejar la web en blanco, así que haz siempre una copia antes.",
+          "icon": "ri-lock-line"
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "Los archivos de la raíz",
+          "description": "Además de las carpetas, en la raíz hay algunos archivos que conviene reconocer."
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": ".htaccess",
+          "description": "Un archivo oculto de configuración del servidor (Apache). WordPress lo usa para las URL amigables, como mi-web.com/contacto.",
+          "mgCode": "htaccess",
+          "mgContent": "```plaintext\n# BEGIN WordPress\n<IfModule mod_rewrite.c>\nRewriteEngine On\nRewriteBase /\nRewriteRule ^index\\.php$ - [L]\nRewriteCond %{REQUEST_FILENAME} !-f\nRewriteCond %{REQUEST_FILENAME} !-d\nRewriteRule . /index.php [L]\n</IfModule>\n# END WordPress\n```"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "index.php",
+          "description": "La puerta de entrada: cada visita pasa primero por aquí, y desde este archivo WordPress carga todo lo demás.",
+          "mgCode": "php",
+          "mgContent": "```php\ndefine( 'WP_USE_THEMES', true );\nrequire __DIR__ . '/wp-blog-header.php';\n```"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "wp-login.php",
+          "description": "La pantalla para iniciar sesión. Si entramos en /wp-admin sin haber iniciado sesión, WordPress nos envía aquí.",
+          "mgTitle": "La puerta del panel",
+          "mgContent": "Es la página más atacada de cualquier WordPress: por eso usaremos siempre contraseñas seguras."
+        },
+        {
+          "template": "card",
+          "subtemplate": "list",
+          "sideblockopen": false,
+          "title": "Y alguno más",
+          "description": "Archivos que veremos en la raíz, aunque casi nunca los tocaremos.",
+          "listItems": [
+            {
+              "num": "1",
+              "title": "wp-config-sample.php",
+              "description": "La plantilla de la que nace wp-config.php."
+            },
+            {
+              "num": "2",
+              "title": "license.txt",
+              "description": "La licencia GPL de WordPress."
+            },
+            {
+              "num": "3",
+              "title": "readme.html",
+              "description": "Información básica sobre WordPress."
+            }
+          ]
+        },
+        {
+          "template": "card",
+          "subtemplate": "list",
+          "sideblockopen": false,
+          "title": "En resumen",
+          "description": "Tres zonas, tres formas de tratarlas.",
+          "listItems": [
+            {
+              "num": "1",
+              "title": "El núcleo",
+              "description": "wp-admin, wp-includes y la raíz: no se toca."
+            },
+            {
+              "num": "2",
+              "title": "wp-content",
+              "description": "Temas, plugins y archivos subidos: lo nuestro."
+            },
+            {
+              "num": "3",
+              "title": "wp-config.php",
+              "description": "La configuración: con mucho cuidado."
+            }
+          ]
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "title": "Documentación oficial",
+          "description": "Como siempre, puedes revisar la documentación oficial de WordPress para más información.",
+          "icon": "ri-book-read-line",
+          "linksList": [
+            {
+              "title": "Editar wp-config.php",
+              "link": "https://developer.wordpress.org/advanced-administration/wordpress/wp-config/"
+            },
+            {
+              "title": ".htaccess en WordPress",
+              "link": "https://developer.wordpress.org/advanced-administration/server/web-server/httpd/"
+            },
+            {
+              "title": "Copias de seguridad",
+              "link": "https://developer.wordpress.org/advanced-administration/security/backup/"
+            },
+            {
+              "title": "Permisos de archivos",
+              "link": "https://developer.wordpress.org/advanced-administration/server/file-permissions/"
+            }
+          ]
+        }
+      ]
+    },
+    "wordpress/theme/wordpress/panel": {
+      "kind": "deck",
+      "path": "wordpress/theme/wordpress/panel",
+      "slides": [
+        {
+          "theme": "11",
+          "slug": "wordpress/panel",
+          "color": "yellow",
+          "template": "cover",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "icon": "ri-dashboard-3-line",
+          "title": "El panel",
+          "description": "Nuestro centro de mando: un primer paseo por el escritorio de WordPress.",
+          "coverImg": "cover"
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "El panel de administración",
+          "description": "Desde aquí controlamos toda la web. La primera vez impone un poco, pero todo está siempre en el mismo sitio.",
+          "icon": "ri-dashboard-3-line"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Cómo entrar",
+          "description": "Añadimos /wp-admin a la dirección de la web e iniciamos sesión con nuestro usuario y contraseña. En Local WP también tenemos el botón WP Admin.",
+          "mgCode": "url",
+          "mgContent": "```plaintext\npruebas.local/wp-admin\n```"
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "En inglés y en español",
+          "description": "Nuestro WordPress está en inglés. Junto a cada nombre veremos su traducción, que es lo que aparece si lo instalamos en español.",
+          "icon": "ri-translate-2"
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "Las tres zonas",
+          "iframe": "zonas"
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "La barra de herramientas",
+          "description": "La franja negra de arriba. Tiene atajos a lo más usado y nos acompaña también cuando visitamos la web con la sesión iniciada."
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "La barra, de cerca",
+          "iframe": "barra"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Ver la web",
+          "description": "Al hacer clic en el nombre del sitio vemos la web tal y como la ven los visitantes. Desde ahí, el mismo botón nos devuelve al panel.",
+          "mgTitle": "Solo la ves tú",
+          "mgContent": "Con la sesión iniciada, la barra también aparece en la web. Los visitantes no la ven."
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "New · Nuevo",
+          "description": "Un atajo para crear contenido sin buscarlo en el menú.",
+          "postDescription": "Podemos crear:",
+          "list": [
+            {
+              "title": "Post · Entrada",
+              "description": null
+            },
+            {
+              "title": "Media · Archivo",
+              "description": null
+            },
+            {
+              "title": "Page · Página",
+              "description": null
+            },
+            {
+              "title": "User · Usuario",
+              "description": null
+            }
+          ]
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Tu cuenta",
+          "description": "En \"Howdy, root\" (Hola, root) tenemos nuestro perfil: nombre, contraseña, colores del panel… y el botón para cerrar sesión (Log Out).",
+          "mgTitle": "Colores del panel",
+          "mgContent": "Desde el perfil podemos cambiar el esquema de colores del panel. Solo cambia para nuestro usuario."
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "El menú lateral",
+          "description": "Aquí está todo lo que se puede hacer en WordPress. Al pasar el ratón por una sección aparecen sus submenús."
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "El menú, sección a sección",
+          "iframe": "menu"
+        },
+        {
+          "template": "card",
+          "subtemplate": "list",
+          "sideblockopen": false,
+          "title": "Tres bloques",
+          "description": "El menú está separado en tres grupos.",
+          "listItems": [
+            {
+              "num": "1",
+              "title": "Inicio",
+              "description": "Dashboard (Escritorio)."
+            },
+            {
+              "num": "2",
+              "title": "Contenido",
+              "description": "Posts, Media, Pages y Comments."
+            },
+            {
+              "num": "3",
+              "title": "Configuración",
+              "description": "Appearance, Plugins, Users, Tools y Settings."
+            }
+          ]
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Dashboard · Escritorio",
+          "description": "La pantalla de inicio del panel. En Updates (Actualizaciones) vemos si hay que actualizar WordPress, los temas o los plugins.",
+          "postDescription": "Submenús:",
+          "list": [
+            {
+              "title": "Home · Inicio",
+              "description": null
+            },
+            {
+              "title": "Updates · Actualizaciones",
+              "description": null
+            }
+          ]
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Posts · Entradas",
+          "description": "Los artículos del blog, ordenados por fecha y organizados con categorías y etiquetas.",
+          "postDescription": "Submenús:",
+          "list": [
+            {
+              "title": "All Posts · Todas las entradas",
+              "description": null
+            },
+            {
+              "title": "Add Post · Añadir entrada",
+              "description": null
+            },
+            {
+              "title": "Categories · Categorías",
+              "description": null
+            },
+            {
+              "title": "Tags · Etiquetas",
+              "description": null
+            }
+          ]
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Media · Medios",
+          "description": "La biblioteca con todas las imágenes, vídeos y documentos que subimos a la web.",
+          "postDescription": "Submenús:",
+          "list": [
+            {
+              "title": "Library · Biblioteca",
+              "description": null
+            },
+            {
+              "title": "Add Media File · Añadir archivo",
+              "description": null
+            }
+          ]
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Pages · Páginas",
+          "description": "El contenido fijo de la web: Inicio, Sobre nosotros, Contacto… Será donde más trabajemos.",
+          "postDescription": "Submenús:",
+          "list": [
+            {
+              "title": "All Pages · Todas las páginas",
+              "description": null
+            },
+            {
+              "title": "Add Page · Añadir página",
+              "description": null
+            }
+          ]
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Comments · Comentarios",
+          "description": "Los comentarios que dejan los visitantes. Podemos aprobarlos, responderlos o marcarlos como spam.",
+          "mgTitle": "El número",
+          "mgContent": "El contador junto al nombre indica cuántos comentarios esperan revisión."
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Appearance · Apariencia",
+          "description": "Todo lo relacionado con el aspecto de la web: el tema, el editor del sitio y las fuentes.",
+          "postDescription": "Submenús:",
+          "list": [
+            {
+              "title": "Themes · Temas",
+              "description": null
+            },
+            {
+              "title": "Editor · Editor del sitio",
+              "description": null
+            },
+            {
+              "title": "Fonts · Fuentes",
+              "description": null
+            }
+          ]
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Plugins",
+          "description": "Las piezas que añaden funciones a WordPress: formularios, SEO, tiendas online… Aquí los instalamos, activamos y desactivamos.",
+          "postDescription": "Submenús:",
+          "list": [
+            {
+              "title": "Installed Plugins · Plugins instalados",
+              "description": null
+            },
+            {
+              "title": "Add Plugin · Añadir plugin",
+              "description": null
+            }
+          ]
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Users · Usuarios",
+          "description": "Las personas que pueden entrar en el panel. Cada una tiene un rol que decide qué puede hacer.",
+          "postDescription": "Roles:",
+          "list": [
+            {
+              "title": "Administrator · Administrador",
+              "description": null
+            },
+            {
+              "title": "Editor",
+              "description": null
+            },
+            {
+              "title": "Author · Autor",
+              "description": null
+            },
+            {
+              "title": "Contributor · Colaborador",
+              "description": null
+            },
+            {
+              "title": "Subscriber · Suscriptor",
+              "description": null
+            }
+          ]
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Tools · Herramientas",
+          "description": "Utilidades para importar y exportar contenido, revisar la salud del sitio y gestionar datos personales.",
+          "postDescription": "Las más usadas:",
+          "list": [
+            {
+              "title": "Import · Importar",
+              "description": null
+            },
+            {
+              "title": "Export · Exportar",
+              "description": null
+            },
+            {
+              "title": "Site Health · Salud del sitio",
+              "description": null
+            }
+          ]
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Settings · Ajustes",
+          "description": "La configuración general: nombre de la web, idioma, zona horaria, cómo se forman las direcciones…",
+          "postDescription": "Submenús:",
+          "list": [
+            {
+              "title": "General",
+              "description": null
+            },
+            {
+              "title": "Writing · Escritura",
+              "description": null
+            },
+            {
+              "title": "Reading · Lectura",
+              "description": null
+            },
+            {
+              "title": "Discussion · Comentarios",
+              "description": null
+            },
+            {
+              "title": "Media · Medios",
+              "description": null
+            },
+            {
+              "title": "Permalinks · Enlaces permanentes",
+              "description": null
+            },
+            {
+              "title": "Privacy · Privacidad",
+              "description": null
+            }
+          ]
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "Un menú que crece",
+          "description": "Cuando instalemos plugins, como Elementor, aparecerán nuevas secciones en este menú. Por eso cada WordPress puede verse un poco distinto.",
+          "icon": "ri-puzzle-2-line"
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "El área de trabajo",
+          "description": "El espacio central cambia según la sección que elijamos. En el Escritorio, está formado por cajas con información."
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "Las cajas del Escritorio",
+          "iframe": "escritorio"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Welcome · Bienvenida",
+          "description": "Un panel con accesos rápidos para empezar: crear una página, abrir el editor del sitio o cambiar los estilos.",
+          "mgTitle": "Se puede cerrar",
+          "mgContent": "Con \"Dismiss\" desaparece. Se recupera desde Screen Options."
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "At a Glance · De un vistazo",
+          "description": "Cuántas entradas, páginas y comentarios tiene la web, qué versión de WordPress usamos y qué tema está activo."
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Site Health · Salud del sitio",
+          "description": "Revisa la seguridad y el rendimiento de la web y nos avisa si algo necesita atención."
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Activity y Quick Draft",
+          "description": "Activity (Actividad) muestra lo último publicado y los comentarios recientes. Quick Draft (Borrador rápido) guarda una idea como borrador en segundos."
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Screen Options y Help",
+          "description": "Dos pestañas que aparecen en casi todas las pantallas del panel.",
+          "postDescription": "Para qué sirven:",
+          "list": [
+            {
+              "title": "Screen Options · Qué se muestra",
+              "description": null
+            },
+            {
+              "title": "Help · Ayuda de la pantalla",
+              "description": null
+            }
+          ]
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "Un WordPress recién instalado",
+          "description": "Trae contenido de ejemplo: la entrada \"Hello world!\", una página de ejemplo y un comentario. Lo borraremos al empezar nuestro proyecto.",
+          "icon": "ri-sparkling-line"
+        },
+        {
+          "template": "card",
+          "subtemplate": "list",
+          "sideblockopen": false,
+          "title": "En resumen",
+          "description": "Tres zonas que encontrarás en todas las pantallas.",
+          "listItems": [
+            {
+              "num": "1",
+              "title": "Barra de herramientas",
+              "description": "Atajos: ver la web, crear contenido, tu cuenta."
+            },
+            {
+              "num": "2",
+              "title": "Menú lateral",
+              "description": "Todas las secciones del panel."
+            },
+            {
+              "num": "3",
+              "title": "Área de trabajo",
+              "description": "Cambia según la sección elegida."
+            }
+          ]
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "title": "Documentación oficial",
+          "description": "Como siempre, puedes revisar la documentación oficial de WordPress para más información.",
+          "icon": "ri-book-read-line",
+          "linksList": [
+            {
+              "title": "Pantallas de administración",
+              "link": "https://wordpress.org/documentation/article/administration-screens/"
+            },
+            {
+              "title": "El Escritorio",
+              "link": "https://wordpress.org/documentation/article/dashboard-screen/"
+            },
+            {
+              "title": "La barra de herramientas",
+              "link": "https://wordpress.org/documentation/article/toolbar/"
+            },
+            {
+              "title": "Roles y permisos",
+              "link": "https://wordpress.org/documentation/article/roles-and-capabilities/"
+            }
+          ]
+        }
+      ]
+    },
+    "wordpress/theme/wordpress/posts-pages": {
+      "kind": "deck",
+      "path": "wordpress/theme/wordpress/posts-pages",
+      "slides": [
+        {
+          "theme": "12",
+          "slug": "wordpress/posts-pages",
+          "color": "yellow",
+          "template": "cover",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "icon": "ri-file-list-3-line",
+          "title": "Posts y Pages",
+          "description": "Las dos formas de crear contenido en WordPress y el editor con el que las escribimos.",
+          "coverImg": "cover"
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "Dos tipos de contenido",
+          "description": "Casi todo lo que escribimos en WordPress es una entrada (post) o una página (page). Se parecen mucho, pero no sirven para lo mismo.",
+          "icon": "ri-file-list-3-line"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Posts · Entradas",
+          "description": "Contenido que se publica con fecha y forma parte de una serie: noticias, artículos de blog, novedades…",
+          "postDescription": "Características:",
+          "list": [
+            {
+              "title": "Tienen fecha de publicación",
+              "description": null
+            },
+            {
+              "title": "Se ordenan de la más nueva a la más antigua",
+              "description": null
+            },
+            {
+              "title": "Se organizan con categorías y etiquetas",
+              "description": null
+            },
+            {
+              "title": "Suelen admitir comentarios",
+              "description": null
+            }
+          ]
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Pages · Páginas",
+          "description": "Contenido fijo que no caduca: Inicio, Sobre nosotros, Servicios, Contacto…",
+          "postDescription": "Características:",
+          "list": [
+            {
+              "title": "La fecha no importa",
+              "description": null
+            },
+            {
+              "title": "Se organizan en jerarquía (página padre)",
+              "description": null
+            },
+            {
+              "title": "Suelen aparecer en el menú",
+              "description": null
+            },
+            {
+              "title": "Sin categorías ni etiquetas",
+              "description": null
+            }
+          ],
+          "mgTitle": "Lo dice WordPress",
+          "mgContent": "Su propia página de ejemplo lo explica así: una página se queda en un sitio fijo y aparece en la navegación de la web."
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "Cara a cara",
+          "iframe": "post-vs-page"
+        },
+        {
+          "template": "card",
+          "subtemplate": "list",
+          "sideblockopen": false,
+          "title": "¿Entrada o página?",
+          "description": "Pon a prueba lo que acabamos de ver.",
+          "listItems": [
+            {
+              "num": "1",
+              "title": "Una noticia sobre un evento",
+              "description": "Entrada: tiene fecha y forma parte de una serie."
+            },
+            {
+              "num": "2",
+              "title": "La página de contacto",
+              "description": "Página: es fija y va en el menú."
+            },
+            {
+              "num": "3",
+              "title": "Una receta en un blog de cocina",
+              "description": "Entrada: se publica junto a otras recetas."
+            },
+            {
+              "num": "4",
+              "title": "El aviso legal",
+              "description": "Página: no caduca y no depende de la fecha."
+            }
+          ]
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "La lista de contenido",
+          "description": "Al entrar en Posts o en Pages vemos una lista con todo lo que hemos creado. Desde ella lo encontramos y lo gestionamos."
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "La lista de entradas",
+          "iframe": "lista-posts"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Los estados",
+          "description": "Arriba vemos cuántos hay de cada estado. Al hacer clic en uno, la lista muestra solo esos.",
+          "postDescription": "Los más habituales:",
+          "list": [
+            {
+              "title": "Published · Publicado",
+              "description": null
+            },
+            {
+              "title": "Draft · Borrador",
+              "description": null
+            },
+            {
+              "title": "Pending · Pendiente de revisión",
+              "description": null
+            },
+            {
+              "title": "Private · Privado",
+              "description": null
+            },
+            {
+              "title": "Scheduled · Programado",
+              "description": null
+            },
+            {
+              "title": "Trash · Papelera",
+              "description": null
+            }
+          ]
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Acciones rápidas",
+          "description": "Al pasar el ratón por una fila aparecen sus acciones.",
+          "postDescription": "Acciones:",
+          "list": [
+            {
+              "title": "Edit · Editar",
+              "description": null
+            },
+            {
+              "title": "Quick Edit · Edición rápida",
+              "description": null
+            },
+            {
+              "title": "Trash · Papelera",
+              "description": null
+            },
+            {
+              "title": "View · Ver",
+              "description": null
+            }
+          ],
+          "mgTitle": "La papelera no borra del todo",
+          "mgContent": "Lo que enviamos a la papelera se puede recuperar durante 30 días."
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Edición rápida",
+          "description": "Cambia el título, el slug, la fecha, las categorías o el estado sin abrir el editor. Ideal para pequeños retoques."
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Acciones en lote",
+          "description": "Marcando varias casillas podemos aplicar la misma acción a todas a la vez.",
+          "postDescription": "Acciones en lote:",
+          "list": [
+            {
+              "title": "Bulk edit · Edición en lote",
+              "description": null
+            },
+            {
+              "title": "Move to Trash · Mover a la papelera",
+              "description": null
+            }
+          ]
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Filtrar y buscar",
+          "description": "Cuando hay mucho contenido, filtramos por mes o por categoría, o buscamos por palabras."
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "La lista de páginas",
+          "iframe": "lista-pages"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Una página en borrador",
+          "description": "En un WordPress nuevo ya hay una página en borrador: la política de privacidad. WordPress la prepara para que la completemos y la publiquemos.",
+          "mgTitle": "Columnas distintas",
+          "mgContent": "La lista de páginas no tiene categorías ni etiquetas, porque las páginas no las usan."
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "Partes de una entrada",
+          "description": "Al abrir una entrada vemos el editor: el contenido a la izquierda y sus ajustes en la barra lateral de la derecha."
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "El editor de una entrada",
+          "iframe": "editor-post"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Título y contenido",
+          "description": "El título es el nombre de la entrada. Debajo escribimos el contenido con bloques: párrafos, imágenes, encabezados…"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Imagen destacada",
+          "description": "Featured image: la imagen que representa a la entrada. Aparece en el listado del blog y al compartirla en redes sociales."
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Extracto",
+          "description": "Excerpt: un resumen corto de la entrada. Muchos temas lo muestran en el listado del blog.",
+          "mgTitle": "Si no lo escribimos",
+          "mgContent": "WordPress usa automáticamente las primeras palabras del contenido."
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Estado y fecha",
+          "description": "Status indica si está publicada, en borrador, pendiente o privada. Publish es su fecha: si ponemos una futura, se publicará sola ese día."
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Slug",
+          "description": "La parte final de la dirección de la entrada. Corto, en minúsculas, sin tildes y con guiones.",
+          "mgCode": "url",
+          "mgContent": "```plaintext\npruebas.local/hello-world/\n```"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Autor y plantilla",
+          "description": "Author es quién firma la entrada. Template es el diseño del tema con el que se mostrará."
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Comentarios y formato",
+          "description": "Discussion decide si se permiten comentarios. Format es el tipo de entrada (estándar, galería, cita…), según lo que admita el tema."
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Categorías y etiquetas",
+          "description": "Las categorías agrupan las entradas por temas generales, como las secciones de un periódico. Las etiquetas son palabras clave más concretas.",
+          "mgTitle": "Siempre hay una categoría",
+          "mgContent": "Si no elegimos ninguna, WordPress usa Uncategorized (Sin categoría)."
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "Partes de una página",
+          "description": "El editor es el mismo, pero la barra lateral cambia: desaparecen algunas opciones y aparece una nueva."
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "El editor de una página",
+          "iframe": "editor-page"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Lo que cambia",
+          "description": "Comparada con la de una entrada, la barra lateral de una página…",
+          "postDescription": "Cambios:",
+          "list": [
+            {
+              "title": "No tiene extracto",
+              "description": null
+            },
+            {
+              "title": "No tiene formato",
+              "description": null
+            },
+            {
+              "title": "No tiene categorías ni etiquetas",
+              "description": null
+            },
+            {
+              "title": "Tiene página padre",
+              "description": null
+            }
+          ]
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Página padre",
+          "description": "Parent organiza las páginas en jerarquía. Por ejemplo, Diseño web y SEO pueden ser hijas de Servicios, y su dirección lo refleja.",
+          "mgCode": "jerarquía",
+          "mgContent": "```plaintext\nServicios            /servicios/\n├── Diseño web       /servicios/diseno-web/\n└── SEO              /servicios/seo/\n```"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Plantilla de página",
+          "description": "Con un tema de bloques podemos elegir con qué diseño se muestra cada página. Las opciones dependen del tema que usemos."
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "El editor de bloques",
+          "description": "También llamado Gutenberg. Todo lo que escribimos es un bloque: un párrafo, un encabezado, una imagen, un botón… Los apilamos como piezas de Lego.",
+          "icon": "ri-layout-grid-line"
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "La barra del editor",
+          "iframe": "editor-barra"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Añadir bloques",
+          "description": "Con el botón + (Block Inserter) abrimos la biblioteca de bloques. También podemos escribir / en una línea vacía y buscar el bloque por su nombre.",
+          "mgCode": "atajo",
+          "mgContent": "```plaintext\n/image\n```"
+        },
+        {
+          "template": "card",
+          "subtemplate": "list",
+          "sideblockopen": false,
+          "title": "Los bloques más usados",
+          "description": "Con estos seis podemos montar casi cualquier página.",
+          "listItems": [
+            {
+              "num": "1",
+              "title": "Paragraph",
+              "description": "Párrafo de texto."
+            },
+            {
+              "num": "2",
+              "title": "Heading",
+              "description": "Encabezado (H2, H3…)."
+            },
+            {
+              "num": "3",
+              "title": "Image",
+              "description": "Una imagen."
+            },
+            {
+              "num": "4",
+              "title": "List",
+              "description": "Lista de puntos o numerada."
+            },
+            {
+              "num": "5",
+              "title": "Buttons",
+              "description": "Uno o varios botones."
+            },
+            {
+              "num": "6",
+              "title": "Columns",
+              "description": "Contenido en columnas."
+            }
+          ]
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "Un bloque seleccionado",
+          "iframe": "bloque"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "La barra del bloque",
+          "description": "Al seleccionar un bloque aparece encima su barra: cambiar el tipo de bloque, moverlo, alinearlo y dar formato al texto."
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Los ajustes del bloque",
+          "description": "En la pestaña Block de la barra lateral están las opciones del bloque seleccionado: estilos, tipografía, color, espaciado…"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Vista general",
+          "description": "Document Overview (el botón de las tres líneas) muestra todos los bloques como una lista. Muy útil para moverse por páginas largas."
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Guardar y publicar",
+          "description": "Publish publica el contenido; si ya estaba publicado, el botón dice Save. Con Preview lo vemos antes de que lo vean los demás.",
+          "postDescription": "Los botones:",
+          "list": [
+            {
+              "title": "Save draft · Guardar borrador",
+              "description": null
+            },
+            {
+              "title": "Preview · Previsualizar",
+              "description": null
+            },
+            {
+              "title": "Publish · Publicar",
+              "description": null
+            },
+            {
+              "title": "Save · Guardar cambios",
+              "description": null
+            }
+          ]
+        },
+        {
+          "template": "card",
+          "subtemplate": "list",
+          "sideblockopen": false,
+          "title": "En resumen",
+          "description": "Lo que nos llevamos de esta clase.",
+          "listItems": [
+            {
+              "num": "1",
+              "title": "Posts",
+              "description": "Contenido con fecha, como un blog."
+            },
+            {
+              "num": "2",
+              "title": "Pages",
+              "description": "Contenido fijo, como Inicio o Contacto."
+            },
+            {
+              "num": "3",
+              "title": "La lista",
+              "description": "Para encontrar y gestionar el contenido."
+            },
+            {
+              "num": "4",
+              "title": "El editor",
+              "description": "Bloques a la izquierda, ajustes a la derecha."
+            }
+          ]
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "title": "Documentación oficial",
+          "description": "Como siempre, puedes revisar la documentación oficial de WordPress para más información.",
+          "icon": "ri-book-read-line",
+          "linksList": [
+            {
+              "title": "La pantalla de entradas",
+              "link": "https://wordpress.org/documentation/article/posts-screen/"
+            },
+            {
+              "title": "La pantalla de páginas",
+              "link": "https://wordpress.org/documentation/article/pages-screen/"
+            },
+            {
+              "title": "Ajustes de entradas y páginas",
+              "link": "https://wordpress.org/documentation/article/page-post-settings-sidebar/"
+            },
+            {
+              "title": "El editor de bloques",
+              "link": "https://wordpress.org/documentation/article/wordpress-block-editor/"
+            }
+          ]
+        }
+      ]
+    },
+    "wordpress/theme/wordpress/themes": {
+      "kind": "deck",
+      "path": "wordpress/theme/wordpress/themes",
+      "slides": [
+        {
+          "theme": "13",
+          "slug": "wordpress/themes",
+          "color": "yellow",
+          "template": "cover",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "icon": "ri-palette-line",
+          "title": "Themes",
+          "description": "El tema decide cómo se ve tu web… y mucho más de lo que parece.",
+          "coverImg": "cover"
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "¿Qué es un tema?",
+          "description": "Un tema (theme) es el conjunto de archivos que decide cómo se ve la web: sus colores, sus tipografías y la forma de cada página.",
+          "icon": "ri-palette-line"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Appearance › Themes",
+          "description": "En esta pantalla vemos los temas instalados, cuál está activo y desde dónde añadir nuevos. Un WordPress nuevo trae tres.",
+          "postDescription": "Instalados de serie:",
+          "list": [
+            {
+              "title": "Twenty Twenty-Five (activo)",
+              "description": null
+            },
+            {
+              "title": "Twenty Twenty-Four",
+              "description": null
+            },
+            {
+              "title": "Twenty Twenty-Three",
+              "description": null
+            }
+          ]
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "La pantalla de temas",
+          "iframe": "temas"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Activar y previsualizar",
+          "description": "Al pasar el ratón por un tema aparecen sus botones.",
+          "postDescription": "Botones:",
+          "list": [
+            {
+              "title": "Activate · Activar",
+              "description": null
+            },
+            {
+              "title": "Live Preview · Vista previa con tu contenido",
+              "description": null
+            },
+            {
+              "title": "Theme Details · Detalles del tema",
+              "description": null
+            }
+          ]
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Detalles del tema",
+          "description": "Al hacer clic en un tema vemos su versión, su autor y su descripción. Desde ahí también podemos eliminarlo.",
+          "mgTitle": "Solo los inactivos",
+          "mgContent": "WordPress no deja eliminar el tema activo: primero hay que activar otro."
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "Siempre hay un tema activo",
+          "description": "WordPress no puede mostrar la web sin un tema. El tema es lo que convierte el contenido en páginas que se pueden ver.",
+          "icon": "ri-error-warning-line"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "El contenido y el tema",
+          "description": "El contenido (entradas, páginas, imágenes…) se guarda en la base de datos. El tema decide cómo se muestra.",
+          "mgTitle": "Como la ropa",
+          "mgContent": "Al cambiar de tema, la persona (el contenido) es la misma, pero se viste de otra forma."
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "¿Y si falta el tema?",
+          "description": "Si el tema activo se borra o se rompe, WordPress vuelve automáticamente a un tema por defecto para que la web no se quede en blanco.",
+          "mgTitle": "Un tema de reserva",
+          "mgContent": "Por eso conviene tener siempre instalado un tema por defecto, como Twenty Twenty-Five."
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "Solo un tema activo",
+          "description": "Podemos tener muchos temas instalados, pero solo uno activo a la vez. Al activar otro, el anterior se desactiva al momento."
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "Mismo contenido, otro tema",
+          "iframe": "cambio"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Instalado no es activo",
+          "description": "Los temas inactivos no cambian nada en la web, pero ocupan espacio y hay que mantenerlos actualizados.",
+          "mgTitle": "Lo ideal",
+          "mgContent": "El tema que usamos y uno por defecto de reserva. El resto, mejor eliminarlos."
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "El directorio de temas",
+          "description": "WordPress.org ofrece casi 9.000 temas gratuitos, revisados por la comunidad. Los instalamos desde Add Theme, sin salir del panel.",
+          "icon": "ri-store-2-line"
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "Añadir un tema",
+          "iframe": "store"
+        },
+        {
+          "template": "card",
+          "subtemplate": "list",
+          "sideblockopen": false,
+          "title": "Explorar el directorio",
+          "description": "Varias formas de encontrar el tema que buscamos.",
+          "listItems": [
+            {
+              "num": "1",
+              "title": "Popular",
+              "description": "Los más instalados."
+            },
+            {
+              "num": "2",
+              "title": "Latest",
+              "description": "Los más recientes."
+            },
+            {
+              "num": "3",
+              "title": "Block Themes",
+              "description": "Temas de bloques, como Twenty Twenty-Five."
+            },
+            {
+              "num": "4",
+              "title": "Feature Filter",
+              "description": "Filtrar por características: columnas, colores, tipo de web…"
+            }
+          ]
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Instalar un tema",
+          "description": "Install descarga el tema a nuestro WordPress. Después hay que activarlo para que la web lo use.",
+          "postDescription": "Los pasos:",
+          "list": [
+            {
+              "title": "Preview · Ver cómo es",
+              "description": null
+            },
+            {
+              "title": "Install · Instalar",
+              "description": null
+            },
+            {
+              "title": "Activate · Activar",
+              "description": null
+            }
+          ]
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Subir un tema",
+          "description": "Upload Theme instala un tema desde un archivo .zip. Es lo que haremos con los temas de pago, que se compran en la web de su autor.",
+          "mgCode": "archivo",
+          "mgContent": "```plaintext\nmi-tema.zip\n```"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Cómo elegir un tema",
+          "description": "En los detalles de cada tema del directorio encontramos pistas para saber si es una buena opción.",
+          "postDescription": "Fíjate en:",
+          "list": [
+            {
+              "title": "Que se actualice a menudo",
+              "description": null
+            },
+            {
+              "title": "Sus valoraciones",
+              "description": null
+            },
+            {
+              "title": "Sus instalaciones activas",
+              "description": null
+            },
+            {
+              "title": "Que sea compatible con tu versión de WordPress",
+              "description": null
+            }
+          ]
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "Un tema es mucho más que colores",
+          "description": "Instalar un tema no es pintar la web: trae estilos, pero también las plantillas que dan forma a cada página. Por eso es una decisión importante.",
+          "icon": "ri-lightbulb-flash-line"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Dentro de un tema",
+          "description": "Así es por dentro la carpeta de Twenty Twenty-Five, en wp-content/themes.",
+          "mgCode": "carpeta",
+          "mgContent": "```plaintext\ntwentytwentyfive/\n├── style.css       Nombre y datos del tema\n├── theme.json      Colores, tipografías, tamaños…\n├── templates/      Las plantillas\n├── parts/          Cabecera, pie…\n├── patterns/       Diseños prediseñados\n├── styles/         Variaciones de estilo\n├── functions.php   Funciones extra\n└── screenshot.png  La miniatura\n```"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Los estilos",
+          "description": "En theme.json el tema define los colores, las tipografías y los tamaños que usará toda la web.",
+          "postDescription": "Twenty Twenty-Five trae:",
+          "list": [
+            {
+              "title": "8 colores: Base, Contrast, Accent 1…",
+              "description": null
+            },
+            {
+              "title": "2 tipografías: Manrope y Fira Code",
+              "description": null
+            },
+            {
+              "title": "5 tamaños de texto: de Small a Extra Extra Large",
+              "description": null
+            }
+          ]
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "Variaciones de estilo",
+          "iframe": "estilos"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Variaciones de estilo",
+          "description": "Muchos temas traen varias combinaciones de colores y tipografías listas para usar. Twenty Twenty-Five trae ocho.",
+          "mgTitle": "Dónde se eligen",
+          "mgContent": "En Appearance › Editor › Styles. Lo veremos más adelante."
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Las plantillas",
+          "description": "Una plantilla es el molde de un tipo de página: dónde va el título, la imagen, el contenido, la cabecera, el pie… Cada tema trae las suyas.",
+          "mgTitle": "Por eso cambia tanto",
+          "mgContent": "Con otro tema, la misma entrada puede verse con una estructura totalmente distinta."
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Partes de plantilla",
+          "description": "Template parts: piezas que se repiten en muchas plantillas, como la cabecera o el pie. Se editan una vez y cambian en todas.",
+          "postDescription": "En Twenty Twenty-Five:",
+          "list": [
+            {
+              "title": "Header · Cabecera",
+              "description": null
+            },
+            {
+              "title": "Footer · Pie",
+              "description": null
+            },
+            {
+              "title": "Sidebar · Barra lateral",
+              "description": null
+            }
+          ]
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Patrones",
+          "description": "Patterns: secciones prediseñadas (servicios, testimonios, llamadas a la acción…) que podemos insertar en cualquier página. Twenty Twenty-Five trae casi cien."
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "Las plantillas básicas",
+          "description": "Casi todos los temas de bloques traen el mismo grupo de plantillas. WordPress elige solo cuál usar según la página que visitemos."
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "Las plantillas de Twenty Twenty-Five",
+          "iframe": "plantillas"
+        },
+        {
+          "template": "card",
+          "subtemplate": "list",
+          "sideblockopen": false,
+          "title": "Las plantillas básicas",
+          "description": "Su archivo y para qué sirve cada una.",
+          "listItems": [
+            {
+              "num": "1",
+              "title": "index.html · Index",
+              "description": "La plantilla de reserva."
+            },
+            {
+              "num": "2",
+              "title": "home.html · Blog Home",
+              "description": "La página del blog."
+            },
+            {
+              "num": "3",
+              "title": "single.html · Single Posts",
+              "description": "Cada entrada."
+            },
+            {
+              "num": "4",
+              "title": "page.html · Pages",
+              "description": "Cada página."
+            },
+            {
+              "num": "5",
+              "title": "archive.html · All Archives",
+              "description": "Categorías, etiquetas, autores y fechas."
+            },
+            {
+              "num": "6",
+              "title": "search.html · Search Results",
+              "description": "Los resultados de una búsqueda."
+            },
+            {
+              "num": "7",
+              "title": "404.html · Page: 404",
+              "description": "Cuando la página no existe."
+            }
+          ]
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Index, la de reserva",
+          "description": "Si WordPress no encuentra una plantilla más concreta, usa index. Por eso es la única obligatoria en un tema de bloques."
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "¿Qué plantilla se usa?",
+          "description": "WordPress busca de la más concreta a la más general, y se queda con la primera que encuentra. Así lo hace, simplificado:",
+          "mgCode": "jerarquía",
+          "mgContent": "```plaintext\nEntrada    →  single   →  index\nPágina     →  page     →  index\nCategoría  →  archive  →  index\nBúsqueda   →  search   →  index\nNo existe  →  404      →  index\n```"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Plantillas personalizadas",
+          "description": "Además, un tema puede traer plantillas opcionales que elegimos en cada página, como Page No Title (página sin título) en Twenty Twenty-Five.",
+          "mgTitle": "Lo vimos en el editor",
+          "mgContent": "Es la opción Template de la barra lateral de una página."
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Dónde se editan",
+          "description": "En Appearance › Editor › Templates vemos todas las plantillas del tema y podemos editarlas con bloques.",
+          "mgTitle": "Más adelante",
+          "mgContent": "Lo veremos en profundidad cuando trabajemos con el editor del sitio."
+        },
+        {
+          "template": "card",
+          "subtemplate": "list",
+          "sideblockopen": false,
+          "title": "En resumen",
+          "description": "Lo que nos llevamos de esta clase.",
+          "listItems": [
+            {
+              "num": "1",
+              "title": "Siempre hay un tema activo",
+              "description": "Sin tema, no hay web que ver."
+            },
+            {
+              "num": "2",
+              "title": "Solo uno a la vez",
+              "description": "Podemos tener muchos instalados."
+            },
+            {
+              "num": "3",
+              "title": "El directorio",
+              "description": "Casi 9.000 temas gratuitos."
+            },
+            {
+              "num": "4",
+              "title": "Mucho más que colores",
+              "description": "Estilos y plantillas que dan forma a la web."
+            }
+          ]
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "title": "Documentación oficial",
+          "description": "Como siempre, puedes revisar la documentación oficial de WordPress para más información.",
+          "icon": "ri-book-read-line",
+          "linksList": [
+            {
+              "title": "La pantalla de temas",
+              "link": "https://wordpress.org/documentation/article/appearance-themes-screen/"
+            },
+            {
+              "title": "El directorio de temas",
+              "link": "https://wordpress.org/themes/"
+            },
+            {
+              "title": "Jerarquía de plantillas",
+              "link": "https://developer.wordpress.org/themes/basics/template-hierarchy/"
+            },
+            {
+              "title": "Estilos globales (theme.json)",
+              "link": "https://developer.wordpress.org/themes/global-settings-and-styles/"
+            }
+          ]
+        }
+      ]
+    },
+    "wordpress/theme/wordpress/plugins": {
+      "kind": "deck",
+      "path": "wordpress/theme/wordpress/plugins",
+      "slides": [
+        {
+          "theme": "14",
+          "slug": "wordpress/plugins",
+          "color": "yellow",
+          "template": "cover",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "icon": "ri-plug-line",
+          "title": "Plugins",
+          "description": "Las piezas que añaden funciones a WordPress… y cómo elegir bien.",
+          "coverImg": "cover"
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "¿Qué es un plugin?",
+          "description": "Un plugin es una extensión que añade una función nueva a WordPress: un formulario de contacto, una tienda online, copias de seguridad…",
+          "icon": "ri-plug-line"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Como las apps del móvil",
+          "description": "WordPress trae lo básico. Los plugins son como las apps que instalamos en el móvil para que haga más cosas.",
+          "mgTitle": "Más de 72.000",
+          "mgContent": "Es la cantidad de plugins gratuitos que hay hoy en el directorio oficial de WordPress.org."
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Tema o plugin",
+          "description": "No es lo mismo cómo se ve la web que lo que hace.",
+          "postDescription": "La diferencia:",
+          "list": [
+            {
+              "title": "El tema: cómo se ve",
+              "description": null
+            },
+            {
+              "title": "El plugin: qué hace",
+              "description": null
+            }
+          ],
+          "mgTitle": "Una pista",
+          "mgContent": "Si al cambiar de tema perderías esa función, debería estar en un plugin."
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Muchos a la vez",
+          "description": "A diferencia de los temas, podemos tener varios plugins activos al mismo tiempo, cada uno con su función."
+        },
+        {
+          "template": "card",
+          "subtemplate": "list",
+          "sideblockopen": false,
+          "title": "Un plugin para casi todo",
+          "description": "Algunos de los más usados, por categorías.",
+          "listItems": [
+            {
+              "num": "1",
+              "title": "Formularios",
+              "description": "Contact Form 7, WPForms."
+            },
+            {
+              "num": "2",
+              "title": "SEO",
+              "description": "Yoast SEO."
+            },
+            {
+              "num": "3",
+              "title": "Tienda online",
+              "description": "WooCommerce."
+            },
+            {
+              "num": "4",
+              "title": "Seguridad",
+              "description": "Wordfence, Akismet (anti-spam)."
+            },
+            {
+              "num": "5",
+              "title": "Velocidad",
+              "description": "LiteSpeed Cache."
+            },
+            {
+              "num": "6",
+              "title": "Maquetación",
+              "description": "Elementor."
+            }
+          ]
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "La pantalla de plugins",
+          "description": "En el menú Plugins vemos los que tenemos instalados. En un WordPress recién instalado la lista está vacía."
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "Plugins instalados",
+          "iframe": "instalados"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Activo e inactivo",
+          "description": "Un plugin activo está funcionando (fondo azul). Uno inactivo está instalado, pero no hace nada.",
+          "postDescription": "Acciones:",
+          "list": [
+            {
+              "title": "Activate · Activar",
+              "description": null
+            },
+            {
+              "title": "Deactivate · Desactivar",
+              "description": null
+            },
+            {
+              "title": "Delete · Eliminar (solo inactivos)",
+              "description": null
+            },
+            {
+              "title": "Settings · Ajustes del plugin",
+              "description": null
+            }
+          ],
+          "mgTitle": "Ejemplo",
+          "mgContent": "En la demo hay tres plugins instalados para verlos en acción."
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Actualizaciones",
+          "description": "Las actualizaciones corrigen errores y fallos de seguridad. Con Enable auto-updates, el plugin se actualiza solo.",
+          "mgTitle": "Siempre al día",
+          "mgContent": "Un plugin sin actualizar es una de las formas más habituales de que ataquen una web."
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "El directorio de plugins",
+          "description": "Desde Plugins › Add Plugin buscamos e instalamos plugins del directorio oficial sin salir del panel.",
+          "icon": "ri-store-2-line"
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "Añadir un plugin",
+          "iframe": "directorio"
+        },
+        {
+          "template": "card",
+          "subtemplate": "list",
+          "sideblockopen": false,
+          "title": "Instalar un plugin",
+          "description": "Cuatro pasos.",
+          "listItems": [
+            {
+              "num": "1",
+              "title": "Plugins › Add Plugin",
+              "description": "Abrimos el directorio."
+            },
+            {
+              "num": "2",
+              "title": "Buscar",
+              "description": "Por nombre o por lo que necesitamos."
+            },
+            {
+              "num": "3",
+              "title": "Install Now",
+              "description": "Lo descarga a nuestro WordPress."
+            },
+            {
+              "num": "4",
+              "title": "Activate",
+              "description": "Lo pone en marcha."
+            }
+          ]
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Subir un plugin",
+          "description": "Upload Plugin instala un plugin desde un archivo .zip. Lo usaremos con los plugins de pago, que se compran en la web de su autor.",
+          "mgCode": "archivo",
+          "mgContent": "```plaintext\nmi-plugin.zip\n```"
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "¿Cómo elegir un plugin?",
+          "description": "Para casi cualquier cosa hay decenas de plugins. Elegir bien evita problemas de seguridad, una web lenta y errores difíciles de arreglar.",
+          "icon": "ri-search-eye-line"
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "La ficha de un plugin",
+          "iframe": "ficha"
+        },
+        {
+          "template": "card",
+          "subtemplate": "list",
+          "sideblockopen": false,
+          "title": "Las señales",
+          "description": "Antes de instalar, mira la ficha del plugin.",
+          "listItems": [
+            {
+              "num": "1",
+              "title": "Última actualización",
+              "description": "Mejor semanas o meses que años."
+            },
+            {
+              "num": "2",
+              "title": "Instalaciones activas",
+              "description": "Muchas webs lo usan."
+            },
+            {
+              "num": "3",
+              "title": "Valoración",
+              "description": "Buena nota y con muchas reseñas."
+            },
+            {
+              "num": "4",
+              "title": "Compatibilidad",
+              "description": "Probado con tu versión de WordPress."
+            },
+            {
+              "num": "5",
+              "title": "Soporte",
+              "description": "Responden las dudas en su foro."
+            }
+          ]
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "Bien, cuidado o evitar",
+          "iframe": "semaforo"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Más detalles",
+          "description": "More Details abre la ficha completa del plugin, con todo lo necesario para decidir.",
+          "postDescription": "Encontrarás:",
+          "list": [
+            {
+              "title": "Description · Qué hace",
+              "description": null
+            },
+            {
+              "title": "Changelog · Los cambios de cada versión",
+              "description": null
+            },
+            {
+              "title": "Reviews · Las reseñas",
+              "description": null
+            },
+            {
+              "title": "Requisitos de WordPress y PHP",
+              "description": null
+            },
+            {
+              "title": "Las valoraciones, estrella a estrella",
+              "description": null
+            }
+          ]
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Sin probar no es malo",
+          "description": "\"Untested with your version of WordPress\" solo significa que el autor aún no lo ha probado con tu versión. Puede funcionar bien.",
+          "mgTitle": "Un ejemplo real",
+          "mgContent": "Classic Editor, con más de 8 millones de instalaciones, aparece hoy como Untested."
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Desconfía de…",
+          "description": "Hay plugins que es mejor no instalar nunca.",
+          "postDescription": "Evita:",
+          "list": [
+            {
+              "title": "Plugins sin actualizar en años",
+              "description": null
+            },
+            {
+              "title": "Plugins de pago pirateados (nulled): suelen traer virus",
+              "description": null
+            },
+            {
+              "title": "Descargas de webs no oficiales",
+              "description": null
+            },
+            {
+              "title": "Plugins que prometen hacerlo todo",
+              "description": null
+            }
+          ]
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Menos es más",
+          "description": "Cada plugin añade código: más cosas que actualizar, más riesgo y una web más lenta. Instala solo los que de verdad necesites.",
+          "mgTitle": "Calidad antes que cantidad",
+          "mgContent": "Importa más que los plugins sean buenos que el número exacto que tengas."
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Gratis, freemium y de pago",
+          "description": "Muchos plugins tienen una versión gratuita en el directorio y otra de pago con más funciones.",
+          "postDescription": "Tipos:",
+          "list": [
+            {
+              "title": "Free · Gratis",
+              "description": null
+            },
+            {
+              "title": "Freemium · Gratis con versión Pro",
+              "description": null
+            },
+            {
+              "title": "Premium · De pago",
+              "description": null
+            }
+          ]
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Prueba antes",
+          "description": "Prueba los plugins nuevos en local (en Local WP) antes de instalarlos en la web real. Y haz siempre una copia de seguridad antes."
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Si algo se rompe",
+          "description": "Si la web falla tras instalar un plugin, desactívalo. Si ni siquiera puedes entrar al panel, cambia el nombre de su carpeta y WordPress lo desactivará.",
+          "mgCode": "carpeta",
+          "mgContent": "```plaintext\nwp-content/plugins/\n├── contact-form-7/\n└── plugin-roto/      →  plugin-roto-off/\n```"
+        },
+        {
+          "template": "card",
+          "subtemplate": "list",
+          "sideblockopen": false,
+          "title": "En resumen",
+          "description": "Lo que nos llevamos de esta clase.",
+          "listItems": [
+            {
+              "num": "1",
+              "title": "Los plugins añaden funciones",
+              "description": "El tema decide el aspecto; el plugin, lo que hace."
+            },
+            {
+              "num": "2",
+              "title": "Muchos a la vez",
+              "description": "Pero solo los necesarios."
+            },
+            {
+              "num": "3",
+              "title": "Elige con criterio",
+              "description": "Actualizado, usado, bien valorado y compatible."
+            },
+            {
+              "num": "4",
+              "title": "Siempre actualizados",
+              "description": "Y probados antes en local."
+            }
+          ]
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "title": "Documentación oficial",
+          "description": "Como siempre, puedes revisar la documentación oficial de WordPress para más información.",
+          "icon": "ri-book-read-line",
+          "linksList": [
+            {
+              "title": "Gestionar plugins",
+              "link": "https://wordpress.org/documentation/article/manage-plugins/"
+            },
+            {
+              "title": "La pantalla de plugins",
+              "link": "https://wordpress.org/documentation/article/plugins-screen/"
+            },
+            {
+              "title": "Añadir plugins",
+              "link": "https://wordpress.org/documentation/article/plugins-add-new-screen/"
+            },
+            {
+              "title": "El directorio de plugins",
+              "link": "https://wordpress.org/plugins/"
+            }
+          ]
+        }
+      ]
+    },
+    "wordpress/theme/elementor/page-builders": {
+      "kind": "deck",
+      "path": "wordpress/theme/elementor/page-builders",
+      "slides": [
+        {
+          "theme": "15",
+          "slug": "elementor/page-builders",
+          "color": "blue",
+          "template": "cover",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "icon": "ri-drag-drop-line",
+          "title": "Page builders",
+          "description": "Diseñar páginas arrastrando y soltando, sin escribir código.",
+          "coverImg": "cover"
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "¿Qué es un page builder?",
+          "description": "Un maquetador visual: una herramienta para diseñar páginas arrastrando elementos y viendo el resultado al momento, sin escribir código.",
+          "icon": "ri-drag-drop-line"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Lo que ves es lo que obtienes",
+          "description": "Editamos directamente sobre la página, tal y como la verá el visitante. Lo que movemos en pantalla es exactamente lo que se publica.",
+          "mgTitle": "WYSIWYG",
+          "mgContent": "Así se llama esta forma de trabajar: What You See Is What You Get (lo que ves es lo que obtienes)."
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "¿Por qué existen?",
+          "description": "Antes, diseñar una página a medida exigía saber programar, o conformarse con lo que permitía el tema. Los page builders nacieron para que cualquiera pudiera diseñar."
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "Con código o con page builder",
+          "iframe": "sin-con"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "El mismo resultado",
+          "description": "Por dentro, una web sigue siendo código. El page builder lo escribe por nosotros mientras trabajamos de forma visual."
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "Cajas dentro de cajas",
+          "description": "Todos los page builders organizan la página igual: cajas que contienen otras cajas, de la más grande a la más pequeña."
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "La estructura de una página",
+          "iframe": "estructura"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Los cuatro niveles",
+          "description": "De lo más grande a lo más pequeño.",
+          "mgCode": "estructura",
+          "mgContent": "```plaintext\nPágina\n└── Contenedor\n    ├── Columna\n    │   ├── Título\n    │   ├── Texto\n    │   └── Botón\n    └── Columna\n        └── Imagen\n```"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Los widgets",
+          "description": "Son las piezas que realmente vemos en la página. Cada page builder trae decenas.",
+          "postDescription": "Los más habituales:",
+          "list": [
+            {
+              "title": "Título y texto",
+              "description": null
+            },
+            {
+              "title": "Imagen y vídeo",
+              "description": null
+            },
+            {
+              "title": "Botón",
+              "description": null
+            },
+            {
+              "title": "Iconos",
+              "description": null
+            },
+            {
+              "title": "Formulario",
+              "description": null
+            },
+            {
+              "title": "Espaciador y separador",
+              "description": null
+            }
+          ]
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "Cómo se trabaja",
+          "description": "La forma de trabajar es muy parecida en todos: elegir una pieza, colocarla y ajustarla."
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "Arrastrar y soltar",
+          "iframe": "editor"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Contenido, estilo y avanzado",
+          "description": "Al seleccionar un elemento, sus ajustes suelen estar repartidos en tres grupos.",
+          "postDescription": "Los tres grupos:",
+          "list": [
+            {
+              "title": "Contenido: qué muestra",
+              "description": null
+            },
+            {
+              "title": "Estilo: cómo se ve",
+              "description": null
+            },
+            {
+              "title": "Avanzado: márgenes, animaciones, visibilidad…",
+              "description": null
+            }
+          ]
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "Un diseño, tres pantallas",
+          "iframe": "dispositivos"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Diseño responsive",
+          "description": "Podemos ver la página como en un ordenador, una tableta o un móvil, y ajustar cada versión por separado sin tocar las demás."
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Plantillas y diseño global",
+          "description": "Para no empezar de cero, traen secciones y páginas prediseñadas. Y colores y tipografías globales: se definen una vez y se aplican en toda la web."
+        },
+        {
+          "template": "card",
+          "subtemplate": "list",
+          "sideblockopen": false,
+          "title": "Ventajas",
+          "description": "Por qué tanta gente los usa.",
+          "listItems": [
+            {
+              "num": "1",
+              "title": "Sin código",
+              "description": "Cualquiera puede diseñar."
+            },
+            {
+              "num": "2",
+              "title": "Resultado inmediato",
+              "description": "Lo ves mientras lo haces."
+            },
+            {
+              "num": "3",
+              "title": "Libertad de diseño",
+              "description": "Mucho más que con un tema."
+            },
+            {
+              "num": "4",
+              "title": "Responsive visual",
+              "description": "Ajustas el móvil viéndolo."
+            },
+            {
+              "num": "5",
+              "title": "Rápido de aprender",
+              "description": "En pocas horas ya maquetas."
+            }
+          ]
+        },
+        {
+          "template": "card",
+          "subtemplate": "list",
+          "sideblockopen": false,
+          "title": "Inconvenientes",
+          "description": "También tienen su parte negativa.",
+          "listItems": [
+            {
+              "num": "1",
+              "title": "Más peso",
+              "description": "Las páginas pueden cargar más lento."
+            },
+            {
+              "num": "2",
+              "title": "Dependencia",
+              "description": "El diseño queda atado al plugin."
+            },
+            {
+              "num": "3",
+              "title": "Funciones de pago",
+              "description": "Lo mejor suele estar en la versión Pro."
+            },
+            {
+              "num": "4",
+              "title": "Fácil de desordenar",
+              "description": "Sin método, el diseño se vuelve un lío."
+            }
+          ]
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "La dependencia",
+          "description": "El diseño se guarda en el formato del page builder. Si lo desactivamos, las páginas pierden su diseño: por eso elegir uno es una decisión a largo plazo.",
+          "mgTitle": "Como un formato de archivo",
+          "mgContent": "Es como escribir un documento en un formato que solo abre un programa concreto."
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "¿Y el editor de bloques?",
+          "description": "WordPress ya trae su propio maquetador: el editor de bloques. Los page builders van más allá, con más opciones de diseño y más control."
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "Editor de bloques vs page builder",
+          "iframe": "bloques-vs-builder"
+        },
+        {
+          "template": "card",
+          "subtemplate": "list",
+          "sideblockopen": false,
+          "title": "Los más conocidos",
+          "description": "Algunos de los page builders más usados.",
+          "listItems": [
+            {
+              "num": "1",
+              "title": "Elementor",
+              "description": "El más popular: más de 10 millones de webs."
+            },
+            {
+              "num": "2",
+              "title": "Kadence Blocks",
+              "description": "Amplía el editor de bloques de WordPress."
+            },
+            {
+              "num": "3",
+              "title": "Beaver Builder",
+              "description": "Veterano y muy estable."
+            },
+            {
+              "num": "4",
+              "title": "Divi",
+              "description": "De pago, con su propio tema."
+            },
+            {
+              "num": "5",
+              "title": "Bricks",
+              "description": "De pago, pensado para quien sabe algo de código."
+            }
+          ]
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "¿Por qué Elementor?",
+          "description": "Es el page builder más usado del mundo, tiene versión gratuita y una comunidad enorme detrás. Es el que usaremos en el módulo.",
+          "mgTitle": "10+ millones",
+          "mgContent": "Es el número de webs con Elementor activo según WordPress.org."
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Elementor y su tema",
+          "description": "Elementor funciona mejor con un tema ligero que no imponga su diseño, como Hello Elementor. El diseño lo haremos nosotros.",
+          "mgTitle": "Lo vimos en Themes",
+          "mgContent": "Hello Elementor aparecía entre los temas más populares del directorio."
+        },
+        {
+          "template": "card",
+          "subtemplate": "list",
+          "sideblockopen": false,
+          "title": "En resumen",
+          "description": "Lo que nos llevamos de esta clase.",
+          "listItems": [
+            {
+              "num": "1",
+              "title": "Maquetador visual",
+              "description": "Diseñar arrastrando, sin código."
+            },
+            {
+              "num": "2",
+              "title": "Cajas dentro de cajas",
+              "description": "Contenedor, columnas y widgets."
+            },
+            {
+              "num": "3",
+              "title": "Ventajas e inconvenientes",
+              "description": "Libertad a cambio de peso y dependencia."
+            },
+            {
+              "num": "4",
+              "title": "Elementor",
+              "description": "El que usaremos en el módulo."
+            }
+          ]
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "title": "Para saber más",
+          "description": "Documentación y recursos oficiales para seguir aprendiendo.",
+          "icon": "ri-book-read-line",
+          "linksList": [
+            {
+              "title": "Elementor en WordPress.org",
+              "link": "https://wordpress.org/plugins/elementor/"
+            },
+            {
+              "title": "Elementor Academy",
+              "link": "https://elementor.com/academy/"
+            },
+            {
+              "title": "Centro de ayuda de Elementor",
+              "link": "https://elementor.com/help/"
+            },
+            {
+              "title": "El editor de bloques",
+              "link": "https://wordpress.org/documentation/article/wordpress-block-editor/"
+            }
+          ]
+        }
+      ]
+    },
+    "wordpress/theme/elementor/editor": {
+      "kind": "deck",
+      "path": "wordpress/theme/elementor/editor",
+      "slides": [
+        {
+          "theme": "16",
+          "slug": "elementor/editor",
+          "color": "blue",
+          "template": "cover",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "icon": "ri-layout-4-line",
+          "title": "El editor de Elementor",
+          "description": "Un recorrido por cada parte del editor antes de empezar a maquetar.",
+          "coverImg": "cover"
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "Abrir Elementor",
+          "description": "Creamos una página (o abrimos una existente) y pulsamos el botón Edit with Elementor. Se abre el editor a pantalla completa.",
+          "icon": "ri-layout-4-line"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Desde la lista de páginas",
+          "description": "También aparece la acción Edit with Elementor al pasar el ratón por una página en Pages › All Pages.",
+          "mgCode": "url",
+          "mgContent": "```plaintext\npruebas.local/wp-admin/post.php?post=8&action=elementor\n```"
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "En inglés",
+          "description": "Igual que WordPress, Elementor está en inglés. Junto a cada nombre veremos su traducción.",
+          "icon": "ri-translate-2"
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "Las cuatro zonas",
+          "iframe": "zonas"
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "La barra superior",
+          "description": "Herramientas generales que usaremos en todo momento: añadir elementos, deshacer, cambiar de dispositivo y publicar."
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "La barra, botón a botón",
+          "iframe": "barra"
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "El menú de Elementor",
+          "iframe": "menu-logo"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Ajustes del sitio",
+          "description": "Site Settings guarda los colores, tipografías y logo globales de toda la web. Los definimos una vez y los usamos en todas las páginas.",
+          "mgTitle": "Muy importante",
+          "mgContent": "Lo veremos a fondo: es la base para que toda la web tenga un diseño coherente."
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "Publicar y guardar",
+          "iframe": "publicar"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Publicar o actualizar",
+          "description": "La primera vez el botón dice Publish. Una vez publicada, cambia a Update para guardar los cambios.",
+          "postDescription": "Desde la flecha:",
+          "list": [
+            {
+              "title": "Save Draft · Guardar borrador",
+              "description": null
+            },
+            {
+              "title": "Save as Template · Guardar como plantilla",
+              "description": null
+            },
+            {
+              "title": "View Page · Ver la página",
+              "description": null
+            }
+          ]
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "El panel lateral",
+          "description": "La columna de la izquierda cambia según lo que hagamos: muestra los widgets o los ajustes del elemento seleccionado."
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "El panel de elementos",
+          "iframe": "panel"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Layout: Container y Grid",
+          "description": "Las cajas que organizan la página. Primero ponemos un contenedor y dentro colocamos los widgets.",
+          "mgTitle": "Cajas dentro de cajas",
+          "mgContent": "Es la estructura que vimos en el deck de page builders."
+        },
+        {
+          "template": "card",
+          "subtemplate": "list",
+          "sideblockopen": false,
+          "title": "Los widgets básicos",
+          "description": "Con estos podemos montar casi cualquier sección.",
+          "listItems": [
+            {
+              "num": "1",
+              "title": "Heading",
+              "description": "Un título."
+            },
+            {
+              "num": "2",
+              "title": "Text Editor",
+              "description": "Un párrafo de texto."
+            },
+            {
+              "num": "3",
+              "title": "Image",
+              "description": "Una imagen."
+            },
+            {
+              "num": "4",
+              "title": "Button",
+              "description": "Un botón con enlace."
+            },
+            {
+              "num": "5",
+              "title": "Video",
+              "description": "Un vídeo de YouTube, Vimeo…"
+            },
+            {
+              "num": "6",
+              "title": "Icon y Spacer",
+              "description": "Iconos y espacio vacío."
+            }
+          ]
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Widgets Pro",
+          "description": "Los widgets con candado son de la versión de pago. Con la versión gratuita tenemos de sobra para empezar."
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "El lienzo",
+          "description": "La parte central es la página real, tal y como se verá publicada. Aquí arrastramos los widgets y hacemos clic para editarlos."
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "El lienzo de una página nueva",
+          "iframe": "lienzo"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Lo que pone el tema",
+          "description": "La cabecera, el título de la página y el pie los pone el tema activo, no Elementor. Por eso no se pueden editar desde aquí.",
+          "mgTitle": "Hello Elementor",
+          "mgContent": "Con un tema ligero apenas aparecen, y podemos diseñar la página entera."
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "Editar un widget",
+          "description": "Al hacer clic en un widget del lienzo, el panel muestra sus ajustes repartidos en tres pestañas."
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "Un widget seleccionado",
+          "iframe": "widget"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Content · Contenido",
+          "description": "Qué muestra el widget: el texto del título, su enlace o su nivel (H1, H2…)."
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "La pestaña Style",
+          "iframe": "estilo"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Style · Estilo",
+          "description": "Cómo se ve: alineación, tipografía, color, sombras… Muchos ajustes tienen un estado normal y otro al pasar el ratón (Hover)."
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "La pestaña Advanced",
+          "iframe": "avanzado"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Advanced · Avanzado",
+          "description": "Opciones comunes a todos los widgets: márgenes, animaciones, fondo, borde y en qué dispositivos se muestra."
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "El icono de pantalla",
+          "description": "Los ajustes con un pequeño icono de pantalla pueden tener un valor distinto en ordenador, tableta y móvil."
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "La vista móvil",
+          "iframe": "movil"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Ajustar para móvil",
+          "description": "Con los botones de dispositivo vemos la página como en una tableta o un móvil, y ajustamos esa versión sin cambiar la de ordenador."
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "El panel Structure",
+          "iframe": "estructura"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Structure · Estructura",
+          "description": "Muestra todos los elementos de la página como un índice. Muy útil cuando la página crece y cuesta seleccionar un elemento concreto."
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "El historial",
+          "iframe": "historial"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Deshacer cambios",
+          "description": "History guarda cada acción. Haciendo clic en una anterior volvemos a ese punto. También funciona Ctrl+Z (Cmd+Z en Mac).",
+          "mgTitle": "Revisions",
+          "mgContent": "Las versiones que se guardan al pulsar Update, para recuperar la página tal y como estaba otro día."
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "Ajustes de la página",
+          "iframe": "pagina"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Page Layout",
+          "description": "Decide si la página usa la cabecera y el pie del tema, o si la diseñamos entera con Elementor.",
+          "postDescription": "Opciones:",
+          "list": [
+            {
+              "title": "Default · La que diga Site Settings",
+              "description": null
+            },
+            {
+              "title": "Elementor Canvas · Página en blanco, sin cabecera ni pie",
+              "description": null
+            },
+            {
+              "title": "Elementor Full Width · Ancho completo, con cabecera y pie",
+              "description": null
+            },
+            {
+              "title": "Theme · La plantilla del tema",
+              "description": null
+            }
+          ]
+        },
+        {
+          "template": "card",
+          "subtemplate": "list",
+          "sideblockopen": false,
+          "title": "En resumen",
+          "description": "Las cuatro zonas del editor.",
+          "listItems": [
+            {
+              "num": "1",
+              "title": "Barra superior",
+              "description": "Añadir, historial, dispositivos y publicar."
+            },
+            {
+              "num": "2",
+              "title": "Panel lateral",
+              "description": "Widgets y ajustes del elemento seleccionado."
+            },
+            {
+              "num": "3",
+              "title": "Lienzo",
+              "description": "La página real, donde arrastramos y editamos."
+            },
+            {
+              "num": "4",
+              "title": "Structure",
+              "description": "El índice de todos los elementos."
+            }
+          ]
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "title": "Para saber más",
+          "description": "Documentación y recursos oficiales de Elementor.",
+          "icon": "ri-book-read-line",
+          "linksList": [
+            {
+              "title": "Centro de ayuda de Elementor",
+              "link": "https://elementor.com/help/"
+            },
+            {
+              "title": "Elementor Academy",
+              "link": "https://elementor.com/academy/"
+            },
+            {
+              "title": "Elementor en WordPress.org",
+              "link": "https://wordpress.org/plugins/elementor/"
             }
           ]
         }

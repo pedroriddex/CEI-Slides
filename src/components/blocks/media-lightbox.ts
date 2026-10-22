@@ -1,4 +1,5 @@
 import {LitElement, html, nothing, render as renderTemplate} from 'lit';
+import {styleMap} from 'lit/directives/style-map.js';
 import {customElement, property, state} from 'lit/decorators.js';
 import {strings} from '../../lib/i18n';
 
@@ -10,6 +11,10 @@ export class MediaLightbox extends LitElement {
   @property({type: Boolean}) open = false;
   @property({type: String}) src = '';
   @property({type: String}) alt = '';
+  /** Iframe mode: the page to show and the size it had on the slide, so it can be scaled up as-is. */
+  @property({type: String}) frameSrc = '';
+  @property({type: Number}) frameWidth = 0;
+  @property({type: Number}) frameHeight = 0;
   @property({attribute: false}) onClose: () => void = () => undefined;
   @state() private portalPhase: 'closed' | 'opening' | 'open' | 'closing' = 'closed';
   private portalHost: HTMLDivElement | null = null;
@@ -26,11 +31,13 @@ export class MediaLightbox extends LitElement {
     this.portalHost.className = 'media-lightbox-root';
     document.body.appendChild(this.portalHost);
     window.addEventListener('keydown', this.handleKeydown);
+    window.addEventListener('resize', this.handleResize);
     this.syncPortalPhase();
   }
 
   disconnectedCallback(): void {
     window.removeEventListener('keydown', this.handleKeydown);
+    window.removeEventListener('resize', this.handleResize);
     this.clearPhaseTimeout();
     this.restoreFocus();
     if (this.portalHost) {
@@ -42,7 +49,7 @@ export class MediaLightbox extends LitElement {
   }
 
   protected updated(changed: Map<string, unknown>): void {
-    if (changed.has('open') || changed.has('src')) {
+    if (changed.has('open') || changed.has('src') || changed.has('frameSrc')) {
       this.syncPortalPhase();
       return;
     }
@@ -86,7 +93,7 @@ export class MediaLightbox extends LitElement {
   private syncPortalPhase() {
     this.clearPhaseTimeout();
 
-    if (this.open && this.src) {
+    if (this.open && this.hasContent) {
       this.captureFocus();
       this.portalPhase = 'opening';
       this.renderPortal();
@@ -112,6 +119,23 @@ export class MediaLightbox extends LitElement {
 
     this.portalPhase = 'closed';
     this.renderPortal();
+  }
+
+  private get hasContent() {
+    return Boolean(this.src || this.frameSrc);
+  }
+
+  private readonly handleResize = () => {
+    if (this.portalPhase !== 'closed' && this.frameSrc) this.renderPortal();
+  };
+
+  /** Scale that makes the slide-sized iframe fill the screen (keeping its aspect ratio). */
+  private frameScale() {
+    const width = this.frameWidth || 600;
+    const height = this.frameHeight || 400;
+    const availWidth = window.innerWidth * 0.92;
+    const availHeight = window.innerHeight * 0.86;
+    return Math.max(1, Math.min(availWidth / width, availHeight / height));
   }
 
   private readonly handleKeydown = (event: KeyboardEvent) => {
@@ -166,7 +190,11 @@ export class MediaLightbox extends LitElement {
   private renderPortal() {
     if (!this.portalHost) return;
 
-    const visible = this.portalPhase !== 'closed' && Boolean(this.src);
+    const visible = this.portalPhase !== 'closed' && this.hasContent;
+    const isFrame = Boolean(this.frameSrc);
+    const scale = isFrame ? this.frameScale() : 1;
+    const width = this.frameWidth || 600;
+    const height = this.frameHeight || 400;
     const template = !visible
       ? nothing
       : html`
@@ -174,14 +202,25 @@ export class MediaLightbox extends LitElement {
             class="media-lightbox media-lightbox--${this.portalPhase}"
             role="dialog"
             aria-modal="true"
-            aria-label=${this.alt || strings.lightbox.close}
+            aria-label=${this.alt || (isFrame ? strings.lightbox.closeFrame : strings.lightbox.close)}
             @click=${this.onClose}
           >
             <div class="media-lightbox__dialog" @click=${this.stopPropagation}>
-              <button type="button" class="media-lightbox__close" @click=${this.onClose} aria-label=${strings.lightbox.close}>
+              <button type="button" class="media-lightbox__close" @click=${this.onClose} aria-label=${isFrame ? strings.lightbox.closeFrame : strings.lightbox.close}>
                 <i class="ri-close-line"></i>
               </button>
-              <img class="media-lightbox__image" src=${this.src} alt=${this.alt} />
+              ${isFrame
+                ? html`
+                    <div class="media-lightbox__frame-box" style=${styleMap({width: `${width * scale}px`, height: `${height * scale}px`})}>
+                      <iframe
+                        class="media-lightbox__frame"
+                        title=${this.alt || 'iframe'}
+                        src=${this.frameSrc}
+                        style=${styleMap({width: `${width}px`, height: `${height}px`, transform: `scale(${scale})`})}
+                      ></iframe>
+                    </div>
+                  `
+                : html`<img class="media-lightbox__image" src=${this.src} alt=${this.alt} />`}
             </div>
           </div>
         `;

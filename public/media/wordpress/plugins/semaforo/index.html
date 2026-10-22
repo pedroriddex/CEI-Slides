@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Cómo elegir un plugin</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%}
+body{overflow:hidden;background:oklch(0.9524 0.0013 286.37);color:oklch(0.2103 0.0059 285.89);display:flex;align-items:center;justify-content:center;padding:6px;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;-webkit-font-smoothing:antialiased}
+:root{--acc:oklch(0.7819 0.1585 72.33);--fg:oklch(0.2103 0.0059 285.89);--muted:oklch(0.5517 0.0138 285.94);--line:oklch(90% 0.004 286.32);--mono:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;--code:'SFMono-Regular',ui-monospace,Menlo,Consolas,monospace;--ok:oklch(0.68 0.16 150);--warn:oklch(0.78 0.16 75);--bad:oklch(0.62 0.21 27)}
+.card{width:100%;max-width:600px;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 2px 4px 0 rgba(0,0,0,.04),0 1px 2px 0 rgba(0,0,0,.06),0 0 1px 0 rgba(0,0,0,.06);padding:16px;display:flex;flex-direction:column;gap:14px;opacity:0;transform:translateY(6px);animation:in .45s cubic-bezier(.22,1,.36,1) .05s forwards}
+@keyframes in{to{opacity:1;transform:none}}
+.ctl{display:flex;gap:5px;align-items:center}
+.chip{font-family:var(--mono);font-size:12.5px;font-weight:500;line-height:1;padding:7px 12px;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--fg);cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+.chip i{width:8px;height:8px;border-radius:50%}
+.chip.on{background:var(--fg);border-color:var(--fg);color:#fff}
+.ctl .ex{margin-left:auto;font-family:var(--mono);font-size:10px;color:var(--muted)}
+.pc{border:1px solid #dcdcde;font-family:-apple-system,system-ui,'Segoe UI',Roboto,sans-serif}
+.pt{display:grid;grid-template-columns:72px 1fr;gap:12px;padding:14px}
+.ic{width:72px;height:72px;border-radius:4px;background:linear-gradient(135deg,#8ec5fc,#e0c3fc);display:flex;align-items:center;justify-content:center;color:#fff;font-size:30px;font-weight:700}
+.pt h3{font-size:15px;color:#3858e9;font-weight:600}
+.pt p{font-size:12.5px;color:#3c434a;margin-top:4px}
+.pt .by{color:#646970}
+.rows{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid #dcdcde;background:#f6f7f7}
+.m{display:flex;align-items:center;gap:8px;padding:10px 14px;font-size:12.5px;color:#3c434a;border-top:1px solid #ececec}
+.m:nth-child(-n+2){border-top:0}
+.m i{flex:none;width:10px;height:10px;border-radius:50%;transition:background .3s}
+.m .v{transition:opacity .2s}
+.st{color:#dba617;letter-spacing:-1px}
+.st .e{color:#dcdcde}
+.verdict{display:flex;align-items:center;gap:10px;font-size:13px}
+.verdict b{font-family:var(--mono);font-size:10px;font-weight:600;padding:3px 9px;border-radius:999px;color:#fff;transition:background .3s}
+.swap .v{opacity:0}
+</style></head>
+<body>
+<div class="card" id="card">
+  <div class="ctl"><button class="chip" data-v="ok"><i style="background:var(--ok)"></i>bien</button><button class="chip" data-v="warn"><i style="background:var(--warn)"></i>cuidado</button><button class="chip" data-v="bad"><i style="background:var(--bad)"></i>evitar</button><span class="ex">plugin de ejemplo</span></div>
+  <div class="pc">
+    <div class="pt"><div class="ic">S</div><div><h3>Super Slider</h3><p>Crea sliders de imágenes para tu web.</p><p class="by"><em>By</em> Ejemplo Studio</p></div></div>
+    <div class="rows">
+      <div class="m"><i data-k="rating"></i><span class="v" id="rating"></span></div>
+      <div class="m"><i data-k="updated"></i><span class="v" id="updated"></span></div>
+      <div class="m"><i data-k="installs"></i><span class="v" id="installs"></span></div>
+      <div class="m"><i data-k="compat"></i><span class="v" id="compat"></span></div>
+    </div>
+  </div>
+  <div class="verdict"><b id="vb"></b><span class="v" id="vt"></span></div>
+</div>
+<script>
+const COL={ok:'var(--ok)',warn:'var(--warn)',bad:'var(--bad)'};
+const st=n=>'<span class="st">'+'★'.repeat(n)+'<span class="e">'+'★'.repeat(5-n)+'</span></span>';
+const DATA={
+  ok:{rating:st(5)+' (2,350)',updated:'Last Updated: 1 week ago',installs:'1+ Million Active Installations',compat:'Compatible with your version of WordPress',v:'Buena opción',t:'Mantenido, muy usado y bien valorado.'},
+  warn:{rating:st(3)+' (24)',updated:'Last Updated: 8 months ago',installs:'2,000+ Active Installations',compat:'Untested with your version of WordPress',v:'Revisa antes',t:'Lee las reseñas y el foro de soporte.'},
+  bad:{rating:st(1)+' (6)',updated:'Last Updated: 3 years ago',installs:'Fewer than 10 Active Installations',compat:'Untested with your version of WordPress',v:'Mejor no',t:'Abandonado: busca una alternativa.'}
+};
+const chips=[...document.querySelectorAll('.chip')], card=document.getElementById('card');
+function pick(c){
+  chips.forEach(x=>x.classList.toggle('on',x===c));
+  const v=c.dataset.v,d=DATA[v];
+  card.classList.add('swap');
+  setTimeout(()=>{
+    ['rating','updated','installs','compat'].forEach(k=>{document.getElementById(k).innerHTML=d[k];document.querySelector('[data-k='+k+']').style.background=COL[v];});
+    const vb=document.getElementById('vb');vb.textContent=d.v;vb.style.background=COL[v];
+    document.getElementById('vt').textContent=d.t;
+    card.classList.remove('swap');
+  },180);
+}
+let timer=null;
+chips.forEach(c=>c.addEventListener('click',()=>{clearInterval(timer);pick(c);}));
+pick(chips[0]);
+timer=setInterval(()=>{const i=chips.findIndex(c=>c.classList.contains('on'));pick(chips[(i+1)%chips.length]);},3200);
+</script>
+</body></html>

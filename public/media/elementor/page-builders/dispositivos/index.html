@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Responsive</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%}
+body{overflow:hidden;background:oklch(0.9524 0.0013 286.37);color:oklch(0.2103 0.0059 285.89);display:flex;align-items:center;justify-content:center;padding:6px;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;-webkit-font-smoothing:antialiased}
+:root{--acc:oklch(0.6204 0.195 253.83);--fg:oklch(0.2103 0.0059 285.89);--muted:oklch(0.5517 0.0138 285.94);--line:oklch(90% 0.004 286.32);--soft:oklch(0.97 0.0015 286);--mono:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;--code:'SFMono-Regular',ui-monospace,Menlo,Consolas,monospace}
+.card{width:100%;height:100%;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 2px 4px 0 rgba(0,0,0,.04),0 1px 2px 0 rgba(0,0,0,.06),0 0 1px 0 rgba(0,0,0,.06);padding:16px;display:flex;flex-direction:column;gap:14px;opacity:0;transform:translateY(6px);animation:in .45s cubic-bezier(.22,1,.36,1) .05s forwards}
+@keyframes in{to{opacity:1;transform:none}}
+.ctl{display:flex;flex-wrap:wrap;gap:6px;flex:none}
+.chip{font-family:var(--mono);font-size:12.5px;font-weight:500;line-height:1;padding:7px 12px;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--fg);cursor:pointer;transition:background .2s,color .2s}
+.chip.on{background:var(--fg);border-color:var(--fg);color:#fff}
+.stage{position:relative;flex:1;min-height:0;border-radius:10px;overflow:hidden;outline:1px solid var(--line);background:var(--soft)}
+.cap{flex:none;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;padding:0 4px 2px;min-height:18px;transition:opacity .2s}
+.cap.swap{opacity:0}
+.cap .n{font-size:14px;font-weight:600;letter-spacing:-.005em}
+.cap .t{font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--acc)}
+.cap .d{font-size:13px;font-weight:500;color:var(--muted)}
+/* the sample hero used in several demos */
+.hero{display:flex;flex-direction:column;align-items:flex-start;gap:10px}
+.hero h1{font-size:26px;font-weight:700;letter-spacing:-.02em;line-height:1.1}
+.hero p{font-size:12.5px;color:var(--muted);line-height:1.5;max-width:300px}
+.hero .b{display:inline-block;padding:8px 16px;border-radius:999px;background:var(--acc);color:#fff;font-size:12px;font-weight:600}
+.ph{border-radius:10px;background:linear-gradient(135deg,color-mix(in oklab,var(--acc) 35%,white),color-mix(in oklab,var(--acc) 75%,#1b1b3a))}
+
+.wrapd{position:absolute;inset:0;display:flex;align-items:flex-start;justify-content:center;padding:14px}
+.dev{width:100%;height:100%;background:#fff;border-radius:10px;border:6px solid #2a2a33;overflow:hidden;transition:width .6s cubic-bezier(.65,0,.35,1),border-radius .6s;padding:14px;display:flex;flex-direction:column;gap:10px}
+.dev .hero h1{transition:font-size .6s}
+.cards{display:flex;flex-wrap:wrap;gap:8px}
+.cards div{flex:1 1 140px;min-height:44px;border-radius:7px;background:var(--soft);border:1px solid var(--line);display:flex;align-items:flex-end;padding:7px;font-size:10px;color:var(--muted)}
+body[data-v=tab] .dev{width:68%}
+body[data-v=mob] .dev{width:36%;border-radius:18px}
+body[data-v=mob] .dev .hero h1{font-size:18px}
+body[data-v=mob] .cards div{flex-basis:100%}
+</style></head>
+<body>
+<div class="card">
+  <div class="ctl"><button class="chip" data-v="desk">ordenador</button><button class="chip" data-v="tab">tableta</button><button class="chip" data-v="mob">móvil</button></div>
+  <div class="stage"><div class="wrapd"><div class="dev">
+    <div class="hero"><h1>Diseño web a medida</h1><p>Webs rápidas y bonitas.</p><span class="b">Contactar</span></div>
+    <div class="cards"><div>Diseño</div><div>Desarrollo</div><div>SEO</div></div>
+  </div></div></div>
+  <div class="cap" id="cap"><span class="n" id="cn"></span><span class="t" id="ct"></span><span class="d" id="cd"></span></div>
+</div><script>
+function caption(n,t,d){const c=document.getElementById('cap');c.classList.add('swap');setTimeout(()=>{document.getElementById('cn').textContent=n;document.getElementById('ct').textContent=t;document.getElementById('cd').textContent=d;c.classList.remove('swap');},150);}
+
+const AUTOPLAY_MS=3000;
+const T={desk:['Ordenador','Escritorio','El diseño completo, con las tarjetas en fila.'],tab:['Tableta','Tablet','Menos ancho: las tarjetas se reparten como pueden.'],mob:['Móvil','Mobile','Todo en una columna y textos más pequeños.']};
+function onSelect(v){document.body.dataset.v=v;caption(...T[v]);}
+const chips=[...document.querySelectorAll('.chip')];
+let timer=null;
+function pick(c){chips.forEach(x=>x.classList.toggle('on',x===c));onSelect(c.dataset.v);}
+chips.forEach(c=>c.addEventListener('click',()=>{clearInterval(timer);pick(c);}));
+pick(chips[0]);
+timer=setInterval(()=>{const i=chips.findIndex(c=>c.classList.contains('on'));pick(chips[(i+1)%chips.length]);},AUTOPLAY_MS);
+</script></body></html>
