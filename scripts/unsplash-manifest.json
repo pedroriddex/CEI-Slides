@@ -119,6 +119,13 @@
       "color": "blue",
       "alt": "Ondas azules sobre fondo oscuro",
       "link": "https://unsplash.com/es/fotos/OyYuvj4Dbek"
+    },
+    "7og8GybWcZw": {
+      "color": "black",
+      "alt": "Cintas negras curvas con detalles suaves sobre un fondo oscuro",
+      "by": "@kirp",
+      "link": "https://unsplash.com/photos/7og8GybWcZw",
+      "deck": "wordpress/ejercicios/revista-digital"
     }
   },
   "bySlug": {

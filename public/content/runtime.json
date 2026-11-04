@@ -1,5 +1,5 @@
 {
-  "versionId": "static-2026-10-22-elementor-editor-v1",
+  "versionId": "static-2026-11-04-proyecto-alba-v3",
   "documents": {
     "": {
       "kind": "index",
@@ -6517,7 +6517,17 @@
         "icon": "ri-apps-2-fill",
         "color": null
       },
-      "items": []
+      "items": [
+        {
+          "title": "Proyecto Alba",
+          "color": "black",
+          "icon": "ri-haze-fill",
+          "href": "wordpress/ejercicios/revista-digital",
+          "target": null,
+          "disabled": null,
+          "description": null
+        }
+      ]
     },
     "wordpress/enlaces": {
       "kind": "index",
@@ -14970,6 +14980,956 @@
             {
               "title": "Elementor en WordPress.org",
               "link": "https://wordpress.org/plugins/elementor/"
+            }
+          ]
+        }
+      ]
+    },
+    "wordpress/ejercicios/revista-digital": {
+      "kind": "deck",
+      "path": "wordpress/ejercicios/revista-digital",
+      "slides": [
+        {
+          "theme": "1",
+          "slug": "ejercicios/revista-digital",
+          "color": "black",
+          "template": "cover",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "icon": "ri-haze-fill",
+          "title": "Proyecto Alba",
+          "description": "Una revista digital hecha en equipo: diseñarla, construirla y publicarla de verdad con WordPress y Elementor.",
+          "coverImg": "cover"
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "El reto",
+          "description": "En siete sesiones, cada equipo creará una revista digital completa: con su propia identidad, artículos reales y una web que funcione de verdad.",
+          "icon": "ri-haze-fill"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Como en un estudio de verdad",
+          "description": "Trabajaréis en equipos de tres, como un pequeño estudio: cada persona con un rol profesional distinto y un mismo producto que sacar adelante.",
+          "mgTitle": "3 personas · 3 roles",
+          "mgContent": "Y una sola revista. Si una parte falla, falla la revista entera."
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "¿Por qué una revista?",
+          "description": "Una revista vive de publicar artículos sin parar. Eso os obliga a construir plantillas que se rellenan solas, no páginas sueltas hechas a mano.",
+          "mgTitle": "Dinámica, no estática",
+          "mgContent": "Publicas un artículo nuevo y aparece solo en la portada, en su categoría y con su propia página."
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Elegid vuestra temática",
+          "description": "La temática es libre: buscad algo que os guste de verdad, porque vais a escribir mucho sobre ello.",
+          "postDescription": "Algunas ideas:",
+          "list": [
+            {
+              "title": "Música",
+              "description": null
+            },
+            {
+              "title": "Viajes",
+              "description": null
+            },
+            {
+              "title": "Gastronomía",
+              "description": null
+            },
+            {
+              "title": "Videojuegos",
+              "description": null
+            },
+            {
+              "title": "Cine y series",
+              "description": null
+            },
+            {
+              "title": "Deporte",
+              "description": null
+            },
+            {
+              "title": "Moda",
+              "description": null
+            },
+            {
+              "title": "Ciencia",
+              "description": null
+            }
+          ]
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "Los tres roles",
+          "description": "Cada miembro del equipo tiene un rol principal. Todos aportáis a todo, pero cada uno responde de su parte."
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Diseñador/a digital",
+          "description": "Define cómo se ve y cómo se usa la revista.",
+          "postDescription": "Sus responsabilidades:",
+          "list": [
+            {
+              "title": "Identidad visual: colores, tipografías y estilo",
+              "description": null
+            },
+            {
+              "title": "Bocetos y estructura de las páginas",
+              "description": null
+            },
+            {
+              "title": "Componentes: tarjetas, cabeceras, botones…",
+              "description": null
+            },
+            {
+              "title": "Jerarquía visual y facilidad de uso",
+              "description": null
+            },
+            {
+              "title": "Coherencia visual de todas las plantillas",
+              "description": null
+            }
+          ],
+          "mgTitle": "01 · UX/UI",
+          "mgContent": "Responsable de la identidad visual, la experiencia de usuario y el lenguaje gráfico de la revista."
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Desarrollador/a web",
+          "description": "Convierte las decisiones del equipo en una web real y funcional.",
+          "postDescription": "Sus responsabilidades:",
+          "list": [
+            {
+              "title": "Instalar y configurar WordPress",
+              "description": null
+            },
+            {
+              "title": "Crear páginas y plantillas",
+              "description": null
+            },
+            {
+              "title": "Construir componentes reutilizables",
+              "description": null
+            },
+            {
+              "title": "Configurar loops, categorías y etiquetas",
+              "description": null
+            },
+            {
+              "title": "Adaptar la web a móvil y tablet",
+              "description": null
+            },
+            {
+              "title": "Revisar que todo funcione",
+              "description": null
+            }
+          ],
+          "mgTitle": "02 · WordPress",
+          "mgContent": "Responsable de convertir el diseño en una web funcional, ordenada, responsive y reutilizable."
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Editor/a digital",
+          "description": "Responsable de todos los textos de la revista, no solo de los artículos.",
+          "postDescription": "Sus responsabilidades:",
+          "list": [
+            {
+              "title": "Temática y línea editorial",
+              "description": null
+            },
+            {
+              "title": "Planificar y redactar los artículos",
+              "description": null
+            },
+            {
+              "title": "Los textos de la web: menú, botones, footer, 404…",
+              "description": null
+            },
+            {
+              "title": "Que cada plantilla muestre bien los textos",
+              "description": null
+            },
+            {
+              "title": "El orden de los títulos: H1, H2, H3…",
+              "description": null
+            },
+            {
+              "title": "Imágenes, categorías y etiquetas",
+              "description": null
+            }
+          ],
+          "mgTitle": "03 · Content manager",
+          "mgContent": "Responsable de la línea editorial, de todos los textos de la web y de que se lean bien en cada plantilla."
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Mucho más que artículos",
+          "description": "Una web está llena de textos que no son artículos: el menú, los botones, el pie de página, la página 404… Todos los escribe Edición.",
+          "mgTitle": "Microtextos",
+          "mgContent": "Así se llaman esos textos cortos. Un botón que dice «Leer artículo» funciona mejor que uno que solo dice «Más»."
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Los títulos, bien ordenados",
+          "description": "Los títulos de una página tienen niveles, como un libro: el título del libro, sus capítulos y los apartados de cada capítulo.",
+          "mgCode": "títulos",
+          "mgContent": "```plaintext\nH1  La nueva escena que suena en los garajes\n├── H2  Grupos que ensayan en casa\n│   ├── H3  El local de ensayo\n│   └── H3  Grabar sin estudio\n└── H2  Lo que viene\n```"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Las reglas de los títulos",
+          "description": "Edición decide qué nivel tiene cada título de la revista.",
+          "postDescription": "Las reglas:",
+          "list": [
+            {
+              "title": "Un solo H1 por página: su título principal",
+              "description": null
+            },
+            {
+              "title": "Los H2 dividen la página en secciones",
+              "description": null
+            },
+            {
+              "title": "Los H3 van dentro de un H2",
+              "description": null
+            },
+            {
+              "title": "Sin saltar niveles: de H2 no se pasa a H4",
+              "description": null
+            },
+            {
+              "title": "El nivel no es el tamaño: eso lo decide Diseño",
+              "description": null
+            }
+          ],
+          "mgTitle": "En Elementor",
+          "mgContent": "Cada widget de título tiene un ajuste para elegir su nivel: H1, H2, H3…"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Que cada plantilla se lea bien",
+          "description": "Las plantillas se rellenan solas, pero hay que comprobarlo. Edición revisa cada una con los artículos reales.",
+          "postDescription": "Lo que revisa:",
+          "list": [
+            {
+              "title": "Titulares largos que no se cortan mal",
+              "description": null
+            },
+            {
+              "title": "Extractos con una longitud parecida",
+              "description": null
+            },
+            {
+              "title": "Fecha, autor y categoría en su sitio",
+              "description": null
+            },
+            {
+              "title": "Ningún texto de prueba olvidado",
+              "description": null
+            },
+            {
+              "title": "Los títulos de cada plantilla, en orden",
+              "description": null
+            }
+          ]
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "¿Quién hace qué?",
+          "iframe": "quien"
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "Todos aportan a todo",
+          "description": "Cada fase tiene alguien que la lidera, pero el resto también participa o da su opinión."
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "Las responsabilidades del equipo",
+          "iframe": "equipo"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Lidera, participa, consulta",
+          "description": "Liderar no es hacerlo todo solo: es tomar la decisión final y responder de ese resultado.",
+          "postDescription": "Los tres niveles:",
+          "list": [
+            {
+              "title": "Lidera: decide y responde del resultado",
+              "description": null
+            },
+            {
+              "title": "Participa: trabaja en ello con quien lidera",
+              "description": null
+            },
+            {
+              "title": "Consulta: da su opinión antes de cerrar",
+              "description": null
+            }
+          ]
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Salid de vuestro rol",
+          "description": "Para que todos toquéis todo, cada uno hará al menos una tarea fuera de su rol.",
+          "postDescription": "Por ejemplo:",
+          "list": [
+            {
+              "title": "Diseño publica dos artículos",
+              "description": null
+            },
+            {
+              "title": "Edición construye una plantilla",
+              "description": null
+            },
+            {
+              "title": "Desarrollo propone una variante del loop item",
+              "description": null
+            }
+          ]
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "El producto",
+          "description": "Lo mínimo que debe tener vuestra revista para darla por terminada."
+        },
+        {
+          "template": "card",
+          "subtemplate": "list",
+          "sideblockopen": false,
+          "title": "Las plantillas",
+          "description": "Las piezas que dan forma a la revista.",
+          "listItems": [
+            {
+              "num": "1",
+              "title": "Home",
+              "description": "La portada, con varias secciones."
+            },
+            {
+              "num": "2",
+              "title": "Header",
+              "description": "Logo, navegación y categorías."
+            },
+            {
+              "num": "3",
+              "title": "Footer",
+              "description": "Información y enlaces secundarios."
+            },
+            {
+              "num": "4",
+              "title": "Single post",
+              "description": "La plantilla de cada artículo."
+            },
+            {
+              "num": "5",
+              "title": "Archive",
+              "description": "Los artículos de cada categoría."
+            }
+          ]
+        },
+        {
+          "template": "card",
+          "subtemplate": "list",
+          "sideblockopen": false,
+          "title": "Lo que la hace dinámica",
+          "description": "Lo que convierte las páginas en una revista de verdad.",
+          "listItems": [
+            {
+              "num": "1",
+              "title": "Loop item",
+              "description": "La tarjeta reutilizable de un artículo."
+            },
+            {
+              "num": "2",
+              "title": "Loop grid",
+              "description": "La rejilla que muestra las tarjetas."
+            },
+            {
+              "num": "3",
+              "title": "Categorías",
+              "description": "La organización editorial."
+            },
+            {
+              "num": "4",
+              "title": "Responsive",
+              "description": "Móvil, tablet y escritorio."
+            }
+          ]
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "Las plantillas de la revista",
+          "iframe": "plantillas"
+        },
+        {
+          "template": "card",
+          "subtemplate": "list",
+          "sideblockopen": false,
+          "title": "El contenido mínimo",
+          "description": "Contenido real, nada de textos de relleno.",
+          "listItems": [
+            {
+              "num": "1",
+              "title": "8–12 artículos",
+              "description": "Publicados y completos."
+            },
+            {
+              "num": "2",
+              "title": "3–4 categorías",
+              "description": "Con artículos en todas."
+            },
+            {
+              "num": "3",
+              "title": "Imagen destacada",
+              "description": "En todos los artículos."
+            },
+            {
+              "num": "4",
+              "title": "Titular y extracto",
+              "description": "Cuidados, que inviten a leer."
+            },
+            {
+              "num": "5",
+              "title": "Fechas distintas",
+              "description": "Como una revista que lleva tiempo publicando."
+            },
+            {
+              "num": "6",
+              "title": "Artículos variados",
+              "description": "Cortos, largos, con distinta estructura."
+            }
+          ]
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "Cómo vamos a trabajar",
+          "description": "Durante el proyecto sois libres: trabajad donde queráis de la escuela, como un equipo profesional.",
+          "icon": "ri-walk-line"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Libertad para moverse",
+          "description": "Buscad un sitio tranquilo para hablar del proyecto, tomad descansos cuando lo necesitéis. Organizaos como un estudio de verdad.",
+          "mgTitle": "Con responsabilidad",
+          "mgContent": "La libertad funciona si el equipo avanza. Cada sesión tiene su objetivo."
+        },
+        {
+          "template": "timeline",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "Así es cada clase",
+          "description": "Todas las clases tienen dos partes, separadas por el descanso oficial.",
+          "timeline": [
+            {
+              "label": "Inicio",
+              "caption": "Primera hora y media",
+              "meta": "1 h 30 min",
+              "color": "black",
+              "span": 3
+            },
+            {
+              "label": "Descanso",
+              "caption": "Descanso oficial",
+              "meta": "Pausa",
+              "color": "black",
+              "span": 1
+            },
+            {
+              "label": "Pos-chileo",
+              "caption": "Última hora de clase",
+              "meta": "1 h",
+              "color": "black",
+              "span": 2
+            }
+          ]
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Los momentos ATT",
+          "description": "Algunas sesiones tienen un momento ATT: a la hora fijada, todo el mundo vuelve al aula. Habrá teoría que aplicaréis después en vuestra revista.",
+          "mgTitle": "ATT = atención",
+          "mgContent": "Las horas ATT se conocen desde el primer día. No hay excusa para perdérselas."
+        },
+        {
+          "template": "timeline",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "Las siete sesiones",
+          "description": "Del primer boceto a la presentación final. Las sesiones marcadas con ATT incluyen teoría en el aula.",
+          "timeline": [
+            {
+              "meta": "1",
+              "label": "Idea y bocetos",
+              "span": 1,
+              "color": "black"
+            },
+            {
+              "meta": "2",
+              "label": "Diseño final",
+              "span": 1,
+              "color": "black"
+            },
+            {
+              "meta": "3 · ATT",
+              "label": "WordPress",
+              "span": 1,
+              "color": "yellow"
+            },
+            {
+              "meta": "4 · ATT",
+              "label": "Plantillas base",
+              "span": 1,
+              "color": "yellow"
+            },
+            {
+              "meta": "5 · ATT",
+              "label": "Loops y artículo",
+              "span": 1,
+              "color": "yellow"
+            },
+            {
+              "meta": "6 · ATT",
+              "label": "Archive y pulido",
+              "span": 1,
+              "color": "yellow"
+            },
+            {
+              "meta": "7",
+              "label": "Presentación",
+              "span": 1,
+              "color": "black"
+            }
+          ]
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Sesión 1 · Idea y bocetos",
+          "description": "Formad el equipo, repartid los roles y decidid qué revista vais a hacer.",
+          "postDescription": "Qué hace cada rol:",
+          "list": [
+            {
+              "title": "Equipo: nombre, temática y reparto de roles",
+              "description": null
+            },
+            {
+              "title": "Edición: línea editorial, público y categorías",
+              "description": null
+            },
+            {
+              "title": "Diseño: referencias y primeros bocetos",
+              "description": null
+            },
+            {
+              "title": "Desarrollo: lista de plantillas y piezas necesarias",
+              "description": null
+            }
+          ]
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Sesión 2 · Diseño final",
+          "description": "El diseño se cierra hoy: es el plano que seguiréis el resto del proyecto.",
+          "postDescription": "Qué hace cada rol:",
+          "list": [
+            {
+              "title": "Diseño: home, archive, single post y loop item",
+              "description": null
+            },
+            {
+              "title": "Diseño: guía de estilo con colores y tipografías",
+              "description": null
+            },
+            {
+              "title": "Desarrollo: revisa que todo se pueda construir",
+              "description": null
+            },
+            {
+              "title": "Edición: textos reales para los diseños, nada de relleno",
+              "description": null
+            },
+            {
+              "title": "Edición: primeros artículos e imágenes",
+              "description": null
+            }
+          ]
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Sesión 3 · WordPress del equipo",
+          "description": "Cada equipo tendrá su propio WordPress en internet, en un subdominio.",
+          "postDescription": "Qué hace cada rol:",
+          "list": [
+            {
+              "title": "Desarrollo: lidera la instalación y la configuración",
+              "description": null
+            },
+            {
+              "title": "Todos: cada uno con su propio usuario",
+              "description": null
+            },
+            {
+              "title": "Edición: sigue redactando y prepara los textos de la web",
+              "description": null
+            },
+            {
+              "title": "Diseño: prepara logo, imágenes y recursos",
+              "description": null
+            }
+          ],
+          "mgTitle": "ATT",
+          "mgContent": "Cómo crear un subdominio e instalar WordPress a mano."
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Sesión 4 · Plantillas base",
+          "description": "Primeros pasos en Elementor: el estilo global de la web y las partes comunes.",
+          "postDescription": "Qué hace cada rol:",
+          "list": [
+            {
+              "title": "Diseño + Desarrollo: colores y tipografías en Site Settings",
+              "description": null
+            },
+            {
+              "title": "Desarrollo: header y footer",
+              "description": null
+            },
+            {
+              "title": "Edición: textos del header, footer, 404 y mantenimiento",
+              "description": null
+            },
+            {
+              "title": "Edición: carga los artículos en WordPress",
+              "description": null
+            },
+            {
+              "title": "Todos: modo mantenimiento activado",
+              "description": null
+            }
+          ],
+          "mgTitle": "ATT",
+          "mgContent": "Cómo crear la página 404 y la de mantenimiento."
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Sesión 5 · Loops y artículo",
+          "description": "La revista empieza a funcionar sola: las tarjetas y los artículos se rellenan con el contenido real.",
+          "postDescription": "Qué hace cada rol:",
+          "list": [
+            {
+              "title": "Desarrollo: loop item, loop grid y single post",
+              "description": null
+            },
+            {
+              "title": "Diseño: revisa que todo se parezca al diseño",
+              "description": null
+            },
+            {
+              "title": "Edición: completa los 8–12 artículos",
+              "description": null
+            },
+            {
+              "title": "Edición: revisa textos y títulos del loop item y el single",
+              "description": null
+            },
+            {
+              "title": "Todos: la home con contenido real",
+              "description": null
+            }
+          ],
+          "mgTitle": "ATT",
+          "mgContent": "Loop items, loop grid, single post y etiquetas dinámicas."
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Sesión 6 · Archive y pulido",
+          "description": "Último día de trabajo: las categorías, el archivo y la revisión final.",
+          "postDescription": "Qué hace cada rol:",
+          "list": [
+            {
+              "title": "Desarrollo: archive con filtro por categorías",
+              "description": null
+            },
+            {
+              "title": "Diseño: revisión en móvil y tablet",
+              "description": null
+            },
+            {
+              "title": "Edición: textos y orden de títulos en todas las plantillas",
+              "description": null
+            },
+            {
+              "title": "Todos: quitar el modo mantenimiento",
+              "description": null
+            }
+          ],
+          "mgTitle": "ATT",
+          "mgContent": "Cómo funcionan el archive y las categorías, con filtros."
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Sesión 7 · Presentación y premios",
+          "description": "Cada equipo presenta su revista al resto de la clase.",
+          "postDescription": "Qué hace cada rol:",
+          "list": [
+            {
+              "title": "Equipo: enseñad la revista funcionando",
+              "description": null
+            },
+            {
+              "title": "Cada rol: explica su parte en dos minutos",
+              "description": null
+            },
+            {
+              "title": "Todos: votación y premios",
+              "description": null
+            }
+          ]
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "Cómo se evalúa",
+          "description": "Una parte de la nota es del equipo: la revista. La otra es tuya: cómo has cumplido tu rol.",
+          "icon": "ri-medal-line"
+        },
+        {
+          "template": "card",
+          "subtemplate": "list",
+          "sideblockopen": false,
+          "title": "La revista",
+          "description": "Lo que se valora del equipo.",
+          "listItems": [
+            {
+              "num": "1",
+              "title": "Requisitos",
+              "description": "Tiene todas las plantillas y el contenido mínimo."
+            },
+            {
+              "num": "2",
+              "title": "Funciona",
+              "description": "Todo es dinámico y no hay enlaces rotos."
+            },
+            {
+              "num": "3",
+              "title": "Coherencia",
+              "description": "Diseño, web y contenido cuentan lo mismo."
+            },
+            {
+              "num": "4",
+              "title": "Presentación",
+              "description": "Sabéis explicar y defender vuestro trabajo."
+            }
+          ]
+        },
+        {
+          "template": "card",
+          "subtemplate": "list",
+          "sideblockopen": false,
+          "title": "Tu rol",
+          "description": "Lo que se valora de cada persona.",
+          "listItems": [
+            {
+              "num": "1",
+              "title": "Diseño",
+              "description": "Identidad coherente, buena jerarquía y fidelidad entre diseño y web."
+            },
+            {
+              "num": "2",
+              "title": "Desarrollo",
+              "description": "Plantillas dinámicas, componentes reutilizables y buen responsive."
+            },
+            {
+              "num": "3",
+              "title": "Edición",
+              "description": "Línea editorial clara, textos cuidados en toda la web y títulos bien ordenados."
+            }
+          ]
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Tu equipo también opina",
+          "description": "Al final, cada persona valorará de forma anónima el trabajo de sus compañeros.",
+          "mgTitle": "Coevaluación",
+          "mgContent": "Sirve para saber cómo ha funcionado el equipo por dentro."
+        },
+        {
+          "template": "card",
+          "subtemplate": "list",
+          "sideblockopen": false,
+          "title": "Los premios",
+          "description": "En la última sesión votaremos entre todos.",
+          "listItems": [
+            {
+              "num": "1",
+              "title": "Mejor diseño",
+              "description": "La revista más bonita y fácil de usar."
+            },
+            {
+              "num": "2",
+              "title": "Mejor desarrollo",
+              "description": "La que mejor funciona por dentro."
+            },
+            {
+              "num": "3",
+              "title": "Mejor contenido",
+              "description": "La que más apetece leer."
+            },
+            {
+              "num": "4",
+              "title": "Revista del año",
+              "description": "La mejor en conjunto."
+            }
+          ]
+        },
+        {
+          "template": "card",
+          "subtemplate": "list",
+          "sideblockopen": false,
+          "title": "Antes de presentar",
+          "description": "Repasad esta lista en equipo.",
+          "listItems": [
+            {
+              "num": "1",
+              "title": "Home, single y archive",
+              "description": "Funcionan y se parecen al diseño."
+            },
+            {
+              "num": "2",
+              "title": "Header y footer",
+              "description": "Iguales en todas las páginas."
+            },
+            {
+              "num": "3",
+              "title": "Contenido",
+              "description": "8–12 artículos con imagen, extracto y categoría."
+            },
+            {
+              "num": "4",
+              "title": "Textos y títulos",
+              "description": "Sin textos de prueba y un solo H1 por página."
+            },
+            {
+              "num": "5",
+              "title": "Responsive",
+              "description": "Revisado en móvil y tablet."
+            },
+            {
+              "num": "6",
+              "title": "Mantenimiento",
+              "description": "Desactivado: la revista es pública."
+            }
+          ]
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "title": "Para saber más",
+          "description": "Ayuda oficial para las partes más técnicas del proyecto.",
+          "icon": "ri-book-read-line",
+          "linksList": [
+            {
+              "title": "Instalar WordPress a mano",
+              "link": "https://developer.wordpress.org/advanced-administration/before-install/howto-install/"
+            },
+            {
+              "title": "Diseñar el tema con Elementor",
+              "link": "https://elementor.com/help/design-your-theme/"
+            },
+            {
+              "title": "Site Settings",
+              "link": "https://elementor.com/help/site-settings/"
+            },
+            {
+              "title": "Modo mantenimiento",
+              "link": "https://elementor.com/help/maintenance-mode/"
+            },
+            {
+              "title": "Construir un loop grid",
+              "link": "https://elementor.com/help/how-do-i-build-a-loop-grid/"
+            },
+            {
+              "title": "Plantilla de artículo (single post)",
+              "link": "https://elementor.com/help/single-post-site-part/"
+            },
+            {
+              "title": "Contenido dinámico",
+              "link": "https://elementor.com/help/dynamic-content/"
+            },
+            {
+              "title": "Página de categoría con loop grid",
+              "link": "https://elementor.com/help/create-a-category-page-using-the-loop-grid-or-loop-carousel/"
+            },
+            {
+              "title": "Filtro por categorías",
+              "link": "https://elementor.com/help/taxonomy-filter-widget/"
             }
           ]
         }
