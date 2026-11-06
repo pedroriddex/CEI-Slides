@@ -87,11 +87,11 @@ body{overflow:hidden;background:oklch(0.9524 0.0013 286.37);color:oklch(0.2103 0
 function caption(n,t,d){const c=document.getElementById('cap');c.classList.add('swap');setTimeout(()=>{document.getElementById('cn').textContent=n;document.getElementById('ct').textContent=t;document.getElementById('cd').textContent=d;c.classList.remove('swap');},150);}
 
 const INFO={
-  home:['Home','Portada','La entrada a la revista: el destacado, lo último y las secciones.'],
-  archive:['Archive','Archivo','Los artículos de una categoría. Una sola plantilla sirve para todas las categorías.'],
-  single:['Single post','Artículo','La página de cada artículo. Se diseña una vez y la usan todos.'],
-  loop:['Loop item','Tarjeta','La misma tarjeta se repite en la portada y en el archivo, cada vez con un artículo distinto.'],
-  parts:['Header y footer','Partes comunes','La cabecera y el pie: se construyen una vez y aparecen en todas las páginas.'],
+  home:['Home','Portada','La portada de la revista.'],
+  archive:['Archive','Archivo','Los artículos de una categoría. Una plantilla para todas.'],
+  single:['Single post','Artículo','Una plantilla para todos los artículos.'],
+  loop:['Loop item','Tarjeta','La misma tarjeta se repite, cada vez con un artículo.'],
+  parts:['Header y footer','Partes comunes','Se construyen una vez y salen en todas las páginas.'],
 };
 const st=document.getElementById('st'),wins=[...document.querySelectorAll('.win')];
 function onSelect(v){
