@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>@container</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%}
+body{overflow:hidden;background:oklch(0.9524 0.0013 286.37);color:oklch(0.2103 0.0059 285.89);display:flex;align-items:center;justify-content:center;padding:8px clamp(8px,3vw,24px);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;-webkit-font-smoothing:antialiased}
+:root{--acc:oklch(0.6204 0.195 253.83);--fg:oklch(0.2103 0.0059 285.89);--muted:oklch(0.5517 0.0138 285.94);--line:oklch(90% 0.004 286.32);--soft:oklch(0.97 0.0015 286);--tint:color-mix(in oklab,var(--acc) 14%,white);--mono:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;--code:'SFMono-Regular',ui-monospace,Menlo,Consolas,monospace;--ease:cubic-bezier(.22,1,.36,1)}
+.card{width:100%;max-width:600px;max-height:100%;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 2px 4px 0 rgba(0,0,0,.04),0 1px 2px 0 rgba(0,0,0,.06),0 0 1px 0 rgba(0,0,0,.06);padding:14px 16px;display:flex;flex-direction:column;gap:12px;opacity:0;transform:translateY(6px);animation:in .45s var(--ease) .05s forwards}
+@keyframes in{to{opacity:1;transform:none}}
+.ctl{display:flex;align-items:center;flex-wrap:wrap;gap:6px;flex-shrink:0}
+.prop{font-size:12.5px;font-weight:500;color:var(--muted);margin-right:6px}
+.chip{font-family:var(--mono);font-size:12.5px;font-weight:500;line-height:1;padding:7px 12px;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--fg);cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.chip:hover{border-color:oklch(80% 0.006 286)}
+.chip.on{background:var(--fg);border-color:var(--fg);color:#fff}
+.lbl{font-size:11.5px;font-weight:500;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+.lbl b{color:var(--fg);font-weight:600}
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:14px;align-items:center}
+.code{font-family:var(--code);font-size:11px;line-height:1.6;background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:10px 0;white-space:pre;overflow:hidden;flex-shrink:0}
+.code .l{display:block;padding:0 12px;border-left:3px solid transparent;transition:opacity .35s,background .35s,border-color .35s}
+.code .blk{display:block}
+.code .blk.off .l{opacity:.32}
+.code .blk.on .l{background:var(--tint);border-left-color:var(--acc)}
+.k{color:var(--acc);font-weight:600}
+.c{color:var(--muted)}
+/* mini page pieces */
+.pg{background:#fff;border-radius:6px;display:flex;flex-direction:column;gap:5px;padding:6px;height:100%;overflow:hidden}
+.pg .bar{height:12px;border-radius:3px;background:var(--fg);display:flex;align-items:center;justify-content:flex-end;gap:3px;padding:0 4px;flex-shrink:0}
+.pg .bar i{display:block;width:10px;height:2px;border-radius:1px;background:#fff;opacity:.7}
+.pg .bar .burger{width:7px;height:5px;background:none;border-top:1.5px solid #fff;border-bottom:1.5px solid #fff;position:relative;opacity:.85}
+.pg .hero{height:22px;border-radius:3px;background:var(--tint);flex-shrink:0}
+.pg .grid{display:grid;gap:5px;transition:none}
+.pg .grid b{display:block;height:26px;border-radius:3px;background:color-mix(in oklab,var(--acc) 34%,white)}
+
+.tj{display:flex;flex-direction:column;gap:10px;padding:10px;border-radius:12px;background:#fff;border:1px solid var(--line)}
+.tj .ph{aspect-ratio:16/9;border-radius:8px;background:linear-gradient(135deg,color-mix(in oklab,var(--acc) 30%,white),var(--acc));flex-shrink:0}
+.tj .tx{flex:1;display:flex;flex-direction:column;gap:6px;min-width:0}
+.tj .tx b{display:block;height:9px;border-radius:3px;background:var(--fg);width:70%}
+.tj .tx i{display:block;height:6px;border-radius:3px;background:var(--line)}
+.tj .tx i:last-child{width:60%}
+
+.screen{position:relative;height:200px;border-radius:12px;background:var(--soft);border:1px solid var(--line);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:26px 10px 10px}
+.screen>.lbl:first-child{position:absolute;top:8px;left:10px}
+.box{outline:1.5px dashed var(--acc);outline-offset:4px;border-radius:12px;transition:width .6s var(--ease)}
+.tj{padding:7px;gap:7px;border-radius:9px}
+.tj .ph{aspect-ratio:2/1;border-radius:6px}
+.tj .tx{gap:5px}.tj .tx b{height:7px}.tj .tx i{height:5px}
+.row .tj{flex-direction:row;align-items:center}.row .tj .ph{width:42%}
+
+</style></head>
+<body>
+<div class="card">
+<div class="ctl" data-ctl="w"><span class="prop">Ancho del contenedor:</span><button class="chip on" data-v="260">260px</button><button class="chip" data-v="420">420px</button><button class="chip" data-v="560">560px</button></div>
+<div class="split">
+<div class="screen"><span class="lbl">pantalla · <b>1280px</b></span><div class="box" id="box"><div class="tj"><div class="ph"></div><div class="tx"><b></b><i></i><i></i><i></i></div></div></div><span class="lbl" id="w"></span></div>
+<div class="code"><span class="l">.columna {</span><span class="l">  <span class="k">container-type: inline-size;</span></span><span class="l">}</span><span class="l"> </span><span class="blk" id="b1"><span class="l"><span class="k">@container (min-width: 400px)</span> {</span><span class="l">  .tarjeta {</span><span class="l">    flex-direction: row;</span><span class="l">  }</span><span class="l">}</span></span></div>
+</div>
+</div>
+<script>
+
+const box=document.getElementById('box'),wl=document.getElementById('w'),b1=document.getElementById('b1');
+// the drawing is scaled down: 560px of container = 224px on screen
+function apply(_,v){
+  const w=+v;
+  box.style.width=Math.round(w*0.4)+'px';
+  box.classList.toggle('row',w>=400);
+  b1.className='blk '+(w>=400?'on':'off');
+  wl.innerHTML='contenedor · <b>'+w+'px</b>';
+}
+
+const groups=[...document.querySelectorAll('.ctl')];
+let auto=true;
+function pick(g,chip){g.querySelectorAll('.chip').forEach(c=>c.classList.toggle('on',c===chip));apply(g.dataset.ctl,chip.dataset.v);}
+groups.forEach(g=>g.querySelectorAll('.chip').forEach(c=>c.addEventListener('click',()=>{auto=false;pick(g,c);})));
+groups.forEach(g=>pick(g,g.querySelector('.chip.on')));
+setInterval(()=>{if(!auto)return;const g=groups[0];const cs=[...g.querySelectorAll('.chip')];const i=cs.findIndex(c=>c.classList.contains('on'));pick(g,cs[(i+1)%cs.length]);},3200);
+
+</script>
+</body></html>

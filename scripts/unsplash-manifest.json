@@ -126,6 +126,18 @@
       "by": "@kirp",
       "link": "https://unsplash.com/photos/7og8GybWcZw",
       "deck": "wordpress/ejercicios/revista-digital"
+    },
+    "bKESVqfxass": {
+      "color": "blue",
+      "alt": "blue and black digital wallpaper",
+      "by": "Codioful (Formerly Gradienta)",
+      "link": "https://unsplash.com/photos/bKESVqfxass"
+    },
+    "5rotZfQu3PM": {
+      "color": "red",
+      "alt": "abstract flowing glossy red layers",
+      "by": "Bhautik Patel",
+      "link": "https://unsplash.com/photos/5rotZfQu3PM"
     }
   },
   "bySlug": {
@@ -150,6 +162,8 @@
     "wordpress/themes": "K9fyxOqUnB4",
     "wordpress/plugins": "9f5Vyxf13Dk",
     "elementor/page-builders": "_nWaeTF6qo0",
-    "elementor/editor": "OyYuvj4Dbek"
+    "elementor/editor": "OyYuvj4Dbek",
+    "css/media-queries": "bKESVqfxass",
+    "html/picture": "5rotZfQu3PM"
   }
 }

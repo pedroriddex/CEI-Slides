@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Responsive</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%}
+body{overflow:hidden;background:oklch(0.9524 0.0013 286.37);color:oklch(0.2103 0.0059 285.89);display:flex;align-items:center;justify-content:center;padding:8px clamp(8px,3vw,24px);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;-webkit-font-smoothing:antialiased}
+:root{--acc:oklch(0.6204 0.195 253.83);--fg:oklch(0.2103 0.0059 285.89);--muted:oklch(0.5517 0.0138 285.94);--line:oklch(90% 0.004 286.32);--soft:oklch(0.97 0.0015 286);--tint:color-mix(in oklab,var(--acc) 14%,white);--mono:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;--code:'SFMono-Regular',ui-monospace,Menlo,Consolas,monospace;--ease:cubic-bezier(.22,1,.36,1)}
+.card{width:100%;max-width:600px;max-height:100%;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 2px 4px 0 rgba(0,0,0,.04),0 1px 2px 0 rgba(0,0,0,.06),0 0 1px 0 rgba(0,0,0,.06);padding:14px 16px;display:flex;flex-direction:column;gap:12px;opacity:0;transform:translateY(6px);animation:in .45s var(--ease) .05s forwards}
+@keyframes in{to{opacity:1;transform:none}}
+.ctl{display:flex;align-items:center;flex-wrap:wrap;gap:6px;flex-shrink:0}
+.prop{font-size:12.5px;font-weight:500;color:var(--muted);margin-right:6px}
+.chip{font-family:var(--mono);font-size:12.5px;font-weight:500;line-height:1;padding:7px 12px;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--fg);cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.chip:hover{border-color:oklch(80% 0.006 286)}
+.chip.on{background:var(--fg);border-color:var(--fg);color:#fff}
+.lbl{font-size:11.5px;font-weight:500;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+.lbl b{color:var(--fg);font-weight:600}
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:14px;align-items:center}
+.code{font-family:var(--code);font-size:11px;line-height:1.6;background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:10px 0;white-space:pre;overflow:hidden;flex-shrink:0}
+.code .l{display:block;padding:0 12px;border-left:3px solid transparent;transition:opacity .35s,background .35s,border-color .35s}
+.code .blk{display:block}
+.code .blk.off .l{opacity:.32}
+.code .blk.on .l{background:var(--tint);border-left-color:var(--acc)}
+.k{color:var(--acc);font-weight:600}
+.c{color:var(--muted)}
+/* mini page pieces */
+.pg{background:#fff;border-radius:6px;display:flex;flex-direction:column;gap:5px;padding:6px;height:100%;overflow:hidden}
+.pg .bar{height:12px;border-radius:3px;background:var(--fg);display:flex;align-items:center;justify-content:flex-end;gap:3px;padding:0 4px;flex-shrink:0}
+.pg .bar i{display:block;width:10px;height:2px;border-radius:1px;background:#fff;opacity:.7}
+.pg .bar .burger{width:7px;height:5px;background:none;border-top:1.5px solid #fff;border-bottom:1.5px solid #fff;position:relative;opacity:.85}
+.pg .hero{height:22px;border-radius:3px;background:var(--tint);flex-shrink:0}
+.pg .grid{display:grid;gap:5px;transition:none}
+.pg .grid b{display:block;height:26px;border-radius:3px;background:color-mix(in oklab,var(--acc) 34%,white)}
+
+.row{display:flex;align-items:flex-end;justify-content:center;gap:clamp(12px,3vw,24px)}
+.dev{display:flex;flex-direction:column;align-items:center;gap:10px;opacity:0;transform:translateY(8px);animation:in .5s var(--ease) forwards}
+.dev:nth-child(1){animation-delay:.15s}.dev:nth-child(2){animation-delay:.3s}.dev:nth-child(3){animation-delay:.45s}
+.scr{background:var(--fg);padding:5px;border-radius:12px}
+.scr .pg{border-radius:7px}
+.phone .scr{width:74px;height:146px;border-radius:14px;padding:4px}
+.tab .scr{width:140px;height:178px}
+.desk .scr{width:250px;height:156px;border-radius:8px}
+.desk .stand{width:60px;height:14px;background:var(--line);clip-path:polygon(20% 0,80% 0,100% 100%,0 100%);margin-top:-6px}
+.phone .grid{grid-template-columns:1fr}
+.tab .grid{grid-template-columns:repeat(2,1fr)}
+.desk .grid{grid-template-columns:repeat(3,1fr)}
+.desk .pg .grid b{height:30px}
+</style></head>
+<body>
+<div class="card">
+<div class="row">
+<div class="dev phone"><div class="scr"><div class="pg"><div class="bar"><i class="burger"></i></div><div class="hero"></div><div class="grid"><b></b><b></b><b></b><b></b><b></b><b></b></div></div></div><span class="lbl"><b>móvil</b> · 360px</span></div>
+<div class="dev tab"><div class="scr"><div class="pg"><div class="bar"><i></i><i></i><i></i></div><div class="hero"></div><div class="grid"><b></b><b></b><b></b><b></b><b></b><b></b></div></div></div><span class="lbl"><b>tablet</b> · 768px</span></div>
+<div class="dev desk"><div><div class="scr"><div class="pg"><div class="bar"><i></i><i></i><i></i></div><div class="hero"></div><div class="grid"><b></b><b></b><b></b><b></b><b></b><b></b></div></div></div></div><span class="lbl"><b>escritorio</b> · 1280px</span></div>
+</div>
+</div>
+</body></html>

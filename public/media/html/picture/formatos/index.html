@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Formatos</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%}
+body{overflow:hidden;background:oklch(0.9524 0.0013 286.37);color:oklch(0.2103 0.0059 285.89);display:flex;align-items:center;justify-content:center;padding:8px clamp(8px,3vw,24px);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;-webkit-font-smoothing:antialiased}
+:root{--acc:oklch(0.577 0.245 27.33);--fg:oklch(0.2103 0.0059 285.89);--muted:oklch(0.5517 0.0138 285.94);--line:oklch(90% 0.004 286.32);--soft:oklch(0.97 0.0015 286);--tint:color-mix(in oklab,var(--acc) 12%,white);--mono:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;--code:'SFMono-Regular',ui-monospace,Menlo,Consolas,monospace;--ease:cubic-bezier(.22,1,.36,1)}
+.card{width:100%;max-width:600px;max-height:100%;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 2px 4px 0 rgba(0,0,0,.04),0 1px 2px 0 rgba(0,0,0,.06),0 0 1px 0 rgba(0,0,0,.06);padding:14px 16px;display:flex;flex-direction:column;gap:12px;opacity:0;transform:translateY(6px);animation:in .45s var(--ease) .05s forwards}
+@keyframes in{to{opacity:1;transform:none}}
+.ctl{display:flex;align-items:center;flex-wrap:wrap;gap:6px;flex-shrink:0}
+.prop{font-size:12.5px;font-weight:500;color:var(--muted);margin-right:6px}
+.chip{font-family:var(--mono);font-size:12.5px;font-weight:500;line-height:1;padding:7px 12px;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--fg);cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.chip:hover{border-color:oklch(80% 0.006 286)}
+.chip.on{background:var(--fg);border-color:var(--fg);color:#fff}
+.lbl{font-size:11.5px;font-weight:500;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+.lbl b{color:var(--fg);font-weight:600}
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:14px;align-items:center}
+.code{font-family:var(--code);font-size:11px;line-height:1.6;background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:10px 0;white-space:pre;overflow:hidden;flex-shrink:0}
+.code .l{display:block;padding:0 12px;border-left:3px solid transparent;transition:opacity .35s,background .35s,border-color .35s}
+.code.pick .l.opt{opacity:.32}
+.code.pick .l.opt.on{opacity:1;background:var(--tint);border-left-color:var(--acc)}
+.t{color:var(--acc)}
+
+.files{display:flex;flex-direction:column;gap:8px}
+.file{display:grid;grid-template-columns:36px 128px 1fr 56px;align-items:center;gap:14px;padding:10px 14px;border-radius:12px;border:1px solid var(--line);background:#fff;transition:opacity .35s,background .35s,border-color .35s}
+.file .ic{width:36px;height:36px;border-radius:8px;background:var(--soft);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:9.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);transition:background .35s,color .35s,border-color .35s}
+.file .nm{display:flex;flex-direction:column;gap:2px;min-width:0}
+.file .nm b{font-family:var(--code);font-size:12.5px;font-weight:500}
+.file .nm small{font-family:var(--code);font-size:10.5px;color:var(--muted)}
+.file .bar{height:8px;border-radius:4px;background:var(--soft);overflow:hidden}
+.file .bar i{display:block;height:100%;border-radius:4px;background:oklch(80% 0.006 286);transition:background .35s}
+.file .kb{font-size:12px;font-weight:600;text-align:right;font-variant-numeric:tabular-nums}
+.file.skip{opacity:.35}
+.file.skip .nm b{text-decoration:line-through}
+.file.on{background:var(--tint);border-color:var(--acc)}
+.file.on .ic{background:var(--acc);border-color:var(--acc);color:#fff}
+.file.on .bar i{background:var(--acc)}
+.file.rest{opacity:.55}
+
+</style></head>
+<body>
+<div class="card">
+<div class="ctl"><span class="prop">El navegador entiende:</span><button class="chip on" data-v="avif">AVIF</button><button class="chip" data-v="webp">WebP</button><button class="chip" data-v="jpg">solo JPG</button></div>
+<div class="files"><div class="file" data-k="avif"><span class="ic">avif</span><span class="nm"><b>foto.avif</b><small>type="image/avif"</small></span><span class="bar"><i style="width:28%"></i></span><span class="kb">90 KB</span></div><div class="file" data-k="webp"><span class="ic">webp</span><span class="nm"><b>foto.webp</b><small>type="image/webp"</small></span><span class="bar"><i style="width:44%"></i></span><span class="kb">140 KB</span></div><div class="file" data-k="jpg"><span class="ic">jpg</span><span class="nm"><b>foto.jpg</b><small>&lt;img&gt;</small></span><span class="bar"><i style="width:100%"></i></span><span class="kb">320 KB</span></div></div>
+</div>
+<script>
+
+const ORDER=['avif','webp','jpg'];
+const files=[...document.querySelectorAll('.file')];
+function apply(v){
+  const i=ORDER.indexOf(v);
+  files.forEach((f,j)=>{f.classList.toggle('skip',j<i);f.classList.toggle('on',j===i);f.classList.toggle('rest',j>i);});
+}
+
+const groups=[...document.querySelectorAll('.ctl')];
+let auto=true;
+function pick(g,chip){g.querySelectorAll('.chip').forEach(c=>c.classList.toggle('on',c===chip));apply(chip.dataset.v);}
+groups.forEach(g=>g.querySelectorAll('.chip').forEach(c=>c.addEventListener('click',()=>{auto=false;pick(g,c);})));
+groups.forEach(g=>pick(g,g.querySelector('.chip.on')));
+setInterval(()=>{if(!auto)return;const g=groups[0];const cs=[...g.querySelectorAll('.chip')];const i=cs.findIndex(c=>c.classList.contains('on'));pick(g,cs[(i+1)%cs.length]);},3200);
+
+</script>
+</body></html>

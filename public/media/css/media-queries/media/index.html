@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>@media</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%}
+body{overflow:hidden;background:oklch(0.9524 0.0013 286.37);color:oklch(0.2103 0.0059 285.89);display:flex;align-items:center;justify-content:center;padding:8px clamp(8px,3vw,24px);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;-webkit-font-smoothing:antialiased}
+:root{--acc:oklch(0.6204 0.195 253.83);--fg:oklch(0.2103 0.0059 285.89);--muted:oklch(0.5517 0.0138 285.94);--line:oklch(90% 0.004 286.32);--soft:oklch(0.97 0.0015 286);--tint:color-mix(in oklab,var(--acc) 14%,white);--mono:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;--code:'SFMono-Regular',ui-monospace,Menlo,Consolas,monospace;--ease:cubic-bezier(.22,1,.36,1)}
+.card{width:100%;max-width:600px;max-height:100%;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 2px 4px 0 rgba(0,0,0,.04),0 1px 2px 0 rgba(0,0,0,.06),0 0 1px 0 rgba(0,0,0,.06);padding:14px 16px;display:flex;flex-direction:column;gap:12px;opacity:0;transform:translateY(6px);animation:in .45s var(--ease) .05s forwards}
+@keyframes in{to{opacity:1;transform:none}}
+.ctl{display:flex;align-items:center;flex-wrap:wrap;gap:6px;flex-shrink:0}
+.prop{font-size:12.5px;font-weight:500;color:var(--muted);margin-right:6px}
+.chip{font-family:var(--mono);font-size:12.5px;font-weight:500;line-height:1;padding:7px 12px;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--fg);cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.chip:hover{border-color:oklch(80% 0.006 286)}
+.chip.on{background:var(--fg);border-color:var(--fg);color:#fff}
+.lbl{font-size:11.5px;font-weight:500;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+.lbl b{color:var(--fg);font-weight:600}
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:14px;align-items:center}
+.code{font-family:var(--code);font-size:11px;line-height:1.6;background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:10px 0;white-space:pre;overflow:hidden;flex-shrink:0}
+.code .l{display:block;padding:0 12px;border-left:3px solid transparent;transition:opacity .35s,background .35s,border-color .35s}
+.code .blk{display:block}
+.code .blk.off .l{opacity:.32}
+.code .blk.on .l{background:var(--tint);border-left-color:var(--acc)}
+.k{color:var(--acc);font-weight:600}
+.c{color:var(--muted)}
+/* mini page pieces */
+.pg{background:#fff;border-radius:6px;display:flex;flex-direction:column;gap:5px;padding:6px;height:100%;overflow:hidden}
+.pg .bar{height:12px;border-radius:3px;background:var(--fg);display:flex;align-items:center;justify-content:flex-end;gap:3px;padding:0 4px;flex-shrink:0}
+.pg .bar i{display:block;width:10px;height:2px;border-radius:1px;background:#fff;opacity:.7}
+.pg .bar .burger{width:7px;height:5px;background:none;border-top:1.5px solid #fff;border-bottom:1.5px solid #fff;position:relative;opacity:.85}
+.pg .hero{height:22px;border-radius:3px;background:var(--tint);flex-shrink:0}
+.pg .grid{display:grid;gap:5px;transition:none}
+.pg .grid b{display:block;height:26px;border-radius:3px;background:color-mix(in oklab,var(--acc) 34%,white)}
+
+.screen{height:180px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:8px}
+.scr{background:var(--fg);padding:4px;border-radius:9px;height:150px;transition:width .6s var(--ease)}
+.scr .pg{border-radius:5px}
+.grid b{transition:height .3s}
+
+</style></head>
+<body>
+<div class="card">
+<div class="ctl" data-ctl="w"><span class="prop">Ancho de pantalla:</span><button class="chip on" data-v="360">360px</button><button class="chip" data-v="768">768px</button><button class="chip" data-v="1280">1280px</button></div>
+<div class="split">
+<div class="screen"><div class="scr" id="scr"><div class="pg"><div class="bar"><i></i><i></i><i></i></div><div class="hero"></div><div class="grid"><b></b><b></b><b></b><b></b><b></b><b></b></div></div></div><span class="lbl" id="w"></span></div>
+<div class="code"><span class="blk on"><span class="l c">/* 1 columna */</span></span><span class="blk" id="b1"><span class="l"><span class="k">@media (min-width: 768px)</span> {</span><span class="l c">  /* 2 columnas */</span><span class="l">}</span></span><span class="blk" id="b2"><span class="l"><span class="k">@media (min-width: 1024px)</span> {</span><span class="l c">  /* 3 columnas */</span><span class="l">}</span></span></div>
+</div>
+</div>
+<script>
+
+const scr=document.getElementById('scr'),grid=scr.querySelector('.grid'),wl=document.getElementById('w');
+const b1=document.getElementById('b1'),b2=document.getElementById('b2');
+const SIZE={360:70,768:150,1280:228};
+function apply(_,v){
+  const w=+v;
+  scr.style.width=SIZE[w]+'px';
+  const cols=w>=1024?3:w>=768?2:1;
+  grid.style.gridTemplateColumns='repeat('+cols+',1fr)';
+  b1.className='blk '+(w>=768?'on':'off');
+  b2.className='blk '+(w>=1024?'on':'off');
+  wl.innerHTML='pantalla · <b>'+w+'px</b>';
+}
+
+const groups=[...document.querySelectorAll('.ctl')];
+let auto=true;
+function pick(g,chip){g.querySelectorAll('.chip').forEach(c=>c.classList.toggle('on',c===chip));apply(g.dataset.ctl,chip.dataset.v);}
+groups.forEach(g=>g.querySelectorAll('.chip').forEach(c=>c.addEventListener('click',()=>{auto=false;pick(g,c);})));
+groups.forEach(g=>pick(g,g.querySelector('.chip.on')));
+setInterval(()=>{if(!auto)return;const g=groups[0];const cs=[...g.querySelectorAll('.chip')];const i=cs.findIndex(c=>c.classList.contains('on'));pick(g,cs[(i+1)%cs.length]);},3200);
+
+</script>
+</body></html>

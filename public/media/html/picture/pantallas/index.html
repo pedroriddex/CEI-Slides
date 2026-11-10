@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title><picture></title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%}
+body{overflow:hidden;background:oklch(0.9524 0.0013 286.37);color:oklch(0.2103 0.0059 285.89);display:flex;align-items:center;justify-content:center;padding:8px clamp(8px,3vw,24px);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;-webkit-font-smoothing:antialiased}
+:root{--acc:oklch(0.577 0.245 27.33);--fg:oklch(0.2103 0.0059 285.89);--muted:oklch(0.5517 0.0138 285.94);--line:oklch(90% 0.004 286.32);--soft:oklch(0.97 0.0015 286);--tint:color-mix(in oklab,var(--acc) 12%,white);--mono:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;--code:'SFMono-Regular',ui-monospace,Menlo,Consolas,monospace;--ease:cubic-bezier(.22,1,.36,1)}
+.card{width:100%;max-width:600px;max-height:100%;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 2px 4px 0 rgba(0,0,0,.04),0 1px 2px 0 rgba(0,0,0,.06),0 0 1px 0 rgba(0,0,0,.06);padding:14px 16px;display:flex;flex-direction:column;gap:12px;opacity:0;transform:translateY(6px);animation:in .45s var(--ease) .05s forwards}
+@keyframes in{to{opacity:1;transform:none}}
+.ctl{display:flex;align-items:center;flex-wrap:wrap;gap:6px;flex-shrink:0}
+.prop{font-size:12.5px;font-weight:500;color:var(--muted);margin-right:6px}
+.chip{font-family:var(--mono);font-size:12.5px;font-weight:500;line-height:1;padding:7px 12px;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--fg);cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.chip:hover{border-color:oklch(80% 0.006 286)}
+.chip.on{background:var(--fg);border-color:var(--fg);color:#fff}
+.lbl{font-size:11.5px;font-weight:500;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+.lbl b{color:var(--fg);font-weight:600}
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:14px;align-items:center}
+.code{font-family:var(--code);font-size:11px;line-height:1.6;background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:10px 0;white-space:pre;overflow:hidden;flex-shrink:0}
+.code .l{display:block;padding:0 12px;border-left:3px solid transparent;transition:opacity .35s,background .35s,border-color .35s}
+.code.pick .l.opt{opacity:.32}
+.code.pick .l.opt.on{opacity:1;background:var(--tint);border-left-color:var(--acc)}
+.t{color:var(--acc)}
+
+.screen{height:214px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px}
+.scr{background:var(--fg);padding:4px;border-radius:9px;transition:width .6s var(--ease)}
+.scr .pg{background:#fff;border-radius:5px;padding:5px;display:flex;flex-direction:column;gap:5px}
+.pg .bar{height:7px;border-radius:3px;background:var(--line)}
+.ph{position:relative;border-radius:3px;overflow:hidden;transition:height .6s var(--ease)}
+.ph svg{position:absolute;inset:0;width:100%;height:100%;transition:opacity .35s}
+.labels{display:flex;flex-direction:column;align-items:center;gap:2px}
+
+</style></head>
+<body>
+<div class="card">
+<div class="ctl"><span class="prop">Ancho de pantalla:</span><button class="chip on" data-v="360">360px</button><button class="chip" data-v="768">768px</button><button class="chip" data-v="1280">1280px</button></div>
+<div class="split">
+<div class="screen"><div class="scr" id="scr"><div class="pg"><div class="bar"></div><div class="ph" id="ph"></div></div></div><div class="labels"><span class="lbl" id="w"></span><span class="lbl" id="f"></span></div></div>
+<div class="code pick"><span class="l"><span class="t">&lt;picture</span><span class="t">&gt;</span></span><span class="l opt" data-k="grande">  <span class="t">&lt;source</span></span><span class="l opt" data-k="grande">    srcset="faro-grande.jpg"</span><span class="l opt" data-k="grande">    media="(min-width: 1024px)"<span class="t">&gt;</span></span><span class="l opt" data-k="mediano">  <span class="t">&lt;source</span></span><span class="l opt" data-k="mediano">    srcset="faro-mediano.jpg"</span><span class="l opt" data-k="mediano">    media="(min-width: 600px)"<span class="t">&gt;</span></span><span class="l opt" data-k="pequeno">  <span class="t">&lt;img</span> src="faro-pequeno.jpg" alt="…"<span class="t">&gt;</span></span><span class="l"><span class="t">&lt;/picture</span><span class="t">&gt;</span></span></div>
+</div>
+</div>
+<script>
+
+const SCENE="<defs>\n<linearGradient id=\"sky\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#2b2350\"/><stop offset=\".55\" stop-color=\"#d9566b\"/><stop offset=\"1\" stop-color=\"#f7b267\"/></linearGradient>\n<linearGradient id=\"sea\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#3d3a6b\"/><stop offset=\"1\" stop-color=\"#1a1838\"/></linearGradient>\n</defs>\n<rect width=\"600\" height=\"300\" fill=\"url(#sky)\"/>\n<circle cx=\"150\" cy=\"196\" r=\"34\" fill=\"#ffd58a\"/>\n<rect y=\"200\" width=\"600\" height=\"100\" fill=\"url(#sea)\"/>\n<g fill=\"#ffd58a\" opacity=\".55\"><rect x=\"112\" y=\"212\" width=\"76\" height=\"3\" rx=\"1.5\"/><rect x=\"124\" y=\"224\" width=\"52\" height=\"3\" rx=\"1.5\"/><rect x=\"136\" y=\"236\" width=\"28\" height=\"3\" rx=\"1.5\"/></g>\n<path d=\"M300 300 L330 222 Q380 196 430 206 L520 224 Q570 236 600 232 L600 300 Z\" fill=\"#141228\"/>\n<g transform=\"translate(392 92)\">\n<path d=\"M-12 118 L-7 20 L7 20 L12 118 Z\" fill=\"#f3efe8\"/>\n<path d=\"M-11 92 L11 92 L11.6 104 L-11.6 104 Z M-9 56 L9 56 L9.6 68 L-9.6 68 Z\" fill=\"#c8384c\"/>\n<rect x=\"-10\" y=\"8\" width=\"20\" height=\"13\" rx=\"2\" fill=\"#ffe7a8\"/>\n<path d=\"M-12 8 L0 -6 L12 8 Z\" fill=\"#c8384c\"/>\n<path d=\"M10 14 L120 -4 L120 32 Z\" fill=\"#ffe7a8\" opacity=\".28\"/>\n</g>\n<g fill=\"none\" stroke=\"#1a1838\" stroke-width=\"2\" stroke-linecap=\"round\"><path d=\"M250 70 q6 -6 12 0 q6 -6 12 0\"/><path d=\"M286 52 q5 -5 10 0 q5 -5 10 0\"/></g>";
+// one drawing, three crops: panoramic, square, vertical
+const CROP={grande:{vb:'0 0 600 300',w:216,file:'faro-grande.jpg'},mediano:{vb:'210 0 300 300',w:128,file:'faro-mediano.jpg'},pequeno:{vb:'330 40 125 250',w:72,file:'faro-pequeno.jpg'}};
+const scr=document.getElementById('scr'),ph=document.getElementById('ph'),wl=document.getElementById('w'),fl=document.getElementById('f');
+const lines=[...document.querySelectorAll('.l.opt')];
+function apply(v){
+  const w=+v,k=w>=1024?'grande':w>=600?'mediano':'pequeno',c=CROP[k];
+  const [, , vw, vh]=c.vb.split(' ').map(Number);
+  scr.style.width=(c.w+18)+'px';
+  ph.style.height=Math.round(c.w*vh/vw)+'px';
+  const old=ph.querySelector('svg');
+  const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');
+  svg.setAttribute('viewBox',c.vb);svg.setAttribute('preserveAspectRatio','xMidYMid slice');svg.innerHTML=SCENE;svg.style.opacity=0;
+  ph.appendChild(svg);requestAnimationFrame(()=>{svg.style.opacity=1;if(old){old.style.opacity=0;setTimeout(()=>old.remove(),400);}});
+  lines.forEach(l=>l.classList.toggle('on',l.dataset.k===k));
+  wl.innerHTML='pantalla · <b>'+w+'px</b>';
+  fl.innerHTML='se carga <b>'+c.file+'</b>';
+}
+
+const groups=[...document.querySelectorAll('.ctl')];
+let auto=true;
+function pick(g,chip){g.querySelectorAll('.chip').forEach(c=>c.classList.toggle('on',c===chip));apply(chip.dataset.v);}
+groups.forEach(g=>g.querySelectorAll('.chip').forEach(c=>c.addEventListener('click',()=>{auto=false;pick(g,c);})));
+groups.forEach(g=>pick(g,g.querySelector('.chip.on')));
+setInterval(()=>{if(!auto)return;const g=groups[0];const cs=[...g.querySelectorAll('.chip')];const i=cs.findIndex(c=>c.classList.contains('on'));pick(g,cs[(i+1)%cs.length]);},3200);
+
+</script>
+</body></html>

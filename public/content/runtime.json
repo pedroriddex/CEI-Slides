@@ -1,5 +1,5 @@
 {
-  "versionId": "static-2026-11-04-proyecto-alba-v5",
+  "versionId": "static-2026-11-10-queries-picture-v1",
   "documents": {
     "": {
       "kind": "index",
@@ -1546,6 +1546,15 @@
           "description": null
         },
         {
+          "title": "Media queries",
+          "color": "blue",
+          "icon": "ri-device-line",
+          "href": "web/theme/css/media-queries",
+          "target": null,
+          "disabled": null,
+          "description": null
+        },
+        {
           "title": "Position",
           "color": "blue",
           "icon": "ri-layout-5-line",
@@ -2727,6 +2736,15 @@
           "color": "red",
           "icon": "ri-shapes-line",
           "href": "web/theme/html/symbol",
+          "target": null,
+          "disabled": null,
+          "description": null
+        },
+        {
+          "title": "Picture y source",
+          "color": "red",
+          "icon": "ri-gallery-line",
+          "href": "web/theme/html/picture",
           "target": null,
           "disabled": null,
           "description": null
@@ -15614,6 +15632,413 @@
               "num": "4",
               "title": "Mantenimiento",
               "description": "Desactivado."
+            }
+          ]
+        }
+      ]
+    },
+    "web/theme/css/media-queries": {
+      "kind": "deck",
+      "path": "web/theme/css/media-queries",
+      "slides": [
+        {
+          "theme": 5,
+          "slug": "css/media-queries",
+          "color": "blue",
+          "template": "cover",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "icon": "ri-device-line",
+          "title": "Media y container queries",
+          "description": "Diseños que se adaptan a la pantalla o al hueco donde viven.",
+          "coverImg": "cover"
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "Diseño responsive",
+          "description": "Una misma web se ve en un móvil, en una tablet y en un ordenador. Responsive significa que se adapta a cada pantalla."
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "Una web, tres pantallas",
+          "iframe": "responsive"
+        },
+        {
+          "template": "card",
+          "subtemplate": "list",
+          "sideblockopen": false,
+          "title": "Qué veremos",
+          "description": "Dos formas de adaptar un diseño.",
+          "listItems": [
+            {
+              "num": "1",
+              "title": "Media queries"
+            },
+            {
+              "num": "2",
+              "title": "Breakpoints"
+            },
+            {
+              "num": "3",
+              "title": "Mobile first"
+            },
+            {
+              "num": "4",
+              "title": "Container queries"
+            }
+          ]
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "Media queries",
+          "description": "Son preguntas que CSS le hace a la pantalla: «¿mides 768px o más?». Si la respuesta es sí, aplica esos estilos."
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "La sintaxis",
+          "description": "@media, la condición entre paréntesis y, dentro de las llaves, el CSS que solo se aplica si se cumple.",
+          "mgCode": "css",
+          "mgContent": "```css\n@media (min-width: 768px) {\n  .tarjetas {\n    grid-template-columns: repeat(2, 1fr);\n  }\n}\n```"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Min-width y max-width",
+          "description": "min-width significa «a partir de este ancho». max-width, «hasta este ancho».",
+          "mgCode": "css",
+          "mgContent": "```css\n/* De 768px en adelante */\n@media (min-width: 768px) { ... }\n\n/* Hasta 767px */\n@media (max-width: 767px) { ... }\n```"
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "Media queries en acción",
+          "iframe": "media"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Los breakpoints",
+          "description": "Son los anchos en los que el diseño cambia. No hay unos obligatorios: estos son los más habituales.",
+          "mgCode": "css",
+          "mgContent": "```css\n/* Móvil: sin media query */\n\n@media (min-width: 640px)  { /* Tablet */ }\n@media (min-width: 1024px) { /* Portátil */ }\n@media (min-width: 1280px) { /* Escritorio */ }\n```"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Mobile first",
+          "description": "Primero escribimos los estilos del móvil. Después, con min-width, añadimos cambios para pantallas más grandes.",
+          "mgCode": "css",
+          "mgContent": "```css\n/* Móvil: 1 columna */\n.tarjetas {\n  grid-template-columns: 1fr;\n}\n\n/* Tablet en adelante: 2 columnas */\n@media (min-width: 768px) {\n  .tarjetas {\n    grid-template-columns: 1fr 1fr;\n  }\n}\n```"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "La etiqueta viewport",
+          "description": "Sin esta línea en el <head>, el móvil hace como si fuera un ordenador y las media queries no funcionan.",
+          "mgCode": "html",
+          "mgContent": "```html\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n```"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Combinar condiciones",
+          "description": "Con and, los estilos solo se aplican si se cumplen las dos condiciones a la vez.",
+          "mgCode": "css",
+          "mgContent": "```css\n/* Solo entre 768px y 1023px */\n@media (min-width: 768px) and (max-width: 1023px) {\n  .menu { font-size: 14px; }\n}\n```"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Más allá del ancho",
+          "description": "También podemos preguntar si el móvil está en horizontal o si el usuario usa el modo oscuro.",
+          "mgCode": "css",
+          "mgContent": "```css\n@media (orientation: landscape) { ... }\n\n@media (prefers-color-scheme: dark) {\n  body {\n    background-color: black;\n    color: white;\n  }\n}\n```"
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "El problema",
+          "description": "Una media query mira la pantalla entera. Pero una misma tarjeta puede estar en una columna ancha o en una barra lateral estrecha."
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "Container queries",
+          "description": "Ahora la pregunta se le hace al contenedor: «¿mides 400px o más?». El elemento se adapta al hueco donde lo pongas, no a la pantalla."
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Paso 1: el contenedor",
+          "description": "Con container-type marcamos al padre para que sus hijos puedan preguntarle cuánto mide.",
+          "mgCode": "css",
+          "mgContent": "```css\n.columna {\n  container-type: inline-size;\n}\n```"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Paso 2: la pregunta",
+          "description": "@container funciona igual que @media, pero mide el contenedor en vez de la pantalla.",
+          "mgCode": "css",
+          "mgContent": "```css\n@container (min-width: 400px) {\n  .tarjeta {\n    display: flex;\n  }\n}\n```"
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "Container queries en acción",
+          "iframe": "container"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Ponle nombre",
+          "description": "Si hay varios contenedores, el nombre indica a cuál le hacemos la pregunta.",
+          "mgCode": "css",
+          "mgContent": "```css\n.lateral {\n  container-type: inline-size;\n  container-name: lateral;\n}\n\n@container lateral (min-width: 400px) { ... }\n```"
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "¿@media o @container?",
+          "iframe": "media-vs-container"
+        },
+        {
+          "template": "card",
+          "subtemplate": "list",
+          "sideblockopen": false,
+          "title": "Cuándo usar cada una",
+          "description": "Se complementan: lo normal es usar las dos en la misma web.",
+          "listItems": [
+            {
+              "num": "1",
+              "title": "Media queries",
+              "description": "Para la estructura de la página: columnas, menú y márgenes."
+            },
+            {
+              "num": "2",
+              "title": "Container queries",
+              "description": "Para piezas que reutilizas en sitios distintos: tarjetas, widgets…"
+            }
+          ]
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": "ri-book-read-line",
+          "title": "Documentación oficial",
+          "description": "Como siempre, puedes revisar la documentación oficial de MDN Web Docs para más información.",
+          "linksList": [
+            {
+              "title": "Media queries",
+              "link": "https://developer.mozilla.org/es/docs/Web/CSS/CSS_media_queries/Using_media_queries"
+            },
+            {
+              "title": "@media",
+              "link": "https://developer.mozilla.org/es/docs/Web/CSS/@media"
+            },
+            {
+              "title": "Container queries",
+              "link": "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_size_and_style_queries"
+            },
+            {
+              "title": "container-type",
+              "link": "https://developer.mozilla.org/en-US/docs/Web/CSS/container-type"
+            }
+          ]
+        }
+      ]
+    },
+    "web/theme/html/picture": {
+      "kind": "deck",
+      "path": "web/theme/html/picture",
+      "slides": [
+        {
+          "theme": 12,
+          "slug": "html/picture",
+          "color": "red",
+          "template": "cover",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "icon": "ri-gallery-line",
+          "title": "Picture y source",
+          "description": "La imagen justa para cada pantalla y para cada navegador.",
+          "coverImg": "cover"
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "Una imagen no sirve para todo",
+          "description": "Una foto enorme tarda en cargar en el móvil, y una pequeña se ve borrosa en un monitor grande. Con picture elegimos la adecuada."
+        },
+        {
+          "template": "card",
+          "subtemplate": "list",
+          "sideblockopen": false,
+          "title": "Qué veremos",
+          "description": "Dos etiquetas que trabajan juntas.",
+          "listItems": [
+            {
+              "num": "1",
+              "title": "La etiqueta picture"
+            },
+            {
+              "num": "2",
+              "title": "La etiqueta source"
+            },
+            {
+              "num": "3",
+              "title": "Una imagen para cada pantalla"
+            },
+            {
+              "num": "4",
+              "title": "Formatos modernos"
+            }
+          ]
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "La etiqueta picture",
+          "description": "Es una caja que guarda varias versiones de la misma imagen. El navegador elige la mejor y enseña solo una.",
+          "mgCode": "html",
+          "mgContent": "```html\n<picture>\n  <source\n    srcset=\"faro-grande.jpg\"\n    media=\"(min-width: 1024px)\">\n  <source\n    srcset=\"faro-mediano.jpg\"\n    media=\"(min-width: 600px)\">\n  <img src=\"faro-pequeno.jpg\" alt=\"Un faro\">\n</picture>\n```"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "La etiqueta source",
+          "description": "Cada source es una opción. En srcset va la ruta de la imagen y en media, cuándo usarla.",
+          "mgCode": "html",
+          "mgContent": "```html\n<source\n  srcset=\"faro-grande.jpg\"\n  media=\"(min-width: 1024px)\">\n```"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Cómo se lee media",
+          "description": "(min-width: 1024px) significa «si la pantalla mide 1024px o más». Con (max-width: …) sería «hasta».",
+          "mgCode": "html",
+          "mgContent": "```html\n<!-- Pantallas de 1024px o más -->\nmedia=\"(min-width: 1024px)\"\n\n<!-- Pantallas de 600px o menos -->\nmedia=\"(max-width: 600px)\"\n```"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "El img, siempre al final",
+          "description": "Es la opción por defecto: se usa si ninguna source encaja. El alt se escribe aquí, una sola vez.",
+          "mgCode": "html",
+          "mgContent": "```html\n<picture>\n  <source ...>\n  <source ...>\n  <img src=\"faro-pequeno.jpg\" alt=\"Un faro\">\n</picture>\n```"
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "Se elige en orden",
+          "description": "El navegador lee las source de arriba abajo y se queda con la primera que encaja. Por eso van de la más grande a la más pequeña.",
+          "mgCode": "html",
+          "mgContent": "```html\n<picture>\n  <!-- 1º: ¿mide 1024px o más? -->\n  <source ... media=\"(min-width: 1024px)\">\n\n  <!-- 2º: ¿mide 600px o más? -->\n  <source ... media=\"(min-width: 600px)\">\n\n  <!-- Si no, esta -->\n  <img src=\"faro-pequeno.jpg\" alt=\"Un faro\">\n</picture>\n```"
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "Un recorte para cada pantalla",
+          "description": "No solo cambia el tamaño: en el móvil podemos enseñar un recorte vertical y en el ordenador, la foto panorámica."
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "Picture en acción",
+          "iframe": "pantallas"
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": false,
+          "title": "Formatos modernos",
+          "description": "AVIF y WebP pesan mucho menos que JPG con la misma calidad. Pero algún navegador antiguo no los entiende."
+        },
+        {
+          "template": "card",
+          "subtemplate": "simple",
+          "sideblockopen": true,
+          "title": "El atributo type",
+          "description": "Con type indicamos el formato. Si el navegador no lo entiende, salta a la siguiente opción.",
+          "mgCode": "html",
+          "mgContent": "```html\n<picture>\n  <source srcset=\"foto.avif\" type=\"image/avif\">\n  <source srcset=\"foto.webp\" type=\"image/webp\">\n  <img src=\"foto.jpg\" alt=\"Un faro\">\n</picture>\n```"
+        },
+        {
+          "template": "image",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": null,
+          "title": "Formatos en acción",
+          "iframe": "formatos"
+        },
+        {
+          "template": "card",
+          "subtemplate": "list",
+          "sideblockopen": false,
+          "title": "Cuándo usar picture",
+          "description": "Para una imagen normal, basta con img.",
+          "listItems": [
+            {
+              "num": "1",
+              "title": "Cuando quieres un recorte distinto según la pantalla"
+            },
+            {
+              "num": "2",
+              "title": "Cuando quieres usar formatos modernos con plan B"
+            }
+          ]
+        },
+        {
+          "template": "text",
+          "subtemplate": "simple",
+          "sideblockopen": null,
+          "icon": "ri-book-read-line",
+          "title": "Documentación oficial",
+          "description": "Si quieres profundizar, aquí tienes las páginas oficiales de MDN.",
+          "linksList": [
+            {
+              "title": "picture",
+              "link": "https://developer.mozilla.org/es/docs/Web/HTML/Element/picture"
+            },
+            {
+              "title": "source",
+              "link": "https://developer.mozilla.org/es/docs/Web/HTML/Element/source"
             }
           ]
         }
